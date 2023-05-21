@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design/login.css">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <title>Usuário</title>
+</head>
+<body>
+    <section class="area-login">
+        <div class="login">
+            <div>
+                <h1>Cadastro do Usuário</h1>
+            </div>
+            <form name="Cadastro Usuario" method="post" action="variaveis.php">
+                <table>
+                    <tr>
+                        <td>Nome:</td>
+                        <td><input name="nome_usuario" type="text" size="50" maxlenght="50" placeholder="digite o nome do usuário"></td>
+                    </tr>
+                    <tr>
+                        <td>Data de nascimento:</td>
+                        <td><input name="nascimento_usuario" type="date" size="50" maxlenght="50" placeholder="digite a data de nascimento do usuário"></td>
+                    </tr>
+                    <tr>
+                        <td>CPF:</td>
+                        <td><input name="cpf_usuario" type="number" size="50" maxlenght="50" placeholder="digite o CPF do usuário"></td>
+                    </tr>
+                    <tr>
+                        <td>E-mail:</td>
+                        <td><input name="email_usuario" type="email" size="50" maxlenght="50" placeholder="digite o E-mail do usuario"></td>
+                    </tr>
+                    <tr>
+                        <td>Endereço:</td>
+                        <td><input name="endereco_usuario" type="text" size="50" maxlenght="50" placeholder="digite o endereço do usuario"></td>
+                    </tr>
+                    <tr>
+                        <td>Telefone:</td>
+                        <td><input name="telefone_usuario" type="number" size="50" maxlenght="50" placeholder="digite o telefone do usuario"></td>
+                    </tr>
+                    <tr>
+                        <td colspan=2 align="center"><input type="submit" name="Submit" value="Concluir Cadastro"></td> 
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
