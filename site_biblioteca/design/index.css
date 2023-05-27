@@ -154,7 +154,7 @@ fieldset{
   right: 10px;
 }
 
- /*footer/*
+ /*footer*/
 footer{
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
@@ -165,7 +165,6 @@ footer{
 .footer-link{
   text-decoration: none;
 }
-
 
 #footer_content{
     display: grid;
@@ -187,7 +186,7 @@ footer{
  display: flex;
 align-items: center;
 justify-content: center;
- height: 2.5rem;
+  height: 2.5rem;
   width: 2.5rem;
   color:white;
   border-radius: 50%;
