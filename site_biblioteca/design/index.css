@@ -1,0 +1,159 @@
+
+body{
+    background-color: 	#f1dede;
+  
+    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*menu de navegação*/
+nav{
+  background-color:rgb(31, 27, 27);
+}
+
+nav li{
+         display: inline-block;
+         background-color:(31, 27, 27);
+}
+
+nav li a {
+       display: inline-block;
+      text-decoration: none;
+      color:aliceblue;
+      padding: 25px;
+      background-color:rgb(31, 27, 27);
+}
+
+nav li a:hover{
+    background-color: #161d3a;
+}
+
+.dp-menu{
+    position: absolute;
+  border: 1px solid black;
+  display: none;
+  
+
+}
+
+.dp-menu a{
+  display: block;
+}
+
+.dropdown:hover .dp-menu{
+    display: block;
+
+}
+
+/*barra de pesquisa*/
+.search-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 15px;
+  }
+  
+  .search-input {
+    padding: 8px 30px 8px 10px;
+    border: none;
+    border-radius: 5px;
+    transition: width 0.3s ease-in-out;
+    width: 37px;
+  }
+  
+  .search-button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color:transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-container:hover .search-input {
+    width: 300px;
+  }
+
+ /* padronização do estilo de exibição dos livros*/
+div.lista{
+  padding: px;
+  margin-top: 10px;
+  display: flex;
+}
+
+div.item{
+    text-align: center;
+    padding: 10px;
+    width: 200px;
+    border: 2px solid #161d3a;
+    margin: 12px;
+    border-radius: 10px;
+}
+
+
+div.item:hover{
+
+background-color:rgb(73, 126, 129) ;
+cursor: pointer;
+
+}
+fieldset{
+ background-color: rgb(31, 25, 25);
+ color: white;
+}
+/*slides*/
+
+.slider-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}

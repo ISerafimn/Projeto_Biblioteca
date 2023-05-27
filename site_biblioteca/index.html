@@ -3,40 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="design/login.css">
-    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
-    <title>Página Inicial</title>
-    <style>
-        header{
-            background-color: #341244;
-        }
-        a{
-            color: white;
-        }
-        ul, li{
-            border-radius: 10px;
-            display: flex;
-            padding-right: 50px;
-        }
-        ul :hover{
-            color: #341244;
-        }
-        li :hover{
-            background-color: aliceblue;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=auto">
+    <link rel="stylesheet" href="design/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="javascript/script.js" defer></script>
+    <title>Estante Digital</title>
 </head>
 <body>
-    <header>
-        <div>
-            <nav>
-                <ul>
-                    <li><a href="usuario_login.html">Login</a></li>
-                    <li><a href="usuario_cadastro.html">Cadastro</a></li>
-                </ul>
-            </nav>
+    <nav>
+        <div class="search-container">
+            <input type="text" placeholder="Ache seu livro...." class="search-input">
+            <button class="search-button"><i class="fas fa-search"></i></button>
+          </div>
+
+         </div>
+        <ul>
+            <li class="dropdown">
+                <a href="#">GÊNEROS LITERARIOS</a>
+                <div class="dp-menu">
+                    <a href="#">Romance</a>
+                    <a href="#">Ação</a>
+                    <a href="#">Terror</a>
+                    <a href="#">Comedia</a>
+                    <a href="#">Aventura</a>
+                    <a href="#">Fantasia</a>
+                    <a href="#">Ficção cientifica</a>
+                </div>
+            </li>
+            <li>
+                <a href="#">CONTATO</a>
+            </li>
+            <li>
+                <a href="usuario_cadastro.html">CADASTRE-SE</a>
+            </li>
+            <li>
+                <a href="usuario_login.html">LOGIN</a>
+            </li>
+        </ul> 
+    </nav>
+ 
+    <img src="imagens/ESTANTE DIGITAL 3.png" width="100%" height="auto">
+    <fieldset>
+        <h1>BEST-SELERS</h1>
+    </fieldset>
+
+    <div class="lista">
+        <div class="item">
+            <img src="imagens/o genio do crime.jpg   " width="auto" height="250" alt="">
+            <h2>O genio do crime</h2>
         </div>
-    </header>
+        <div class="item">
+            <img src="imagens/potter.jpg" width="auto" height="250" alt="">
+            <h2>Harry Potter e a Pedra Filosofal</h2>
+        </div>
+        <div class="item">
+            <img src="imagens/roubava.jpg" width="auto" height="250" alt="">
+            <h2>A Menina que Roubava Livros</h2>
+        </div>
+        <div class="item">
+            <img src="imagens/alquimista.jpg" width="auto" height="250" alt="">
+            <h2>O Alquimista</h2>
+        </div>
+        <div class="item">
+            <img src="imagens/cutulo.jpg" width="auto" height="250" alt="">
+            <h2>O Chamado de Cthulhu</h2>
+        </div>
+        <div class="item">
+            <img src="imagens/aneis.webp" width="auto" height="250" alt="">
+            <h2>O senhor dos aneis</h2>
+        </div>
+        <div class="item">
+            <img src="imagens/principe.jpg" width="auto" height="250" alt="">
+            <h2>O pequeno principe</h2>
+        </div>
+    </div>
+        
+<!--sliders-->><hr>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="imagens/banner orgulho nerde .png" alt="Image 1">
+            </div>
+            <div class="slide">
+                <img src="imagens/bibliotecaon.png" alt="Image 2">
+            </div>
+            <div class="slide">
+                <img src="imagens/lançamento de livro.png" alt="Image 3">
+            </div>
+            <div class="slide">
+                <img src="imagens/EVENTObb.png" alt="Image 3">
+            </div>  
+        </div>
+            <div class="prev">&#10094;</div>
+            <div class="next">&#10095;</div>
+    </div>
 </body>
 </html>
