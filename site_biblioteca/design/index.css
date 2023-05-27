@@ -1,15 +1,13 @@
-
-body{
-    background-color: 	#f1dede;
-  
-    
-}
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    background-color: 	#f1dede;   
+}
+
 /*menu de navegação*/
 nav{
   background-color:rgb(31, 27, 27);
@@ -96,19 +94,17 @@ div.item{
     border-radius: 10px;
 }
 
-
 div.item:hover{
-
-background-color:rgb(73, 126, 129) ;
-cursor: pointer;
+  background-color:rgb(73, 126, 129) ;
+  cursor: pointer;
 
 }
 fieldset{
  background-color: rgb(31, 25, 25);
  color: white;
 }
-/*slides*/
 
+/*slides*/
 .slider-container {
   width: 100%;
   height: auto;
