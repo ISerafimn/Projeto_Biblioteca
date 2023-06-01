@@ -14,45 +14,45 @@
         <style>
         .container {
             overflow-x: scroll;
+            display: flex;
+            justify-content: center;
         }
     </style>
 <body>
+    <div style="background-color: #1f1919;">
+        <img src="imagens/estante_digital.png" width="100%" height="auto">
+        <nav>
+            <div class="search-container">
+                <input type="text" placeholder="Ache seu livro...." class="search-input">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            <ul>
+                <li class="dropdown">
+                    <a href="#">GÊNEROS LITERARIOS</a>
+                    <div class="dp-menu">
+                        <a href="#">Romance</a>
+                        <a href="#">Ação</a>
+                        <a href="#">Terror</a>
+                        <a href="#">Comedia</a>
+                        <a href="#">Aventura</a>
+                        <a href="#">Fantasia</a>
+                        <a href="#">Ficção cientifica</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">CONTATO</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">MEU PERFIL</a>
+                    <div class="dp-menu">
+                        <a href="usuario_login.html">Login</a>
+                        <a href="usuario_cadastro.html">Cadastra-se</a>
+                    </div>
+                </li>
+            </ul> 
+        </nav>
+    </div>
 
-    <img src="imagens/estante_digital.png" width="100%" height="auto">
-
-    <nav>
-        <div class="search-container">
-            <input type="text" placeholder="Ache seu livro...." class="search-input">
-            <button class="search-button"><i class="fas fa-search"></i></button>
-          </div>
-
-         </div>
-        <ul>
-            <li class="dropdown">
-                <a href="#">GÊNEROS LITERARIOS</a>
-                <div class="dp-menu">
-                    <a href="#">Romance</a>
-                    <a href="#">Ação</a>
-                    <a href="#">Terror</a>
-                    <a href="#">Comedia</a>
-                    <a href="#">Aventura</a>
-                    <a href="#">Fantasia</a>
-                    <a href="#">Ficção cientifica</a>
-                </div>
-            </li>
-            <li>
-                <a href="#">CONTATO</a>
-            </li>
-            <li class="dropdown">
-                <a href="#">MEU PERFIL</a>
-                <div class="dp-menu">
-                    <a href="usuario_login.html">Login</a>
-                    <a href="usuario_cadastro.html">Cadastra-se</a>
-                </div>
-            </li>
-        </ul> 
-    </nav>
- 
     <div class="slider-container">
         <div class="slider">
             <div class="slide">
@@ -185,7 +185,7 @@
 
     <fieldset>
         <h1 style="color: rgba(0, 0, 0, 0);">SLIDERS</h1>
-    </fieldset><br>
+    </fieldset>
 
     <div class="slider-container">
         <div class="slider">
