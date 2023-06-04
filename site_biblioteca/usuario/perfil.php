@@ -1,13 +1,20 @@
+    <?php
+    session_start();
+    $var = $_SESSION['variavel'];
+    $cpf = $var;
+    include('../php/conexao.php');
+    
+    ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="design/index.css">
+    <link rel="stylesheet" href="../design/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="javascript/script.js" defer></script>
+    <script src="../javascript/script.js" defer></script>
     <title>Estante Digital</title>
     <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
 </head>
@@ -25,7 +32,7 @@
     </style>
 <body>
     <div style="background-color: #1f1919;">
-        <img src="imagens/estante_digital.png" width="100%" height="auto">
+        <img src="../imagens/estante_digital.png" width="100%" height="auto">
         <nav>
             <ul>
                 <li class="dropdown">
@@ -78,176 +85,66 @@
                 <li>
                     <a href="#">CONTATO</a>
                 </li>
+                <li>
+                    <a href="index.html">HOME</a>
+                </li>
                 <li class="dropdown">
-                    <a href="#">ENTRAR</a>
+                    <a href="#">PERFIL</a>
                     <div class="dp-menu">
-                        <a href="usuario_login.html">Login</a>
-                        <a href="usuario_cadastro.html">Cadastra-se</a>
+                        <a href="perfil.php">Meu Perfil</a>
+                        <a href="../php/logout.php">Sair</a>
                     </div>
                 </li>
             </ul> 
         </nav>
     </div>
 
-    <br>
+    <br><br><br><br><br>
 
-    <fieldset>
-        <h1>BEST-SELERS</h1>
-    </fieldset>
+    <table border="1" style="width:50%; margin: auto;">
+        <tr>
+            <th>NOME</th>
+            <th>EMAIL</th>
+            <th>NASCIMENTO</th>
+            <th>CPF</th>
+            <th>ENDEREÇO</th>
+            <th>TELEFONE</th>
+        </tr>
 
-    <div class="container">
-        <div class="lista">
-            <div class="item">
-                <img src="imagens/o genio do crime.jpg   " width="auto" height="250" alt="">
-                <h2>O genio do crime</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/potter.jpg" width="auto" height="250" alt="">
-                <h2>Harry Potter e a Pedra Filosofal</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/roubava.jpg" width="auto" height="250" alt="">
-                <h2>A Menina que Roubava Livros</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/alquimista.jpg" width="auto" height="250" alt="">
-                <h2>O Alquimista</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/cutulo.jpg" width="auto" height="250" alt="">
-                <h2>O Chamado de Cthulhu</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/aneis.webp" width="auto" height="250" alt="">
-                <h2>O senhor dos aneis</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/principe.jpg" width="auto" height="250" alt="">
-                <h2>O pequeno principe</h2>
-            </div>
-        </div>
-    </div> 
+        <?php
+        $sql = mysqli_query($mysqli, "SELECT  *   FROM    usuario WHERE usuario_cpf='$cpf'");
+        while ($result = mysqli_fetch_array($sql))
 
-    <fieldset>
-        <h1 style="color: rgba(0, 0, 0, 0);">SLIDERS</h1>
-    </fieldset>
+            {
+                $nome = $result['usuario_nome'];
+                $email = $result['usuario_email'];
+                $nascimento = $result['usuario_nascimento'];
+                $cpf = $result['usuario_cpf'];
+                $endereco = $result['usuario_endereco'];
+                $telefone = $result['usuario_telefone'];
+                echo "<tr>";
+                echo "<td>".$nome."</td>";
+                echo "<td>".$email."</td>";
+                echo "<td>".$nascimento."</td>";
+                echo "<td>".$cpf."</td>";
+                echo "<td>".$endereco."</td>";
+                echo "<td>".$telefone."</td>";
+                echo "<tr>";
+            };
+        ?>
 
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slide">
-                <img src="imagens/banner2.png" alt="Imagem 1">
-            </div>
-            <div class="slide">
-                <img src="imagens/banner3.png" alt="Imagem 2">
-            </div>
-            <div class="slide">
-                <img src="imagens/banner.png" alt="Imagem 3">
-            </div>
-            <div class="slide">
-                <img src="imagens/banner4.png" alt="Imagem 3">
-            </div>  
-        </div>
-            <div class="prev">&#10094;</div>
-            <div class="next">&#10095;</div>
-    </div>
-
-    <fieldset>
-        <h1>LANÇAMENTOS</h1>
-    </fieldset>
-
-    <div class="container">
-        <div class="lista">
-            <div class="item">
-                <img src="imagens/blonde.PNG" width="auto" height="250" alt="">
-                <h2>Box Blonde</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/a_rosa_do_povo.PNG" width="auto" height="250" alt="">
-                <h2>A Rosa do Povo</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/o_que_o_vento_susurra.PNG" width="auto" height="250" alt="">
-                <h2>O que o Vento Sussurra</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/the_crow.PNG" width="auto" height="250" alt="">
-                <h2>The Crow</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/o_menino_de_pijama_listrado.jpg" width="auto" height="250" alt="">
-                <h2>O Menino do Pijama Listrado</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/o_manto_da_noite.PNG" width="auto" height="250" alt="">
-                <h2>O Manto da Noite</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/o_codigo_da_vinci.jpg" width="auto" height="250" alt="">
-                <h2>O Código da Vinci</h2>
-            </div>
-        </div>
-    </div>
-
-    <fieldset>
-        <h1>INFANTIL</h1>
-    </fieldset>
+    </table>
     
-    <div class="container">
-        <div class="lista">
-            <div class="item">
-                <img src="imagens/cacadas_de_pedrinho.PNG" width="auto" height="250" alt="">
-                <h2>Caçadas de Pedrinho</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/o_pequeno_principe_preto.PNG" width="auto" height="250" alt="">
-                <h2>O Pequeno Príncipe Preto</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/o_menino_maluquinho.PNG" width="auto" height="250" alt="">
-                <h2>O Menino Maluquinho</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/memoria_de_emilia.PNG" width="auto" height="250" alt="">
-                <h2>Memórias da Emília</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/turma_da_monica.PNG" width="auto" height="250" alt="">
-                <h2>Turma da Mônica</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/sr_avesso.PNG" width="auto" height="250" alt="">
-                <h2>Sr. Avesso</h2>
-            </div>
-            <div class="item">
-                <img src="imagens/123_conta_outra_vez.PNG" width="auto" height="250" alt="">
-                <h2>123, Conta Outra Vez</h2>
-            </div>
-        </div>
+    <br>
+    
+        <ul>
+        <li style="text-align: center;"><a href="atualizar_usuario.html">Atualizar os Dados</a></li>
+        <li style="text-align: center;"><a href="excluir_usuario.html">Excluir o Usuario</a></li>
+        </ul>
     </div>
-
-    <fieldset>
-        <h1 style="color: rgba(0, 0, 0, 0);">SLIDERS</h1>
-    </fieldset>
-
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slide">
-                <img src="imagens/banner2.png" alt="Imagem 1">
-            </div>
-            <div class="slide">
-                <img src="imagens/banner3.png" alt="Imagem 2">
-            </div>
-            <div class="slide">
-                <img src="imagens/banner.png" alt="Imagem 3">
-            </div>
-            <div class="slide">
-                <img src="imagens/banner4.png" alt="Imagem 3">
-            </div>  
-        </div>
-            <div class="prev">&#10094;</div>
-            <div class="next">&#10095;</div>
-    </div>
-
+    
+    <br><br><br><br><br>
+    
    <footer>
         <div id="footer_content">
             <div id="footer_contacts">

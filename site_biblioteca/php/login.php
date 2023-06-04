@@ -1,4 +1,8 @@
 <?php
+// sessão iniciada pra mandar a variavel cpf do usuario que fez login pra diversos arquivos
+session_start();
+$_SESSION['variavel'] = $cpf = $_POST['usuario_cpf'];
+
 include('conexao.php');
 
 if(isset($_POST['usuario_email']) || isset($_POST['usuario_cpf'])) {
@@ -28,9 +32,10 @@ if(isset($_POST['usuario_email']) || isset($_POST['usuario_cpf'])) {
             $_SESSION['usuario_id'] = $usuario['usuario_id'];
             $_SESSION['usuario_nome'] = $usuario['usuario_nome'];
 
-            header("Location: painel.php");
+            header("Location: ../usuario/index.html");
 
         } else {
+            header("Location: ../usuario_login.html");
             echo "Falha ao Logar! E-mail ou senha incorretos";
         }
 
