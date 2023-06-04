@@ -17,26 +17,62 @@
             display: flex;
             justify-content: center;
         }
+        button{
+            background-color: #00000000;
+            border: #00000000;
+            color: white;
+        }
     </style>
 <body>
     <div style="background-color: #1f1919;">
         <img src="imagens/estante_digital.png" width="100%" height="auto">
         <nav>
-            <div class="search-container">
-                <input type="text" placeholder="Ache seu livro...." class="search-input">
-                <button class="search-button"><i class="fas fa-search"></i></button>
-            </div>
             <ul>
                 <li class="dropdown">
                     <a href="#">GÊNEROS LITERARIOS</a>
                     <div class="dp-menu">
-                        <a href="#">Romance</a>
-                        <a href="#">Ação</a>
-                        <a href="#">Terror</a>
-                        <a href="#">Comedia</a>
-                        <a href="#">Aventura</a>
-                        <a href="#">Fantasia</a>
-                        <a href="#">Ficção cientifica</a>
+                        <a>
+                            <form method="post" action="php/lista_genero.php">
+                                <input name="genero" value="1" style="display: none;">
+                                <button type="submit" name="Submit">Romance</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="php/lista_genero.php">
+                                <input name="genero" value="2" style="display: none;">
+                                <button type="submit" name="Submit">Fantasia</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="php/lista_genero.php">
+                                <input name="genero" value="3" style="display: none;">
+                                <button type="submit" name="Submit">Poesia</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="php/lista_genero.php">
+                                <input name="genero" value="4" style="display: none;">
+                                <button type="submit" name="Submit">Romance</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="php/lista_genero.php">
+                                <input name="genero" value="5" style="display: none;">
+                                <button type="submit" name="Submit">Conto</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="php/lista_genero.php">
+                                <input name="genero" value="6" style="display: none;">
+                                <button type="submit" name="Submit">Terror</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="php/lista_genero.php">
+                                <input name="genero" value="7" style="display: none;">
+                                <button type="submit" name="Submit">Ação e Aventura</button>
+                            </form>
+                        </a>
                     </div>
                 </li>
                 <li>
@@ -55,24 +91,7 @@
         </nav>
     </div>
 
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slide">
-                <img src="imagens/banner2.png" alt="Imagem 1">
-            </div>
-            <div class="slide">
-                <img src="imagens/banner3.png" alt="Imagem 2">
-            </div>
-            <div class="slide">
-                <img src="imagens/banner.png" alt="Imagem 3">
-            </div>
-            <div class="slide">
-                <img src="imagens/banner4.png" alt="Imagem 3">
-            </div>  
-        </div>
-            <div class="prev">&#10094;</div>
-            <div class="next">&#10095;</div>
-    </div>
+    <br>
 
     <fieldset>
         <h1>BEST-SELERS</h1>
@@ -109,8 +128,31 @@
                 <h2>O pequeno principe</h2>
             </div>
         </div>
+    </div> 
+
+    <fieldset>
+        <h1 style="color: rgba(0, 0, 0, 0);">SLIDERS</h1>
+    </fieldset>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="imagens/banner2.png" alt="Imagem 1">
+            </div>
+            <div class="slide">
+                <img src="imagens/banner3.png" alt="Imagem 2">
+            </div>
+            <div class="slide">
+                <img src="imagens/banner.png" alt="Imagem 3">
+            </div>
+            <div class="slide">
+                <img src="imagens/banner4.png" alt="Imagem 3">
+            </div>  
+        </div>
+            <div class="prev">&#10094;</div>
+            <div class="next">&#10095;</div>
     </div>
-    
+
     <fieldset>
         <h1>LANÇAMENTOS</h1>
     </fieldset>
