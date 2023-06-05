@@ -8,16 +8,22 @@
 </head>
 <body>
     <p>Exclusão de Usuários</p>
-    <form name="excluir usuario" method="post" action="php/excluir_usuarios_exe.php">
-    <table>
-        <tr> <td>Nome:</td>
-             <td><input name="usuario_nome" type="text" size="50" maxlength="50" > </td>
+    <form name="excluir usuario" method="post" action="../php/excluir_usuarios_exe.php">
+    <table style="margin: auto;">
+        <tr>
+            <td>Tem certeza que quer excluir sua conta?</td>
         </tr>
-        <tr><td colspan="2" align="center">
-            <input type="submit" name="Submit" value="Enviar"></td>
+        <tr>
+            <td><input name="confirmar" style="display: none;"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" name="Submit" value="Sim">
+                <button>
+                    <a href="perfil.php">Não</a>
+                </button>
+            </td>   
         </tr>
     </table>
-       <a href="index.html">voltar</a>         
     </form>
 </body>
 </html>

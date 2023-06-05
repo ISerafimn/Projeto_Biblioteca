@@ -2,6 +2,7 @@
     session_start();
     $var = $_SESSION['variavel'];
     $cpf = $var;
+    
     include('../php/conexao.php');
     
     ?>
@@ -116,6 +117,7 @@
         while ($result = mysqli_fetch_array($sql))
 
             {
+                $id = $result['usuario_id'];
                 $nome = $result['usuario_nome'];
                 $email = $result['usuario_email'];
                 $nascimento = $result['usuario_nascimento'];
@@ -131,6 +133,8 @@
                 echo "<td>".$telefone."</td>";
                 echo "<tr>";
             };
+            
+            $_SESSION['var2'] = $id;
         ?>
 
     </table>
