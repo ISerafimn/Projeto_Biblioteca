@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design/login.css">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <title>Usuário</title>
+</head>
+<body>
+    <section class="area-login">
+        <div class="login">
+            <div>
+                <h1>Cadastro do funcionario</h1>
+            </div>
+            <form name="Cadastro Usuario" method="post" action="php/variaveis_funcionario.php">
+                <table>
+                    <tr>
+                        <td>Nome:</td>
+                        <td><input name="funcionario_nome" type="text" size="50" maxlenght="50" placeholder="digite o nome do usuário"></td>
+                    </tr>
+                    <tr>
+                        <td>Cargo:</td>
+                        <td><input name="funcionario_cargo" type="text" size="50" maxlenght="50" placeholder="digite a data de nascimento do usuário"></td>
+                    </tr>
+                    <tr>
+                        <td>Telefone:</td>
+                        <td><input name="funcionario_telefone" type="number" size="50" maxlenght="50" placeholder="digite o CPF do usuário"></td>
+                    </tr>
+                    <tr>
+                        <td>E-mail:</td>
+                        <td><input name="funcionario_email" type="email" size="50" maxlenght="50" placeholder="digite o E-mail do usuario"></td>
+                    </tr>
+                    <tr>
+                        <td>CPF:</td>
+                        <td><input name="funcionario_cpf" type="text" size="50" maxlenght="50" placeholder="digite o endereço do usuario"></td>
+                    </tr>
+                </table>
+                <br>
+                <button type="submit" name="Submit">Concluir Cadastro</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

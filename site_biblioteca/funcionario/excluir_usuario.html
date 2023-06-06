@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluir Usuário</title>
+</head>
+<body>
+    <p>Exclusão de Usuários</p>
+    <form name="excluir usuario" method="post" action="../php/excluir_usuarios_exe.php">
+    <table style="margin: auto;">
+        <tr>
+            <td>Tem certeza que quer excluir sua conta?</td>
+        </tr>
+        <tr>
+            <td><input name="confirmar" style="display: none;"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" name="Submit" value="Sim">
+                <button>
+                    <a href="perfil.php">Não</a>
+                </button>
+            </td>   
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
