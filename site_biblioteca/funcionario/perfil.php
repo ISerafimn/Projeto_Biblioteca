@@ -104,33 +104,32 @@
 
     <table border="1" style="width:50%; margin: auto;">
         <tr>
+            <th>ID</th>
             <th>NOME</th>
-            <th>EMAIL</th>
-            <th>NASCIMENTO</th>
-            <th>CPF</th>
-            <th>ENDEREÇO</th>
+            <th>CARGO</th>
             <th>TELEFONE</th>
+            <th>EMAIL</th>
+            <th>CPF</th>
         </tr>
 
         <?php
-        $sql = mysqli_query($mysqli, "SELECT  *   FROM    usuario WHERE usuario_cpf='$cpf'");
+        $sql = mysqli_query($mysqli, "SELECT  *   FROM  funcionario WHERE funcionario_cpf='$cpf'");
         while ($result = mysqli_fetch_array($sql))
 
             {
-                $id = $result['usuario_id'];
-                $nome = $result['usuario_nome'];
-                $email = $result['usuario_email'];
-                $nascimento = $result['usuario_nascimento'];
-                $cpf = $result['usuario_cpf'];
-                $endereco = $result['usuario_endereco'];
-                $telefone = $result['usuario_telefone'];
+                $id = $result['funcionario_id'];
+                $nome = $result['funcionario_nome'];
+                $cargo = $result['funcionario_cargo'];
+                $telefone = $result['funcionario_telefone'];
+                $email = $result['funcionario_email'];
+                $cpf = $result['funcionario_cpf'];
                 echo "<tr>";
+                echo "<td>".$id."</td>";
                 echo "<td>".$nome."</td>";
-                echo "<td>".$email."</td>";
-                echo "<td>".$nascimento."</td>";
-                echo "<td>".$cpf."</td>";
-                echo "<td>".$endereco."</td>";
+                echo "<td>".$cargo."</td>";
                 echo "<td>".$telefone."</td>";
+                echo "<td>".$email."</td>";
+                echo "<td>".$cpf."</td>";
                 echo "<tr>";
             };
             
