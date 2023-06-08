@@ -1,3 +1,7 @@
+<?php
+    include('../php/conexao.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -32,43 +36,43 @@
                     <a href="#">GÊNEROS LITERARIOS</a>
                     <div class="dp-menu">
                         <a>
-                            <form method="post" action="../php/lista_genero.php">
+                            <form method="post" action="php/lista_genero.php">
                                 <input name="genero" value="1" style="display: none;">
                                 <button type="submit" name="Submit">Romance</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="../php/lista_genero.php">
+                            <form method="post" action="php/lista_genero.php">
                                 <input name="genero" value="2" style="display: none;">
                                 <button type="submit" name="Submit">Fantasia</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="../php/lista_genero.php">
+                            <form method="post" action="php/lista_genero.php">
                                 <input name="genero" value="3" style="display: none;">
                                 <button type="submit" name="Submit">Poesia</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="../php/lista_genero.php">
+                            <form method="post" action="php/lista_genero.php">
                                 <input name="genero" value="4" style="display: none;">
                                 <button type="submit" name="Submit">Romance</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="../php/lista_genero.php">
+                            <form method="post" action="php/lista_genero.php">
                                 <input name="genero" value="5" style="display: none;">
                                 <button type="submit" name="Submit">Conto</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="../php/lista_genero.php">
+                            <form method="post" action="php/lista_genero.php">
                                 <input name="genero" value="6" style="display: none;">
                                 <button type="submit" name="Submit">Terror</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="../php/lista_genero.php">
+                            <form method="post" action="php/lista_genero.php">
                                 <input name="genero" value="7" style="display: none;">
                                 <button type="submit" name="Submit">Ação e Aventura</button>
                             </form>
@@ -86,6 +90,9 @@
                         <a href="movimentacao_lista.php">Movimentação</a>
                     </div>
                 </li>
+                <li>
+                    <a href="index.html">HOME</a>
+                </li>
                 <li class="dropdown">
                     <a href="#">PERFIL</a>
                     <div class="dp-menu">
@@ -97,165 +104,110 @@
         </nav>
     </div>
 
-    <br>
+    <br><br><br><br><br>
 
-    <fieldset>
-        <h1>BEST-SELERS</h1>
-    </fieldset>
+    <table border="1" style="width:50%; margin: auto;">
+        <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>AUTOR</th>
+            <th>EDITORA</th>
+            <th>GENERO</th>
+            <th>EDIÇÃO</th>
+        </tr>
 
-    <div class="container">
-        <div class="lista">
-            <div class="item">
-                <img src="../imagens/o genio do crime.jpg   " width="auto" height="250" alt="">
-                <h2>O genio do crime</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/potter.jpg" width="auto" height="250" alt="">
-                <h2>Harry Potter e a Pedra Filosofal</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/roubava.jpg" width="auto" height="250" alt="">
-                <h2>A Menina que Roubava Livros</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/alquimista.jpg" width="auto" height="250" alt="">
-                <h2>O Alquimista</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/cutulo.jpg" width="auto" height="250" alt="">
-                <h2>O Chamado de Cthulhu</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/aneis.webp" width="auto" height="250" alt="">
-                <h2>O senhor dos aneis</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/principe.jpg" width="auto" height="250" alt="">
-                <h2>O pequeno principe</h2>
-            </div>
-        </div>
-    </div> 
+        <?php
+        $sql = mysqli_query($mysqli, "SELECT  *   FROM  livros");
+        while ($result = mysqli_fetch_array($sql))
 
-    <fieldset>
-        <h1 style="color: rgba(0, 0, 0, 0);">SLIDERS</h1>
-    </fieldset>
-
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slide">
-                <img src="../imagens/banner2.png" alt="Imagem 1">
-            </div>
-            <div class="slide">
-                <img src="../imagens/banner3.png" alt="Imagem 2">
-            </div>
-            <div class="slide">
-                <img src="../imagens/banner.png" alt="Imagem 3">
-            </div>
-            <div class="slide">
-                <img src="../imagens/banner4.png" alt="Imagem 3">
-            </div>  
-        </div>
-            <div class="prev">&#10094;</div>
-            <div class="next">&#10095;</div>
-    </div>
-
-    <fieldset>
-        <h1>LANÇAMENTOS</h1>
-    </fieldset>
-
-    <div class="container">
-        <div class="lista">
-            <div class="item">
-                <img src="../imagens/blonde.PNG" width="auto" height="250" alt="">
-                <h2>Box Blonde</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/a_rosa_do_povo.PNG" width="auto" height="250" alt="">
-                <h2>A Rosa do Povo</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/o_que_o_vento_susurra.PNG" width="auto" height="250" alt="">
-                <h2>O que o Vento Sussurra</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/the_crow.PNG" width="auto" height="250" alt="">
-                <h2>The Crow</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/o_menino_de_pijama_listrado.jpg" width="auto" height="250" alt="">
-                <h2>O Menino do Pijama Listrado</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/o_manto_da_noite.PNG" width="auto" height="250" alt="">
-                <h2>O Manto da Noite</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/o_codigo_da_vinci.jpg" width="auto" height="250" alt="">
-                <h2>O Código da Vinci</h2>
-            </div>
-        </div>
-    </div>
-
-    <fieldset>
-        <h1>INFANTIL</h1>
-    </fieldset>
+            {
+                $id = $result['livros_id'];
+                $nome = $result['livros_nome'];
+                $autor = $result['autor_id'];
+                $editora = $result['livro_editoria'];
+                $genero = $result['genero_id'];
+                $edicao = $result['livro_num_edicao'];
+                echo "<tr>";
+                echo "<td>".$id."</td>";
+                echo "<td>".$nome."</td>";
+                echo "<td>".$autor."</td>";
+                echo "<td>".$editora."</td>";
+                echo "<td>".$genero."</td>";
+                echo "<td>".$edicao."</td>";
+                echo "<tr>";
+            };
+            
+        ?>
+    </table>
     
-    <div class="container">
-        <div class="lista">
-            <div class="item">
-                <img src="../imagens/cacadas_de_pedrinho.PNG" width="auto" height="250" alt="">
-                <h2>Caçadas de Pedrinho</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/o_pequeno_principe_preto.PNG" width="auto" height="250" alt="">
-                <h2>O Pequeno Príncipe Preto</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/o_menino_maluquinho.PNG" width="auto" height="250" alt="">
-                <h2>O Menino Maluquinho</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/memoria_de_emilia.PNG" width="auto" height="250" alt="">
-                <h2>Memórias da Emília</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/turma_da_monica.PNG" width="auto" height="250" alt="">
-                <h2>Turma da Mônica</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/sr_avesso.PNG" width="auto" height="250" alt="">
-                <h2>Sr. Avesso</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/123_conta_outra_vez.PNG" width="auto" height="250" alt="">
-                <h2>123, Conta Outra Vez</h2>
-            </div>
-        </div>
-    </div>
+    <br><br><br><br><br>
 
-    <fieldset>
-        <h1 style="color: rgba(0, 0, 0, 0);">SLIDERS</h1>
-    </fieldset>
-
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slide">
-                <img src="../imagens/banner2.png" alt="Imagem 1">
-            </div>
-            <div class="slide">
-                <img src="../imagens/banner3.png" alt="Imagem 2">
-            </div>
-            <div class="slide">
-                <img src="../imagens/banner.png" alt="Imagem 3">
-            </div>
-            <div class="slide">
-                <img src="../imagens/banner4.png" alt="Imagem 3">
-            </div>  
-        </div>
-            <div class="prev">&#10094;</div>
-            <div class="next">&#10095;</div>
-    </div>
-
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#">CONSULTAR por:</a>
+                    <div class="dp-menu">
+                        <a>
+                            <form method="post" action="variaveis_livro.php">
+                                <input name="consultar" value="livros_id" style="display: none;">
+                                <button type="submit" name="Submit">Id</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="variaveis_livro.php">
+                                <input name="consultar" value="livros_nome" style="display: none;">
+                                <button type="submit" name="Submit">Nome</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="variaveis_livro.php">
+                                <input name="consultar" value="autor_id" style="display: none;">
+                                <button type="submit" name="Submit">Autor</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="variaveis_livro.php">
+                                <input name="consultar" value="livro_editoria" style="display: none;">
+                                <button type="submit" name="Submit">Editoria</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="variaveis_livro.php">
+                                <input name="consultar" value="genero_id" style="display: none;">
+                                <button type="submit" name="Submit">Genero</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="variaveis_livro.php">
+                                <input name="consultar" value="livro_num_edicao" style="display: none;">
+                                <button type="submit" name="Submit">Edição</button>
+                            </form>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="adicionar_livro.html">Adicionar LIVRO</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">ATUALIZAR LIVRO por:</a>
+                    <div class="dp-menu">
+                        <a href="livro_lista.php">Livros</a>
+                        <a href="usuario_lista.php">Usuarios</a>
+                        <a href="movimentacao_lista.php">Movimentação</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Excluir LIVRO por:</a>
+                    <div class="dp-menu">
+                        <a href="excluir_livro.php">Id</a>
+                        <a href="excluir_livro.php">Nome</a>
+                    </div>
+                </li>
+            </ul> 
+        </nav>
+    
+    <br><br><br><br><br>
+    
    <footer>
         <div id="footer_content">
             <div id="footer_contacts">

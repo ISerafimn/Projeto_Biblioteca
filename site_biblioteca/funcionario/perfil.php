@@ -86,6 +86,14 @@
                 <li>
                     <a href="#">CONTATO</a>
                 </li>
+                <li class="dropdown">
+                    <a href="#">GENERENCIAR</a>
+                    <div class="dp-menu">
+                        <a href="livro_lista.php">Livros</a>
+                        <a href="usuario_lista.php">Usuarios</a>
+                        <a href="movimentacao_lista.php">Movimentação</a>
+                    </div>
+                </li>
                 <li>
                     <a href="index.html">HOME</a>
                 </li>
@@ -142,7 +150,7 @@
     
         <ul>
         <li style="text-align: center;"><a href="atualizar_usuario.html">Atualizar os Dados</a></li>
-        <li style="text-align: center;"><a href="excluir_usuario.html">Excluir o Usuario</a></li>
+        <li style="text-align: center;"><a href="excluir_funcionario.html">Excluir o Usuario</a></li>
         </ul>
     </div>
     
