@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="../javascript/script.js" defer></script>
     <title>Estante Digital</title>
-    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
 </head>
         <style>
         .container {
@@ -36,43 +36,43 @@
                     <a href="#">GÊNEROS LITERARIOS</a>
                     <div class="dp-menu">
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="1" style="display: none;">
                                 <button type="submit" name="Submit">Romance</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="2" style="display: none;">
                                 <button type="submit" name="Submit">Fantasia</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="3" style="display: none;">
                                 <button type="submit" name="Submit">Poesia</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="4" style="display: none;">
                                 <button type="submit" name="Submit">Romance</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="5" style="display: none;">
                                 <button type="submit" name="Submit">Conto</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="6" style="display: none;">
                                 <button type="submit" name="Submit">Terror</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="7" style="display: none;">
                                 <button type="submit" name="Submit">Ação e Aventura</button>
                             </form>
@@ -104,45 +104,9 @@
         </nav>
     </div>
 
-    <br><br><br><br><br>
+    <br>
 
-    <table border="1" style="width:50%; margin: auto;">
-        <tr>
-            <th>ID</th>
-            <th>NOME</th>
-            <th>AUTOR</th>
-            <th>EDITORA</th>
-            <th>GENERO</th>
-            <th>EDIÇÃO</th>
-        </tr>
-
-        <?php
-        $sql = mysqli_query($mysqli, "SELECT  *   FROM  livros");
-        while ($result = mysqli_fetch_array($sql))
-
-            {
-                $id = $result['livros_id'];
-                $nome = $result['livros_nome'];
-                $autor = $result['autor_id'];
-                $editora = $result['livro_editoria'];
-                $genero = $result['genero_id'];
-                $edicao = $result['livro_num_edicao'];
-                echo "<tr>";
-                echo "<td>".$id."</td>";
-                echo "<td>".$nome."</td>";
-                echo "<td>".$autor."</td>";
-                echo "<td>".$editora."</td>";
-                echo "<td>".$genero."</td>";
-                echo "<td>".$edicao."</td>";
-                echo "<tr>";
-            };
-            
-        ?>
-    </table>
-    
-    <br><br><br><br><br>
-
-        <nav>
+    <nav>
             <ul>
                 <li class="dropdown">
                     <a href="#">CONSULTAR por:</a>
@@ -205,8 +169,41 @@
                 </li>
             </ul> 
         </nav>
-    
-    <br><br><br><br><br>
+
+    <br>
+
+    <h1>CADASTRO DE LIVRO</h1>
+
+            <form name="Cadastro livro" method="post" action="../php/variaveis_livro.php">
+                <table>
+                    <tr>
+                        <td>Nome:</td>
+                        <td><input name="livros_nome" type="text" size="50" maxlenght="50"></td>
+                    </tr>
+                    <tr>
+                        <td>Autor:</td>
+                        <td><input name="autor_id" type="number" size="50" maxlenght="50"></td>
+                    </tr>
+                    <tr>
+                        <td>Genero:</td>
+                        <td><input name="genero_id" type="number" size="50" maxlenght="50"></td>
+                    </tr>
+                    <tr>
+                        <td>Editora:</td>
+                        <td><input name="livro_editoria" type="text" size="50" maxlenght="50"></td>
+                    </tr>
+                    <tr>
+                        <td>Número da Edição:</td>
+                        <td><input name="livro_num_edicao" type="number" size="50" maxlenght="50"></td>
+                    </tr>
+                </table>
+                <br>
+                <button type="submit" name="Submit" style="background-color: #000000; border: #000000; color: white;">Concluir Cadastro</button>
+            </form>
+        </div>
+    </section>
+
+    <br>
     
    <footer>
         <div id="footer_content">

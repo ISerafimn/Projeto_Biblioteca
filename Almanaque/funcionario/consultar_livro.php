@@ -38,43 +38,43 @@
                     <a href="#">GÊNEROS LITERARIOS</a>
                     <div class="dp-menu">
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="1" style="display: none;">
                                 <button type="submit" name="Submit">Romance</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="2" style="display: none;">
                                 <button type="submit" name="Submit">Fantasia</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="3" style="display: none;">
                                 <button type="submit" name="Submit">Poesia</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="4" style="display: none;">
                                 <button type="submit" name="Submit">Romance</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="5" style="display: none;">
                                 <button type="submit" name="Submit">Conto</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="6" style="display: none;">
                                 <button type="submit" name="Submit">Terror</button>
                             </form>
                         </a>
                         <a>
-                            <form method="post" action="php/lista_genero.php">
+                            <form method="post" action="../php/lista_genero.php">
                                 <input name="genero" value="7" style="display: none;">
                                 <button type="submit" name="Submit">Ação e Aventura</button>
                             </form>
@@ -106,7 +106,73 @@
         </nav>
     </div>
 
-    <br><br><br><br><br>
+    <br>
+
+    <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="livro_lista.php">CONSULTAR por:</a>
+                    <div class="dp-menu">
+                        <a>
+                            <form method="post" action="variaveis_livro.php">
+                                <input name="consultar" value="livros_id" style="display: none;">
+                                <button type="submit" name="Submit">Id</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="variaveis_livro.php">
+                                <input name="consultar" value="livros_nome" style="display: none;">
+                                <button type="submit" name="Submit">Nome</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="variaveis_livro.php">
+                                <input name="consultar" value="autor_id" style="display: none;">
+                                <button type="submit" name="Submit">Autor</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="variaveis_livro.php">
+                                <input name="consultar" value="livro_editoria" style="display: none;">
+                                <button type="submit" name="Submit">Editoria</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="variaveis_livro.php">
+                                <input name="consultar" value="genero_id" style="display: none;">
+                                <button type="submit" name="Submit">Genero</button>
+                            </form>
+                        </a>
+                        <a>
+                            <form method="post" action="variaveis_livro.php">
+                                <input name="consultar" value="livro_num_edicao" style="display: none;">
+                                <button type="submit" name="Submit">Edição</button>
+                            </form>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="adicionar_livro.html">Adicionar LIVRO</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">ATUALIZAR LIVRO por:</a>
+                    <div class="dp-menu">
+                        <a href="livro_lista.php">Livros</a>
+                        <a href="usuario_lista.php">Usuarios</a>
+                        <a href="movimentacao_lista.php">Movimentação</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Excluir LIVRO por:</a>
+                    <div class="dp-menu">
+                        <a href="excluir_livro.php">Id</a>
+                        <a href="excluir_livro.php">Nome</a>
+                    </div>
+                </li>
+            </ul> 
+    </nav>
+
+    <br>
     
     <p  style="text-align: center;">Digite para Consultar</p>
 
@@ -245,73 +311,7 @@ else{
     
     </table>
     
-    <br><br><br><br><br>
-
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="livro_lista.php">CONSULTAR por:</a>
-                    <div class="dp-menu">
-                        <a>
-                            <form method="post" action="variaveis_livro.php">
-                                <input name="consultar" value="livros_id" style="display: none;">
-                                <button type="submit" name="Submit">Id</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="variaveis_livro.php">
-                                <input name="consultar" value="livros_nome" style="display: none;">
-                                <button type="submit" name="Submit">Nome</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="variaveis_livro.php">
-                                <input name="consultar" value="autor_id" style="display: none;">
-                                <button type="submit" name="Submit">Autor</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="variaveis_livro.php">
-                                <input name="consultar" value="livro_editoria" style="display: none;">
-                                <button type="submit" name="Submit">Editoria</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="variaveis_livro.php">
-                                <input name="consultar" value="genero_id" style="display: none;">
-                                <button type="submit" name="Submit">Genero</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="variaveis_livro.php">
-                                <input name="consultar" value="livro_num_edicao" style="display: none;">
-                                <button type="submit" name="Submit">Edição</button>
-                            </form>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <a href="adicionar_livro.html">Adicionar LIVRO</a>
-                </li>
-                <li class="dropdown">
-                    <a href="#">ATUALIZAR LIVRO por:</a>
-                    <div class="dp-menu">
-                        <a href="livro_lista.php">Livros</a>
-                        <a href="usuario_lista.php">Usuarios</a>
-                        <a href="movimentacao_lista.php">Movimentação</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Excluir LIVRO por:</a>
-                    <div class="dp-menu">
-                        <a href="excluir_livro.php">Id</a>
-                        <a href="excluir_livro.php">Nome</a>
-                    </div>
-                </li>
-            </ul> 
-        </nav>
-    
-    <br><br><br><br><br>
+    <br>
     
    <footer>
         <div id="footer_content">
