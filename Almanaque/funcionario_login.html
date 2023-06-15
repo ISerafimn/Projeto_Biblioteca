@@ -3,24 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="design/index.css">
+    <link rel="stylesheet" href="design/login-cadastro.css">
+    <link rel="stylesheet" href="design/menu.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="design/login.css">
-    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
     <title>Login</title>
 </head>
 <body>
-        <section class="area-login">
-            <div class="login">
-                <div>
-                    <img src="imagens/logo.png" width="200" height="auto">
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="generos_literario.html">GÊNEROS LITERARIOS</a>
+                <div class="dp-menu">
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="1">
+                        <button type="submit" name="Submit">Romance</button>
+                    </form>
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="2">
+                        <button type="submit" name="Submit">Fantasia</button>
+                    </form>
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="3">
+                        <button type="submit" name="Submit">Poesia</button>
+                    </form>
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="4">
+                        <button type="submit" name="Submit">Romance</button>
+                    </form>
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="5">
+                        <button type="submit" name="Submit">Conto</button>
+                    </form>
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="6">
+                        <button type="submit" name="Submit">Terror</button>
+                    </form>
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="7">
+                        <button type="submit" name="Submit">Ação e Aventura</button>
+                    </form>
                 </div>
-                <form action="php/login_funcionario.php" method="POST">
-                    <input type="text" name="funcionario_email" placeholder="digite o nome do funcionario">
-                    <input type="password" name="funcionario_cpf"  placeholder="digite a senha do funcionario">
-                    <br><br>
-                    <button type="submit">Entrar</button>   
-                    <p>Ainda não tem uma conta?<a href="funcionario_cadastro.html">Criar Conta</a></p>
-                </form>
-            </div>
-        </section>
+            </li>
+            <li>
+                <a href="contato.html">CONTATO</a>
+            </li>
+            <li class="dropdown">
+                <a href="usuario_login.html" style="width: 125px; text-align: center;">ENTRAR</a>
+                <div class="dp-menu">
+                    <a href="usuario_login.html">Login</a>
+                    <a href="usuario_cadastro.html">Cadastra-se</a>
+                </div>
+            </li>
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+        </ul> 
+    </nav>
+    
+    <form action="php/login_funcionario.php" method="POST">
+        <h1>Login do Funcionario</h1>
+        <input type="text" name="funcionario_email" placeholder="Digite o nome do funcionario">
+            <br><br>
+        <input type="password" name="funcionario_cpf"  placeholder="Digite a senha do funcionario">
+            <br><br>
+        <button type="submit">Entrar</button>   
+        <p>Ainda não tem uma conta? <a href="funcionario_cadastro.html">Criar Conta</a></p>
+    </form>
+    <br><a href="usuario_login.html">Voltar</a>
 </body>

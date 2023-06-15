@@ -3,44 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="design/index.css">
+    <link rel="stylesheet" href="design/login-cadastro.css">
+    <link rel="stylesheet" href="design/menu.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="design/login.css">
-    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
-    <title>Usuário</title>
+    <title>Cadastro</title>
 </head>
-<body>
-    <section class="area-login">
-        <div class="login">
-            <div>
-                <h1>Cadastro do funcionario</h1>
-            </div>
-            <form name="Cadastro Usuario" method="post" action="php/variaveis_funcionario.php">
-                <table>
-                    <tr>
-                        <td>Nome:</td>
-                        <td><input name="funcionario_nome" type="text" size="50" maxlenght="50" placeholder="digite o nome do usuário"></td>
-                    </tr>
-                    <tr>
-                        <td>Cargo:</td>
-                        <td><input name="funcionario_cargo" type="text" size="50" maxlenght="50" placeholder="digite a data de nascimento do usuário"></td>
-                    </tr>
-                    <tr>
-                        <td>Telefone:</td>
-                        <td><input name="funcionario_telefone" type="number" size="50" maxlenght="50" placeholder="digite o CPF do usuário"></td>
-                    </tr>
-                    <tr>
-                        <td>E-mail:</td>
-                        <td><input name="funcionario_email" type="email" size="50" maxlenght="50" placeholder="digite o E-mail do usuario"></td>
-                    </tr>
-                    <tr>
-                        <td>CPF:</td>
-                        <td><input name="funcionario_cpf" type="text" size="50" maxlenght="50" placeholder="digite o endereço do usuario"></td>
-                    </tr>
-                </table>
-                <br>
-                <button type="submit" name="Submit">Concluir Cadastro</button>
-            </form>
-        </div>
-    </section>
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="generos_literario.html">GÊNEROS LITERARIOS</a>
+                <div class="dp-menu">
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="1">
+                        <button type="submit" name="Submit">Romance</button>
+                    </form>
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="2">
+                        <button type="submit" name="Submit">Fantasia</button>
+                    </form>
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="3">
+                        <button type="submit" name="Submit">Poesia</button>
+                    </form>
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="4">
+                        <button type="submit" name="Submit">Romance</button>
+                    </form>
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="5">
+                        <button type="submit" name="Submit">Conto</button>
+                    </form>
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="6">
+                        <button type="submit" name="Submit">Terror</button>
+                    </form>
+                    <form method="post" action="php/lista_genero.php">
+                        <input name="genero" value="7">
+                        <button type="submit" name="Submit">Ação e Aventura</button>
+                    </form>
+                </div>
+            </li>
+            <li>
+                <a href="contato.html">CONTATO</a>
+            </li>
+            <li class="dropdown">
+                <a href="usuario_login.html" style="width: 125px; text-align: center;">ENTRAR</a>
+                <div class="dp-menu">
+                    <a href="usuario_login.html">Login</a>
+                    <a href="usuario_cadastro.html">Cadastra-se</a>
+                </div>
+            </li>
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+        </ul> 
+    </nav>
+
+    <h1>Cadastro do funcionario</h1>
+    <form name="Cadastro Usuario" method="post" action="php/variaveis_funcionario.php">
+        <table>
+            <tr>
+                <td>Nome:</td>
+                <td><input name="funcionario_nome" type="text" size="50" maxlenght="50" placeholder="digite o nome do funcionario"></td>
+            </tr>
+            <tr>
+                <td>Cargo:</td>
+                <td><input name="funcionario_cargo" type="text" size="50" maxlenght="50" placeholder="Digite o cargo do funcionario"></td>
+            </tr>
+            <tr>
+                <td>Telefone:</td>
+                <td><input name="funcionario_telefone" type="number" size="50" maxlenght="50" placeholder="digite o telefone do funcionario"></td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td><input name="funcionario_email" type="email" size="50" maxlenght="50" placeholder="digite o E-mail do funcionario"></td>
+            </tr>
+            <tr>
+                <td>CPF:</td>
+                <td><input name="funcionario_cpf" type="number" size="50" maxlenght="50" placeholder="digite o cpf_usuario do funcionario"></td>
+            </tr>
+        </table>
+            <br>
+        <button type="submit" name="Submit">Concluir Cadastro</button>
+    </form>
+    <br><a href="funcionario_login.html">Voltar</a>
 </body>
 </html>
