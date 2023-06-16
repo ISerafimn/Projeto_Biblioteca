@@ -60,8 +60,8 @@
                     <a href="contato.html">CONTATO</a>
                 </li>
                 <li class="dropdown">
-                    <a href="#" style="width: 170px; text-align: center;">GENERENCIAR</a>
-                    <div class="dp-menu" style="width: 170px; text-align: center;">
+                <a href="gerenciar.html" style="width: 150px; text-align: center;">GERENCIAR</a>
+                    <div class="dp-menu" style="width: 150px; text-align: center;">
                         <a href="livro_lista.php">Livros</a>
                         <a href="usuario_lista.php">Usuarios</a>
                         <a href="movimentacao_lista.php">Movimentação</a>
