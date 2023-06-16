@@ -10,6 +10,11 @@
     <script src="javascript/script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Almanaque</title>
+    <style>
+        .genero input{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div style="background-color: #1f1919;">
@@ -72,23 +77,38 @@
             </ul> 
         </nav>
     </div>
-    <p>Exclusão de Funcionario</p>
-    <form name="excluir usuario" method="post" action="../php/excluir_funcionario_exe.php">
-    <table style="margin: auto;">
-        <tr>
-            <td>Tem certeza que quer excluir sua conta?</td>
-        </tr>
-        <tr>
-            <td><input name="confirmar" style="display: none;"></td>
-        </tr>
-        <tr>
-            <td><input type="submit" name="Submit" value="Sim">
-                <button>
-                    <a href="perfil.php">Não</a>
-                </button>
-            </td>   
-        </tr>
-    </table>
-    </form>
+    <h1>GÊNEROS LITERARIOS</h1>
+    
+    <div class="genero">
+        <form method="post" action="php/lista_genero.php">
+            <input name="genero" value="1">
+            <button type="submit" name="Submit">Romance</button>
+        </form>
+        <form method="post" action="php/lista_genero.php">
+            <input name="genero" value="2">
+            <button type="submit" name="Submit">Fantasia</button>
+        </form>
+        <form method="post" action="php/lista_genero.php">
+            <input name="genero" value="3">
+            <button type="submit" name="Submit">Poesia</button>
+        </form>
+        <form method="post" action="php/lista_genero.php">
+            <input name="genero" value="4">
+            <button type="submit" name="Submit">Romance</button>
+        </form>
+        <form method="post" action="php/lista_genero.php">
+            <input name="genero" value="5">
+            <button type="submit" name="Submit">Conto</button>
+        </form>
+        <form method="post" action="php/lista_genero.php">
+            <input name="genero" value="6">
+            <button type="submit" name="Submit">Terror</button>
+        </form>
+        <form method="post" action="php/lista_genero.php">
+            <input name="genero" value="7">
+            <button type="submit" name="Submit">Ação e Aventura</button>
+        </form>
+    </div>
+
 </body>
 </html>

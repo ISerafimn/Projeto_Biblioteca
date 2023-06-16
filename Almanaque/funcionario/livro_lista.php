@@ -6,85 +6,58 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../design/index.css">
+    <link rel="stylesheet" href="../design/menu.css">
+    <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="../javascript/script.js" defer></script>
-    <title>Estante Digital</title>
-    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <script src="javascript/script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almanaque</title>
 </head>
-        <style>
-        .container {
-            overflow-x: scroll;
-            display: flex;
-            justify-content: center;
-        }
-        button{
-            background-color: #00000000;
-            border: #00000000;
-            color: white;
-        }
-    </style>
 <body>
     <div style="background-color: #1f1919;">
-        <img src="../imagens/estante_digital.png" width="100%" height="auto">
         <nav>
             <ul>
                 <li class="dropdown">
-                    <a href="#">GÊNEROS LITERARIOS</a>
+                    <a href="generos_literario.html">GÊNEROS LITERARIOS</a>
                     <div class="dp-menu">
-                        <a>
-                            <form method="post" action="../php/lista_genero.php">
-                                <input name="genero" value="1" style="display: none;">
-                                <button type="submit" name="Submit">Romance</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="../php/lista_genero.php">
-                                <input name="genero" value="2" style="display: none;">
-                                <button type="submit" name="Submit">Fantasia</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="../php/lista_genero.php">
-                                <input name="genero" value="3" style="display: none;">
-                                <button type="submit" name="Submit">Poesia</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="../php/lista_genero.php">
-                                <input name="genero" value="4" style="display: none;">
-                                <button type="submit" name="Submit">Romance</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="../php/lista_genero.php">
-                                <input name="genero" value="5" style="display: none;">
-                                <button type="submit" name="Submit">Conto</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="../php/lista_genero.php">
-                                <input name="genero" value="6" style="display: none;">
-                                <button type="submit" name="Submit">Terror</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="../php/lista_genero.php">
-                                <input name="genero" value="7" style="display: none;">
-                                <button type="submit" name="Submit">Ação e Aventura</button>
-                            </form>
-                        </a>
+                        <form method="post" action="php/lista_genero.php">
+                            <input name="genero" value="1">
+                            <button type="submit" name="Submit">Romance</button>
+                        </form>
+                        <form method="post" action="php/lista_genero.php">
+                            <input name="genero" value="2">
+                            <button type="submit" name="Submit">Fantasia</button>
+                        </form>
+                        <form method="post" action="php/lista_genero.php">
+                            <input name="genero" value="3">
+                            <button type="submit" name="Submit">Poesia</button>
+                        </form>
+                        <form method="post" action="php/lista_genero.php">
+                            <input name="genero" value="4">
+                            <button type="submit" name="Submit">Romance</button>
+                        </form>
+                        <form method="post" action="php/lista_genero.php">
+                            <input name="genero" value="5">
+                            <button type="submit" name="Submit">Conto</button>
+                        </form>
+                        <form method="post" action="php/lista_genero.php">
+                            <input name="genero" value="6">
+                            <button type="submit" name="Submit">Terror</button>
+                        </form>
+                        <form method="post" action="php/lista_genero.php">
+                            <input name="genero" value="7">
+                            <button type="submit" name="Submit">Ação e Aventura</button>
+                        </form>
                     </div>
                 </li>
                 <li>
-                    <a href="#">CONTATO</a>
+                    <a href="contato.html">CONTATO</a>
                 </li>
                 <li class="dropdown">
-                    <a href="#">GENERENCIAR</a>
-                    <div class="dp-menu">
+                    <a href="#" style="width: 170px; text-align: center;">GENERENCIAR</a>
+                    <div class="dp-menu" style="width: 170px; text-align: center;">
                         <a href="livro_lista.php">Livros</a>
                         <a href="usuario_lista.php">Usuarios</a>
                         <a href="movimentacao_lista.php">Movimentação</a>
@@ -94,8 +67,8 @@
                     <a href="index.html">HOME</a>
                 </li>
                 <li class="dropdown">
-                    <a href="#">PERFIL</a>
-                    <div class="dp-menu">
+                    <a href="perfil.php" style="width: 125px; text-align: center;">PERFIL</a>
+                    <div class="dp-menu" style="width: 125px; text-align: center;">
                         <a href="perfil.php">Meu Perfil</a>
                         <a href="../php/logout.php">Sair</a>
                     </div>
