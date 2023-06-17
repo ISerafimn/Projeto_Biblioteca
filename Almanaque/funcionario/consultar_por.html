@@ -1,9 +1,3 @@
-<?php
-    include('../php/conexao.php');
-    session_start();
-    $consultar = $_SESSION['consultar'];
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -132,142 +126,32 @@
         </ul>
     </nav>
 
-    <br>
-    
-    <p  style="text-align: center;">Digite para Consultar</p>
+    <h1>CONSULTAR POR:</h1>
 
-    <form action="#" method="post" style="text-align: center;">
-        <input type="text" name="valor">
-        <button type="submit" style="background-color: #1f1919; color: white">enviar</button>
+    <form method="post" action="variaveis_livro.php">
+        <input name="consultar" value="livros_id" style="display: none;">
+        <button type="submit" name="Submit">Id</button>
     </form>
-    <br>
-<?php
-$var = $_POST['valor'];
-if ($var == ""){
-}
-else{
-    ?>
-        <table border="1" style="width:50%; margin: auto;">
-            <tr>
-                <th>ID</th>
-                <th>NOME</th>
-                <th>AUTOR</th>
-                <th>EDITORA</th>
-                <th>GENERO</th>
-                <th>EDIÇÃO</th>
-            </tr>
-    <?php
-        if($consultar == "livros_id"){
+    <form method="post" action="variaveis_livro.php">
+        <input name="consultar" value="livros_nome" style="display: none;">
+        <button type="submit" name="Submit">Nome</button>
+    </form>
+    <form method="post" action="variaveis_livro.php">
+        <input name="consultar" value="autor_id" style="display: none;">
+        <button type="submit" name="Submit">Autor</button>
+    </form>
+    <form method="post" action="variaveis_livro.php">
+        <input name="consultar" value="livro_editoria" style="display: none;">
+        <button type="submit" name="Submit">Editoria</button>
+    </form>
+    <form method="post" action="variaveis_livro.php">
+        <input name="consultar" value="genero_id" style="display: none;">
+        <button type="submit" name="Submit">Genero</button>
+    </form>
+    <form method="post" action="variaveis_livro.php">
+        <input name="consultar" value="livro_num_edicao" style="display: none;">
+        <button type="submit" name="Submit">Edição</button>
+    </form>
 
-            include('../php/conexao.php');
-
-            $sql = "SELECT * FROM livros livros_id WHERE livros_id = '$var'";
-            $result = $mysqli->query($sql);
-        
-            while ($row = mysqli_fetch_array($result))
-            { 
-                echo "<tr>";
-                echo "<td>".$row['livros_id']."</td>";
-                echo "<td>".$row['livros_nome']."</td>";
-                echo "<td>".$row['autor_id']."</td>";
-                echo "<td>".$row['livro_editoria']."</td>";
-                echo "<td>".$row['genero_id']."</td>";
-                echo "<td>".$row['livro_num_edicao']."</td>";
-                echo "<tr>";
-            }
-        }
-        elseif($consultar == "livros_nome"){
-            include('../php/conexao.php');
-
-            $sql = "SELECT * FROM livros livros_id WHERE livros_nome = '$var'";
-            $result = $mysqli->query($sql);
-        
-            while ($row = mysqli_fetch_array($result))
-            { 
-                echo "<tr>";
-                echo "<td>".$row['livros_id']."</td>";
-                echo "<td>".$row['livros_nome']."</td>";
-                echo "<td>".$row['autor_id']."</td>";
-                echo "<td>".$row['livro_editoria']."</td>";
-                echo "<td>".$row['genero_id']."</td>";
-                echo "<td>".$row['livro_num_edicao']."</td>";
-                echo "<tr>";
-            }
-        }
-        elseif($consultar == "autor_id"){
-            include('../php/conexao.php');
-
-            $sql = "SELECT * FROM livros livros_id WHERE autor_id = '$var'";
-            $result = $mysqli->query($sql);
-        
-            while ($row = mysqli_fetch_array($result))
-            { 
-                echo "<tr>";
-                echo "<td>".$row['livros_id']."</td>";
-                echo "<td>".$row['livros_nome']."</td>";
-                echo "<td>".$row['autor_id']."</td>";
-                echo "<td>".$row['livro_editoria']."</td>";
-                echo "<td>".$row['genero_id']."</td>";
-                echo "<td>".$row['livro_num_edicao']."</td>";
-                echo "<tr>";
-            }
-        }
-        elseif($consultar == "livro_editoria"){
-            include('../php/conexao.php');
-
-            $sql = "SELECT * FROM livros livros_id WHERE livro_editoria = '$var'";
-            $result = $mysqli->query($sql);
-        
-            while ($row = mysqli_fetch_array($result))
-            { 
-                echo "<tr>";
-                echo "<td>".$row['livros_id']."</td>";
-                echo "<td>".$row['livros_nome']."</td>";
-                echo "<td>".$row['autor_id']."</td>";
-                echo "<td>".$row['livro_editoria']."</td>";
-                echo "<td>".$row['genero_id']."</td>";
-                echo "<td>".$row['livro_num_edicao']."</td>";
-                echo "<tr>";
-            }
-        }
-        elseif($consultar == "genero_id"){
-            include('../php/conexao.php');
-
-            $sql = "SELECT * FROM livros livros_id WHERE genero_id = '$var'";
-            $result = $mysqli->query($sql);
-        
-            while ($row = mysqli_fetch_array($result))
-            { 
-                echo "<tr>";
-                echo "<td>".$row['livros_id']."</td>";
-                echo "<td>".$row['livros_nome']."</td>";
-                echo "<td>".$row['autor_id']."</td>";
-                echo "<td>".$row['livro_editoria']."</td>";
-                echo "<td>".$row['genero_id']."</td>";
-                echo "<td>".$row['livro_num_edicao']."</td>";
-                echo "<tr>";
-            }
-        }
-        else{
-            include('../php/conexao.php');
-
-            $sql = "SELECT * FROM livros livros_id WHERE livro_num_edicao = '$var'";
-            $result = $mysqli->query($sql);
-        
-            while ($row = mysqli_fetch_array($result))
-            { 
-                echo "<tr>";
-                echo "<td>".$row['livros_id']."</td>";
-                echo "<td>".$row['livros_nome']."</td>";
-                echo "<td>".$row['autor_id']."</td>";
-                echo "<td>".$row['livro_editoria']."</td>";
-                echo "<td>".$row['genero_id']."</td>";
-                echo "<td>".$row['livro_num_edicao']."</td>";
-                echo "<tr>";
-            }
-        }
-    }
-    ?>
-    </table>
 </body>
 </html>

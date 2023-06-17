@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../design/index.css">
     <link rel="stylesheet" href="../design/menu.css">
+    <link rel="stylesheet" href="../design/login-cadastro.css">
     <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -76,68 +77,55 @@
     <br>
 
     <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="#">CONSULTAR por:</a>
-                    <div class="dp-menu">
-                        <a>
-                            <form method="post" action="variaveis_livro.php">
-                                <input name="consultar" value="livros_id" style="display: none;">
-                                <button type="submit" name="Submit">Id</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="variaveis_livro.php">
-                                <input name="consultar" value="livros_nome" style="display: none;">
-                                <button type="submit" name="Submit">Nome</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="variaveis_livro.php">
-                                <input name="consultar" value="autor_id" style="display: none;">
-                                <button type="submit" name="Submit">Autor</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="variaveis_livro.php">
-                                <input name="consultar" value="livro_editoria" style="display: none;">
-                                <button type="submit" name="Submit">Editoria</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="variaveis_livro.php">
-                                <input name="consultar" value="genero_id" style="display: none;">
-                                <button type="submit" name="Submit">Genero</button>
-                            </form>
-                        </a>
-                        <a>
-                            <form method="post" action="variaveis_livro.php">
-                                <input name="consultar" value="livro_num_edicao" style="display: none;">
-                                <button type="submit" name="Submit">Edição</button>
-                            </form>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <a href="adicionar_livro.html">Adicionar LIVRO</a>
-                </li>
-                <li class="dropdown">
-                    <a href="#">ATUALIZAR LIVRO por:</a>
-                    <div class="dp-menu">
-                        <a href="livro_lista.php">Livros</a>
-                        <a href="usuario_lista.php">Usuarios</a>
-                        <a href="movimentacao_lista.php">Movimentação</a>
+        <ul>
+            <li class="dropdown">
+                <a href="consultar_por.html" style="width: 150px; text-align: center;">CONSULTAR por:</a>
+                <div class="dp-menu">
+                    <form method="post" action="variaveis_livro.php">
+                        <input name="consultar" value="livros_id" style="display: none;">
+                        <button type="submit" name="Submit">Id</button>
+                    </form>
+                    <form method="post" action="variaveis_livro.php">
+                        <input name="consultar" value="livros_nome" style="display: none;">
+                        <button type="submit" name="Submit">Nome</button>
+                    </form>
+                    <form method="post" action="variaveis_livro.php">
+                        <input name="consultar" value="autor_id" style="display: none;">
+                        <button type="submit" name="Submit">Autor</button>
+                    </form>
+                    <form method="post" action="variaveis_livro.php">
+                        <input name="consultar" value="livro_editoria" style="display: none;">
+                        <button type="submit" name="Submit">Editoria</button>
+                    </form>
+                    <form method="post" action="variaveis_livro.php">
+                        <input name="consultar" value="genero_id" style="display: none;">
+                        <button type="submit" name="Submit">Genero</button>
+                    </form>
+                    <form method="post" action="variaveis_livro.php">
+                        <input name="consultar" value="livro_num_edicao" style="display: none;">
+                        <button type="submit" name="Submit">Edição</button>
+                    </form>
+                </div>
+            </li>
+            <li>
+                <a href="adicionar_livro.html" style="width: 150px; text-align: center;">Adicionar LIVRO</a>
+            </li>
+            <li class="dropdown">
+                <a href="atualizar_livro_por.html" style="width: 150px; text-align: center;">ATUALIZAR LIVRO por:</a>
+                    <div class="dp-menu" style="width: 150px; text-align: center;">
+                        <a href="php/atualizar_livro_id.php">Id</a>
+                        <a href="php/atualizar_lista_nome.php">Nome</a>
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#">Excluir LIVRO por:</a>
-                    <div class="dp-menu">
+                    <a href="#" style="width: 150px; text-align: center;">Excluir LIVRO por:</a>
+                    <div class="dp-menu" style="width: 150px; text-align: center;">
                         <a href="excluir_livro.php">Id</a>
                         <a href="excluir_livro.php">Nome</a>
                     </div>
                 </li>
-            </ul> 
-        </nav>
+        </ul>
+    </nav>
 
     <br>
 
@@ -174,67 +162,5 @@
 
     <br>
     
-   <footer>
-        <div id="footer_content">
-            <div id="footer_contacts">
-                <h1>Estante Digital</h1>
-                <p>O mundo literario</p>
-                <div id="footer_social_media">
-                    <a href="#" class="footer-link" id="istagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#" class="footer-link" id="facebook">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="footer-link" id="whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-                <ul class="footer-list">
-                    <li>
-                        <h3>Blog</h3>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Literatura</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Audioboks</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">E-book</a>
-                    </li>
-                </ul>
-
-                <ul class="footer-list">
-                    <li>
-                        <h3>Produtos</h3>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Apps</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Downloand</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Cloud</a>
-                    </li>
-                </ul>
-
-                <div id="footer_cad">
-                    <h3>Cadastre-se</h3>
-                    <p>para obter a melhor experiencia literaria da sua vida!.</p>
-                    <p>Entre com seu email e sera notoficado diariamente com nossas ultimas novidades</p>
-
-               <div id="input_group">
-                    <input type="email" id="email">
-                    <button>
-                        <i class="fa-regular fa-envelope"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-            <p style="text-align: center; padding-bottom: 10px;"> &#169 2023 direito reservado</p>
-    </footer>
 </body>
 </html>
