@@ -142,7 +142,7 @@
     </form>
     <br>
 <?php
-$var = $_POST['valor'];
+@$var = $_POST['valor'];
 if ($var == ""){
 }
 else{
