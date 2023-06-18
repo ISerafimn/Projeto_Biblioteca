@@ -16,31 +16,31 @@
                 <a href="generos_literario.html">GÊNEROS LITERARIOS</a>
                 <div class="dp-menu">
                     <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="1">
+                        <input name="genero" value="Romance">
                         <button type="submit" name="Submit">Romance</button>
                     </form>
                     <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="2">
+                        <input name="genero" value="Fantasia">
                         <button type="submit" name="Submit">Fantasia</button>
                     </form>
                     <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="3">
+                        <input name="genero" value="Poesia">
                         <button type="submit" name="Submit">Poesia</button>
                     </form>
                     <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="4">
-                        <button type="submit" name="Submit">Romance</button>
+                        <input name="genero" value="Ficcao">
+                        <button type="submit" name="Submit">Ficção</button>
                     </form>
                     <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="5">
+                        <input name="genero" value="Conto">
                         <button type="submit" name="Submit">Conto</button>
                     </form>
                     <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="6">
+                        <input name="genero" value="Terror">
                         <button type="submit" name="Submit">Terror</button>
                     </form>
                     <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="7">
+                        <input name="genero" value="Aventura">
                         <button type="submit" name="Submit">Ação e Aventura</button>
                     </form>
                 </div>
@@ -63,9 +63,10 @@
     
     <form action="php/login_funcionario.php" method="POST">
         <h1>Login do Funcionario</h1>
-        <input type="text" name="funcionario_email" placeholder="Digite o nome do funcionario">
-            <br><br>
-        <input type="password" name="funcionario_cpf"  placeholder="Digite a senha do funcionario">
+        <p>Nome:</p>
+        <input type="text" name="email_funcionario" placeholder="Digite o nome do funcionario">
+        <p>Senha:  </p>
+        <input type="password" name="senha_funcionario"  placeholder="Digite a senha do funcionario">
             <br><br>
         <button type="submit">Entrar</button>   
         <p>Ainda não tem uma conta? <a href="funcionario_cadastro.html">Criar Conta</a></p>

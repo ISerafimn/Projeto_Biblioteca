@@ -1,10 +1,3 @@
-<?php
-include('conexao.php');
-$genero = $_POST ['genero'];
-$sql = "SELECT * FROM livros livros_id WHERE genero_id = '$genero'";
-$result = $mysqli->query($sql);
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,7 +5,12 @@ $result = $mysqli->query($sql);
     <link rel="stylesheet" href="../../design/index.css">
     <link rel="stylesheet" href="../../design/menu.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato</title>
+    <title>Genero</title>
+    <style>
+        img{
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -20,34 +18,34 @@ $result = $mysqli->query($sql);
             <li class="dropdown">
                 <a href="../generos_literario.html">GÊNEROS LITERARIOS</a>
                 <div class="dp-menu">
-                    <form method="post" action="lista_genero.php">
-                        <input name="genero" value="1">
-                        <button type="submit" name="Submit">Romance</button>
-                    </form>
-                    <form method="post" action="lista_genero.php">
-                        <input name="genero" value="2">
-                        <button type="submit" name="Submit">Fantasia</button>
-                    </form>
-                    <form method="post" action="lista_genero.php">
-                        <input name="genero" value="3">
-                        <button type="submit" name="Submit">Poesia</button>
-                    </form>
-                    <form method="post" action="lista_genero.php">
-                        <input name="genero" value="4">
-                        <button type="submit" name="Submit">Romance</button>
-                    </form>
-                    <form method="post" action="lista_genero.php">
-                        <input name="genero" value="5">
-                        <button type="submit" name="Submit">Conto</button>
-                    </form>
-                    <form method="post" action="lista_genero.php">
-                        <input name="genero" value="6">
-                        <button type="submit" name="Submit">Terror</button>
-                    </form>
-                    <form method="post" action="lista_genero.php">
-                        <input name="genero" value="7">
-                        <button type="submit" name="Submit">Ação e Aventura</button>
-                    </form>
+                <form method="post" action="lista_genero.php">
+                            <input name="genero" value="Romance">
+                            <button type="submit" name="Submit">Romance</button>
+                        </form>
+                        <form method="post" action="lista_genero.php">
+                            <input name="genero" value="Fantasia">
+                            <button type="submit" name="Submit">Fantasia</button>
+                        </form>
+                        <form method="post" action="lista_genero.php">
+                            <input name="genero" value="Poesia">
+                            <button type="submit" name="Submit">Poesia</button>
+                        </form>
+                        <form method="post" action="lista_genero.php">
+                            <input name="genero" value="Ficcao">
+                            <button type="submit" name="Submit">Ficção</button>
+                        </form>
+                        <form method="post" action="lista_genero.php">
+                            <input name="genero" value="Conto">
+                            <button type="submit" name="Submit">Conto</button>
+                        </form>
+                        <form method="post" action="lista_genero.php">
+                            <input name="genero" value="Terror">
+                            <button type="submit" name="Submit">Terror</button>
+                        </form>
+                        <form method="post" action="lista_genero.php">
+                            <input name="genero" value="Aventura">
+                            <button type="submit" name="Submit">Ação e Aventura</button>
+                        </form>
                 </div>
             </li>
             <li>
@@ -70,21 +68,35 @@ $result = $mysqli->query($sql);
     <table style border="1">
     <tr>
         <th>ID</th>
-        <th>Nome</th>
-        <th>Autor</th>
-        <th>Editora</th>
-        <th>N° da Edição</th>
+        <th>CAPA</th>
+        <th>NOME</th>
+        <th>AUTOR</th>
+        <th>GENERO</th>
+        <th>EDITORA</th>
+        <th>Nº DA EDIÇÃO</th>
+        <th>ESTOQUE</th>
+        <th>SINOPSE</th>
     </tr>
 
 <?php
+    include('conexao.php');
+    $genero = $_POST ['genero'];
+
+    $sql = "SELECT * FROM livro genero_livro WHERE genero_livro = '$genero'";
+    $result = $mysqli->query($sql);
+
     while ($row = mysqli_fetch_array($result))
     { 
         echo "<tr>";
-        echo "<td>".$row['livros_id']."</td>";
-        echo "<td>".$row['livros_nome']."</td>";
-        echo "<td>".$row['autor_id']."</td>";
-        echo "<td>".$row['livro_editoria']."</td>";
-        echo "<td>".$row['livro_num_edicao']."</td>";
+        echo "<td>".$row['id_livro']."</td>";
+        echo "<td><img src='".$row['url_imagem_livro']."'></td>";
+        echo "<td>".$row['nome_livro']."</td>";
+        echo "<td>".$row['id_autor']."</td>";
+        echo "<td>".$row['genero_livro']."</td>";
+        echo "<td>".$row['editora_livro']."</td>";
+        echo "<td>".$row['num_edicao_livro']."</td>";
+        echo "<td>".$row['estoque_livro']."</td>";
+        echo "<td>".$row['sinopse_livro']."</td>";
         echo "<tr>";
     }
 ?>

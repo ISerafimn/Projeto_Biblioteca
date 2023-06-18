@@ -14,6 +14,11 @@
     <script src="javascript/script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Almanaque</title>
+    <style>
+        img{
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
     <div style="background-color: #1f1919;">
@@ -23,31 +28,31 @@
                     <a href="generos_literario.html">GÊNEROS LITERARIOS</a>
                     <div class="dp-menu">
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="1">
+                            <input name="genero" value="Romance">
                             <button type="submit" name="Submit">Romance</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="2">
+                            <input name="genero" value="Fantasia">
                             <button type="submit" name="Submit">Fantasia</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="3">
+                            <input name="genero" value="Poesia">
                             <button type="submit" name="Submit">Poesia</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="4">
-                            <button type="submit" name="Submit">Romance</button>
+                            <input name="genero" value="Ficcao">
+                            <button type="submit" name="Submit">Ficção</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="5">
+                            <input name="genero" value="Conto">
                             <button type="submit" name="Submit">Conto</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="6">
+                            <input name="genero" value="Terror">
                             <button type="submit" name="Submit">Terror</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="7">
+                            <input name="genero" value="Aventura">
                             <button type="submit" name="Submit">Ação e Aventura</button>
                         </form>
                     </div>
@@ -132,38 +137,59 @@
 
     <br>
 
-    <table border="1" style="width:50%; margin: auto;">
+    <table border="1" style="width:90%; margin: auto;">
         <tr>
             <th>ID</th>
+            <th>CAPA</th>
             <th>NOME</th>
             <th>AUTOR</th>
-            <th>EDITORA</th>
             <th>GENERO</th>
-            <th>EDIÇÃO</th>
+            <th>EDITORA</th>
+            <th>Nº DA EDIÇÃO</th>
+            <th>ESTOQUE</th>
+            <th>SINOPSE</th>
         </tr>
 
         <?php
-        $sql = mysqli_query($mysqli, "SELECT  *   FROM  livros");
+        $sql = mysqli_query($mysqli, "SELECT  *   FROM  livro");
         while ($result = mysqli_fetch_array($sql))
 
             {
-                $id = $result['livros_id'];
-                $nome = $result['livros_nome'];
-                $autor = $result['autor_id'];
-                $editora = $result['livro_editoria'];
-                $genero = $result['genero_id'];
-                $edicao = $result['livro_num_edicao'];
+                $id_livro = $result['id_livro'];
+                $nome_livro = $result['nome_livro'];
+                $id_autor = $result['id_autor'];
+                $genero_livro = $result['genero_livro'];
+                $editora_livro = $result['editora_livro'];
+                $num_edicao_livro = $result['num_edicao_livro'];
+                $estoque_livro = $result['estoque_livro'];
+                $sinopse_livro = $result['sinopse_livro'];
+                $url_imagem_livro = $result['url_imagem_livro'];
+
                 echo "<tr>";
-                echo "<td>".$id."</td>";
-                echo "<td>".$nome."</td>";
-                echo "<td>".$autor."</td>";
-                echo "<td>".$editora."</td>";
-                echo "<td>".$genero."</td>";
-                echo "<td>".$edicao."</td>";
-                echo "<tr>";
+                echo "<td>".$id_livro."</td>";
+                echo "<td><img src='".$url_imagem_livro."'></td>";
+                echo "<td>".$nome_livro."</td>";
+
+                    $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
+                    $resultad2 = $mysqli->query($sql2);
+                
+                    while ($row = mysqli_fetch_array($resultad2))
+                    { 
+                    
+                        echo "<td>".$row['nome_autor']."</td>";
+                    }
+                    
+                echo "<td>".$genero_livro."</td>";
+                echo "<td>".$editora_livro."</td>";
+                echo "<td>".$num_edicao_livro."</td>";
+                echo "<td>".$estoque_livro."</td>";
+                echo "<td>".$sinopse_livro."</td>";
+                echo "</tr>";
+                
             };
             
         ?>
     </table>
+    ">
 </body>
 </html>

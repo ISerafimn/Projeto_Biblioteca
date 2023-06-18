@@ -1,13 +1,13 @@
 <?php
 include('conexao.php');
 
-$funcionario_nome=$_POST['funcionario_nome'];
-$funcionario_cargo=$_POST['funcionario_cargo'];
-$funcionario_telefone=$_POST['funcionario_telefone'];
-$funcionario_email=$_POST['funcionario_email'];
-$funcionario_cpf=$_POST['funcionario_cpf'];
+$nome_funcionario=$_POST['nome_funcionario'];
+$email_funcionario=$_POST['email_funcionario'];
+$data_funcionario=$_POST['data_funcionario'];
+$cpf_funcionario=$_POST['cpf_funcionario'];
+$senha_funcionario=$_POST['senha_funcionario'];
 
-    $result = mysqli_query($mysqli, "INSERT INTO funcionario(funcionario_nome, funcionario_cargo, funcionario_telefone, funcionario_email, funcionario_cpf) VALUES ('$funcionario_nome', '$funcionario_cargo', '$funcionario_telefone', '$funcionario_email', '$funcionario_cpf')");
+    $result = mysqli_query($mysqli, "INSERT INTO funcionario (nome_funcionario, email_funcionario, data_funcionario, cpf_funcionario, senha_funcionario) VALUES ('$nome_funcionario', '$email_funcionario', '$data_funcionario', '$cpf_funcionario', '$senha_funcionario')");
     
     header("Location: ../funcionario_login.html");
 ?>

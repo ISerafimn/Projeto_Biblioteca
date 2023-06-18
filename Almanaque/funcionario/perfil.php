@@ -1,7 +1,6 @@
     <?php
     session_start();
-    $var = $_SESSION['var3'];
-    $cpf = $var;
+    $email_funcionario = $_SESSION['email_funcionario'];
     
     include('../php/conexao.php');
     
@@ -26,32 +25,32 @@
                 <li class="dropdown">
                     <a href="generos_literario.html">GÊNEROS LITERARIOS</a>
                     <div class="dp-menu">
-                        <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="1">
+                    <form method="post" action="php/lista_genero.php">
+                            <input name="genero" value="Romance">
                             <button type="submit" name="Submit">Romance</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="2">
+                            <input name="genero" value="Fantasia">
                             <button type="submit" name="Submit">Fantasia</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="3">
+                            <input name="genero" value="Poesia">
                             <button type="submit" name="Submit">Poesia</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="4">
-                            <button type="submit" name="Submit">Romance</button>
+                            <input name="genero" value="Ficcao">
+                            <button type="submit" name="Submit">Ficção</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="5">
+                            <input name="genero" value="Conto">
                             <button type="submit" name="Submit">Conto</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="6">
+                            <input name="genero" value="Terror">
                             <button type="submit" name="Submit">Terror</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="7">
+                            <input name="genero" value="Aventura">
                             <button type="submit" name="Submit">Ação e Aventura</button>
                         </form>
                     </div>
@@ -86,34 +85,31 @@
         <tr>
             <th>ID</th>
             <th>NOME</th>
-            <th>CARGO</th>
-            <th>TELEFONE</th>
             <th>EMAIL</th>
+            <th>NASCIMENTO</th>
             <th>CPF</th>
         </tr>
 
         <?php
-        $sql = mysqli_query($mysqli, "SELECT  *   FROM  funcionario WHERE funcionario_cpf='$cpf'");
+        $sql = mysqli_query($mysqli, "SELECT  *   FROM  funcionario WHERE email_funcionario ='$email_funcionario'");
         while ($result = mysqli_fetch_array($sql))
 
             {
-                $id = $result['funcionario_id'];
-                $nome = $result['funcionario_nome'];
-                $cargo = $result['funcionario_cargo'];
-                $telefone = $result['funcionario_telefone'];
-                $email = $result['funcionario_email'];
-                $cpf = $result['funcionario_cpf'];
+                $id_funcionario = $result['id_funcionario'];
+                $nome_funcionario= $result['nome_funcionario'];
+                $email_funcionario= $result['email_funcionario'];
+                $data_funcionario= $result['data_funcionario'];
+                $cpf_funcionario= $result['cpf_funcionario'];
                 echo "<tr>";
-                echo "<td>".$id."</td>";
-                echo "<td>".$nome."</td>";
-                echo "<td>".$cargo."</td>";
-                echo "<td>".$telefone."</td>";
-                echo "<td>".$email."</td>";
-                echo "<td>".$cpf."</td>";
+                echo "<td>".$id_funcionario."</td>";
+                echo "<td>".$nome_funcionario."</td>";
+                echo "<td>".$email_funcionario."</td>";
+                echo "<td>".$data_funcionario."</td>";
+                echo "<td>".$cpf_funcionario."</td>";
                 echo "<tr>";
             };
             
-            $_SESSION['var2'] = $id;
+            $_SESSION['id_funcionario'] = $id_funcionario;
         ?>
 
     </table>
@@ -121,74 +117,9 @@
     <br>
     
         <ul>
-        <li style="text-align: center;"><a href="atualizar_usuario.html">Atualizar os Dados</a></li>
-        <li style="text-align: center;"><a href="excluir_funcionario.html">Excluir o Usuario</a></li>
+        <li style="text-align: center;"><a href="atualizar_funcionario.html">Atualizar os Dados</a></li>
         </ul>
     </div>
     
-    <br><br><br><br><br>
-    
-   <footer>
-        <div id="footer_content">
-            <div id="footer_contacts">
-                <h1>Estante Digital</h1>
-                <p>O mundo literario</p>
-                <div id="footer_social_media">
-                    <a href="#" class="footer-link" id="istagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#" class="footer-link" id="facebook">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="footer-link" id="whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-                <ul class="footer-list">
-                    <li>
-                        <h3>Blog</h3>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Literatura</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Audioboks</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">E-book</a>
-                    </li>
-                </ul>
-
-                <ul class="footer-list">
-                    <li>
-                        <h3>Produtos</h3>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Apps</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Downloand</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Cloud</a>
-                    </li>
-                </ul>
-
-                <div id="footer_cad">
-                    <h3>Cadastre-se</h3>
-                    <p>para obter a melhor experiencia literaria da sua vida!.</p>
-                    <p>Entre com seu email e sera notoficado diariamente com nossas ultimas novidades</p>
-
-               <div id="input_group">
-                    <input type="email" id="email">
-                    <button>
-                        <i class="fa-regular fa-envelope"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-            <p style="text-align: center; padding-bottom: 10px;"> &#169 2023 direito reservado</p>
-    </footer>
 </body>
 </html>

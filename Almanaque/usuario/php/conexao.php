@@ -1,6 +1,6 @@
 <?php
 $hostname = "localhost";
-$database = "biblioteca_publica";
+$database = "biblioteca";
 $username = "root";
 $password = "";
 

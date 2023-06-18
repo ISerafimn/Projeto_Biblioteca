@@ -1,7 +1,6 @@
     <?php
     session_start();
-    $var = $_SESSION['variavel'];
-    $cpf = $var;
+    $email_usuario = $_SESSION['email_usuario'];
     
     include('../php/conexao.php');
     
@@ -39,31 +38,31 @@
                     <a href="generos_literario.html">GÊNEROS LITERARIOS</a>
                     <div class="dp-menu">
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="1">
+                            <input name="genero" value="Romance">
                             <button type="submit" name="Submit">Romance</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="2">
+                            <input name="genero" value="Fantasia">
                             <button type="submit" name="Submit">Fantasia</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="3">
+                            <input name="genero" value="Poesia">
                             <button type="submit" name="Submit">Poesia</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="4">
-                            <button type="submit" name="Submit">Romance</button>
+                            <input name="genero" value="Ficcao">
+                            <button type="submit" name="Submit">Ficção</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="5">
+                            <input name="genero" value="Conto">
                             <button type="submit" name="Submit">Conto</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="6">
+                            <input name="genero" value="Terror">
                             <button type="submit" name="Submit">Terror</button>
                         </form>
                         <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="7">
+                            <input name="genero" value="Aventura">
                             <button type="submit" name="Submit">Ação e Aventura</button>
                         </form>
                     </div>
@@ -98,28 +97,28 @@
         </tr>
 
         <?php
-        $sql = mysqli_query($mysqli, "SELECT  *   FROM    usuario WHERE usuario_cpf='$cpf'");
+        $sql = mysqli_query($mysqli, "SELECT * FROM usuario WHERE email_usuario = '$email_usuario'");
         while ($result = mysqli_fetch_array($sql))
 
             {
-                $id = $result['usuario_id'];
-                $nome = $result['usuario_nome'];
-                $email = $result['usuario_email'];
-                $nascimento = $result['usuario_nascimento'];
-                $cpf = $result['usuario_cpf'];
-                $endereco = $result['usuario_endereco'];
-                $telefone = $result['usuario_telefone'];
+                $id_usuario = $result['id_usuario'];
+                $nome_usuario = $result['nome_usuario'];
+                $email_usuario = $result['email_usuario'];
+                $data_usuario = $result['data_usuario'];
+                $cpf_usuario = $result['cpf_usuario'];
+                $endereco_usuario = $result['endereco_usuario'];
+                $telefone_usuario = $result['telefone_usuario'];
                 echo "<tr>";
-                echo "<td>".$nome."</td>";
-                echo "<td>".$email."</td>";
-                echo "<td>".$nascimento."</td>";
-                echo "<td>".$cpf."</td>";
-                echo "<td>".$endereco."</td>";
-                echo "<td>".$telefone."</td>";
+                echo "<td>".$nome_usuario."</td>";
+                echo "<td>".$email_usuario."</td>";
+                echo "<td>".$data_usuario."</td>";
+                echo "<td>".$cpf_usuario."</td>";
+                echo "<td>".$endereco_usuario."</td>";
+                echo "<td>".$telefone_usuario."</td>";
                 echo "<tr>";
             };
             
-            $_SESSION['var2'] = $id;
+            $_SESSION['id_usuario'] = $id_usuario;
         ?>
 
     </table>

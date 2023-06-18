@@ -1,16 +1,16 @@
 <?php 
 include ('conexao.php');
 session_start();
-$id = $_SESSION['var2'];
+$id_funcionario = $_SESSION['id_funcionario'];
 
-$funcionario_nome=$_POST['funcionario_nome'];
-$funcionario_cargo=$_POST['funcionario_cargo'];
-$funcionario_telefone=$_POST['funcionario_telefone'];
-$funcionario_email=$_POST['funcionario_email'];
+$nome_funcionario=$_POST['nome_funcionario'];
+$email_funcionario=$_POST['email_funcionario'];
+$data_funcionario=$_POST['data_funcionario'];
+$cpf_funcionario=$_POST['cpf_funcionario'];
 
-$_SESSION['variavel'] = $funcionario_cpf;
+$sql = mysqli_query($mysqli,"UPDATE funcionario SET nome_funcionario='$nome_funcionario', email_funcionario='$email_funcionario', data_funcionario='$data_funcionario', cpf_funcionario='$cpf_funcionario' WHERE id_funcionario='$id_funcionario'");
 
-$sql = mysqli_query($mysqli,"UPDATE funcionario SET funcionario_nome='$funcionario_nome', funcionario_cargo='$funcionario_cargo', funcionario_telefone='$funcionario_telefone', funcionario_email='$funcionario_email' WHERE funcionario_id='$id'");
+$_SESSION['email_funcionario'] = $email_funcionario;
 
 header("Location: ../funcionario/perfil.php");
 ?>
