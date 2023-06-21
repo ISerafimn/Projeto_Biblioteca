@@ -21,7 +21,10 @@
                             }
                         ?>
             </div>
-                <input type="text" name="texto">
+                <br><br><br><br><br><br><br>
+                <input type="radio" value="1" required name="sexo">Masculino
+                <input type="radio" value="0" required name="sexo"> Feminino
+
             <button type="submit">Enviar</button>
                 </form>
         </li>

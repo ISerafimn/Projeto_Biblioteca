@@ -2,9 +2,9 @@
 include('conexao.php');
 
 $valor = $_POST['valor'];
-$texto = $_POST['texto'];
+$sexo = $_POST['sexo'];
 
-echo "$valor <br>";
-echo "$texto";
+echo "$sexo <br>";
+echo "$valor";
 
 ?>
