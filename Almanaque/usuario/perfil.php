@@ -68,6 +68,9 @@
                     </div>
                 </li>
                 <li>
+                    <a href="livros.php">LIVROS</a>
+                </li>
+                <li>
                     <a href="contato.html">CONTATO</a>
                 </li>
                 <li>
