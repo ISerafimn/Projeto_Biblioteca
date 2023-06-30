@@ -1,4 +1,4 @@
-# Projeto Biblioteca
+# Projeto Biblioteca Almanaque
  Projeto em grupo de um sistema de biblioteca pública parcialmente online.
 
 ## Conceito
@@ -9,3 +9,5 @@
 
 ### Método de Acesso ao site
  [Página Inicial](https://iserafimn.github.io/Projeto_Biblioteca/site_biblioteca/index.html)
+
+ PS: Muitas funcionabilidades não funcionam nessa hospedagem pelo GitHub, PHP, SQL, etc.
