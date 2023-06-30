@@ -11,11 +11,11 @@
             display: flex;
             justify-content: center;
         }
-        img{
+        .livro img{
             width: 175px;
             height: 250px;
         }
-        button{
+        .livro button{
             margin-top: 10px;
             display: flex;
             margin-left: 10px;
@@ -29,7 +29,7 @@
             border-radius: 10px;
             box-shadow: 5px 5px 5px grey;
         }
-        button:hover{
+        .livro button:hover{
             background-color:rgb(255, 255, 255) ;
             cursor: pointer;
             box-shadow: 5px 5px 5px black;
@@ -44,15 +44,59 @@
         $resultad = $mysqli->query($sql);
         while ($row = mysqli_fetch_array($resultad))
             {
-                echo "<form method='post' action='livro.php'>
-                        <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
-                            <button type='submit' name='Submit'>
+                echo    "<div  class='livro'>
+                            <form method='post' action='livro.php'>
+                                <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
+                                    <button type='submit' name='Submit'>
                                         <div>
                                             <img src='".$row['url_imagem_livro']."'>
                                             <p>".$row['nome_livro']."</p>
                                         </div>
-                            </button>
-                        </form>";
+                                    </button>
+                            </form>
+                        </div>";
+            }
+    ?>
+    </div>
+    <div class='container'>
+    <?php
+        include('conexao.php');
+        $sql = "SELECT * FROM livro ORDER BY id_livro DESC LIMIT 7";
+        $resultad = $mysqli->query($sql);
+        while ($row = mysqli_fetch_array($resultad))
+            {
+                echo    "<div  class='livro'>
+                            <form method='post' action='livro.php'>
+                                <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
+                                    <button type='submit' name='Submit'>
+                                        <div>
+                                            <img src='".$row['url_imagem_livro']."'>
+                                            <p>".$row['nome_livro']."</p>
+                                        </div>
+                                    </button>
+                            </form>
+                        </div>";
+            }
+    ?>
+    </div>
+    <div class='container'>
+    <?php
+        include('conexao.php');
+        $sql = "SELECT * FROM livro ORDER BY id_livro ASC LIMIT 7";
+        $resultad = $mysqli->query($sql);
+        while ($row = mysqli_fetch_array($resultad))
+            {
+                echo    "<div  class='livro'>
+                            <form method='post' action='livro.php'>
+                                <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
+                                    <button type='submit' name='Submit'>
+                                        <div>
+                                            <img src='".$row['url_imagem_livro']."'>
+                                            <p>".$row['nome_livro']."</p>
+                                        </div>
+                                    </button>
+                            </form>
+                        </div>";
             }
     ?>
     </div>

@@ -16,11 +16,30 @@
             display: flex;
             justify-content: center;
         }
-        .item img{
+        .livro img{
             width: 175px;
             height: 250px;
         }
-    </style>
+        .livro button{
+            margin-top: 10px;
+            display: flex;
+            margin-left: 10px;
+            text-align: center;
+            font-weight: bold;
+            padding: 10px;
+            width: 200px;
+            height: 300px;
+            border: 2px solid #161d3a;
+            margin: 12px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px grey;
+        }
+        .livro button:hover{
+            background-color:rgb(255, 255, 255) ;
+            cursor: pointer;
+            box-shadow: 5px 5px 5px black;
+        }
+    </style>  
 </head>
 <body>
     <div style="background-color: #1f1919;">
@@ -90,38 +109,27 @@
             <h1>BEST-SELERS</h1>
         </fieldset>
 
-    <div class="container">
-        <div class="lista">
-            <div class="item">
-                <img src="../imagens/o genio do crime.jpg">
-                <h2>O genio do crime</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/potter.jpg">
-                <h2>Harry Potter e a Pedra Filosofal</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/roubava.jpg">
-                <h2>A Menina que Roubava Livros</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/alquimista.jpg">
-                <h2>O Alquimista</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/cutulo.jpg">
-                <h2>O Chamado de Cthulhu</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/aneis.webp">
-                <h2>O senhor dos aneis</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/principe.jpg">
-                <h2>O pequeno principe</h2>
-            </div>
-        </div>
-    </div> 
+        <div class='container'>
+    <?php
+        include('../php/conexao.php');
+        $sql = "SELECT * FROM livro ORDER BY id_livro ASC LIMIT 7";
+        $resultad = $mysqli->query($sql);
+        while ($row = mysqli_fetch_array($resultad))
+            {
+                echo    "<div  class='livro'>
+                            <form method='post' action='livro.php'>
+                                <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
+                                    <button type='submit' name='Submit'>
+                                        <div>
+                                            <img src='".$row['url_imagem_livro']."'>
+                                            <p>".$row['nome_livro']."</p>
+                                        </div>
+                                    </button>
+                            </form>
+                        </div>";
+            }
+    ?>
+    </div>
 
     <fieldset>
         <h1 style="color: rgba(0, 0, 0, 0);">SLIDERS</h1>
@@ -150,74 +158,50 @@
         <h1>LANÇAMENTOS</h1>
     </fieldset>
 
-    <div class="container">
-        <div class="lista">
-            <div class="item">
-                <img src="../imagens/blonde.PNG">
-                <h2>Box Blonde</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/a_rosa_do_povo.PNG">
-                <h2>A Rosa do Povo</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/o_que_o_vento_susurra.PNG">
-                <h2>O que o Vento Sussurra</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/the_crow.PNG">
-                <h2>The Crow</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/o_menino_de_pijama_listrado.jpg">
-                <h2>O Menino do Pijama Listrado</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/o_manto_da_noite.PNG">
-                <h2>O Manto da Noite</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/o_codigo_da_vinci.jpg">
-                <h2>O Código da Vinci</h2>
-            </div>
-        </div>
+    <div class='container'>
+    <?php
+        $sql = "SELECT * FROM livro ORDER BY id_livro DESC LIMIT 7";
+        $resultad = $mysqli->query($sql);
+        while ($row = mysqli_fetch_array($resultad))
+            {
+                echo    "<div  class='livro'>
+                            <form method='post' action='livro.php'>
+                                <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
+                                    <button type='submit' name='Submit'>
+                                        <div>
+                                            <img src='".$row['url_imagem_livro']."'>
+                                            <p>".$row['nome_livro']."</p>
+                                        </div>
+                                    </button>
+                            </form>
+                        </div>";
+            }
+    ?>
     </div>
 
     <fieldset>
-        <h1>INFANTIL</h1>
+        <h1>RECOMENDAÇÕES</h1>
     </fieldset>
-    
-    <div class="container">
-        <div class="lista">
-            <div class="item">
-                <img src="../imagens/cacadas_de_pedrinho.PNG">
-                <h2>Caçadas de Pedrinho</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/o_pequeno_principe_preto.PNG">
-                <h2>O Pequeno Príncipe Preto</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/o_menino_maluquinho.PNG">
-                <h2>O Menino Maluquinho</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/memoria_de_emilia.PNG">
-                <h2>Memórias da Emília</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/turma_da_monica.PNG">
-                <h2>Turma da Mônica</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/sr_avesso.PNG">
-                <h2>Sr. Avesso</h2>
-            </div>
-            <div class="item">
-                <img src="../imagens/123_conta_outra_vez.PNG">
-                <h2>123, Conta Outra Vez</h2>
-            </div>
-        </div>
+
+    <div class='container'>
+    <?php
+        $sql = "SELECT * FROM livro ORDER BY id_livro ASC LIMIT 7";
+        $resultad = $mysqli->query($sql);
+        while ($row = mysqli_fetch_array($resultad))
+            {
+                echo    "<div  class='livro'>
+                            <form method='post' action='livro.php'>
+                                <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
+                                    <button type='submit' name='Submit'>
+                                        <div>
+                                            <img src='".$row['url_imagem_livro']."'>
+                                            <p>".$row['nome_livro']."</p>
+                                        </div>
+                                    </button>
+                            </form>
+                        </div>";
+            }
+    ?>
     </div>
 
     <fieldset>

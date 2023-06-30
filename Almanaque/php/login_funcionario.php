@@ -23,7 +23,7 @@ if(isset($_POST['email_funcionario']) || isset($_POST['senha_funcionario'])) {
 
         if($quantidade == 1) {
 
-            header("Location: ../funcionario/index.html");
+            header("Location: ../funcionario/index.php");
 
         } else {
             header("Location: ../funcionario_login.html");
