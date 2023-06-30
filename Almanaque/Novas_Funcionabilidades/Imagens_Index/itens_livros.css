@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* padronização do estilo de exibição dos livros*/
+  div.lista{
+  margin-top: 10px;
+  display: flex;
+  margin-left: 10px;
+  }
+  
+  div.item{
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  width: 200px;
+  border: 2px solid #161d3a;
+  margin: 12px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px grey;
+  }
+  
+  div.item:hover{
+  background-color:rgb(255, 255, 255) ;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px black;
+  }
