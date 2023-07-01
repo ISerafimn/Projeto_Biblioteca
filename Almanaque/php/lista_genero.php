@@ -55,7 +55,7 @@
                     <a href="../contato.html">CONTATO</a>
                 </li>
                 <li>
-                    <a href="../index.html">HOME</a>
+                    <a href="../index.php">HOME</a>
                 </li>
                 <li class="dropdown">
                 <a href="../usuario_login.html" style="width: 125px; text-align: center;">ENTRAR</a>

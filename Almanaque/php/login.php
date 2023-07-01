@@ -23,7 +23,7 @@ if(isset($_POST['email_usuario']) || isset($_POST['senha_usuario'])) {
 
         if($quantidade == 1) {
 
-            header("Location: ../usuario/index.html");
+            header("Location: ../usuario/index.php");
 
         } else {
             header("Location: ../usuario_login.html");

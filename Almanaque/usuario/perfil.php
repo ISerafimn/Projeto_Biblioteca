@@ -74,7 +74,7 @@
                     <a href="contato.html">CONTATO</a>
                 </li>
                 <li>
-                    <a href="index.html">HOME</a>
+                    <a href="index.php">HOME</a>
                 </li>
                 <li class="dropdown">
                     <a href="perfil.php" style="width: 125px; text-align: center;">PERFIL</a>

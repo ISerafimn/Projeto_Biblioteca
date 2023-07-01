@@ -59,7 +59,7 @@
                 </div>
             </li>
             <li>
-                <a href="index.html">HOME</a>
+                <a href="index.php">HOME</a>
             </li>
         </ul> 
     </nav>

@@ -2,12 +2,12 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../design/index.css">
-    <link rel="stylesheet" href="../design/menu.css">
-    <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="design/index.css">
+    <link rel="stylesheet" href="design/menu.css">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="../javascript/script.js" defer></script>
+    <script src="javascript/script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Almanaque</title>
     <style>
@@ -85,24 +85,16 @@
                     <a href="contato.html">CONTATO</a>
                 </li>
                 <li class="dropdown">
-                    <a href="gerenciar.html" style="width: 150px; text-align: center;">GERENCIAR</a>
-                    <div class="dp-menu" style="width: 150px; text-align: center;">
-                        <a href="livro_lista.php">Livros</a>
-                        <a href="usuario_lista.php">Usuarios</a>
-                        <a href="movimentacao_lista.php">Movimentação</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="perfil.php" style="width: 125px; text-align: center;">PERFIL</a>
-                    <div class="dp-menu" style="width: 125px; text-align: center;">
-                        <a href="perfil.php">Meu Perfil</a>
-                        <a href="../php/logout.php">Sair</a>
+                    <a href="usuario_login.html" style="width: 125px; text-align: center;">ENTRAR</a>
+                    <div class="dp-menu">
+                        <a href="usuario_login.html">Login</a>
+                        <a href="usuario_cadastro.html">Cadastra-se</a>
                     </div>
                 </li>
             </ul> 
         </nav>
-
-        <img src="../imagens/estante_digital.png" width="100%" height="auto">
+        
+        <img src="imagens/estante_digital.png" width="100%" height="auto">
     </div>
         <br>
         <fieldset>
@@ -111,7 +103,7 @@
 
         <div class='container'>
     <?php
-        include('../php/conexao.php');
+        include('php/conexao.php');
         $sql = "SELECT * FROM livro ORDER BY id_livro ASC LIMIT 7";
         $resultad = $mysqli->query($sql);
         while ($row = mysqli_fetch_array($resultad))
@@ -138,16 +130,16 @@
     <div class="slider-container">
         <div class="slider">
             <div class="slide">
-                <img src="../imagens/banner2.png" alt="Imagem 1">
+                <img src="imagens/banner2.png" alt="Imagem 1">
             </div>
             <div class="slide">
-                <img src="../imagens/banner3.png" alt="Imagem 2">
+                <img src="imagens/banner3.png" alt="Imagem 2">
             </div>
             <div class="slide">
-                <img src="../imagens/banner.png" alt="Imagem 3">
+                <img src="imagens/banner.png" alt="Imagem 3">
             </div>
             <div class="slide">
-                <img src="../imagens/banner4.png" alt="Imagem 3">
+                <img src="imagens/banner4.png" alt="Imagem 3">
             </div>  
         </div>
             <div class="prev">&#10094;</div>
@@ -211,16 +203,16 @@
     <div class="slider-container">
         <div class="slider">
             <div class="slide">
-                <img src="../imagens/banner2.png" alt="Imagem 1">
+                <img src="imagens/banner2.png" alt="Imagem 1">
             </div>
             <div class="slide">
-                <img src="../imagens/banner3.png" alt="Imagem 2">
+                <img src="imagens/banner3.png" alt="Imagem 2">
             </div>
             <div class="slide">
-                <img src="../imagens/banner.png" alt="Imagem 3">
+                <img src="imagens/banner.png" alt="Imagem 3">
             </div>
             <div class="slide">
-                <img src="../imagens/banner4.png" alt="Imagem 3">
+                <img src="imagens/banner4.png" alt="Imagem 3">
             </div>  
         </div>
             <div class="prev">&#10094;</div>
