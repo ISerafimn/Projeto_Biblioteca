@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 01/07/2023 às 17:38
+-- Tempo de geração: 02/07/2023 às 01:34
 -- Versão do servidor: 8.0.30
 -- Versão do PHP: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `biblioteca`
+-- Banco de dados: `biblioteca_publica`
 --
 
 -- --------------------------------------------------------
@@ -47,7 +47,13 @@ INSERT INTO `autor` (`id_autor`, `nome_autor`, `pais_autor`, `nascimento_autor`,
 (5, 'Jorge Luís Borges', 'Argentino', 1899, 1986),
 (8, 'Stephen King', 'Estadunidense', 1947, NULL),
 (9, 'Edgar Allan Poe ', 'Estadunidense', 1809, 1849),
-(10, 'H.P. Lovecraft', 'Estadunidense', 1890, 1937);
+(10, 'H.P. Lovecraft', 'Estadunidense', 1890, 1937),
+(11, 'C.S Lewis', 'Reino Unido', 1898, 1963),
+(12, 'Rodrigo Bibo', 'Brasil', 1985, NULL),
+(13, 'Jonas Madureira', 'Brasil', 1976, NULL),
+(14, 'Paul Washer', 'Estados Unidos', 1961, NULL),
+(15, 'Friedrich Nietzsche', 'Alemanha', 1844, 1900),
+(16, 'Niccolo Machiavelli', 'Itália', 1496, 1527);
 
 -- --------------------------------------------------------
 
@@ -111,7 +117,16 @@ INSERT INTO `livro` (`id_livro`, `nome_livro`, `genero_livro`, `editora_livro`, 
 (12, 'Carrie, a estranha', 'Terror', 'Não Identificada', 1, 1, 'https://m.media-amazon.com/images/I/51ca8fuem0L._SX331_BO1,204,203,200_.jpg', 'Carrie é uma adolescente tímida e solitária. Aos 16 anos, é completamente dominada pela mãe, uma fanática religiosa que reprime todas as vontades e descobertas normais aos jovens de sua idade. Para Carrie, tudo é pecado. Viver é enfrentar todo dia o terrível peso da culpa. Para os colegas de escola, e até para os professores, Carrie é uma garota estranha, incapaz de conviver com os outros. Cada vez mais isolada, ela sofre com o sarcasmo e o deboche dos colegas. No entanto, há um segredo por trás de sua aparência frágil...', 8),
 (13, 'O corvo', 'Terror', ' Companhia das Letras', 1, 3, 'https://m.media-amazon.com/images/I/515xkV5l3XL._SX331_BO1,204,203,200_.jpg', 'A morte de uma mulher bela é, sem sombra de dúvida, o tema mais poético do mundo.\" Assim Edgar Allan Poe justificaria a gênese de \"O corvo\", poema publicado sob pseudônimo originalmente em 1845. Mas o que faz com que esses versos hipnotizantes sobre perda e desejo, escritos de modo tão calculado pelo mestre do terror há quase dois séculos, tenham merecido tantos elogios e tamanha controvérsia?\r\nNesta edição, o leitor vai conhecer as traduções mais notáveis de \"O corvo\" para a nossa língua ― as de Fernando Pessoa e Machado de Assis...', 9),
 (14, 'O chamado de Cthulhu e outros contos', 'Terror', 'Não Identificada', 1, 3, 'https://m.media-amazon.com/images/I/51t-2xkikXL._SX331_BO1,204,203,200_.jpg', 'O Chamado de Cthulhu é um conto do norte-americano H.P. Lovecraft que logo se tornou um clássico do terror. Foi escrito em 1926 e publicado pela primeira vez na revista estadunidense Weird Tales em fevereiro de 1928. Cthulhu é um deus que nas primeiras páginas do conto aparece como um ídolo de argila quase indescritível, possuindo um culto multimilenar dedicado a trazê-lo de volta, o seu retorno desencadearia o fim da humanidade. Neste livro, encontramos esse clássico e mais sete contos consagrados do autor na literatura de terror.', 10),
-(15, 'A busca por Kadath e outros contos de arrepiar', 'Terror', 'Não Identificada', 1, 1, 'https://m.media-amazon.com/images/I/51kkSKSfcBL.jpg', '\"Carter se perguntava como a Terra continuava a se estender Lá embaixo.\r\nTinha certeza de que estavam em um reino de noite eterna.\"\r\n\r\nNinguém nunca esteve em Kadath, ninguém nunca conseguiu chegar lá. Mas Randolph Carter conhecia seu significado.\r\nA busca por esse lugar onírico é uma das mais famosas viagens ao mundo de H.p. Lovecraft.', 10);
+(15, 'A busca por Kadath e outros contos de arrepiar', 'Terror', 'Não Identificada', 1, 1, 'https://m.media-amazon.com/images/I/51kkSKSfcBL.jpg', '\"Carter se perguntava como a Terra continuava a se estender Lá embaixo.\r\nTinha certeza de que estavam em um reino de noite eterna.\"\r\n\r\nNinguém nunca esteve em Kadath, ninguém nunca conseguiu chegar lá. Mas Randolph Carter conhecia seu significado.\r\nA busca por esse lugar onírico é uma das mais famosas viagens ao mundo de H.p. Lovecraft.', 10),
+(16, 'Cristianismo puro e simples', 'Literatura cristã', '‎ Thomas Nelson Brasil', 1, 3, 'https://m.media-amazon.com/images/I/91YQ3e1VNKL.jpg', 'Em um dos períodos mais sombrios da humanidade, a Segunda Guerra Mundial, C.S. Lewis foi convidado pela BBC a fazer uma série de palestras pelo rádio com o intuito de explicar bases da fé cristã de forma simples e clara. Mais tarde, ajustado pelo próprio Lewis, esse material daria origem a Cristianismo puro e simples, um grande clássico da literatura cristã.  ', 11),
+(17, 'As crônicas de Nárnia - O leão, a feiticeira e o guarda-roupa: O leão, a feiticeira e o guarda-roupa', 'Fantasia', ' WMF Martins Fontes', 2, 2, 'https://m.media-amazon.com/images/I/7158aW38zxL.jpg', '\'Dizem que Aslam está a caminho. Talvez já tenha chegado\', sussurrou o Castor. Edmundo experimentou uma misteriosa sensação de horror. Pedro sentiu-se valente e vigoroso. Para Susana, foi como se uma música deliciosa tivesse enchido o ar. E Lúcia teve aquele mesmo sentimento que nos desperta a chegada do verão. Assim, no coração da terra encantada de Nárnia, as crianças lançaram-se na mais excitante e mágica aventura que alguém já escreveu.', 11),
+(18, 'O Deus que destrói sonhos', 'Literatura cristã', '‎ Thomas Nelson Brasil', 1, 5, 'https://m.media-amazon.com/images/I/51uLDBFvH4L._SX332_BO1,204,203,200_.jpg', 'O Deus cristão não pode ser domesticado. \r\n\r\nUma tentação constante que cerca a vida cristã é a inversão do chamado: a presunção de que Deus precisa abençoar nosso caminho e seguir nossos planos e sonhos. Essa postura é enganosa e faz parecer que Deus só é fiel quando nos abençoa. Mas e se Deus derrubar o nosso sorvete, ele deixa de ser fiel? Claro que não! Ele continua sendo um Pai sábio e um Deus misericordioso mesmo em meio às nossas frustrações. Às vezes, ele só quer chamar nossa atenção para o caminho certo. Você já deve ter testemunhado gente adulta se comportando como criança por não ter a vida que pediu a Deus. É porque pediu errado!  \r\n\r\nNeste livro, Rodrigo Bibo, do podcast Bibotalk, apresenta o caminho do discipulado, o meio para “sonhar” o que Deus já planejou. Aprenda a enxergar e seguir a vontade soberana de Deus expressa em Sua Palavra, tendo uma vida de serviço dedicada a Cristo. ', 12),
+(19, 'Inteligência humilhada', 'Literatura cristã', 'Vida Nova', 1, 3, 'https://m.media-amazon.com/images/P/B0735JH8PQ.01._SCLZZZZZZZ_SX500_.jpg', 'Inteligência humilhada é fruto de uma cuidadosa reflexão sobre como se relacionam o conhecimento de Deus e os limites da razão humana. Além disso, é o resgate de uma tradição do pensamento cristão que sempre se recusou a reduzir o debate entre fé e razão nos termos do racionalismo ou do fideísmo. A finalidade do conceito de “inteligência humilhada” é despertar o interesse por uma razão que ora e uma fé que pensa. Seguindo o conselho de João de Salisbúria, Jonas Madureira subiu nos ombros de cinco gigantes da tradição cristã: Agostinho de Hipona, Anselmo da Cantuária, João Calvino, Blaise Pascal e Herman Dooyeweerd. Todos eles serviram de ponto de partida e fundamentação do conceito. Ao longo deste livro, essas cinco vozes, sobretudo a de Agostinho, são ouvidas nos mais diversos assuntos: teologia propriamente dita, revelação natural, problema do mal, gramática da antropologia bíblica, formação de um teólogo entre outros.', 13),
+(20, 'O custo do Discipulado', 'Literatura cristã', 'Editora Fiel', 1, 3, 'https://m.media-amazon.com/images/I/51NQiWbfrPL._SX331_BO1,204,203,200_.jpg', 'O DISCIPULADO QUE NOS FAZ MAIS PARECIDOS COM JESUS Neste livro, Jonas Madureira nos apresenta o modelo mimético do discipulado cristão. Em sua abordagem, somos primeiro encorajados a ver em Cristo o modelo supremo a ser seguido em nossa vida cristã, e, a partir de Cristo, somos encorajados a ajudar pessoas a serem também imitadoras dele. Em O custo do discipulado, aprendemos que a chamada mais importante de nossa vida é seguir Jesus e que, ao segui-lo, assumimos também o compromisso de levar pessoas a segui-lo.', 13),
+(21, 'O verdadeiro Evangelho', 'Literatura cristã', 'Editora Fiel', 1, 2, 'https://m.media-amazon.com/images/I/51GMzLzGPEL._SX374_BO1,204,203,200_.jpg', 'Deus tem dado a Paul Washer uma mensagem oportuna e profética para a igreja dos nossos tempos. Ao analisar esta geração, ele afirma que o problema principal não é a dureza do evangelho, mas a ignorância de seu conteúdo. Como resposta a isso, Washer tem pregado em diversas ocasiões as verdades fundamentais do evangelho (o pecado do homem, a justiça de Deus, o sacrifício, a ressurreição de Cristo, etc). Baseado em várias exposições de Romanos 3, o Verdadeiro Evangelho busca apresentar aquilo que Deus fez em Cristo, a fim de ele mesmo ser justo e o justificador daquele que tem fé em Jesus (Rm 3:26).', 14),
+(22, 'Assim falou Zaratustra', 'Romance filosófico', 'Martin Claret', 1, 2, 'https://m.media-amazon.com/images/I/51+cuZsnIrS._SX312_BO1,204,203,200_.jpg', 'Após dez anos de isolamento na montanha, Zaratustra decide voltar ao convívio dos homens, a fim de passar adiante o fruto de sua contemplação e anunciar a vinda do Übermensch, ou super-homem. A tarefa do profeta, contudo, será tortuosa, pois poucos são os eleitos e muitos os seus inimigos. Assim falou Zaratustra é um romance filosófico em que Nietzsche toma o nome do sábio persa criador do Zoroastrismo para esmiuçar algumas das questões fundamentais de sua obra, tais como a autossuperação e a necessidade de se libertar de qualquer força que iniba ou limite a vida e a vontade do indivíduo. Nietzsche é tão influente como controverso. Sua crítica à moral e aos valores judaico-cristãos ― um dos aspectos mais marcantes de sua obra ― não raro desperta a hostilidade de leitores e estudiosos. Contudo, suas contribuições marcaram o pensamento ocidental e são leitura obrigatória para qualquer interessado em filosofia.', 15),
+(23, 'O Anticristo ', 'Filisofia', 'L&PM', 1, 1, 'https://m.media-amazon.com/images/I/41h6cOG0U3L._SX298_BO1,204,203,200_.jpg', 'Escrito em 1888, último ano antes de Friedrich Nietzsche perder a lucidez, este ensaio é uma das mais afiadas análises de que o cristianismo já foi objeto. Dando continuidade ao exame sobre a moral praticado na maioria de seus livros, em O anticristo o autor firma sua posição sobre a doutrina religiosa. Ele mostra como o cristianismo – ao qual chama de maldição – é a vitória dos fracos, doentes e rancorosos sobre os fortes, orgulhosos e saudáveis, persuadindo e induzindo a massa por meio de ideias pré-fabricadas. A partir da comparação com outras religiões, Nietzsche critica com veemência a mudança de foco que o cristianismo opera, uma vez que o centro da vida passa a ser o além e não o mundo presente. Até mesmo Jesus Cristo e o apóstolo Paulo são questionados, assim como grande parte de todos os dogmas cristãos, em um grande exercício filosófico.', 15),
+(24, 'O Príncipe Maquiavel', 'não ficção ', 'Pé da Letra', 1, 2, 'https://m.media-amazon.com/images/I/41I2nopLitL._SX324_BO1,204,203,200_.jpg', 'Mesmo que você nunca tenha ouvido falarem nicolau maquiavel, deve conhecer o termo maquiavélico. Dizemos que uma pessoa a e maquiavélica quando faz qualquer coisas para atingir seu objetivo. Os gins justificam os meios. Esta e a síntese do pensamento maquiavélico que conhecemos hoje. Porem, ao contrário do que muita gente pensa, essa frase não esta em nenhum livro.', 16);
 
 -- --------------------------------------------------------
 
@@ -205,7 +220,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id_autor` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_autor` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `funcionario`
@@ -217,7 +232,7 @@ ALTER TABLE `funcionario`
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id_livro` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_livro` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `movimentacao`
