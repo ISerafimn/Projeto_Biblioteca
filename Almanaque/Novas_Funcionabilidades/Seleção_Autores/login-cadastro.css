@@ -1,0 +1,7 @@
+input{
+    width: 250px;
+    color: black;
+}
+input::-webkit-inner-spin-button{
+    display: none;
+}
