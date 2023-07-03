@@ -52,15 +52,24 @@
                 <a href="contato.html">CONTATO</a>
             </li>
             <li class="dropdown">
+                    <a href="gerenciar.html" style="width: 150px; text-align: center;">GERENCIAR</a>
+                    <div class="dp-menu" style="width: 150px; text-align: center;">
+                        <a href="livro_lista.php">Livros</a>
+                        <a href="usuario_lista.php">Usuarios</a>
+                        <a href="movimentacao_lista.php">Movimentação</a>
+                    </div>
+                </li>
+            <li>
+                <a href="index.php">HOME</a>
+            </li>
+            <li class="dropdown">
                 <a href="perfil.php" style="width: 125px; text-align: center;">PERFIL</a>
                 <div class="dp-menu" style="width: 125px; text-align: center;">
                     <a href="perfil.php">Meu Perfil</a>
                     <a href="../php/logout.php">Sair</a>
                 </div>
             </li>
-            <li>
-                <a href="index.php">HOME</a>
-            </li>
+            
         </ul> 
     </nav>
 

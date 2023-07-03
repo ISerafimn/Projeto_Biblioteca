@@ -93,46 +93,54 @@
                 <a href="consultar_por.html" style="width: 150px; text-align: center;">CONSULTAR por:</a>
                 <div class="dp-menu">
                     <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="livros_id" style="display: none;">
+                        <input name="consultar" value="id_livro" style="display: none;">
                         <button type="submit" name="Submit">Id</button>
                     </form>
                     <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="livros_nome" style="display: none;">
+                        <input name="consultar" value="nome_livro" style="display: none;">
                         <button type="submit" name="Submit">Nome</button>
                     </form>
                     <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="autor_id" style="display: none;">
+                        <input name="consultar" value="id_autor" style="display: none;">
                         <button type="submit" name="Submit">Autor</button>
                     </form>
                     <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="livro_editoria" style="display: none;">
-                        <button type="submit" name="Submit">Editoria</button>
+                        <input name="consultar" value="editora_livro" style="display: none;">
+                        <button type="submit" name="Submit">Editora</button>
                     </form>
                     <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="genero_id" style="display: none;">
-                        <button type="submit" name="Submit">Genero</button>
-                    </form>
-                    <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="livro_num_edicao" style="display: none;">
-                        <button type="submit" name="Submit">Edição</button>
+                        <input name="consultar" value="genero_livro" style="display: none;">
+                        <button type="submit" name="Submit">Gênero</button>
                     </form>
                 </div>
             </li>
             <li>
-                <a href="adicionar_livro.html" style="width: 150px; text-align: center;">Adicionar LIVRO</a>
+                <a href="adicionar_livro.php" style="width: 150px; text-align: center;">Adicionar LIVRO</a>
             </li>
             <li class="dropdown">
                 <a href="atualizar_livro_por.html" style="width: 150px; text-align: center;">ATUALIZAR LIVRO por:</a>
                     <div class="dp-menu" style="width: 150px; text-align: center;">
-                        <a href="php/atualizar_livro_id.php">Id</a>
-                        <a href="php/atualizar_lista_nome.php">Nome</a>
+                        <form method="post" action="variaveis_atualizar_livro.php">
+                            <input name="atualizar" value="id_livro" style="display: none;">
+                            <button type="submit" name="Submit">Id</button>
+                        </form>
+                        <form method="post" action="variaveis_atualizar_livro.php">
+                            <input name="atualizar" value="nome_livro" style="display: none;">
+                            <button type="submit" name="Submit">Nome</button>
+                        </form>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="#" style="width: 150px; text-align: center;">Excluir LIVRO por:</a>
                     <div class="dp-menu" style="width: 150px; text-align: center;">
-                        <a href="excluir_livro.php">Id</a>
-                        <a href="excluir_livro.php">Nome</a>
+                    <form method="post" action="variaveis_excluir_livro.php">
+                        <input name="excluir" value="id_livro" style="display: none;">
+                        <button type="submit" name="Submit">Id</button>
+                    </form>
+                    <form method="post" action="variaveis_excluir_livro.php">
+                        <input name="excluir" value="nome_livro" style="display: none;">
+                        <button type="submit" name="Submit">Nome</button>
+                    </form>
                     </div>
                 </li>
         </ul>
