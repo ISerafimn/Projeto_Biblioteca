@@ -11,6 +11,18 @@
     <script src="javascript/script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Almanaque</title>
+    <style>
+        input::placeholder {
+            color: rgb(52, 52, 52);
+        }
+        input{
+            width: 250px;
+            color: black;
+        }
+        input::-webkit-inner-spin-button{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div style="background-color: #1f1919;">
@@ -85,46 +97,54 @@
                 <a href="consultar_por.html" style="width: 150px; text-align: center;">CONSULTAR por:</a>
                 <div class="dp-menu">
                     <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="livros_id" style="display: none;">
+                        <input name="consultar" value="id_livro" style="display: none;">
                         <button type="submit" name="Submit">Id</button>
                     </form>
                     <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="livros_nome" style="display: none;">
+                        <input name="consultar" value="nome_livro" style="display: none;">
                         <button type="submit" name="Submit">Nome</button>
                     </form>
                     <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="autor_id" style="display: none;">
+                        <input name="consultar" value="id_autor" style="display: none;">
                         <button type="submit" name="Submit">Autor</button>
                     </form>
                     <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="livro_editoria" style="display: none;">
-                        <button type="submit" name="Submit">Editoria</button>
+                        <input name="consultar" value="editora_livro" style="display: none;">
+                        <button type="submit" name="Submit">Editora</button>
                     </form>
                     <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="genero_id" style="display: none;">
-                        <button type="submit" name="Submit">Genero</button>
-                    </form>
-                    <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="livro_num_edicao" style="display: none;">
-                        <button type="submit" name="Submit">Edição</button>
+                        <input name="consultar" value="genero_livro" style="display: none;">
+                        <button type="submit" name="Submit">Gênero</button>
                     </form>
                 </div>
             </li>
             <li>
-                <a href="adicionar_livro.html" style="width: 150px; text-align: center;">Adicionar LIVRO</a>
+                <a href="adicionar_livro.php" style="width: 150px; text-align: center;">Adicionar LIVRO</a>
             </li>
             <li class="dropdown">
                 <a href="atualizar_livro_por.html" style="width: 150px; text-align: center;">ATUALIZAR LIVRO por:</a>
                     <div class="dp-menu" style="width: 150px; text-align: center;">
-                        <a href="php/atualizar_livro_id.php">Id</a>
-                        <a href="php/atualizar_lista_nome.php">Nome</a>
+                        <form method="post" action="variaveis_atualizar_livro.php">
+                            <input name="atualizar" value="id_livro" style="display: none;">
+                            <button type="submit" name="Submit">Id</button>
+                        </form>
+                        <form method="post" action="variaveis_atualizar_livro.php">
+                            <input name="atualizar" value="nome_livro" style="display: none;">
+                            <button type="submit" name="Submit">Nome</button>
+                        </form>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="#" style="width: 150px; text-align: center;">Excluir LIVRO por:</a>
                     <div class="dp-menu" style="width: 150px; text-align: center;">
-                        <a href="excluir_livro.php">Id</a>
-                        <a href="excluir_livro.php">Nome</a>
+                    <form method="post" action="variaveis_excluir_livro.php">
+                        <input name="excluir" value="id_livro" style="display: none;">
+                        <button type="submit" name="Submit">Id</button>
+                    </form>
+                    <form method="post" action="variaveis_excluir_livro.php">
+                        <input name="excluir" value="nome_livro" style="display: none;">
+                        <button type="submit" name="Submit">Nome</button>
+                    </form>
                     </div>
                 </li>
         </ul>
@@ -133,37 +153,56 @@
     <br>
 
     <h1>CADASTRO DE LIVRO</h1>
-
-            <form name="Cadastro livro" method="post" action="../php/variaveis_livro.php">
-                <table>
-                    <tr>
-                        <td>Nome:</td>
-                        <td><input name="livros_nome" type="text" size="50" maxlenght="50"></td>
-                    </tr>
-                    <tr>
-                        <td>Autor:</td>
-                        <td><input name="autor_id" type="number" size="50" maxlenght="50"></td>
-                    </tr>
-                    <tr>
-                        <td>Genero:</td>
-                        <td><input name="genero_id" type="number" size="50" maxlenght="50"></td>
-                    </tr>
-                    <tr>
-                        <td>Editora:</td>
-                        <td><input name="livro_editoria" type="text" size="50" maxlenght="50"></td>
-                    </tr>
-                    <tr>
-                        <td>Número da Edição:</td>
-                        <td><input name="livro_num_edicao" type="number" size="50" maxlenght="50"></td>
-                    </tr>
-                </table>
-                <br>
-                <button type="submit" name="Submit" style="background-color: #000000; border: #000000; color: white;">Concluir Cadastro</button>
-            </form>
-        </div>
-    </section>
-
-    <br>
+    <form method="post" action="../php/variaveis_livro.php">
+        <table>
+            <tr>
+                <td>Nome:</td>
+                <td><input name="nome_livro" type="text" placeholder="Digite o nome do livro"></td>
+            </tr>
+            <tr>
+                <td>Autores:</td>
+                <td>
+                    <select name="name" style="width: 250px; color: rgb(52, 52, 52)">
+                        <option>Autores:</option>
+                        <?php
+                            include('php/conexao.php');
+                            $sql = "SELECT * FROM autor";
+                            $resultad = $mysqli->query($sql);
+                            while ($row = mysqli_fetch_array($resultad))
+                                {
+                                    echo "<option value='".$row['id_autor']."'>".$row['nome_autor']."</option>";
+                                }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Genero:</td>
+                <td><input name="genero_livro" type="text" placeholder="Digite o nome do gênero"></td>
+            </tr>
+            <tr>
+                <td>Editora:</td>
+                <td><input name="editora_livro" type="text" placeholder="Digite o nome da editora"></td>
+            </tr>
+            <tr>
+                <td>Número da Edição:</td>
+                <td><input name="num_edicao_livro" type="number" placeholder="Digite o número da edição"></td>
+            </tr>
+                <td>Sinopse:</td>
+                <td><input name="sinopse_livro" type="text" placeholder="Digite a sinopse do livro"></td>
+            </tr>
+            <tr>
+                <td>Estoque:</td>
+                <td><input name="estoque_livro" type="number" placeholder="Digite o número de livros no estoque"></td>
+            </tr>
+            <tr>
+                <td>Url da Capa</td>
+                <td><input type="text" name="url_imagem_livro" placeholder="Digite a URL da capa do livro"></td>
+            </tr>
+        </table>
+        <br>
+        <button type="submit">Concluir Cadastro</button>
+    </form>
     
 </body>
 </html>

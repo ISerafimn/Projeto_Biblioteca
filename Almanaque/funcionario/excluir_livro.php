@@ -1,7 +1,7 @@
 <?php
     include('../php/conexao.php');
     session_start();
-    $consultar = $_SESSION['consultar'];
+    $excluir = $_SESSION['excluir'];
 ?>
 
 <!DOCTYPE html>
@@ -123,7 +123,8 @@
                             <button type="submit" name="Submit">Nome</button>
                         </form>
                     </div>
-                    <li class="dropdown">
+                </li>
+                <li class="dropdown">
                     <a href="#" style="width: 150px; text-align: center;">Excluir LIVRO por:</a>
                     <div class="dp-menu" style="width: 150px; text-align: center;">
                     <form method="post" action="variaveis_excluir_livro.php">
@@ -168,7 +169,7 @@ else{
         </tr>
         
     <?php
-        if($consultar == "id_livro"){
+        if($excluir == "id_livro"){
 
             include('../php/conexao.php');
 
@@ -198,10 +199,22 @@ else{
                 echo "<td>".$row['num_edicao_livro']."</td>";
                 echo "<td>".$row['estoque_livro']."</td>";
                 echo "<td>".$row['sinopse_livro']."</td>";
-                echo "<tr>";
+                echo "<tr></table>";
+
+                echo "<p>Excluir esse Livro?</p>
+                        <form action='excluindo_livro.php' method='post'>
+                            <input type='text' name='excluindo' value='".$row['id_livro']."' style='display: none;'>
+                            <input type='text' name='valor' value='id_livro' style='display: none;'>
+                            <button type='submit'>Sim</button>
+                        </form>
+                        <form action='index.php'>
+                            <button type='submit'>Não</button>
+                        </form>";
+                
+
             }
         }
-        elseif($consultar == "nome_livro"){
+        else{
             include('../php/conexao.php');
 
             $sql = "SELECT * FROM livro id_livro WHERE nome_livro = '$var'";
@@ -230,107 +243,20 @@ else{
                 echo "<td>".$row['num_edicao_livro']."</td>";
                 echo "<td>".$row['estoque_livro']."</td>";
                 echo "<td>".$row['sinopse_livro']."</td>";
-                echo "<tr>";
-            }
-        }
-        elseif($consultar == "id_autor"){
-            include('../php/conexao.php');
+                echo "<tr></table>";
 
-            $sql = "SELECT * FROM livro id_autor WHERE id_autor = '$var'";
-            $result = $mysqli->query($sql);
-        
-            while ($row = mysqli_fetch_array($result))
-            { 
-                echo "<tr>";
-                echo "<td>".$row['id_livro']."</td>";
-                echo "<td><img src='".$row['url_imagem_livro']."'></td>";
-                echo "<td>".$row['nome_livro']."</td>";
-
-                $id_autor = $row['id_autor'];
-
-                $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
-                    $resultad2 = $mysqli->query($sql2);
-                
-                    while ($row2 = mysqli_fetch_array($resultad2))
-                    { 
-                    
-                        echo "<td>".$row2['nome_autor']."</td>";
-                    }
-
-                echo "<td>".$row['genero_livro']."</td>";
-                echo "<td>".$row['editora_livro']."</td>";
-                echo "<td>".$row['num_edicao_livro']."</td>";
-                echo "<td>".$row['estoque_livro']."</td>";
-                echo "<td>".$row['sinopse_livro']."</td>";
-                echo "<tr>";
-            }
-        }
-        elseif($consultar == "editora_livro"){
-            include('../php/conexao.php');
-
-            $sql = "SELECT * FROM livro id_livro WHERE editora_livro = '$var'";
-            $result = $mysqli->query($sql);
-        
-            while ($row = mysqli_fetch_array($result))
-            { 
-                echo "<tr>";
-                echo "<td>".$row['id_livro']."</td>";
-                echo "<td><img src='".$row['url_imagem_livro']."'></td>";
-                echo "<td>".$row['nome_livro']."</td>";
-
-                $id_autor = $row['id_autor'];
-
-                $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
-                    $resultad2 = $mysqli->query($sql2);
-                
-                    while ($row2 = mysqli_fetch_array($resultad2))
-                    { 
-                    
-                        echo "<td>".$row2['nome_autor']."</td>";
-                    }
-
-                echo "<td>".$row['genero_livro']."</td>";
-                echo "<td>".$row['editora_livro']."</td>";
-                echo "<td>".$row['num_edicao_livro']."</td>";
-                echo "<td>".$row['estoque_livro']."</td>";
-                echo "<td>".$row['sinopse_livro']."</td>";
-                echo "<tr>";
-            }
-        }
-        elseif($consultar == "genero_livro"){
-            include('../php/conexao.php');
-
-            $sql = "SELECT * FROM livro id_livro WHERE genero_livro = '$var'";
-            $result = $mysqli->query($sql);
-        
-            while ($row = mysqli_fetch_array($result))
-            { 
-                echo "<tr>";
-                echo "<td>".$row['id_livro']."</td>";
-                echo "<td><img src='".$row['url_imagem_livro']."'></td>";
-                echo "<td>".$row['nome_livro']."</td>";
-
-                $id_autor = $row['id_autor'];
-
-                $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
-                    $resultad2 = $mysqli->query($sql2);
-                
-                    while ($row2 = mysqli_fetch_array($resultad2))
-                    { 
-                    
-                        echo "<td>".$row2['nome_autor']."</td>";
-                    }
-
-                echo "<td>".$row['genero_livro']."</td>";
-                echo "<td>".$row['editora_livro']."</td>";
-                echo "<td>".$row['num_edicao_livro']."</td>";
-                echo "<td>".$row['estoque_livro']."</td>";
-                echo "<td>".$row['sinopse_livro']."</td>";
-                echo "<tr>";
+                echo "<p>Excluir esse Livro?</p>
+                <form action='excluindo_livro.php' method='post'>
+                    <input type='text' name='excluindo' value='".$row['nome_livro']."' style='display: none;'>
+                    <input type='text' name='valor' value='nome_livro' style='display: none;'>
+                    <button type='submit'>Sim</button>
+                </form>
+                <form action='index.php'>
+                    <button type='submit'>Não</button>
+                </form>";
             }
         }
     }
     ?>
-    </table>
 </body>
 </html>

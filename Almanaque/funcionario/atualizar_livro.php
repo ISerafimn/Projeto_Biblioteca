@@ -1,7 +1,7 @@
 <?php
     include('../php/conexao.php');
     session_start();
-    $consultar = $_SESSION['consultar'];
+    $atualizar = $_SESSION['atualizar'];
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +19,16 @@
     <style>
         img{
             width: 300px;
+        }
+        input::placeholder {
+            color: rgb(52, 52, 52);
+        }
+        input{
+            width: 250px;
+            color: black;
+        }
+        input::-webkit-inner-spin-button{
+            display: none;
         }
     </style>
 </head>
@@ -123,7 +133,8 @@
                             <button type="submit" name="Submit">Nome</button>
                         </form>
                     </div>
-                    <li class="dropdown">
+                </li>
+                <li class="dropdown">
                     <a href="#" style="width: 150px; text-align: center;">Excluir LIVRO por:</a>
                     <div class="dp-menu" style="width: 150px; text-align: center;">
                     <form method="post" action="variaveis_excluir_livro.php">
@@ -141,7 +152,7 @@
 
     <br>
     
-    <p  style="text-align: center;">Digite para Consultar</p>
+    <p  style="text-align: center;">Digite para selecionar o livro que será Atualizado</p>
 
     <form action="#" method="post" style="text-align: center;">
         <input type="text" name="valor">
@@ -168,7 +179,7 @@ else{
         </tr>
         
     <?php
-        if($consultar == "id_livro"){
+        if($atualizar == "id_livro"){
 
             include('../php/conexao.php');
 
@@ -176,7 +187,8 @@ else{
             $result = $mysqli->query($sql);
         
             while ($row = mysqli_fetch_array($result))
-            { 
+            {
+                $id_livro = $row['id_livro'];
                 echo "<tr>";
                 echo "<td>".$row['id_livro']."</td>";
                 echo "<td><img src='".$row['url_imagem_livro']."'></td>";
@@ -198,17 +210,76 @@ else{
                 echo "<td>".$row['num_edicao_livro']."</td>";
                 echo "<td>".$row['estoque_livro']."</td>";
                 echo "<td>".$row['sinopse_livro']."</td>";
-                echo "<tr>";
+                echo "<tr></table>";
+
+
+    ?>
+    <h1>Digite as Inforções Atualizadas</h1>
+
+    <form method="post" action="variaveis_atualizando_livro.php">
+        <table>
+            <tr>
+                <td>Nome:</td>
+                <td><input name="nome_livro" type="text" placeholder="Digite o nome do livro"></td>
+            </tr>
+            <tr>
+                <td>Autores:</td>
+                <td>
+                    <select name="name" style="width: 250px; color: rgb(52, 52, 52)">
+                        <option>Autores:</option>
+                        <?php
+                            include('php/conexao.php');
+                            $sql = "SELECT * FROM autor";
+                            $resultad = $mysqli->query($sql);
+                            while ($row = mysqli_fetch_array($resultad))
+                                {
+                                    echo "<option value='".$row['id_autor']."'>".$row['nome_autor']."</option>";
+                                }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Genero:</td>
+                <td><input name="genero_livro" type="text" placeholder="Digite o nome do gênero"></td>
+            </tr>
+            <tr>
+                <td>Editora:</td>
+                <td><input name="editora_livro" type="text" placeholder="Digite o nome da editora"></td>
+            </tr>
+            <tr>
+                <td>Número da Edição:</td>
+                <td><input name="num_edicao_livro" type="number" placeholder="Digite o número da edição"></td>
+            </tr>
+                <td>Sinopse:</td>
+                <td><input name="sinopse_livro" type="text" placeholder="Digite a sinopse do livro"></td>
+            </tr>
+            <tr>
+                <td>Estoque:</td>
+                <td><input name="estoque_livro" type="number" placeholder="Digite o número de livros no estoque"></td>
+            </tr>
+            <tr>
+                <td>Url da Capa</td>
+                <td><input type="text" name="url_imagem_livro" placeholder="Digite a URL da capa do livro"></td>
+            </tr>
+        </table>
+        <br>
+                                
+    <?php
+                echo "<input type='text' value='".$id_livro."' name='id_livro' style='display: none;'>
+                        <button type='submit'>Concluir Atualização</button>
+                    </form>";
             }
         }
-        elseif($consultar == "nome_livro"){
+        else{
             include('../php/conexao.php');
 
             $sql = "SELECT * FROM livro id_livro WHERE nome_livro = '$var'";
             $result = $mysqli->query($sql);
         
             while ($row = mysqli_fetch_array($result))
-            { 
+            {
+                $id_livro = $row['id_livro'];
                 echo "<tr>";
                 echo "<td>".$row['id_livro']."</td>";
                 echo "<td><img src='".$row['url_imagem_livro']."'></td>";
@@ -230,107 +301,68 @@ else{
                 echo "<td>".$row['num_edicao_livro']."</td>";
                 echo "<td>".$row['estoque_livro']."</td>";
                 echo "<td>".$row['sinopse_livro']."</td>";
-                echo "<tr>";
-            }
-        }
-        elseif($consultar == "id_autor"){
-            include('../php/conexao.php');
+                echo "<tr></table>";
 
-            $sql = "SELECT * FROM livro id_autor WHERE id_autor = '$var'";
-            $result = $mysqli->query($sql);
-        
-            while ($row = mysqli_fetch_array($result))
-            { 
-                echo "<tr>";
-                echo "<td>".$row['id_livro']."</td>";
-                echo "<td><img src='".$row['url_imagem_livro']."'></td>";
-                echo "<td>".$row['nome_livro']."</td>";
+    ?>
 
-                $id_autor = $row['id_autor'];
+    <h1>Digite as Inforções Atualizadas</h1>
 
-                $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
-                    $resultad2 = $mysqli->query($sql2);
-                
-                    while ($row2 = mysqli_fetch_array($resultad2))
-                    { 
-                    
-                        echo "<td>".$row2['nome_autor']."</td>";
-                    }
-
-                echo "<td>".$row['genero_livro']."</td>";
-                echo "<td>".$row['editora_livro']."</td>";
-                echo "<td>".$row['num_edicao_livro']."</td>";
-                echo "<td>".$row['estoque_livro']."</td>";
-                echo "<td>".$row['sinopse_livro']."</td>";
-                echo "<tr>";
-            }
-        }
-        elseif($consultar == "editora_livro"){
-            include('../php/conexao.php');
-
-            $sql = "SELECT * FROM livro id_livro WHERE editora_livro = '$var'";
-            $result = $mysqli->query($sql);
-        
-            while ($row = mysqli_fetch_array($result))
-            { 
-                echo "<tr>";
-                echo "<td>".$row['id_livro']."</td>";
-                echo "<td><img src='".$row['url_imagem_livro']."'></td>";
-                echo "<td>".$row['nome_livro']."</td>";
-
-                $id_autor = $row['id_autor'];
-
-                $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
-                    $resultad2 = $mysqli->query($sql2);
-                
-                    while ($row2 = mysqli_fetch_array($resultad2))
-                    { 
-                    
-                        echo "<td>".$row2['nome_autor']."</td>";
-                    }
-
-                echo "<td>".$row['genero_livro']."</td>";
-                echo "<td>".$row['editora_livro']."</td>";
-                echo "<td>".$row['num_edicao_livro']."</td>";
-                echo "<td>".$row['estoque_livro']."</td>";
-                echo "<td>".$row['sinopse_livro']."</td>";
-                echo "<tr>";
-            }
-        }
-        elseif($consultar == "genero_livro"){
-            include('../php/conexao.php');
-
-            $sql = "SELECT * FROM livro id_livro WHERE genero_livro = '$var'";
-            $result = $mysqli->query($sql);
-        
-            while ($row = mysqli_fetch_array($result))
-            { 
-                echo "<tr>";
-                echo "<td>".$row['id_livro']."</td>";
-                echo "<td><img src='".$row['url_imagem_livro']."'></td>";
-                echo "<td>".$row['nome_livro']."</td>";
-
-                $id_autor = $row['id_autor'];
-
-                $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
-                    $resultad2 = $mysqli->query($sql2);
-                
-                    while ($row2 = mysqli_fetch_array($resultad2))
-                    { 
-                    
-                        echo "<td>".$row2['nome_autor']."</td>";
-                    }
-
-                echo "<td>".$row['genero_livro']."</td>";
-                echo "<td>".$row['editora_livro']."</td>";
-                echo "<td>".$row['num_edicao_livro']."</td>";
-                echo "<td>".$row['estoque_livro']."</td>";
-                echo "<td>".$row['sinopse_livro']."</td>";
-                echo "<tr>";
+    <form method="post" action="variaveis_atualizando_livro.php">
+        <table>
+            <tr>
+                <td>Nome:</td>
+                <td><input name="nome_livro" type="text" placeholder="Digite o nome do livro"></td>
+            </tr>
+            <tr>
+                <td>Autores:</td>
+                <td>
+                    <select name="name" style="width: 250px; color: rgb(52, 52, 52)">
+                        <option>Autores:</option>
+                        <?php
+                            include('php/conexao.php');
+                            $sql = "SELECT * FROM autor";
+                            $resultad = $mysqli->query($sql);
+                            while ($row = mysqli_fetch_array($resultad))
+                                {
+                                    echo "<option value='".$row['id_autor']."'>".$row['nome_autor']."</option>";
+                                }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Genero:</td>
+                <td><input name="genero_livro" type="text" placeholder="Digite o nome do gênero"></td>
+            </tr>
+            <tr>
+                <td>Editora:</td>
+                <td><input name="editora_livro" type="text" placeholder="Digite o nome da editora"></td>
+            </tr>
+            <tr>
+                <td>Número da Edição:</td>
+                <td><input name="num_edicao_livro" type="number" placeholder="Digite o número da edição"></td>
+            </tr>
+                <td>Sinopse:</td>
+                <td><input name="sinopse_livro" type="text" placeholder="Digite a sinopse do livro"></td>
+            </tr>
+            <tr>
+                <td>Estoque:</td>
+                <td><input name="estoque_livro" type="number" placeholder="Digite o número de livros no estoque"></td>
+            </tr>
+            <tr>
+                <td>Url da Capa</td>
+                <td><input type="text" name="url_imagem_livro" placeholder="Digite a URL da capa do livro"></td>
+            </tr>
+        </table>
+        <br>
+                                
+    <?php
+                echo "<input type='text' value='".$id_livro."' name='id_livro' style='display: none;'>
+                        <button type='submit'>Concluir Atualização</button>
+                    </form>";
             }
         }
     }
     ?>
-    </table>
 </body>
 </html>
