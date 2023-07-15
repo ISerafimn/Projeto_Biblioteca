@@ -262,6 +262,7 @@ ALTER TABLE `usuario`
 ALTER TABLE `livro`
   ADD CONSTRAINT `fk_id_autor` FOREIGN KEY (`id_autor`) REFERENCES `autor` (`id_autor`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
+
 --
 -- Restrições para tabelas `movimentacao`
 --

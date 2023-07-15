@@ -13,4 +13,5 @@ $telefone_usuario = $_POST['telefone_usuario'];
 $resultado = mysqli_query($mysqli, "UPDATE usuario SET nome_usuario='$nome_usuario', email_usuario='$email_usuario', cpf_usuario='$cpf_usuario, data_usuario='$data_usuario', senha_usuario='$senha_usuario', endereco_usuario='$endereco_usuario', telefone_usuario='$telefone_usuario'");
 
 header("location: alterar_usuario.html");
+
 ?>
