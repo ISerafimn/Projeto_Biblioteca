@@ -58,7 +58,7 @@
                     <a href="#" style="width: 170px; text-align: center;">GENERENCIAR</a>
                     <div class="dp-menu" style="width: 170px; text-align: center;">
                         <a href="livro_lista.php">Livros</a>
-                        <a href="usuario_lista.php">Usuarios</a>
+                        <a href="../gerenciar_usuario/usuario_lista.php">Usuarios</a>
                         <a href="movimentacao_lista.php">Movimentação</a>
                     </div>
                 </li>
