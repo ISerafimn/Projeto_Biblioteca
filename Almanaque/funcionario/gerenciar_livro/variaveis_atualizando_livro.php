@@ -1,5 +1,5 @@
 <?php
-include('php/conexao.php');
+include('../../php/conexao.php');
 
 $id_livro = $_POST['id_livro'];
 $nome_livro=$_POST['nome_livro'];
