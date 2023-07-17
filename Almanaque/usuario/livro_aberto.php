@@ -63,5 +63,9 @@
             }
         ?>
     </table>
+    <form action="movimentar/retirada_livros.php" method="post">
+    <input type="text" name="id_livro" value="<?php echo "$id_livro"?>" style="display: none;">
+    <button type="submit">Retirar</button>
+    </form>
 </body>
 </html>
