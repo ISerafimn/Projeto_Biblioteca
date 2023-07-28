@@ -143,7 +143,7 @@
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#" style="width: 150px; text-align: center;">Excluir LIVRO por:</a>
+                    <a href="excluir_livro_por.html" style="width: 150px; text-align: center;">Excluir LIVRO por:</a>
                     <div class="dp-menu" style="width: 150px; text-align: center;">
                     <form method="post" action="variaveis_excluir_livro.php">
                         <input name="excluir" value="id_livro" style="display: none;">
