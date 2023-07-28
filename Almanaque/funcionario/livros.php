@@ -107,8 +107,20 @@
 
                 echo "<tr>";
                 echo "<td>".$id_livro."</td>";
-                echo "<td><img src='".$url_imagem_livro."'></td>";
-                echo "<td>".$nome_livro."</td>";
+
+                echo "<td><form method='post' action='livro_aberto.php'>
+                        <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                            <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                                <img src='".$url_imagem_livro."'>
+                            </button>
+                    </form></td>";
+
+                    echo "<td><form method='post' action='livro_aberto.php'>
+                    <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                        <button type='submit' name='Submit' style='border: none; background-color:  ;'>
+                            ".$nome_livro."
+                        </button>
+                    </form></td>";
 
                     $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
                     $resultad2 = $mysqli->query($sql2);

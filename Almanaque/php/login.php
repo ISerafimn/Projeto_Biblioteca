@@ -1,5 +1,5 @@
 <?php
-// sessão iniciada pra mandar a variavel cpf do usuario que fez login pra diversos arquivos
+// sessão iniciada pra mandar a variavel email do usuario que fez login pra diversos lugares
 session_start();
 $_SESSION['email_usuario'] = $email = $_POST['email_usuario'];
 

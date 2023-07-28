@@ -61,10 +61,10 @@
                     <a href="../perfil.php" style="width: 125px; text-align: center;">PERFIL</a>
                     <div class="dp-menu" style="width: 125px; text-align: center;">
                         <a href="../perfil.php">Meu Perfil</a>
-                        <a href="../php/logout.php">Sair</a>
+                        <a href="../../php/logout.php">Sair</a>
                     </div>
                 </li>
-            </ul> 
+            </ul>   
         </nav>
     </div>
 
@@ -92,8 +92,21 @@
     { 
         echo "<tr>";
         echo "<td>".$row['id_livro']."</td>";
-        echo "<td><img src='".$row['url_imagem_livro']."'></td>";
-        echo "<td>".$row['nome_livro']."</td>";
+
+        echo "<td><form method='post' action='../livro_aberto.php'>
+        <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
+            <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                <img src='".$row['url_imagem_livro']."'>
+            </button>
+        </form></td>";
+
+        echo "<td><form method='post' action='../livro_aberto.php'>
+        <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
+            <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                ".$row['nome_livro']."
+            </button>
+        </form></td>";
+
         echo "<td>".$row['id_autor']."</td>";
         echo "<td>".$row['genero_livro']."</td>";
         echo "<td>".$row['editora_livro']."</td>";
