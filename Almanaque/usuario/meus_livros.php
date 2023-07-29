@@ -1,15 +1,23 @@
+<?php
+    session_start();
+    $id_usuario = $_SESSION['id_usuario'];
+    
+    include('../php/conexao.php');
+    
+    ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../design/index.css">
     <link rel="stylesheet" href="../design/menu.css">
-    <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="javascript/script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almanaque</title>
+    <title>Meus Livros</title>
+    <style>
+        img{
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
     <div style="background-color: #1f1919;">
@@ -68,6 +76,78 @@
             </ul> 
         </nav>
     </div>
-    <h1>CONTATO</h1>
+
+    <br>
+
+    <table border="1" style="width:90%; margin: auto;">
+        <tr>
+            <th>ID</th>
+            <th>CAPA</th>
+            <th>NOME</th>
+            <th>AUTOR</th>
+            <th>GENERO</th>
+            <th>EDITORA</th>
+            <th>Nº DA EDIÇÃO</th>
+            <th>ESTOQUE</th>
+            <th>SINOPSE</th>
+            <th>STATUS</th>
+        </tr>
+
+        <?php
+        $sql = mysqli_query($mysqli, "SELECT * FROM movimentacao WHERE id_usuario = '$id_usuario'");
+        while ($result = mysqli_fetch_array($sql))
+
+            {
+                $id_livro = $result['id_livro'];
+                $id_status_movimentacao = $result['id_status_movimentacao'];
+                
+                    $sql2 = mysqli_query($mysqli, "SELECT * FROM livro WHERE id_livro = '$id_livro'");
+                    while ($result2 = mysqli_fetch_array($sql2))
+                    {
+
+                    $id_livro = $result2['id_livro'];
+                    $nome_livro = $result2['nome_livro'];
+                    $id_autor = $result2['id_autor'];
+
+                        $sql3 = mysqli_query($mysqli, "SELECT * FROM autor WHERE id_autor = '$id_autor'");
+                        while ($result3 = mysqli_fetch_array($sql3))
+                        {
+
+                        $nome_autor = $result3['nome_autor'];
+
+                        }
+
+                    $genero_livro = $result2['genero_livro'];
+                    $editora_livro = $result2['editora_livro'];
+                    $num_edicao_livro = $result2['num_edicao_livro'];
+                    $estoque_livro = $result2['estoque_livro'];
+                    $sinopse_livro = $result2['sinopse_livro'];
+                    $url_imagem_livro = $result2['url_imagem_livro'];
+
+                    }
+
+                    $sql4 = mysqli_query($mysqli, "SELECT * FROM status_movimentacao WHERE id_status_movimentacao = '$id_status_movimentacao'");
+                    while ($result4 = mysqli_fetch_array($sql4))
+                    {
+
+                        $nome_status_movimentacao = $result4['nome_status_movimentacao'];
+
+                    }
+
+                echo "<tr>";
+                echo "<td>".$id_livro."</td>";
+                echo "<td><img src='".$url_imagem_livro."'></td>";
+                echo "<td>".$nome_livro."</td>";
+                echo "<td>".$nome_autor."</td>";
+                echo "<td>".$genero_livro."</td>";
+                echo "<td>".$editora_livro."</td>";
+                echo "<td>".$num_edicao_livro."</td>";
+                echo "<td>".$estoque_livro."</td>";
+                echo "<td>".$sinopse_livro."</td>";
+                echo "<td>".$nome_status_movimentacao."</td>";
+                echo "</tr>";
+            };
+        ?>
+    </table>
 </body>
 </html>

@@ -19,6 +19,13 @@ if(isset($_POST['email_usuario']) || isset($_POST['senha_usuario'])) {
         $sql_code = "SELECT * FROM usuario WHERE email_usuario = '$email_usuario' AND senha_usuario = '$senha_usuario'";
         $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
+        $sql = mysqli_query($mysqli, "SELECT * FROM usuario WHERE email_usuario = '$email_usuario'");
+        while ($result = mysqli_fetch_array($sql)){
+            $id_usuario = $result['id_usuario'];
+        };
+
+        $_SESSION['id_usuario'] = $id_usuario;
+
         $quantidade = $sql_query->num_rows;
 
         if($quantidade == 1) {
