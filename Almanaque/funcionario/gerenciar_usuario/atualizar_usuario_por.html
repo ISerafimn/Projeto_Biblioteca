@@ -83,6 +83,9 @@
 
     <nav>
         <ul>
+            <li>
+                <a href="usuario_lista.php" style="width: 150px; text-align: center;">LISTA USUÁRIO</a>
+            </li>
             <li class="dropdown">
                 <a href="consultar_por.html" style="width: 150px; text-align: center;">CONSULTAR por:</a>
                 <div class="dp-menu">

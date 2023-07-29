@@ -61,6 +61,7 @@
                     <a href="../perfil.php" style="width: 125px; text-align: center;">PERFIL</a>
                     <div class="dp-menu" style="width: 125px; text-align: center;">
                         <a href="../perfil.php">Meu Perfil</a>
+                        <a href="../meus_livros.php">Meus Livros</a>
                         <a href="../../php/logout.php">Sair</a>
                     </div>
                 </li>

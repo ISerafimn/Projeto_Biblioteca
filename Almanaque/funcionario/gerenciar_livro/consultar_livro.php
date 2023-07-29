@@ -91,6 +91,9 @@
 
     <nav>
         <ul>
+            <li>
+                <a href="livro_lista.php" style="width: 150px; text-align: center;">LISTA LIVROS</a>
+            </li>
             <li class="dropdown">
                 <a href="consultar_por.html" style="width: 150px; text-align: center;">CONSULTAR por:</a>
                 <div class="dp-menu">
@@ -152,7 +155,7 @@
     <p  style="text-align: center;">Digite para Consultar</p>
 
     <form action="#" method="post" style="text-align: center;">
-        <input type="text" name="valor">
+        <input type="text" name="valor" required>
         <button type="submit" style="background-color: #1f1919; color: white">enviar</button>
     </form>
     <br>
