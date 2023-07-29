@@ -1,7 +1,3 @@
-<?php
-    include('../../php/conexao.php');
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,7 +12,7 @@
     <title>Almanaque</title>
     <style>
         img{
-            width: 200px;
+            width: 300px;
         }
     </style>
 </head>
@@ -148,10 +144,7 @@
                 </li>
         </ul>
     </nav>
-
-    <br>
-
-    <table border="1" style="width:90%; margin: auto;">
+    <table border="1" style="width: 90%; margin: auto;">
         <tr>
             <th>ID</th>
             <th>CAPA</th>
@@ -163,11 +156,12 @@
             <th>ESTOQUE</th>
             <th>SINOPSE</th>
         </tr>
-
         <?php
-        $sql = mysqli_query($mysqli, "SELECT  *   FROM  livro");
-        while ($result = mysqli_fetch_array($sql))
+        include('../php/conexao.php');
+        $id_livro=$_POST['id_livro'];
 
+        $sql = mysqli_query($mysqli, "SELECT  *   FROM  livro WHERE id_livro = '$id_livro'");
+        while ($result = mysqli_fetch_array($sql))
             {
                 $id_livro = $result['id_livro'];
                 $nome_livro = $result['nome_livro'];
@@ -181,20 +175,8 @@
 
                 echo "<tr>";
                 echo "<td>".$id_livro."</td>";
-
-                echo "<td><form method='post' action='livro_aberto.php'>
-                <input name='id_livro' value='".$id_livro."' style='display: none;'>
-                    <button type='submit' name='Submit' style='border: none; background-color: white;'>
-                        <img src='".$url_imagem_livro."'>
-                    </button>
-                </form></td>";
-
-                echo "<td><form method='post' action='livro_aberto.php'>
-                <input name='id_livro' value='".$id_livro."' style='display: none;'>
-                    <button type='submit' name='Submit' style='border: none; background-color:  ;'>
-                        ".$nome_livro."
-                    </button>
-                </form></td>";
+                echo "<td><img src='".$url_imagem_livro."'></td>";
+                echo "<td>".$nome_livro."</td>";
 
                     $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
                     $resultad2 = $mysqli->query($sql2);
@@ -211,9 +193,7 @@
                 echo "<td>".$estoque_livro."</td>";
                 echo "<td>".$sinopse_livro."</td>";
                 echo "</tr>";
-                
-            };
-            
+            }
         ?>
     </table>
 </body>
