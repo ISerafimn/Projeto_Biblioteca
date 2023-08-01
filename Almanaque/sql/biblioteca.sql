@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 02/07/2023 às 01:34
+-- Tempo de geração: 01/08/2023 às 02:23
 -- Versão do servidor: 8.0.30
 -- Versão do PHP: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `biblioteca_publica`
+-- Banco de dados: `biblioteca`
 --
 
 -- --------------------------------------------------------
@@ -75,7 +75,7 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`id_funcionario`, `nome_funcionario`, `email_funcionario`, `data_funcionario`, `cpf_funcionario`, `senha_funcionario`) VALUES
-(1, 'Igor Serafim', 'igorserafimn@gmail.com', '2004-04-10', 147256145, '123'),
+(1, 'Igor S', 'igorserafimn@gmail.com', '2023-07-21', 145481321, '123'),
 (2, 'Felipe Dorosz', 'felipedorosz@gmail.com', '2002-06-14', 987654321, '456'),
 (3, 'Gabryel Cambui', 'gabryelcambui@gmail.com', '2004-06-28', 963852741, '789'),
 (4, 'ewrewd', 'igorserafimedwsfn@gmail.com', '2023-06-02', 5616, '1111');
@@ -111,22 +111,13 @@ INSERT INTO `livro` (`id_livro`, `nome_livro`, `genero_livro`, `editora_livro`, 
 (6, 'A Megera Domada', 'Romance', 'Walcyr Carrasco', 1, 2, 'https://m.media-amazon.com/images/I/51nK+HfD54L._SX341_BO1,204,203,200_.jpg', 'Um Rico Mercador De Pádua, Na Itália, Decide Que Sua Filha Mais Jovem, A Doce Bianca, Só Se Casará Depois Da Mais Velha, A Terrível Catarina. Quem Se Atreveria A Querer Conquistar O Coração De Catarina Só Mesmo O Louco Petrúquio, Que Se Revelaria Também Um Grande Estrategista. Divirta-Se Com Esta Comédia Do Século Xvi, Que Trata De Forma Hilariante A Sempre Atual Guerra Dos Sexos!', 3),
 (7, 'O Idiota', 'Poesia', 'Não Identificada', 1, 2, 'https://m.media-amazon.com/images/I/41BguKPL7AL.jpg', 'Publicado por volta de 1868-1869, «O Idiota» é, porventura, o mais perfeito dos cinco grandes romances de Dostoiévski - na composição, no estilo, no aprofundamento dos personagens. Foi também, de todos os romances do autor, o mais incompreendido na sua época. Dostoiévski pretende, segundo as suas próprias palavras, «criar a imagem do homem positivamente bom», uma encarnação da beleza, da bondade e da humildade, figura de herói entre Dom Quixote e Cristo, mostrando o que pode acontecer a um homem assim, em contato com a realidade.', 4),
 (8, 'Humilhados e Ofendidos', 'Romance', 'Não Identificada', 1, 4, 'https://m.media-amazon.com/images/I/41eKgwYBngL.jpg', 'Nesta obra, narrada pelo jovem escritor Ivan, dois enredos vão convergindo gradualmente. Natascha, amiga de infância e amada de Ivan, foge de casa dos pais para casar com Alyosha, o filho do Príncipe Valkovsky que não aprova esta união. Entretanto Ivan conhece Elena, uma órfã de treze anos, que é adotada por Nicolai, o pai de Natascha. E é ao contar a sua triste história que a menina consegue que Nicolai perdoe a sua filha. Uma narrativa envolvente e cativante onde o sofrimento humano é retratado com mestria.', 4),
-(9, 'Ficções', 'Romance', 'Não Identificada', 1, 3, 'https://m.media-amazon.com/images/I/51wuDcf2I2L.jpg', 'Ficções reúne os contos publicados por Borges em 1941 sob o título de O jardim de veredas que se bifurcam (com exceção de \"A aproximação a Almotásim\", incorporado a outra obra) e outras dez narrativas com o subtítulo de Artifícios. Nesses textos, o leitor se defronta com um narrador inquisitivo que expõe, com elegância e economia de meios, de forma paradoxal e lapidar, suas conjecturas e perplexidades sobre o universo, retomando motivos recorrentes em seus poemas e ensaios desde o início de sua carreira: o tempo, a eternidade, o infinito. Chamam a atenção a frase enxuta, o poder de síntese e o rigor da construção, que tem algo da poesia e outro tanto da prosa filosófica, sem nunca perder o humor desconcertante...', 5),
-(10, 'O aleph', 'Romance', 'Não Identificada', 1, 6, 'https://m.media-amazon.com/images/I/41e7Yq1honL.jpg', 'Publicado em 1949, O aleph é considerado pela crítica um dos pontos culminantes da ficção de Borges. Em sua maioria, \"as peças deste livro correspondem ao gênero fantástico\", esclarece o autor no epílogo da obra. Nelas, ele exerce seu modo característico de manipular a \"realidade\": as coisas da vida real deslizam para contextos incomuns e ganham significados extraordinários, ao mesmo tempo em que fenômenos bizarros se introduzem em cenários prosaicos. Os motivos borgeanos recorrentes do tempo, do infinito, da imortalidade e da perplexidade metafísica jamais se perdem na pura abstração; ao contrário, ganham carnadura concreta nas tramas, nas imagens, na sintaxe, que também são capazes de resgatar uma profunda sondagem do processo histórico argentino...', 5),
-(11, 'It: A coisa', 'Terror', 'Não Identificada', 1, 2, 'https://m.media-amazon.com/images/I/51z0s3GcvwL._SX346_BO1,204,203,200_.jpg', 'Durante as férias de 1958, em uma pacata cidadezinha chamada Derry, um grupo de sete amigos começa a ver coisas estranhas. Um conta que viu um palhaço, outro que viu uma múmia. Finalmente, acabam descobrindo que estavam todos vendo a mesma coisa: um ser sobrenatural e maligno que pode assumir várias formas. É assim que Bill, Beverly, Eddie, Ben, Richie, Mike e Stan enfrentam a Coisa pela primeira vez...', 8),
 (12, 'Carrie, a estranha', 'Terror', 'Não Identificada', 1, 1, 'https://m.media-amazon.com/images/I/51ca8fuem0L._SX331_BO1,204,203,200_.jpg', 'Carrie é uma adolescente tímida e solitária. Aos 16 anos, é completamente dominada pela mãe, uma fanática religiosa que reprime todas as vontades e descobertas normais aos jovens de sua idade. Para Carrie, tudo é pecado. Viver é enfrentar todo dia o terrível peso da culpa. Para os colegas de escola, e até para os professores, Carrie é uma garota estranha, incapaz de conviver com os outros. Cada vez mais isolada, ela sofre com o sarcasmo e o deboche dos colegas. No entanto, há um segredo por trás de sua aparência frágil...', 8),
 (13, 'O corvo', 'Terror', ' Companhia das Letras', 1, 3, 'https://m.media-amazon.com/images/I/515xkV5l3XL._SX331_BO1,204,203,200_.jpg', 'A morte de uma mulher bela é, sem sombra de dúvida, o tema mais poético do mundo.\" Assim Edgar Allan Poe justificaria a gênese de \"O corvo\", poema publicado sob pseudônimo originalmente em 1845. Mas o que faz com que esses versos hipnotizantes sobre perda e desejo, escritos de modo tão calculado pelo mestre do terror há quase dois séculos, tenham merecido tantos elogios e tamanha controvérsia?\r\nNesta edição, o leitor vai conhecer as traduções mais notáveis de \"O corvo\" para a nossa língua ― as de Fernando Pessoa e Machado de Assis...', 9),
 (14, 'O chamado de Cthulhu e outros contos', 'Terror', 'Não Identificada', 1, 3, 'https://m.media-amazon.com/images/I/51t-2xkikXL._SX331_BO1,204,203,200_.jpg', 'O Chamado de Cthulhu é um conto do norte-americano H.P. Lovecraft que logo se tornou um clássico do terror. Foi escrito em 1926 e publicado pela primeira vez na revista estadunidense Weird Tales em fevereiro de 1928. Cthulhu é um deus que nas primeiras páginas do conto aparece como um ídolo de argila quase indescritível, possuindo um culto multimilenar dedicado a trazê-lo de volta, o seu retorno desencadearia o fim da humanidade. Neste livro, encontramos esse clássico e mais sete contos consagrados do autor na literatura de terror.', 10),
 (15, 'A busca por Kadath e outros contos de arrepiar', 'Terror', 'Não Identificada', 1, 1, 'https://m.media-amazon.com/images/I/51kkSKSfcBL.jpg', '\"Carter se perguntava como a Terra continuava a se estender Lá embaixo.\r\nTinha certeza de que estavam em um reino de noite eterna.\"\r\n\r\nNinguém nunca esteve em Kadath, ninguém nunca conseguiu chegar lá. Mas Randolph Carter conhecia seu significado.\r\nA busca por esse lugar onírico é uma das mais famosas viagens ao mundo de H.p. Lovecraft.', 10),
-<<<<<<< HEAD
-(16, 'Cristianismo puro e simples', 'Literatura cristã', ' Thomas Nelson Brasil', 1, 3, 'https://m.media-amazon.com/images/I/91YQ3e1VNKL.jpg', 'Em um dos períodos mais sombrios da humanidade, a Segunda Guerra Mundial, C.S. Lewis foi convidado pela BBC a fazer uma série de palestras pelo rádio com o intuito de explicar bases da fé cristã de forma simples e clara. Mais tarde, ajustado pelo próprio Lewis, esse material daria origem a Cristianismo puro e simples, um grande clássico da literatura cristã.  ', 11),
-(17, 'As crônicas de Nárnia - O leão, a feiticeira e o guarda-roupa: O leão, a feiticeira e o guarda-roupa', 'Fantasia', ' WMF Martins Fontes', 2, 2, 'https://m.media-amazon.com/images/I/7158aW38zxL.jpg', '\'Dizem que Aslam está a caminho. Talvez já tenha chegado\', sussurrou o Castor. Edmundo experimentou uma misteriosa sensação de horror. Pedro sentiu-se valente e vigoroso. Para Susana, foi como se uma música deliciosa tivesse enchido o ar. E Lúcia teve aquele mesmo sentimento que nos desperta a chegada do verão. Assim, no coração da terra encantada de Nárnia, as crianças lançaram-se na mais excitante e mágica aventura que alguém já escreveu.', 11),
-(18, 'O Deus que destrói sonhos', 'Literatura cristã',  Thomas Nelson Brasil', 1, 5, 'https://m.media-amazon.com/images/I/51uLDBFvH4L._SX332_BO1,204,203,200_.jpg', 'O Deus cristão não pode ser domesticado. \r\n\r\nUma tentação constante que cerca a vida cristã é a inversão do chamado: a presunção de que Deus precisa abençoar nosso caminho e seguir nossos planos e sonhos. Essa postura é enganosa e faz parecer que Deus só é fiel quando nos abençoa. Mas e se Deus derrubar o nosso sorvete, ele deixa de ser fiel? Claro que não! Ele continua sendo um Pai sábio e um Deus misericordioso mesmo em meio às nossas frustrações. Às vezes, ele só quer chamar nossa atenção para o caminho certo. Você já deve ter testemunhado gente adulta se comportando como criança por não ter a vida que pediu a Deus. É porque pediu errado!  \r\n\r\nNeste livro, Rodrigo Bibo, do podcast Bibotalk, apresenta o caminho do discipulado, o meio para “sonhar” o que Deus já planejou. Aprenda a enxergar e seguir a vontade soberana de Deus expressa em Sua Palavra, tendo uma vida de serviço dedicada a Cristo. ', 12),
-=======
 (16, 'Cristianismo puro e simples', 'Literatura cristã', 'Thomas Nelson Brasil', 1, 3, 'https://m.media-amazon.com/images/I/91YQ3e1VNKL.jpg', 'Em um dos períodos mais sombrios da humanidade, a Segunda Guerra Mundial, C.S. Lewis foi convidado pela BBC a fazer uma série de palestras pelo rádio com o intuito de explicar bases da fé cristã de forma simples e clara. Mais tarde, ajustado pelo próprio Lewis, esse material daria origem a Cristianismo puro e simples, um grande clássico da literatura cristã.  ', 11),
 (17, 'As crônicas de Nárnia - O leão, a feiticeira e o guarda-roupa: O leão, a feiticeira e o guarda-roupa', 'Fantasia', ' WMF Martins Fontes', 2, 2, 'https://m.media-amazon.com/images/I/7158aW38zxL.jpg', '\'Dizem que Aslam está a caminho. Talvez já tenha chegado\', sussurrou o Castor. Edmundo experimentou uma misteriosa sensação de horror. Pedro sentiu-se valente e vigoroso. Para Susana, foi como se uma música deliciosa tivesse enchido o ar. E Lúcia teve aquele mesmo sentimento que nos desperta a chegada do verão. Assim, no coração da terra encantada de Nárnia, as crianças lançaram-se na mais excitante e mágica aventura que alguém já escreveu.', 11),
 (18, 'O Deus que destrói sonhos', 'Literatura cristã', 'Thomas Nelson Brasil', 1, 5, 'https://m.media-amazon.com/images/I/51uLDBFvH4L._SX332_BO1,204,203,200_.jpg', 'O Deus cristão não pode ser domesticado. \r\n\r\nUma tentação constante que cerca a vida cristã é a inversão do chamado: a presunção de que Deus precisa abençoar nosso caminho e seguir nossos planos e sonhos. Essa postura é enganosa e faz parecer que Deus só é fiel quando nos abençoa. Mas e se Deus derrubar o nosso sorvete, ele deixa de ser fiel? Claro que não! Ele continua sendo um Pai sábio e um Deus misericordioso mesmo em meio às nossas frustrações. Às vezes, ele só quer chamar nossa atenção para o caminho certo. Você já deve ter testemunhado gente adulta se comportando como criança por não ter a vida que pediu a Deus. É porque pediu errado!  \r\n\r\nNeste livro, Rodrigo Bibo, do podcast Bibotalk, apresenta o caminho do discipulado, o meio para “sonhar” o que Deus já planejou. Aprenda a enxergar e seguir a vontade soberana de Deus expressa em Sua Palavra, tendo uma vida de serviço dedicada a Cristo. ', 12),
->>>>>>> 20f0f30f4e5b2788a5c52e69a4db659462648c1d
 (19, 'Inteligência humilhada', 'Literatura cristã', 'Vida Nova', 1, 3, 'https://m.media-amazon.com/images/P/B0735JH8PQ.01._SCLZZZZZZZ_SX500_.jpg', 'Inteligência humilhada é fruto de uma cuidadosa reflexão sobre como se relacionam o conhecimento de Deus e os limites da razão humana. Além disso, é o resgate de uma tradição do pensamento cristão que sempre se recusou a reduzir o debate entre fé e razão nos termos do racionalismo ou do fideísmo. A finalidade do conceito de “inteligência humilhada” é despertar o interesse por uma razão que ora e uma fé que pensa. Seguindo o conselho de João de Salisbúria, Jonas Madureira subiu nos ombros de cinco gigantes da tradição cristã: Agostinho de Hipona, Anselmo da Cantuária, João Calvino, Blaise Pascal e Herman Dooyeweerd. Todos eles serviram de ponto de partida e fundamentação do conceito. Ao longo deste livro, essas cinco vozes, sobretudo a de Agostinho, são ouvidas nos mais diversos assuntos: teologia propriamente dita, revelação natural, problema do mal, gramática da antropologia bíblica, formação de um teólogo entre outros.', 13),
 (20, 'O custo do Discipulado', 'Literatura cristã', 'Editora Fiel', 1, 3, 'https://m.media-amazon.com/images/I/51NQiWbfrPL._SX331_BO1,204,203,200_.jpg', 'O DISCIPULADO QUE NOS FAZ MAIS PARECIDOS COM JESUS Neste livro, Jonas Madureira nos apresenta o modelo mimético do discipulado cristão. Em sua abordagem, somos primeiro encorajados a ver em Cristo o modelo supremo a ser seguido em nossa vida cristã, e, a partir de Cristo, somos encorajados a ajudar pessoas a serem também imitadoras dele. Em O custo do discipulado, aprendemos que a chamada mais importante de nossa vida é seguir Jesus e que, ao segui-lo, assumimos também o compromisso de levar pessoas a segui-lo.', 13),
 (21, 'O verdadeiro Evangelho', 'Literatura cristã', 'Editora Fiel', 1, 2, 'https://m.media-amazon.com/images/I/51GMzLzGPEL._SX374_BO1,204,203,200_.jpg', 'Deus tem dado a Paul Washer uma mensagem oportuna e profética para a igreja dos nossos tempos. Ao analisar esta geração, ele afirma que o problema principal não é a dureza do evangelho, mas a ignorância de seu conteúdo. Como resposta a isso, Washer tem pregado em diversas ocasiões as verdades fundamentais do evangelho (o pecado do homem, a justiça de Deus, o sacrifício, a ressurreição de Cristo, etc). Baseado em várias exposições de Romanos 3, o Verdadeiro Evangelho busca apresentar aquilo que Deus fez em Cristo, a fim de ele mesmo ser justo e o justificador daquele que tem fé em Jesus (Rm 3:26).', 14),
@@ -142,12 +133,50 @@ INSERT INTO `livro` (`id_livro`, `nome_livro`, `genero_livro`, `editora_livro`, 
 
 CREATE TABLE `movimentacao` (
   `id_movimentacao` int NOT NULL,
-  `data_saida_movimentacao` date NOT NULL,
-  `data_volta_movimentacao` date NOT NULL,
+  `data_saida_movimentacao` date DEFAULT NULL,
+  `data_volta_movimentacao` date DEFAULT NULL,
   `id_usuario` int NOT NULL,
   `id_livro` int NOT NULL,
-  `status_movimentacao` varchar(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
+  `id_status_movimentacao` int NOT NULL,
+  `id_funcionario` int DEFAULT NULL COMMENT 'funcionario que fez a checagem da movimentação.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Despejando dados para a tabela `movimentacao`
+--
+
+INSERT INTO `movimentacao` (`id_movimentacao`, `data_saida_movimentacao`, `data_volta_movimentacao`, `id_usuario`, `id_livro`, `id_status_movimentacao`, `id_funcionario`) VALUES
+(6, NULL, NULL, 9, 5, 4, NULL),
+(7, NULL, NULL, 9, 3, 4, NULL),
+(8, NULL, NULL, 9, 3, 4, NULL),
+(9, NULL, NULL, 9, 5, 4, NULL),
+(10, NULL, NULL, 9, 5, 4, NULL),
+(11, NULL, NULL, 9, 5, 4, NULL),
+(12, NULL, NULL, 9, 5, 4, NULL),
+(13, NULL, NULL, 9, 5, 4, NULL),
+(14, NULL, NULL, 9, 12, 4, NULL),
+(15, NULL, NULL, 9, 14, 4, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `status_movimentacao`
+--
+
+CREATE TABLE `status_movimentacao` (
+  `id_status_movimentacao` int NOT NULL,
+  `nome_status_movimentacao` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `status_movimentacao`
+--
+
+INSERT INTO `status_movimentacao` (`id_status_movimentacao`, `nome_status_movimentacao`) VALUES
+(1, 'Em Andamento'),
+(2, 'Atrasado'),
+(3, 'Entregue'),
+(4, 'Aguardando Retirada');
 
 -- --------------------------------------------------------
 
@@ -171,11 +200,11 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `email_usuario`, `data_usuario`, `cpf_usuario`, `senha_usuario`, `endereco_usuario`, `telefone_usuario`) VALUES
-(1, 'carlos', 'carlso@hamj', '2004-08-13', 4318, '123', 'vava', 4001),
-(2, 'Daniel Oliveira', 'danieloliveira@gmail.com', '2007-06-07', 159357842, '147', 'Rua do Roxa of Hair', 8004222),
-(3, 'Adriano Cardoso', 'adrianocardoso@gmail.com', '1997-06-11', 164751364, '789', 'Rua Monte Longe', 78415478),
+(1, 'carlos', 'carlos1123@fuian', '2023-07-11', 415614651, '100', 'rua da mortalha', 145202),
 (4, 'José Eduardo', 'joseeduardo@gmail.com', '2004-03-14', 789456741, '647', 'Rua do Pato', 156151664),
-(5, 'dgtrsfdzfs', 'igorse4@gmail.com', '2023-06-07', 5427, '11978758727', 'Rua Da Fantasia', 119787587);
+(6, 'Iris Raquel', 'iris@dfghjnmk', '2023-07-12', 431857435, '111111', 'adsad14', 1556),
+(8, 'Iris Raquel', 'iris@dfdadadghjnmk', '2023-07-12', 43185, '111111', 'adsad14', 1556),
+(9, 'Igor Serafin', 'igorserafimn2@gmail.com', '2004-04-10', 41215451, '123', 'Rua Da Fantasia', 11978758);
 
 --
 -- Índices para tabelas despejadas
@@ -208,7 +237,15 @@ ALTER TABLE `livro`
 ALTER TABLE `movimentacao`
   ADD PRIMARY KEY (`id_movimentacao`),
   ADD KEY `fk_id_usuario` (`id_usuario`),
-  ADD KEY `fk_id_livro` (`id_livro`);
+  ADD KEY `fk_id_livro` (`id_livro`),
+  ADD KEY `fk_id_status` (`id_status_movimentacao`),
+  ADD KEY `fk__checagem_funcionario` (`id_funcionario`) USING BTREE;
+
+--
+-- Índices de tabela `status_movimentacao`
+--
+ALTER TABLE `status_movimentacao`
+  ADD PRIMARY KEY (`id_status_movimentacao`);
 
 --
 -- Índices de tabela `usuario`
@@ -244,13 +281,19 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT de tabela `movimentacao`
 --
 ALTER TABLE `movimentacao`
-  MODIFY `id_movimentacao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_movimentacao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de tabela `status_movimentacao`
+--
+ALTER TABLE `status_movimentacao`
+  MODIFY `id_status_movimentacao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restrições para tabelas despejadas
@@ -262,12 +305,13 @@ ALTER TABLE `usuario`
 ALTER TABLE `livro`
   ADD CONSTRAINT `fk_id_autor` FOREIGN KEY (`id_autor`) REFERENCES `autor` (`id_autor`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
-
 --
 -- Restrições para tabelas `movimentacao`
 --
 ALTER TABLE `movimentacao`
+  ADD CONSTRAINT `fk_id_funcionario` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `fk_id_livro` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `fk_id_status` FOREIGN KEY (`id_status_movimentacao`) REFERENCES `status_movimentacao` (`id_status_movimentacao`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `fk_id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
