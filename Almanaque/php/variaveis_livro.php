@@ -21,7 +21,6 @@ echo "$id_autor <br>";
 
 $result = mysqli_query($mysqli, "INSERT INTO livro(nome_livro, genero_livro, editora_livro, num_edicao_livro, estoque_livro, url_imagem_livro, sinopse_livro, id_autor) VALUES ('$nome_livro', '$genero_livro', '$editora_livro', '$num_edicao_livro', '$estoque_livro', '$url_imagem_livro', '$sinopse_livro', '$id_autor')");
     
-header("Location: ../funcionario/livro_lista.php");
-
+header("Location: ../funcionario/gerenciar_livro/livro_lista.php");
 
 ?>

@@ -156,7 +156,7 @@
     <br>
 
     <h1>CADASTRO DE LIVRO</h1>
-    <form method="post" action="../php/variaveis_livro.php">
+    <form method="post" action="../../php/variaveis_livro.php">
         <table>
             <tr>
                 <td>Nome:</td>

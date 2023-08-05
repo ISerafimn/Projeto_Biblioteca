@@ -1,5 +1,8 @@
 <?php
     include('../../php/conexao.php');
+    session_start();
+    $atualizar = $_SESSION['atualizar_autor'];
+
 ?>
 
 <!DOCTYPE html>
@@ -16,12 +19,22 @@
     <title>Almanaque</title>
     <style>
         img{
-            width: 200px;
+            width: 300px;
+        }
+        input::placeholder {
+            color: rgb(52, 52, 52);
+        }
+        input{
+            width: 250px;
+            color: black;
+        }
+        input::-webkit-inner-spin-button{
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div style="background-color: #1f1919;">
+<div style="background-color: #1f1919;">
         <nav>
             <ul>
                 <li class="dropdown">
@@ -146,91 +159,133 @@
                     </form>
                     </div>
                 </li>
-            <li>
-                <a href="adicionar_autor.html" style="width: 150px; text-align: center;">Adicionar AUTOR</a>
-            </li>
-            <li class="dropdown">
-                <a href="atualizar_autor_por.html" style="width: 150px; text-align: center;">atualizar AUTOR por:</a>
-                    <div class="dp-menu" style="width: 150px; text-align: center;">
-                        <form method="post" action="variaveis_autor_livro.php">
-                            <input name="atualizar_autor" value="id_autor" style="display: none;">
-                            <button type="submit" name="Submit">Id</button>
-                        </form>
-                        <form method="post" action="variaveis_autor_livro.php">
-                            <input name="atualizar_autor" value="nome_autor" style="display: none;">
-                            <button type="submit" name="Submit">Nome</button>
-                        </form>
-                    </div>
-            </li>
         </ul>
     </nav>
 
     <br>
+    
+    <p  style="text-align: center;">Digite para selecionar o livro que será Atualizado</p>
 
-    <table border="1" style="width:90%; margin: auto;">
+    <form action="#" method="post" style="text-align: center;">
+        <input type="text" name="valor">
+        <button type="submit" style="background-color: #1f1919; color: white">enviar</button>
+    </form>
+    <br>
+<?php
+@$var = $_POST['valor'];
+if ($var == ""){
+}
+else{
+    ?>
+        <table border="1" style="width:80%; margin: auto;">
         <tr>
             <th>ID</th>
-            <th>CAPA</th>
-            <th>NOME</th>
-            <th>AUTOR</th>
-            <th>GENERO</th>
-            <th>EDITORA</th>
-            <th>Nº DA EDIÇÃO</th>
-            <th>ESTOQUE</th>
-            <th>SINOPSE</th>
+            <th>Nome</th>
+            <th>Nacionalidade</th>
+            <th>Data de Nascimento</th>
+            <th>Data de Falecimento</th>
         </tr>
+        
+    <?php
+        if($atualizar == "id_autor"){
 
-        <?php
-        $sql = mysqli_query($mysqli, "SELECT  *   FROM  livro");
-        while ($result = mysqli_fetch_array($sql))
+            include('../php/conexao.php');
 
+            $sql = "SELECT * FROM autor id_autor WHERE id_autor = '$var'";
+            $result = $mysqli->query($sql);
+        
+            while ($row = mysqli_fetch_array($result))
             {
-                $id_livro = $result['id_livro'];
-                $nome_livro = $result['nome_livro'];
-                $id_autor = $result['id_autor'];
-                $genero_livro = $result['genero_livro'];
-                $editora_livro = $result['editora_livro'];
-                $num_edicao_livro = $result['num_edicao_livro'];
-                $estoque_livro = $result['estoque_livro'];
-                $sinopse_livro = $result['sinopse_livro'];
-                $url_imagem_livro = $result['url_imagem_livro'];
-
+                $id_autor = $row['id_autor'];
                 echo "<tr>";
-                echo "<td>".$id_livro."</td>";
+                echo "<td>".$id_autor."</td>";
+                echo "<td>".$row['nome_autor']."</td>";
+                echo "<td>".$row['pais_autor']."</td>";
+                echo "<td>".$row['nascimento_autor']."</td>";
+                echo "<td>".$row['falecimento_autor']."</td>";
+                echo "<tr></table>";
 
-                echo "<td><form method='post' action='livro_aberto.php'>
-                <input name='id_livro' value='".$id_livro."' style='display: none;'>
-                    <button type='submit' name='Submit' style='border: none; background-color: white;'>
-                        <img src='".$url_imagem_livro."'>
-                    </button>
-                </form></td>";
+    ?>
 
-                echo "<td><form method='post' action='livro_aberto.php'>
-                <input name='id_livro' value='".$id_livro."' style='display: none;'>
-                    <button type='submit' name='Submit' style='border: none; background-color:  ;'>
-                        ".$nome_livro."
-                    </button>
-                </form></td>";
+    <br>
 
-                    $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
-                    $resultad2 = $mysqli->query($sql2);
-                
-                    while ($row = mysqli_fetch_array($resultad2))
-                    { 
-                    
-                        echo "<td>".$row['nome_autor']."</td>";
-                    }
-                    
-                echo "<td>".$genero_livro."</td>";
-                echo "<td>".$editora_livro."</td>";
-                echo "<td>".$num_edicao_livro."</td>";
-                echo "<td>".$estoque_livro."</td>";
-                echo "<td>".$sinopse_livro."</td>";
-                echo "</tr>";
-                
-            };
-            
-        ?>
+    <h1>Digite as Inforções Atualizadas</h1>
+
+    <table>
+        <form action="atualizando_autor.php" method="post">
+            <tr>
+                <td>Nome do Autor:</td>
+                <td><input type="text" name="nome_autor"></td>
+            </tr>
+            <tr>
+                <td>Nacionalidade:</td>
+                <td><input type="text" name="pais_autor"></td>
+            </tr> 
+            <tr>
+                <td>Data de Nascimentp:</td>
+                <td><input type="number" name="nascimento_autor"></td>
+            </tr>
+            <tr>
+                <td>Data de Falecimento(opcional):</td>
+                <td><input type="number" name="falecimento_autor"></td>
+            </tr>
     </table>
+                                
+    <?php
+                echo "<input type='text' value='".$id_autor."' name='id_autor' style='display: none;'>
+                        <button type='submit'>Concluir Atualização</button>
+                    </form>";
+            }
+        }
+        else{
+            include('../php/conexao.php');
+
+            $sql = "SELECT * FROM autor id_autor WHERE nome_autor = '$var'";
+            $result = $mysqli->query($sql);
+        
+            while ($row = mysqli_fetch_array($result))
+            {
+                $id_autor = $row['id_autor'];
+                echo "<tr>";
+                echo "<td>".$id_autor."</td>";
+                echo "<td>".$row['nome_autor']."</td>";
+                echo "<td>".$row['pais_autor']."</td>";
+                echo "<td>".$row['nascimento_autor']."</td>";
+                echo "<td>".$row['falecimento_autor']."</td>";
+                echo "<tr></table>";
+    ?>
+    
+    <br>
+
+    <h1>Digite as Inforções Atualizadas</h1>
+
+    <table>
+        <form action="atualizando_autor.php" method="post">
+            <tr>
+                <td>Nome do Autor:</td>
+                <td><input type="text" name="nome_autor"></td>
+            </tr>
+            <tr>
+                <td>Nacionalidade:</td>
+                <td><input type="text" name="pais_autor"></td>
+            </tr> 
+            <tr>
+                <td>Data de Nascimentp:</td>
+                <td><input type="number" name="nascimento_autor"></td>
+            </tr>
+            <tr>
+                <td>Data de Falecimento(opcional):</td>
+                <td><input type="number" name="falecimento_autor"></td>
+            </tr>
+    </table>
+                                
+    <?php
+                echo "<input type='text' value='".$id_autor."' name='id_autor' style='display: none;'>
+                        <button type='submit'>Concluir Atualização</button>
+                    </form>";
+            }
+        }
+    }
+    ?>
 </body>
 </html>
