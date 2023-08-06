@@ -179,6 +179,7 @@
                         ?>
                     </select>
                 </td>
+                <td><a href="../gerenciar_autor/adicionar_autor.html">Adicionar Autor</a></td>
             </tr>
             <tr>
                 <td>Genero:</td>
