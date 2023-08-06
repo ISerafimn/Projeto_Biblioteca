@@ -9,6 +9,6 @@ $falecimento_autor = $_POST['falecimento_autor'];
 
 $resultado = mysqli_query($mysqli, "UPDATE autor SET nome_autor='$nome_autor', pais_autor='$pais_autor', nascimento_autor='$nascimento_autor', falecimento_autor='$falecimento_autor' WHERE id_autor='$id_autor'");
 
-header('location: livro_lista.php');
+header('location: autor_lista.php');
 
 ?>

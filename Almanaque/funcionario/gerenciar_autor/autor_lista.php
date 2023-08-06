@@ -66,9 +66,10 @@
                 <li class="dropdown">
                 <a href="../gerenciar.html" style="width: 150px; text-align: center;">GERENCIAR</a>
                     <div class="dp-menu" style="width: 150px; text-align: center;">
-                        <a href="livro_lista.php">Livros</a>
+                        <a href="../gerenciar_livro/livro_lista.php">Livros</a>
+                        <a href="autor_lista.php">Autor</a>
                         <a href="../gerenciar_usuario/usuario_lista.php">Usuarios</a>
-                        <a href="movimentacao_lista.php">Movimentação</a>
+                        <a href="../gerenciar_movimentacao/movimentacao_lista.php">Movimentação</a>
                     </div>
                 </li>
                 <li>
@@ -90,89 +91,73 @@
     <nav>
         <ul>
             <li>
-                <a href="livro_lista.php" style="width: 150px; text-align: center;">LISTA LIVROS</a>
+                <a href="autor_lista.php" style="width: 150px; text-align: center;">LISTA AUTOR</a>
+            </li>
+            <li>
+                <a href="adicionar_autor.html" style="width: 150px; text-align: center;">Adicionar AUTOR</a>
             </li>
             <li class="dropdown">
-                <a href="consultar_por.html" style="width: 150px; text-align: center;">CONSULTAR por:</a>
-                <div class="dp-menu">
-                    <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="id_livro" style="display: none;">
+                <a href="atualizar_autor_por.html" style="width: 150px; text-align: center;">atualizar AUTOR por:</a>
+                <div class="dp-menu" style="width: 150px; text-align: center;">
+                    <form method="post" action="variaveis_autor_livro.php">
+                        <input name="atualizar_autor" value="id_autor" style="display: none;">
                         <button type="submit" name="Submit">Id</button>
                     </form>
-                    <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="nome_livro" style="display: none;">
+                    <form method="post" action="variaveis_autor_livro.php">
+                        <input name="atualizar_autor" value="nome_autor" style="display: none;">
                         <button type="submit" name="Submit">Nome</button>
-                    </form>
-                    <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="id_autor" style="display: none;">
-                        <button type="submit" name="Submit">Autor</button>
-                    </form>
-                    <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="editora_livro" style="display: none;">
-                        <button type="submit" name="Submit">Editora</button>
-                    </form>
-                    <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="genero_livro" style="display: none;">
-                        <button type="submit" name="Submit">Gênero</button>
                     </form>
                 </div>
             </li>
-            <li>
-                <a href="adicionar_livro.php" style="width: 150px; text-align: center;">Adicionar LIVRO</a>
-            </li>
             <li class="dropdown">
-                <a href="atualizar_livro_por.html" style="width: 150px; text-align: center;">ATUALIZAR LIVRO por:</a>
-                    <div class="dp-menu" style="width: 150px; text-align: center;">
-                        <form method="post" action="variaveis_atualizar_livro.php">
-                            <input name="atualizar" value="id_livro" style="display: none;">
-                            <button type="submit" name="Submit">Id</button>
-                        </form>
-                        <form method="post" action="variaveis_atualizar_livro.php">
-                            <input name="atualizar" value="nome_livro" style="display: none;">
-                            <button type="submit" name="Submit">Nome</button>
-                        </form>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="excluir_livro_por.html" style="width: 150px; text-align: center;">Excluir LIVRO por:</a>
-                    <div class="dp-menu" style="width: 150px; text-align: center;">
-                    <form method="post" action="variaveis_excluir_livro.php">
-                        <input name="excluir" value="id_livro" style="display: none;">
+                <a href="excluir_autor_por.html" style="width: 150px; text-align: center;">Excluir AUTOR por:</a>
+                <div class="dp-menu" style="width: 150px; text-align: center;">
+                    <form method="post" action="variaveis_excluir_autor.php">
+                        <input name="excluir_autor" value="id_autor" style="display: none;">
                         <button type="submit" name="Submit">Id</button>
                     </form>
-                    <form method="post" action="variaveis_excluir_livro.php">
-                        <input name="excluir" value="nome_livro" style="display: none;">
+                    <form method="post" action="variaveis_excluir_autor.php">
+                        <input name="excluir_autor" value="nome_autor" style="display: none;">
                         <button type="submit" name="Submit">Nome</button>
                     </form>
-                    </div>
-                </li>
-                <li>
-                <a href="adicionar_autor.html" style="width: 150px; text-align: center;">Adicionar AUTOR</a>
+                </div>
             </li>
         </ul>
     </nav>
-    <table>
-        <form action="adicionar_autor.php" method="post">
-            <tr>
-                <td>Nome do Autor:</td>
-                <td><input type="text" name="nome_autor"></td>
-            </tr>
-            <tr>
-                <td>Nacionalidade:</td>
-                <td><input type="text" name="pais_autor"></td>
-            </tr> 
-            <tr>
-                <td>Data de Nascimentp:</td>
-                <td><input type="number" name="nascimento_autor"></td>
-            </tr>
-            <tr>
-                <td>Data de Falecimento(opcional):</td>
-                <td><input type="number" name="falecimento_autor"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><button type="submit">Enviar</button></td>
-            </tr>
-        </form>
+
+    <br>
+
+    <table border="1" style="width:90%; margin: auto;">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Nacionalidade</th>
+            <th>Data de Nascimento</th>
+            <th>Data de Falecimento</th>
+        </tr>
+
+        <?php
+        $sql = mysqli_query($mysqli, "SELECT  *   FROM  autor");
+        while ($result = mysqli_fetch_array($sql))
+
+            {
+                $id_autor = $result['id_autor'];
+                $nome_autor = $result['nome_autor'];
+                $pais_autor = $result['pais_autor'];
+                $nascimento_autor = $result['nascimento_autor'];
+                $falecimento_autor = $result['falecimento_autor'];
+
+                echo "<tr>";
+                echo "<td>".$id_autor."</td>";
+                echo "<td>".$nome_autor."</td>";
+                echo "<td>".$pais_autor."</td>";
+                echo "<td>".$nascimento_autor."</td>";
+                echo "<td>".$falecimento_autor."</td>";
+                echo "</tr>";
+                
+            };
+            
+        ?>
     </table>
 </body>
 </html>

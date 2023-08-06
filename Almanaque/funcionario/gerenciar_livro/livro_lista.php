@@ -67,6 +67,7 @@
                 <a href="../gerenciar.html" style="width: 150px; text-align: center;">GERENCIAR</a>
                     <div class="dp-menu" style="width: 150px; text-align: center;">
                         <a href="livro_lista.php">Livros</a>
+                        <a href="../gerenciar_autor/autor_lista.php">Autor</a>
                         <a href="../gerenciar_usuario/usuario_lista.php">Usuarios</a>
                         <a href="movimentacao_lista.php">Movimentação</a>
                     </div>
@@ -121,21 +122,21 @@
                 <a href="adicionar_livro.php" style="width: 150px; text-align: center;">Adicionar LIVRO</a>
             </li>
             <li class="dropdown">
-                <a href="atualizar_livro_por.html" style="width: 150px; text-align: center;">ATUALIZAR LIVRO por:</a>
-                    <div class="dp-menu" style="width: 150px; text-align: center;">
-                        <form method="post" action="variaveis_atualizar_livro.php">
-                            <input name="atualizar" value="id_livro" style="display: none;">
-                            <button type="submit" name="Submit">Id</button>
-                        </form>
-                        <form method="post" action="variaveis_atualizar_livro.php">
-                            <input name="atualizar" value="nome_livro" style="display: none;">
-                            <button type="submit" name="Submit">Nome</button>
-                        </form>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="excluir_livro_por.html" style="width: 150px; text-align: center;">Excluir LIVRO por:</a>
-                    <div class="dp-menu" style="width: 150px; text-align: center;">
+            <a href="atualizar_livro_por.html" style="width: 150px; text-align: center;">ATUALIZAR LIVRO por:</a>
+                <div class="dp-menu" style="width: 150px; text-align: center;">
+                    <form method="post" action="variaveis_atualizar_livro.php">
+                        <input name="atualizar" value="id_livro" style="display: none;">
+                        <button type="submit" name="Submit">Id</button>
+                    </form>
+                    <form method="post" action="variaveis_atualizar_livro.php">
+                        <input name="atualizar" value="nome_livro" style="display: none;">
+                        <button type="submit" name="Submit">Nome</button>
+                    </form>
+                </div>
+            </li>
+            <li class="dropdown">
+            <a href="excluir_livro_por.html" style="width: 150px; text-align: center;">Excluir LIVRO por:</a>
+                <div class="dp-menu" style="width: 150px; text-align: center;">
                     <form method="post" action="variaveis_excluir_livro.php">
                         <input name="excluir" value="id_livro" style="display: none;">
                         <button type="submit" name="Submit">Id</button>
@@ -144,23 +145,7 @@
                         <input name="excluir" value="nome_livro" style="display: none;">
                         <button type="submit" name="Submit">Nome</button>
                     </form>
-                    </div>
-                </li>
-            <li>
-                <a href="adicionar_autor.html" style="width: 150px; text-align: center;">Adicionar AUTOR</a>
-            </li>
-            <li class="dropdown">
-                <a href="atualizar_autor_por.html" style="width: 150px; text-align: center;">atualizar AUTOR por:</a>
-                    <div class="dp-menu" style="width: 150px; text-align: center;">
-                        <form method="post" action="variaveis_autor_livro.php">
-                            <input name="atualizar_autor" value="id_autor" style="display: none;">
-                            <button type="submit" name="Submit">Id</button>
-                        </form>
-                        <form method="post" action="variaveis_autor_livro.php">
-                            <input name="atualizar_autor" value="nome_autor" style="display: none;">
-                            <button type="submit" name="Submit">Nome</button>
-                        </form>
-                    </div>
+                </div>
             </li>
         </ul>
     </nav>
