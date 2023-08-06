@@ -157,7 +157,7 @@
     <br>
 
     <h1>CADASTRO DE LIVRO</h1>
-    <form method="post" action="../../php/variaveis_livro.php">
+    <form method="post" action="../../php/variaveis_livro.php" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Nome:</td>
@@ -202,7 +202,7 @@
             </tr>
             <tr>
                 <td>Url da Capa</td>
-                <td><input type="text" name="url_imagem_livro" placeholder="Digite a URL da capa do livro"></td>
+                <td><input type="file" name="imagem"></td>
             </tr>
         </table>
         <br>

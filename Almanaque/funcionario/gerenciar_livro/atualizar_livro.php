@@ -228,7 +228,7 @@ else{
     ?>
     <h1>Digite as Inforções Atualizadas</h1>
 
-    <form method="post" action="variaveis_atualizando_livro.php">
+    <form method="post" action="variaveis_atualizando_livro.php" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Nome:</td>
@@ -250,6 +250,7 @@ else{
                         ?>
                     </select>
                 </td>
+                <td><a href="../gerenciar_autor/adicionar_autor.html">Adicionar Autor</a></td>
             </tr>
             <tr>
                 <td>Genero:</td>
@@ -272,7 +273,7 @@ else{
             </tr>
             <tr>
                 <td>Url da Capa</td>
-                <td><input type="text" name="url_imagem_livro" placeholder="Digite a URL da capa do livro"></td>
+                <td><input type="file" name="imagem"></td>
             </tr>
         </table>
         <br>
@@ -319,7 +320,7 @@ else{
 
     <h1>Digite as Inforções Atualizadas</h1>
 
-    <form method="post" action="variaveis_atualizando_livro.php">
+    <form method="post" action="variaveis_atualizando_livro.php" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Nome:</td>
@@ -341,6 +342,7 @@ else{
                         ?>
                     </select>
                 </td>
+                <td><a href="../gerenciar_autor/adicionar_autor.html">Adicionar Autor</a></td>
             </tr>
             <tr>
                 <td>Genero:</td>
@@ -363,7 +365,7 @@ else{
             </tr>
             <tr>
                 <td>Url da Capa</td>
-                <td><input type="text" name="url_imagem_livro" placeholder="Digite a URL da capa do livro"></td>
+                <td><input type="file" name="imagem"></td>
             </tr>
         </table>
         <br>
