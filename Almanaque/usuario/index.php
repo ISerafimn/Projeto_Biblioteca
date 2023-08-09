@@ -114,7 +114,7 @@
                                 <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
                                     <button type='submit' name='Submit'>
                                         <div>
-                                            <img src='".$row['url_imagem_livro']."'>
+                                            <img src='../imagens/livro_capa/".$row['url_imagem_livro']."'>
                                             <p>".$row['nome_livro']."</p>
                                         </div>
                                     </button>
@@ -162,7 +162,7 @@
                                 <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
                                     <button type='submit' name='Submit'>
                                         <div>
-                                            <img src='".$row['url_imagem_livro']."'>
+                                            <img src='../imagens/livro_capa/".$row['url_imagem_livro']."'>
                                             <p>".$row['nome_livro']."</p>
                                         </div>
                                     </button>
@@ -187,7 +187,7 @@
                                 <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
                                     <button type='submit' name='Submit'>
                                         <div>
-                                            <img src='".$row['url_imagem_livro']."'>
+                                            <img src='../imagens/livro_capa/".$row['url_imagem_livro']."'>
                                             <p>".$row['nome_livro']."</p>
                                         </div>
                                     </button>

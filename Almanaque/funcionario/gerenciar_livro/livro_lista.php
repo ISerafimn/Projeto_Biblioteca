@@ -186,7 +186,7 @@
                 echo "<td><form method='post' action='livro_aberto.php'>
                 <input name='id_livro' value='".$id_livro."' style='display: none;'>
                     <button type='submit' name='Submit' style='border: none; background-color: white;'>
-                        <img src='".$url_imagem_livro."'>
+                        <img src='../../imagens/livro_capa/".$url_imagem_livro."'>
                     </button>
                 </form></td>";
 

@@ -109,7 +109,7 @@
 
                 echo "<tr>";
                 echo "<td>".$id_livro."</td>";
-                echo "<td><img src='".$url_imagem_livro."'></td>";
+                echo "<td><img src='../imagens/livro_capa/".$url_imagem_livro."'></td>";
                 echo "<td>".$nome_livro."</td>";
 
                     $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";

@@ -9,7 +9,7 @@ $estoque_livro=$_POST['estoque_livro'];
 
 $name = $_FILES['imagem']['name'];
 $temp = $_FILES['imagem']['tmp_name'];
-move_uploaded_file($temp, "../imagens/". $name); 
+move_uploaded_file($temp, "../imagens/livro_capa/". $name); 
 
 $sinopse_livro=$_POST['sinopse_livro'];
 $id_autor=$_POST['name'];

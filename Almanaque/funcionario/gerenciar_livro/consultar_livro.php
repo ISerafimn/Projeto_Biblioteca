@@ -191,7 +191,7 @@ else{
             { 
                 echo "<tr>";
                 echo "<td>".$row['id_livro']."</td>";
-                echo "<td><img src='".$row['url_imagem_livro']."'></td>";
+                echo "<td><img src='../../imagens/livro_capa/".$row['url_imagem_livro']."'></td>";
                 echo "<td>".$row['nome_livro']."</td>";
 
                 $id_autor = $row['id_autor'];
@@ -223,7 +223,7 @@ else{
             { 
                 echo "<tr>";
                 echo "<td>".$row['id_livro']."</td>";
-                echo "<td><img src='".$row['url_imagem_livro']."'></td>";
+                echo "<td><img src='../../imagens/livro_capa/".$row['url_imagem_livro']."'></td>";
                 echo "<td>".$row['nome_livro']."</td>";
 
                 $id_autor = $row['id_autor'];
@@ -255,7 +255,7 @@ else{
             { 
                 echo "<tr>";
                 echo "<td>".$row['id_livro']."</td>";
-                echo "<td><img src='".$row['url_imagem_livro']."'></td>";
+                echo "<td><img src='../../imagens/livro_capa/".$row['url_imagem_livro']."'></td>";
                 echo "<td>".$row['nome_livro']."</td>";
 
                 $id_autor = $row['id_autor'];
@@ -287,7 +287,7 @@ else{
             { 
                 echo "<tr>";
                 echo "<td>".$row['id_livro']."</td>";
-                echo "<td><img src='".$row['url_imagem_livro']."'></td>";
+                echo "<td><img src='../../imagens/livro_capa/".$row['url_imagem_livro']."'></td>";
                 echo "<td>".$row['nome_livro']."</td>";
 
                 $id_autor = $row['id_autor'];
@@ -319,7 +319,7 @@ else{
             { 
                 echo "<tr>";
                 echo "<td>".$row['id_livro']."</td>";
-                echo "<td><img src='".$row['url_imagem_livro']."'></td>";
+                echo "<td><img src='../../imagens/livro_capa/".$row['url_imagem_livro']."'></td>";
                 echo "<td>".$row['nome_livro']."</td>";
 
                 $id_autor = $row['id_autor'];

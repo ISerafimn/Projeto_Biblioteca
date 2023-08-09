@@ -97,7 +97,7 @@
         echo "<td><form method='post' action='../livro_aberto.php'>
         <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
             <button type='submit' name='Submit' style='border: none; background-color: white;'>
-                <img src='".$row['url_imagem_livro']."'>
+                <img src='../imagens/livro_capa/".$row['url_imagem_livro']."'>
             </button>
         </form></td>";
 

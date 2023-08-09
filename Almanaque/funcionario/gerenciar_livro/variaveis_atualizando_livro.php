@@ -10,7 +10,7 @@ $estoque_livro=$_POST['estoque_livro'];
 
 $name = $_FILES['imagem']['name'];
 $temp = $_FILES['imagem']['tmp_name'];
-move_uploaded_file($temp, "../../imagens/". $name); 
+move_uploaded_file($temp, "../../imagens/livro_capa/". $name); 
 
 $sql = mysqli_query($mysqli, "SELECT  *   FROM  livro WHERE id_livro = $id_livro");
 while ($result = mysqli_fetch_array($sql))
@@ -18,7 +18,7 @@ while ($result = mysqli_fetch_array($sql))
     {
         $imagem_livro = $result['url_imagem_livro'];
     }
-    $deletar = "../../imagens/".$imagem_livro;
+    $deletar = "../../imagens/livro_capa/".$imagem_livro;
     unlink($deletar);
 
 $sinopse_livro=$_POST['sinopse_livro'];
