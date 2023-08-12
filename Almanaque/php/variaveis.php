@@ -1,5 +1,5 @@
 <?php
-include('conexao.php');
+include ('../include/conexao.php');
 
 $nome_usuario=$_POST['nome_usuario'];
 $data_usuario=$_POST['data_usuario'];
@@ -11,6 +11,6 @@ $senha_usuario=$_POST['senha_usuario'];
 
     $result = mysqli_query($mysqli, "INSERT INTO usuario(nome_usuario, data_usuario, cpf_usuario, email_usuario, endereco_usuario, telefone_usuario, senha_usuario) VALUES ('$nome_usuario', '$data_usuario', '$cpf_usuario', '$email_usuario', '$endereco_usuario', '$telefone_usuario', '$senha_usuario')");
     
-    header("Location: ../usuario_login.html");
+    header("Location: ../usuario_login.php");
 ?>
 

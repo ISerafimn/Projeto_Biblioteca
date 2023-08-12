@@ -1,5 +1,5 @@
 <?php
-include('../php/conexao.php');
+include('../include/conexao.php');
 
 $id_autor = $_POST['id_autor'];
 $nome_autor = $_POST['nome_autor'];

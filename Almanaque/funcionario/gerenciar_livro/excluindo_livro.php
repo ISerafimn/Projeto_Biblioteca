@@ -1,5 +1,5 @@
 <?php
-include('../../php/conexao.php');
+include('../../include/conexao.php');
 
 $excluindo = $_POST['excluindo'];
 $valor = $_POST['valor'];

@@ -1,5 +1,5 @@
 <?php
-include('conexao.php');
+include('../../include/conexao.php');
 session_start();
 $_SESSION['consultar'] = $consultar = $_POST['consultar'];
 

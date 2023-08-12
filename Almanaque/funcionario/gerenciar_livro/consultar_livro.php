@@ -1,5 +1,5 @@
 <?php
-    include('../../php/conexao.php');
+    include('../../include/conexao.php');
     session_start();
     $consultar = $_SESSION['consultar'];
 ?>
@@ -23,133 +23,13 @@
     </style>
 </head>
 <body>
-<div style="background-color: #1f1919;">
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="../generos_literario.html">GÊNEROS LITERARIOS</a>
-                    <div class="dp-menu">
-                        <form method="post" action="../php/lista_genero.php">
-                            <input name="genero" value="Romance">
-                            <button type="submit" name="Submit">Romance</button>
-                        </form>
-                        <form method="post" action="../php/lista_genero.php">
-                            <input name="genero" value="Fantasia">
-                            <button type="submit" name="Submit">Fantasia</button>
-                        </form>
-                        <form method="post" action="../php/lista_genero.php">
-                            <input name="genero" value="Poesia">
-                            <button type="submit" name="Submit">Poesia</button>
-                        </form>
-                        <form method="post" action="../php/lista_genero.php">
-                            <input name="genero" value="Ficcao">
-                            <button type="submit" name="Submit">Ficção</button>
-                        </form>
-                        <form method="post" action="../php/lista_genero.php">
-                            <input name="genero" value="Conto">
-                            <button type="submit" name="Submit">Conto</button>
-                        </form>
-                        <form method="post" action="../php/lista_genero.php">
-                            <input name="genero" value="Terror">
-                            <button type="submit" name="Submit">Terror</button>
-                        </form>
-                        <form method="post" action="../php/lista_genero.php">
-                            <input name="genero" value="Aventura">
-                            <button type="submit" name="Submit">Ação e Aventura</button>
-                        </form>
-                    </div>
-                </li>
-                <li>
-                    <a href="../livros.php">LIVROS</a>
-                </li>
-                <li>
-                    <a href="../contato.html">CONTATO</a>
-                </li>
-                <li class="dropdown">
-                <a href="../gerenciar.html" style="width: 150px; text-align: center;">GERENCIAR</a>
-                    <div class="dp-menu" style="width: 150px; text-align: center;">
-                        <a href="livro_lista.php">Livros</a>
-                        <a href="../gerenciar_autor/autor_lista.php">Autor</a>
-                        <a href="../gerenciar_usuario/usuario_lista.php">Usuarios</a>
-                        <a href="movimentacao_lista.php">Movimentação</a>
-                    </div>
-                </li>
-                <li>
-                    <a href="../index.php">HOME</a>
-                </li>
-                <li class="dropdown">
-                    <a href="../perfil.php" style="width: 125px; text-align: center;">PERFIL</a>
-                    <div class="dp-menu" style="width: 125px; text-align: center;">
-                        <a href="../perfil.php">Meu Perfil</a>
-                        <a href="../../php/logout.php">Sair</a>
-                    </div>
-                </li>
-            </ul> 
-        </nav>
+    <div style="background-color: #1f1919;">
+        <?php include('../../include/menu_funcionario_gerenciar.php'); ?>
     </div>
 
     <br>
 
-    <nav>
-        <ul>
-            <li>
-                <a href="livro_lista.php" style="width: 150px; text-align: center;">LISTA LIVROS</a>
-            </li>
-            <li class="dropdown">
-                <a href="consultar_por.html" style="width: 150px; text-align: center;">CONSULTAR por:</a>
-                <div class="dp-menu">
-                    <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="id_livro" style="display: none;">
-                        <button type="submit" name="Submit">Id</button>
-                    </form>
-                    <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="nome_livro" style="display: none;">
-                        <button type="submit" name="Submit">Nome</button>
-                    </form>
-                    <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="id_autor" style="display: none;">
-                        <button type="submit" name="Submit">Autor</button>
-                    </form>
-                    <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="editora_livro" style="display: none;">
-                        <button type="submit" name="Submit">Editora</button>
-                    </form>
-                    <form method="post" action="variaveis_livro.php">
-                        <input name="consultar" value="genero_livro" style="display: none;">
-                        <button type="submit" name="Submit">Gênero</button>
-                    </form>
-                </div>
-            </li>
-            <li>
-                <a href="adicionar_livro.php" style="width: 150px; text-align: center;">Adicionar LIVRO</a>
-            </li>
-            <li class="dropdown">
-                <a href="atualizar_livro_por.html" style="width: 150px; text-align: center;">ATUALIZAR LIVRO por:</a>
-                    <div class="dp-menu" style="width: 150px; text-align: center;">
-                        <form method="post" action="variaveis_atualizar_livro.php">
-                            <input name="atualizar" value="id_livro" style="display: none;">
-                            <button type="submit" name="Submit">Id</button>
-                        </form>
-                        <form method="post" action="variaveis_atualizar_livro.php">
-                            <input name="atualizar" value="nome_livro" style="display: none;">
-                            <button type="submit" name="Submit">Nome</button>
-                        </form>
-                    </div>
-                    <li class="dropdown">
-                    <a href="excluir_livro_por.html" style="width: 150px; text-align: center;">Excluir LIVRO por:</a>
-                    <div class="dp-menu" style="width: 150px; text-align: center;">
-                    <form method="post" action="variaveis_excluir_livro.php">
-                        <input name="excluir" value="id_livro" style="display: none;">
-                        <button type="submit" name="Submit">Id</button>
-                    </form>
-                    <form method="post" action="variaveis_excluir_livro.php">
-                        <input name="excluir" value="nome_livro" style="display: none;">
-                        <button type="submit" name="Submit">Nome</button>
-                    </form>
-                    </div>
-                </li>
-        </ul>
-    </nav>
+    <?php include('../../include/menu_gerenciar_livro.php'); ?>
 
     <br>
     
@@ -182,8 +62,6 @@ else{
     <?php
         if($consultar == "id_livro"){
 
-            include('../../php/conexao.php');
-
             $sql = "SELECT * FROM livro id_livro WHERE id_livro = '$var'";
             $result = $mysqli->query($sql);
         
@@ -195,6 +73,7 @@ else{
                 echo "<td>".$row['nome_livro']."</td>";
 
                 $id_autor = $row['id_autor'];
+                $id_genero = $row['id_genero'];
 
                 $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
                     $resultad2 = $mysqli->query($sql2);
@@ -205,7 +84,15 @@ else{
                         echo "<td>".$row2['nome_autor']."</td>";
                     }
 
-                echo "<td>".$row['genero_livro']."</td>";
+                    $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
+                    $resultad3 = $mysqli->query($sql3);
+                
+                    while ($row3 = mysqli_fetch_array($resultad3))
+                    { 
+                    
+                        echo "<td>".$row3['nome_genero']."</td>";
+                    }
+
                 echo "<td>".$row['editora_livro']."</td>";
                 echo "<td>".$row['num_edicao_livro']."</td>";
                 echo "<td>".$row['estoque_livro']."</td>";
@@ -214,7 +101,6 @@ else{
             }
         }
         elseif($consultar == "nome_livro"){
-            include('../../php/conexao.php');
 
             $sql = "SELECT * FROM livro id_livro WHERE nome_livro = '$var'";
             $result = $mysqli->query($sql);
@@ -227,6 +113,7 @@ else{
                 echo "<td>".$row['nome_livro']."</td>";
 
                 $id_autor = $row['id_autor'];
+                $id_genero = $row['id_genero'];
 
                 $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
                     $resultad2 = $mysqli->query($sql2);
@@ -237,7 +124,15 @@ else{
                         echo "<td>".$row2['nome_autor']."</td>";
                     }
 
-                echo "<td>".$row['genero_livro']."</td>";
+                    $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
+                    $resultad3 = $mysqli->query($sql3);
+                
+                    while ($row3 = mysqli_fetch_array($resultad3))
+                    { 
+                    
+                        echo "<td>".$row3['nome_genero']."</td>";
+                    }
+
                 echo "<td>".$row['editora_livro']."</td>";
                 echo "<td>".$row['num_edicao_livro']."</td>";
                 echo "<td>".$row['estoque_livro']."</td>";
@@ -246,7 +141,13 @@ else{
             }
         }
         elseif($consultar == "id_autor"){
-            include('../../php/conexao.php');
+
+            $sql4 = "SELECT * FROM autor nome_autor WHERE nome_autor = '$var'";
+            $result4 = $mysqli->query($sql4);
+        
+            while ($row4 = mysqli_fetch_array($result4)){
+                $var = $row4['id_autor'];
+            }
 
             $sql = "SELECT * FROM livro id_autor WHERE id_autor = '$var'";
             $result = $mysqli->query($sql);
@@ -259,6 +160,7 @@ else{
                 echo "<td>".$row['nome_livro']."</td>";
 
                 $id_autor = $row['id_autor'];
+                $id_genero = $row['id_genero'];
 
                 $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
                     $resultad2 = $mysqli->query($sql2);
@@ -269,7 +171,15 @@ else{
                         echo "<td>".$row2['nome_autor']."</td>";
                     }
 
-                echo "<td>".$row['genero_livro']."</td>";
+                    $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
+                    $resultad3 = $mysqli->query($sql3);
+                
+                    while ($row3 = mysqli_fetch_array($resultad3))
+                    { 
+                    
+                        echo "<td>".$row3['nome_genero']."</td>";
+                    }
+
                 echo "<td>".$row['editora_livro']."</td>";
                 echo "<td>".$row['num_edicao_livro']."</td>";
                 echo "<td>".$row['estoque_livro']."</td>";
@@ -278,8 +188,7 @@ else{
             }
         }
         elseif($consultar == "editora_livro"){
-            include('../../php/conexao.php');
-
+            
             $sql = "SELECT * FROM livro id_livro WHERE editora_livro = '$var'";
             $result = $mysqli->query($sql);
         
@@ -291,6 +200,7 @@ else{
                 echo "<td>".$row['nome_livro']."</td>";
 
                 $id_autor = $row['id_autor'];
+                $id_genero = $row['id_genero'];
 
                 $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
                     $resultad2 = $mysqli->query($sql2);
@@ -301,7 +211,15 @@ else{
                         echo "<td>".$row2['nome_autor']."</td>";
                     }
 
-                echo "<td>".$row['genero_livro']."</td>";
+                    $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
+                    $resultad3 = $mysqli->query($sql3);
+                
+                    while ($row3 = mysqli_fetch_array($resultad3))
+                    { 
+                    
+                        echo "<td>".$row3['nome_genero']."</td>";
+                    }
+
                 echo "<td>".$row['editora_livro']."</td>";
                 echo "<td>".$row['num_edicao_livro']."</td>";
                 echo "<td>".$row['estoque_livro']."</td>";
@@ -310,9 +228,15 @@ else{
             }
         }
         elseif($consultar == "genero_livro"){
-            include('../../php/conexao.php');
 
-            $sql = "SELECT * FROM livro id_livro WHERE genero_livro = '$var'";
+            $sql4 = "SELECT * FROM genero nome_genero WHERE nome_genero = '$var'";
+            $result4 = $mysqli->query($sql4);
+        
+            while ($row4 = mysqli_fetch_array($result4)){
+                $var = $row4['id_genero'];
+            }
+
+            $sql = "SELECT * FROM livro id_genero WHERE id_genero = '$var'";
             $result = $mysqli->query($sql);
         
             while ($row = mysqli_fetch_array($result))
@@ -323,6 +247,7 @@ else{
                 echo "<td>".$row['nome_livro']."</td>";
 
                 $id_autor = $row['id_autor'];
+                $id_genero = $row['id_genero'];
 
                 $sql2 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
                     $resultad2 = $mysqli->query($sql2);
@@ -333,7 +258,15 @@ else{
                         echo "<td>".$row2['nome_autor']."</td>";
                     }
 
-                echo "<td>".$row['genero_livro']."</td>";
+                    $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
+                    $resultad3 = $mysqli->query($sql3);
+                
+                    while ($row3 = mysqli_fetch_array($resultad3))
+                    { 
+                    
+                        echo "<td>".$row3['nome_genero']."</td>";
+                    }
+
                 echo "<td>".$row['editora_livro']."</td>";
                 echo "<td>".$row['num_edicao_livro']."</td>";
                 echo "<td>".$row['estoque_livro']."</td>";

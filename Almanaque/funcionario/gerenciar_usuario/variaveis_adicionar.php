@@ -1,5 +1,5 @@
 <?php
-include('../php/conexao.php');
+include('../../include/conexao.php');
 
 $nome_usuario=$_POST['nome_usuario'];
 $data_usuario=$_POST['data_usuario'];

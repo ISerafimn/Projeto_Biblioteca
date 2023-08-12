@@ -3,7 +3,7 @@
 session_start();
 $_SESSION['email_funcionario'] = $email = $_POST['email_funcionario'];
 
-include('conexao.php');
+include ('../include/conexao.php');
 
 if(isset($_POST['email_funcionario']) || isset($_POST['senha_funcionario'])) {
 
@@ -26,7 +26,7 @@ if(isset($_POST['email_funcionario']) || isset($_POST['senha_funcionario'])) {
             header("Location: ../funcionario/index.php");
 
         } else {
-            header("Location: ../funcionario_login.html");
+            header("Location: ../funcionario_login.php");
             echo "Falha ao Logar! E-mail ou senha incorretos";
         }
 

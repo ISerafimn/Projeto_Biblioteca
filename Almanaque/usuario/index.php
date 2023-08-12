@@ -43,60 +43,10 @@
 </head>
 <body>
     <div style="background-color: #1f1919;">
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="generos_literario.html">GÊNEROS LITERARIOS</a>
-                    <div class="dp-menu">
-                        <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="Romance">
-                            <button type="submit" name="Submit">Romance</button>
-                        </form>
-                        <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="Fantasia">
-                            <button type="submit" name="Submit">Fantasia</button>
-                        </form>
-                        <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="Poesia">
-                            <button type="submit" name="Submit">Poesia</button>
-                        </form>
-                        <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="Ficcao">
-                            <button type="submit" name="Submit">Ficção</button>
-                        </form>
-                        <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="Conto">
-                            <button type="submit" name="Submit">Conto</button>
-                        </form>
-                        <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="Terror">
-                            <button type="submit" name="Submit">Terror</button>
-                        </form>
-                        <form method="post" action="php/lista_genero.php">
-                            <input name="genero" value="Aventura">
-                            <button type="submit" name="Submit">Ação e Aventura</button>
-                        </form>
-                    </div>
-                </li>
-                <li>
-                    <a href="livros.php">LIVROS</a>
-                </li>
-                <li>
-                    <a href="contato.html">CONTATO</a>
-                </li>
-                <li class="dropdown">
-                    <a href="perfil.php" style="width: 125px; text-align: center;">PERFIL</a>
-                    <div class="dp-menu" style="width: 125px; text-align: center;">
-                        <a href="perfil.php">Meu Perfil</a>
-                        <a href="meus_livros.php">Meus Livros</a>
-                        <a href="../php/logout.php">Sair</a>
-                    </div>
-                </li>
-            </ul> 
-        </nav>
-
+        <?php include('../include/menu_usuario.php'); ?>
         <img src="../imagens/estante_digital.png" width="100%" height="auto">
     </div>
+
         <br>
         <fieldset>
             <h1>BEST-SELERS</h1>
@@ -104,7 +54,6 @@
 
         <div class='container'>
     <?php
-        include('php/conexao.php');
         $sql = "SELECT * FROM livro ORDER BY id_livro ASC LIMIT 7";
         $resultad = $mysqli->query($sql);
         while ($row = mysqli_fetch_array($resultad))
@@ -220,67 +169,6 @@
                 <div class="next">&#10095;</div>
         </div>
 
-   <footer>
-        <div id="footer_content">
-            <div id="footer_contacts">
-                <h1>Estante Digital</h1>
-                <p>O mundo literario</p>
-                <div id="footer_social_media">
-                    <a href="#" class="footer-link" id="istagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#" class="footer-link" id="facebook">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="footer-link" id="whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-                <ul class="footer-list">
-                    <li>
-                        <h3>Blog</h3>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Literatura</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Audioboks</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">E-book</a>
-                    </li>
-                </ul>
-
-                <ul class="footer-list">
-                    <li>
-                        <h3>Produtos</h3>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Apps</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Downloand</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Cloud</a>
-                    </li>
-                </ul>
-
-                <div id="footer_cad">
-                    <h3>Cadastre-se</h3>
-                    <p>para obter a melhor experiencia literaria da sua vida!.</p>
-                    <p>Entre com seu email e sera notoficado diariamente com nossas ultimas novidades</p>
-
-               <div id="input_group">
-                    <input type="email" id="email">
-                    <button>
-                        <i class="fa-regular fa-envelope"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-            <p style="text-align: center; padding-bottom: 10px;"> &#169 2023 direito reservado</p>
-    </footer>
+    <?php include('../include/footer.php'); ?>
 </body>
 </html>

@@ -13,56 +13,7 @@
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li class="dropdown">
-                <a href="generos_literario.html">GÊNEROS LITERARIOS</a>
-                <div class="dp-menu">
-                    <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="Romance">
-                        <button type="submit" name="Submit">Romance</button>
-                    </form>
-                    <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="Fantasia">
-                        <button type="submit" name="Submit">Fantasia</button>
-                    </form>
-                    <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="Poesia">
-                        <button type="submit" name="Submit">Poesia</button>
-                    </form>
-                    <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="Ficcao">
-                        <button type="submit" name="Submit">Ficção</button>
-                    </form>
-                    <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="Conto">
-                        <button type="submit" name="Submit">Conto</button>
-                    </form>
-                    <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="Terror">
-                        <button type="submit" name="Submit">Terror</button>
-                    </form>
-                    <form method="post" action="php/lista_genero.php">
-                        <input name="genero" value="Aventura">
-                        <button type="submit" name="Submit">Ação e Aventura</button>
-                    </form>
-                </div>
-            </li>
-            <li>
-                <a href="contato.html">CONTATO</a>
-            </li>
-            <li class="dropdown">
-                <a href="usuario_login.html" style="width: 125px; text-align: center;">ENTRAR</a>
-                <div class="dp-menu">
-                    <a href="usuario_login.html">Login</a>
-                    <a href="usuario_cadastro.html">Cadastra-se</a>
-                </div>
-            </li>
-            <li>
-                <a href="index.php">HOME</a>
-            </li>
-        </ul> 
-    </nav>
+    <?php include('include/menu_pagina_inicial.php'); ?>
 
     <br>
 
@@ -80,8 +31,6 @@
         </tr>
 
         <?php
-        include('php/conexao.php');
-
         $sql = mysqli_query($mysqli, "SELECT  *   FROM  livro");
         while ($result = mysqli_fetch_array($sql))
 
@@ -89,7 +38,7 @@
                 $id_livro = $result['id_livro'];
                 $nome_livro = $result['nome_livro'];
                 $id_autor = $result['id_autor'];
-                $genero_livro = $result['genero_livro'];
+                $id_genero = $result['id_genero'];
                 $editora_livro = $result['editora_livro'];
                 $num_edicao_livro = $result['num_edicao_livro'];
                 $estoque_livro = $result['estoque_livro'];
@@ -121,8 +70,16 @@
                     
                         echo "<td>".$row['nome_autor']."</td>";
                     }
+
+                    $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
+                    $resultad3 = $mysqli->query($sql3);
+                
+                    while ($row = mysqli_fetch_array($resultad3))
+                    { 
                     
-                echo "<td>".$genero_livro."</td>";
+                        echo "<td>".$row['nome_genero']."</td>";
+                    }
+                    
                 echo "<td>".$editora_livro."</td>";
                 echo "<td>".$num_edicao_livro."</td>";
                 echo "<td>".$estoque_livro."</td>";

@@ -1,8 +1,7 @@
 <?php 
-include ('conexao.php');
+include ('../include/conexao.php');
 session_start();
 $id_funcionario = $_SESSION['id_funcionario'];
-
 $nome_funcionario=$_POST['nome_funcionario'];
 $email_funcionario=$_POST['email_funcionario'];
 $data_funcionario=$_POST['data_funcionario'];

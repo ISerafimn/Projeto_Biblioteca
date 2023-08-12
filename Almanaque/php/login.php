@@ -3,7 +3,7 @@
 session_start();
 $_SESSION['email_usuario'] = $email = $_POST['email_usuario'];
 
-include('conexao.php');
+include ('../include/conexao.php');
 
 if(isset($_POST['email_usuario']) || isset($_POST['senha_usuario'])) {
 
@@ -33,7 +33,7 @@ if(isset($_POST['email_usuario']) || isset($_POST['senha_usuario'])) {
             header("Location: ../usuario/index.php");
 
         } else {
-            header("Location: ../usuario_login.html");
+            header("Location: ../usuario_login.php");
             echo "Falha ao Logar! E-mail ou senha incorretos";
         }
 

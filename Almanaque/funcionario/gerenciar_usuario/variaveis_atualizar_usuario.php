@@ -1,5 +1,5 @@
 <?php
-include('../php/conexao.php');
+include('../../include/conexao.php');
 session_start();
 $_SESSION['atualizar'] = $excluir = $_POST['atualizar'];
 
