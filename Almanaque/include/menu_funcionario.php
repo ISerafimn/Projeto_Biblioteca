@@ -31,7 +31,7 @@
                 <a href="gerenciar_livro/livro_lista.php">Livros</a>
                 <a href="gerenciar_autor/autor_lista.php">Autor</a>
                 <a href="gerenciar_usuario/usuario_lista.php">Usuarios</a>
-                <a href="movimentacao_lista.php">Movimentação</a>
+                <a href="gerenciar_movimentacao/movimentacao_lista.php">Movimentação</a>
             </div>
         </li>
         <li class="dropdown">
