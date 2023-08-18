@@ -46,14 +46,24 @@
                 $id_status_movimentacao = $result['id_status_movimentacao'];
 
                 echo "<tr>";
-                echo "<td>".$id_movimentacao."</td>";
+                echo "<td><form method='post' action='movimentacao_aberto.php'>
+                <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
+                    <button type='submit' name='Submit' style='border: none; background-color:  ;'>
+                        ".$id_movimentacao."
+                    </button>
+                </form></td>";
 
                     $sql2 = "SELECT * FROM usuario id_usuario WHERE id_usuario = '$id_usuario'";
                     $resultad2 = $mysqli->query($sql2);
                 
                     while ($row = mysqli_fetch_array($resultad2))
                     { 
-                        echo "<td>".$row['nome_usuario']."</td>";
+                        echo "<td><form method='post' action='movimentacao_aberto.php'>
+                        <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
+                            <button type='submit' name='Submit' style='border: none; background-color:  ;'>
+                                ".$row['nome_usuario']."
+                            </button>
+                        </form></td>";
                     }
                     
                     $sql3 = "SELECT * FROM livro id_livro WHERE id_livro = '$id_livro'";
