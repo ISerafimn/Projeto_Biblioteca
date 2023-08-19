@@ -12,7 +12,7 @@
         }
     </style>
 </head>
-<body>_____
+<body>
     <?php include('include/menu_pagina_inicial.php'); ?>
 
     <br>
