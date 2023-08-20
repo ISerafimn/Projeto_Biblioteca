@@ -1,9 +1,11 @@
-    <?php
-    session_start();
-    $email_funcionario = $_SESSION['email_funcionario']; 
-    include('../include/conexao.php');
+<?php
+include('../php/protect.php');
     
-    ?>
+if($_SESSION['id_sessao'] == 2) {
+
+    $email_funcionario = $_SESSION['email_funcionario']; 
+    include('../include/conexao.php'); 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -66,3 +68,9 @@
     
 </body>
 </html>
+<?php
+}
+else {
+    echo "Você não pode acessar essa página, sua permissão é inválida";
+}
+?>

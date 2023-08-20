@@ -1,8 +1,10 @@
 <?php
-    include('../../include/conexao.php');
-    session_start();
-    $atualizar = $_SESSION['atualizar_autor'];
+include('../../php/protect.php');
 
+if($_SESSION['id_sessao'] == 2) {
+
+    include('../../include/conexao.php');
+    $atualizar = $_SESSION['atualizar_autor'];
 ?>
 
 <!DOCTYPE html>
@@ -169,3 +171,9 @@ else{
     ?>
 </body>
 </html>
+<?php
+}
+else {
+    echo "Você não pode acessar essa página, sua permissão é inválida";
+}
+?>

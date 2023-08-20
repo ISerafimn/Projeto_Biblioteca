@@ -1,3 +1,8 @@
+<?php
+include('../../php/protect.php');
+
+if($_SESSION['id_sessao'] == 2) {
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -91,4 +96,10 @@
         ?>
     </table>
 </body>
-</html> 
+</html>
+<?php
+}
+else {
+    echo "Você não pode acessar essa página, sua permissão é inválida";
+}
+?>

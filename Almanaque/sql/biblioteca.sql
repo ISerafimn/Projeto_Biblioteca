@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 12/08/2023 às 19:29
+-- Tempo de geração: 20/08/2023 às 16:45
 -- Versão do servidor: 8.0.30
 -- Versão do PHP: 8.1.10
 
@@ -69,18 +69,19 @@ CREATE TABLE `funcionario` (
   `email_funcionario` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `data_funcionario` date NOT NULL,
   `cpf_funcionario` int NOT NULL,
-  `senha_funcionario` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL
+  `senha_funcionario` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `id_sessao` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `funcionario`
 --
 
-INSERT INTO `funcionario` (`id_funcionario`, `nome_funcionario`, `email_funcionario`, `data_funcionario`, `cpf_funcionario`, `senha_funcionario`) VALUES
-(1, 'Igor S', 'igorserafimn@gmail.com', '2023-07-21', 145481321, '123'),
-(2, 'Felipe Dorosz', 'felipedorosz@gmail.com', '2002-06-14', 987654321, '456'),
-(3, 'Gabryel Cambui', 'gabryelcambui@gmail.com', '2004-06-28', 963852741, '789'),
-(5, 'serafim', 'igorserafdghjnklmjhbyucimn@gmail.com', '2023-08-03', 44444, '112');
+INSERT INTO `funcionario` (`id_funcionario`, `nome_funcionario`, `email_funcionario`, `data_funcionario`, `cpf_funcionario`, `senha_funcionario`, `id_sessao`) VALUES
+(1, 'Igor S', 'igorserafimn@gmail.com', '2023-07-21', 145481321, '123', 2),
+(2, 'Felipe Dorosz', 'felipedorosz@gmail.com', '2002-06-14', 987654321, '456', 2),
+(3, 'Gabryel Cambui', 'gabryelcambui@gmail.com', '2004-06-28', 963852741, '789', 2),
+(5, 'serafim', 'igorserafdghjnklmjhbyucimn@gmail.com', '2023-08-03', 44444, '112', 2);
 
 -- --------------------------------------------------------
 
@@ -164,6 +165,7 @@ INSERT INTO `livro` (`id_livro`, `nome_livro`, `editora_livro`, `id_genero`, `nu
 CREATE TABLE `movimentacao` (
   `id_movimentacao` int NOT NULL,
   `data_saida_movimentacao` date DEFAULT NULL,
+  `data_limite_movimentacao` date DEFAULT NULL,
   `data_volta_movimentacao` date DEFAULT NULL,
   `id_usuario` int NOT NULL,
   `id_livro` int NOT NULL,
@@ -175,14 +177,34 @@ CREATE TABLE `movimentacao` (
 -- Despejando dados para a tabela `movimentacao`
 --
 
-INSERT INTO `movimentacao` (`id_movimentacao`, `data_saida_movimentacao`, `data_volta_movimentacao`, `id_usuario`, `id_livro`, `id_status_movimentacao`, `id_funcionario`) VALUES
-(6, NULL, NULL, 9, 5, 4, NULL),
-(7, NULL, NULL, 9, 3, 4, NULL),
-(18, NULL, NULL, 9, 2, 4, NULL),
-(19, NULL, NULL, 9, 5, 4, NULL),
-(20, NULL, NULL, 9, 5, 4, NULL),
-(21, NULL, NULL, 9, 5, 4, NULL),
-(22, NULL, NULL, 9, 18, 4, NULL);
+INSERT INTO `movimentacao` (`id_movimentacao`, `data_saida_movimentacao`, `data_limite_movimentacao`, `data_volta_movimentacao`, `id_usuario`, `id_livro`, `id_status_movimentacao`, `id_funcionario`) VALUES
+(6, NULL, NULL, NULL, 9, 5, 4, NULL),
+(7, NULL, NULL, NULL, 9, 3, 1, NULL),
+(18, NULL, NULL, NULL, 9, 2, 4, NULL),
+(19, NULL, NULL, NULL, 9, 5, 2, NULL),
+(20, NULL, NULL, NULL, 9, 5, 3, NULL),
+(21, NULL, NULL, NULL, 9, 5, 4, NULL),
+(22, NULL, NULL, NULL, 9, 18, 2, NULL),
+(23, NULL, NULL, NULL, 4, 7, 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `sessao`
+--
+
+CREATE TABLE `sessao` (
+  `id_sessao` int NOT NULL,
+  `cargo_sessao` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `sessao`
+--
+
+INSERT INTO `sessao` (`id_sessao`, `cargo_sessao`) VALUES
+(1, 'usuário'),
+(2, 'funcionario');
 
 -- --------------------------------------------------------
 
@@ -219,19 +241,21 @@ CREATE TABLE `usuario` (
   `cpf_usuario` int NOT NULL,
   `senha_usuario` varchar(20) NOT NULL,
   `endereco_usuario` varchar(50) NOT NULL,
-  `telefone_usuario` int NOT NULL
+  `telefone_usuario` int NOT NULL,
+  `id_sessao` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `email_usuario`, `data_usuario`, `cpf_usuario`, `senha_usuario`, `endereco_usuario`, `telefone_usuario`) VALUES
-(1, 'carlos', 'carlos1123@fuian', '2023-07-11', 415614651, '100', 'rua da mortalha', 145202),
-(4, 'José Eduardo', 'joseeduardo@gmail.com', '2004-03-14', 789456741, '647', 'Rua do Pato', 156151664),
-(6, 'Iris Raquel', 'iris@dfghjnmk', '2023-07-12', 431857435, '111111', 'adsad14', 1556),
-(9, 'Igor Serafin', 'igorserafimn2@gmail.com', '2004-04-10', 41215451, '123', 'Rua Da Fantasia', 11978758),
-(10, 'Igor Testando', 'igor@gmail.com.br', '2023-08-11', 14567912, '124', 'Rua Da Fantasia', 1197875);
+INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `email_usuario`, `data_usuario`, `cpf_usuario`, `senha_usuario`, `endereco_usuario`, `telefone_usuario`, `id_sessao`) VALUES
+(1, 'carlos', 'carlos1123@fuian', '2023-07-11', 415614651, '100', 'rua da mortalha', 145202, 1),
+(4, 'José Eduardo', 'joseeduardo@gmail.com', '2004-03-14', 789456741, '647', 'Rua do Pato', 156151664, 1),
+(6, 'Iris Raquel', 'iris@dfghjnmk', '2023-07-12', 431857435, '111111', 'adsad14', 1556, 1),
+(9, 'Igor Serafin', 'igorserafimn2@gmail.com', '2004-04-10', 41215451, '123', 'Rua Da Fantasia', 11978758, 1),
+(10, 'Igor Testando', 'igor@gmail.com.br', '2023-08-11', 14567912, '124', 'Rua Da Fantasia', 1197875, 1),
+(11, 'Maça', 'teste@teste', '2023-08-20', 4814654, '123', 'banana', 944, 1);
 
 --
 -- Índices para tabelas despejadas
@@ -249,7 +273,8 @@ ALTER TABLE `autor`
 ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`id_funcionario`),
   ADD UNIQUE KEY `CPF` (`cpf_funcionario`) USING BTREE,
-  ADD UNIQUE KEY `EMAIL` (`email_funcionario`) USING BTREE;
+  ADD UNIQUE KEY `EMAIL` (`email_funcionario`) USING BTREE,
+  ADD KEY `fk_id_sessao` (`id_sessao`);
 
 --
 -- Índices de tabela `genero`
@@ -276,6 +301,12 @@ ALTER TABLE `movimentacao`
   ADD KEY `fk__checagem_funcionario` (`id_funcionario`) USING BTREE;
 
 --
+-- Índices de tabela `sessao`
+--
+ALTER TABLE `sessao`
+  ADD PRIMARY KEY (`id_sessao`);
+
+--
 -- Índices de tabela `status_movimentacao`
 --
 ALTER TABLE `status_movimentacao`
@@ -287,7 +318,8 @@ ALTER TABLE `status_movimentacao`
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id_usuario`),
   ADD UNIQUE KEY `CPF` (`cpf_usuario`) USING BTREE,
-  ADD UNIQUE KEY `EMAIL` (`email_usuario`) USING BTREE;
+  ADD UNIQUE KEY `EMAIL` (`email_usuario`) USING BTREE,
+  ADD KEY `fk_sessao` (`id_sessao`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -321,7 +353,13 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT de tabela `movimentacao`
 --
 ALTER TABLE `movimentacao`
-  MODIFY `id_movimentacao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_movimentacao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT de tabela `sessao`
+--
+ALTER TABLE `sessao`
+  MODIFY `id_sessao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `status_movimentacao`
@@ -333,11 +371,17 @@ ALTER TABLE `status_movimentacao`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restrições para tabelas despejadas
 --
+
+--
+-- Restrições para tabelas `funcionario`
+--
+ALTER TABLE `funcionario`
+  ADD CONSTRAINT `fk_id_sessao` FOREIGN KEY (`id_sessao`) REFERENCES `sessao` (`id_sessao`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Restrições para tabelas `livro`
@@ -354,6 +398,12 @@ ALTER TABLE `movimentacao`
   ADD CONSTRAINT `fk_id_livro` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `fk_id_status` FOREIGN KEY (`id_status_movimentacao`) REFERENCES `status_movimentacao` (`id_status_movimentacao`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `fk_id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Restrições para tabelas `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `fk_sessao` FOREIGN KEY (`id_sessao`) REFERENCES `sessao` (`id_sessao`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

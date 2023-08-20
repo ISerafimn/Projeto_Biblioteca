@@ -1,3 +1,8 @@
+<?php
+include('../php/protect.php');
+
+if($_SESSION['id_sessao'] == 1) {
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -63,3 +68,9 @@
      <a href="index.php">voltar</a>
 </body>
 </html>
+<?php
+}
+else {
+    echo "Você não pode acessar essa página, sua permissão é inválida";
+}
+?>

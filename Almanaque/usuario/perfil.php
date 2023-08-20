@@ -1,5 +1,8 @@
     <?php
-    session_start();
+    include('../php/protect.php');
+    
+    if($_SESSION['id_sessao'] == 1) {
+        
     $email_usuario = $_SESSION['email_usuario'];
     
     include('../include/conexao.php');
@@ -84,3 +87,9 @@
     
 </body>
 </html>
+<?php
+}
+else {
+    echo "Você não pode acessar essa página, sua permissão é inválida";
+}
+?>

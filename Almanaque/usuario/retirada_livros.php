@@ -1,12 +1,15 @@
 <?php
-include('../include/conexao.php');
-session_start();
+include('../php/protect.php');
 
-$id_usuario = $_SESSION['id_usuario'];
-$id_status_movimentacao = "4";
-$id_livro = $_POST ['id_livro'];
+if($_SESSION['id_sessao'] == 1) {
 
-$result = mysqli_query($mysqli, "INSERT INTO movimentacao(id_usuario, id_status_movimentacao, id_livro) VALUES ('$id_usuario', '$id_status_movimentacao', '$id_livro')");
+    include('../include/conexao.php');
+
+    $id_usuario = $_SESSION['id_usuario'];
+    $id_status_movimentacao = "4";
+    $id_livro = $_POST ['id_livro'];
+
+    $result = mysqli_query($mysqli, "INSERT INTO movimentacao(id_usuario, id_status_movimentacao, id_livro) VALUES ('$id_usuario', '$id_status_movimentacao', '$id_livro')");
 ?>
 
 <!DOCTYPE html>
@@ -89,3 +92,9 @@ $result = mysqli_query($mysqli, "INSERT INTO movimentacao(id_usuario, id_status_
         ?>
 </body>
 </html>
+<?php
+}
+else {
+    echo "Você não pode acessar essa página, sua permissão é inválida";
+}
+?>
