@@ -10,7 +10,7 @@
     <title>Cadastro</title>
 </head>
     <?php include('include/menu_pagina_inicial.php'); ?>
-
+    <!-- Form para a obtenção de dados para o cadastro do funcionario no banco de dados. !-->
     <h1>Cadastro do funcionario</h1>
     <form name="Cadastro Usuario" method="post" action="php/variaveis_funcionario.php">
         <table>

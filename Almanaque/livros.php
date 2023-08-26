@@ -31,6 +31,8 @@
         </tr>
 
         <?php
+
+        // sistema que mostra todos os livros contidos no banco de dados.
         $sql = mysqli_query($mysqli, "SELECT  *   FROM  livro");
         while ($result = mysqli_fetch_array($sql))
 
@@ -48,6 +50,8 @@
                 echo "<tr>";
                 echo "<td>".$id_livro."</td>";
 
+                // sistema onde é criado um link que leva ao arquivo "livro_aberto.php", ele puxa o id_livro como valor de indentificador e a url_imagem_livro e nome_livro respectivamente como informações que serão mostrada para o usuário.
+                
                 echo "<td><form method='post' action='livro_aberto.php'>
                         <input name='id_livro' value='".$id_livro."' style='display: none;'>
                             <button type='submit' name='Submit' style='border: none; background-color: white;'>

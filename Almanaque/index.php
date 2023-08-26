@@ -42,6 +42,7 @@
     </style>  
 </head>
 <body>
+    <!-- Esse include contém o menu da pagina inicial, ele é padrão de muitas outros arquivos. !-->
     <div style="background-color: #1f1919;">
         <?php include('include/menu_pagina_inicial.php'); ?>
         <img src="imagens/estante_digital.png" width="100%" height="auto">
@@ -55,6 +56,7 @@
 
     <div class='container'>
     <?php
+    // Sistema PHP que puxa as informações do Banco do Dados e apresenta em formato "cartão" no site.
         $sql = "SELECT * FROM livro ORDER BY id_livro ASC LIMIT 7";
         $resultad = $mysqli->query($sql);
         while ($row = mysqli_fetch_array($resultad))
@@ -78,6 +80,7 @@
         <h1 style="color: rgba(0, 0, 0, 0);">SLIDERS</h1>
     </fieldset>
 
+    <!-- Sistema de Banner em JavaScript, rotação de imagem. !-->
     <div class="slider-container">
         <div class="slider">
             <div class="slide">
@@ -168,6 +171,7 @@
         </div>
     </div>
 
+    <!-- Esse include contém o footer do site, ele é generico para o site inteiro. !-->
     <?php include('include/footer.php'); ?>
 
 </body>

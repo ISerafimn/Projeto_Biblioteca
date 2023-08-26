@@ -1,5 +1,5 @@
 # TCC - Sistema de Gestão de Livros, Almanaque
- TCC em grupo de um sistema de gestão de livros, TCCs, Revista e etc.
+ TCC em grupo de um sistema de gestão de livros, TCCs, revista e etc.
 
 ## Conceito/Sobre
  Um site em hospedagem local com um sistema de entrada e saída de livros, o qual o cliente/usuário do site se cadastrará e terá a oportunidade de pegar um livro emprestado com data de devolução estipulada. A retirada dos livros será feita de maneira fisica, o usuário visitará o "deposito" e retirará seu livro escolhido anteriormente. 

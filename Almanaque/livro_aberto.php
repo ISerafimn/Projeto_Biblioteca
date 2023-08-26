@@ -34,6 +34,7 @@
         <?php
         $id_livro=$_POST['id_livro'];
 
+        // É puxado no banco de dados o livro referente ao id_livro no botão do form da página anteriora a essa.
         $sql = mysqli_query($mysqli, "SELECT  *   FROM  livro WHERE id_livro = '$id_livro'");
         while ($result = mysqli_fetch_array($sql))
             {

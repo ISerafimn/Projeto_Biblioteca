@@ -1,5 +1,5 @@
 <?php
-
+// sistema de verificação de login/start de sessão.
 if(!isset($_SESSION)) {
     session_start();
 }

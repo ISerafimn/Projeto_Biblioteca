@@ -15,6 +15,7 @@
 <body>
     <?php include('include/menu_pagina_inicial.php'); ?>
 
+    <!-- Esse sistema puxa os livros em relacão ao genero escolhido no menu na página anteriora. !-->
     <table style border="1">
     <tr>
         <th>ID</th>
@@ -39,7 +40,7 @@
         echo "<tr>";
         echo "<td>".$row['id_livro']."</td>";
 
-
+        // sistema onde é criado um link que leva ao arquivo "livro_aberto.php", ele puxa o id_livro como valor de indentificador e a url_imagem_livro e nome_livro respectivamente como informações que serão mostrada para o usuário.
         echo "<td><form method='post' action='livro_aberto.php'>
         <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
             <button type='submit' name='Submit' style='border: none; background-color: white;'>

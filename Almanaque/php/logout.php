@@ -1,5 +1,5 @@
 <?php
-
+// desconector da sessão login atual
 if(!isset($_SESSION)) {
     session_start();
 }
