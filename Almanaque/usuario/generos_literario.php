@@ -28,36 +28,19 @@ if($_SESSION['id_sessao'] == 1) {
     
     <h1>GÊNEROS LITERARIOS</h1>
     
-    <div class="genero">
-        <form method="post" action="php/lista_genero.php">
-            <input name="genero" value="1">
-            <button type="submit" name="Submit">Romance</button>
-        </form>
-        <form method="post" action="php/lista_genero.php">
-            <input name="genero" value="2">
-            <button type="submit" name="Submit">Fantasia</button>
-        </form>
-        <form method="post" action="php/lista_genero.php">
-            <input name="genero" value="3">
-            <button type="submit" name="Submit">Poesia</button>
-        </form>
-        <form method="post" action="php/lista_genero.php">
-            <input name="genero" value="4">
-            <button type="submit" name="Submit">Romance</button>
-        </form>
-        <form method="post" action="php/lista_genero.php">
-            <input name="genero" value="5">
-            <button type="submit" name="Submit">Conto</button>
-        </form>
-        <form method="post" action="php/lista_genero.php">
-            <input name="genero" value="6">
-            <button type="submit" name="Submit">Terror</button>
-        </form>
-        <form method="post" action="php/lista_genero.php">
-            <input name="genero" value="7">
-            <button type="submit" name="Submit">Ação e Aventura</button>
-        </form>
-    </div>
+    <?php
+        $sql = "SELECT * FROM genero";
+        $resultad = $mysqli->query($sql);
+             while ($row = mysqli_fetch_array($resultad))
+                {
+                    echo    "<form method='post' action='lista_genero.php'>
+                                <input name='id_genero' value='".$row['id_genero']."' style='display: none;'>
+                                <button type='submit' name='Submit'>
+                                    ".$row['nome_genero']."
+                                </button>
+                            </form>";
+                }
+    ?>
 
 </body>
 </html>
