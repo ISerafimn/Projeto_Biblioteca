@@ -19,7 +19,7 @@ if($_SESSION['id_sessao'] == 2) {
 </head>
 <body>
     <div style="background-color: #1f1919;">
-        <?php include('../include/menu_funcionario.php'); ?>
+        <?php include('../include/menu_pagina_inicial.php'); ?>
     </div>
 
     <table style border="1">

@@ -24,7 +24,7 @@ if($_SESSION['id_sessao'] == 1) {
 </head>
 <body>
     <div style="background-color: #1f1919;">
-        <?php include('../include/menu_usuario.php'); ?>
+        <?php include('../include/menu_pagina_inicial.php'); ?>
     </div>
 
     <br>
