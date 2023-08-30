@@ -27,9 +27,44 @@ if($_SESSION['id_sessao'] == 2) {
     </div>
 
     <br>
-
-    <?php include('../../include/menu_gerenciar_genero.php') ?>
     
+    <?php include('../../include/menu_gerenciar_genero.php') ?>
+
+    <h1>Atualizar Gênero</h1>
+    <br>
+    
+    <table>
+        <form action="atualizando_genero.php" method="post" style="text-align: center;">
+            <tr>
+                <td>Atualizar: </td>
+                <td>
+                    <select name="id_genero" style="width: 250px; color: rgb(52, 52, 52)" required>
+                    <option value="vo">Gêneros:</option>
+                        <?php
+                            $sql = "SELECT * FROM genero";
+                            $resultad = $mysqli->query($sql);
+                            while ($row = mysqli_fetch_array($resultad))
+                            {
+                                echo "<option value='".$row['id_genero']."'>".$row['nome_genero']."</option>";
+                            }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Para: </td>
+                <td>
+                    <input type="text" name="nome_genero" placeholder="Digite o Nome do Gênero!" required>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Atualizar</button>
+                </td>
+            </tr>
+        </form>
+    </table>
+
 </body>
 </html>
 <?php
