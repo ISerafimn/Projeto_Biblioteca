@@ -88,7 +88,7 @@ if($_SESSION['id_sessao'] == 1) {
                 echo "<td>".$sinopse_livro."</td>";
                 echo "</tr></table>";
             }
-        echo "Livro Selecionado, diriga-se a biblioteca para fazer a retirada de seu livro";
+        echo "<p style='text-align: center;>Livro Selecionado, diriga-se a biblioteca para fazer a retirada de seu livro</p>";
         ?>
 </body>
 </html>

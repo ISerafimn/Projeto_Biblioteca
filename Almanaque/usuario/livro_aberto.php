@@ -1,6 +1,8 @@
 <?php
 include('../php/protect.php');
 
+$id_usuario = $_SESSION['id_usuario'];
+
 if($_SESSION['id_sessao'] == 1) {
 ?>
 <!DOCTYPE html>
@@ -80,11 +82,37 @@ if($_SESSION['id_sessao'] == 1) {
                 echo "</tr>";
             }
         ?>
-    </table>
-    <form action="retirada_livros.php" method="post">
-    <input type="text" name="id_livro" value="<?php echo "$id_livro"?>" style="display: none;">
-    <button type="submit">Retirar</button>
-    </form>
+    </table><br>
+    <?php
+    include('../include/conexao.php');
+
+    $sql_code = "SELECT * FROM movimentacao WHERE id_usuario = '$id_usuario' AND id_status_movimentacao != 3 ";
+    $sql_query = $mysqli->query($sql_code);
+
+    $quantidade = $sql_query->num_rows;
+
+    if($quantidade > 1){
+        echo "<p style='text-align: center;'>Você já tem 2 livros selecionados.</p>";
+    }
+    else{
+        $id_livro_sql = 0;
+        $sql = mysqli_query($mysqli, "SELECT * FROM movimentacao WHERE id_usuario = '$id_usuario' ");
+        while ($result = mysqli_fetch_array($sql)){
+            $id_livro_sql = $result['id_livro'];
+        }
+        if($id_livro_sql != $id_livro){
+            ?>
+            <form action="retirada_livros.php" method="post">
+                <input type="text" name="id_livro" value="<?php echo "$id_livro"?>" style="display: none;">
+                <button type="submit" style="margin-left: 750px;">Retirar</button>
+            </form>
+            <?php
+        }
+        else{
+            echo "<p style='text-align: center;'>Você já selecionou esse livro! </p>";
+        }
+    }
+    ?>
 </body>
 </html>
 <?php

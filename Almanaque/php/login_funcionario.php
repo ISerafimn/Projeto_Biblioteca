@@ -1,9 +1,7 @@
 <?php
 // sessão iniciada pra mandar a variavel email funcionario que fez login pra diversos arquivos
-session_start();
-$_SESSION['email_funcionario'] = $email = $_POST['email_funcionario'];
 
-include ('../include/conexao.php');
+include_once('include/conexao.php');
 
 if(isset($_POST['email_funcionario']) || isset($_POST['senha_funcionario'])) {
 
@@ -31,11 +29,10 @@ if(isset($_POST['email_funcionario']) || isset($_POST['senha_funcionario'])) {
 
             $_SESSION['id_funcionario'] = $id_funcionario;
             $_SESSION['id_sessao'] = $id_sessao;
-            header("Location: ../funcionario/index.php");
+            header("Location: funcionario/index.php");
 
         } else {
-            header("Location: ../funcionario_login.php");
-            echo "Falha ao Logar! E-mail ou senha incorretos";
+            echo "<p style='color: red;'>Falha ao Logar! E-mail ou senha incorretos</p>";
         }
 
     }
