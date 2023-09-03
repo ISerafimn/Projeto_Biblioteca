@@ -78,6 +78,13 @@
                 echo "</tr>";
             }
         ?>
+
     </table>
+    
+    <br>
+
+    <form action="usuario_login.php">
+        <button style="margin-left: 750px;">Retirar</button>
+    </form>
 </body>
 </html>

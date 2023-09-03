@@ -34,7 +34,7 @@ if($_SESSION['id_sessao'] == 1) {
     </div>
 
     <h1> ATUALIZAÇÃO DE USUÁRIO </h1>
-    <form name="atualizarusuario" method="post" action="../php/atualizar_usuario.php">
+    <form name="atualizar_usuario" method="post" action="../php/atualizar_usuario.php">
         <table>
             <tr>
                 <td>Nome:</td>
@@ -43,10 +43,6 @@ if($_SESSION['id_sessao'] == 1) {
             <tr>
                 <td>Data de nascimento:</td>
                 <td><input name="data_usuario" type="date" placeholder="Digite a data de nascimento do usuário" required></td>
-            </tr>
-            <tr>
-                <td>CPF:</td>
-                <td><input name="cpf_usuario" type="number" placeholder="Digite o CPF do usuário" role="none" required></td>
             </tr>
             <tr>
                 <td>E-mail:</td>

@@ -61,7 +61,15 @@ if($_SESSION['id_sessao'] == 1) {
             </button>
         </form></td>";
 
-        echo "<td>".$row['id_autor']."</td>";
+        $id_autor = $row['id_autor'];
+
+        $sql3 = "SELECT * FROM autor id_autor WHERE id_autor = '$id_autor'";
+        $result3 = $mysqli->query($sql3);
+    
+        while ($row3 = mysqli_fetch_array($result3))
+        {
+            echo "<td>".$row3['nome_autor']."</td>";
+        }
 
         $sql2 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
         $result2 = $mysqli->query($sql2);

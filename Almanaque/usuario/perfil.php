@@ -80,7 +80,7 @@
     <br>
     
     <ul>
-        <li style="text-align: center;"><a href="atualizar_usuario.html">Atualizar os Dados</a></li>
+        <li style="text-align: center;"><a href="atualizar_usuario.php">Atualizar os Dados</a></li>
     </ul>
     
     <br><br><br><br><br>

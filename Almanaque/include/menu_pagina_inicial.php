@@ -82,7 +82,7 @@ else{
         <li>
             <form action=resultado_pesquisa.php>
                 <input name="busca" value="<?php if(isset($_GET['busca'])) echo $_GET['busca']; ?>" placeholder="Pesquise Aqui!" type="text">
-                <button type="submit">Pesquisar</button>
+                <button type="submit">Buscar</button>
             </form>
         </li>
     </ul> 

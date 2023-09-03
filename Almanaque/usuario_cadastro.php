@@ -18,7 +18,7 @@
         <table>
             <tr>
                 <td>Nome:</td>
-                <td><input name="nome_usuario" type="text" size="50" maxlenght="50" placeholder="Digite o nome do usuário" required></td>
+                <td><input name="nome_usuario" type="text" maxlenght="50" placeholder="Digite o nome do usuário" required></td>
             </tr>
             <tr>
                 <td>Data de nascimento:</td>
@@ -26,23 +26,23 @@
             </tr>
             <tr>
                 <td>CPF:</td>
-                <td><input name="cpf_usuario" type="number" size="50" maxlenght="50" placeholder="Digite o CPF do usuário" role="none" required></td>
+                <td><input name="cpf_usuario" type="number" minlength="11" maxlenght="11" placeholder="Digite o CPF do usuário" role="none" required></td>
             </tr>
             <tr>
                 <td>E-mail:</td>
-                <td><input name="email_usuario" type="email" size="50" maxlenght="50" placeholder="Digite o E-mail do usuario" required></td>
+                <td><input name="email_usuario" type="email" maxlenght="50" placeholder="Digite o E-mail do usuario" required></td>
             </tr>
             <tr>
                 <td>Endereço:</td>
-                <td><input name="endereco_usuario" type="text" size="50" maxlenght="50" placeholder="Digite o endereço do usuario" required></td>
+                <td><input name="endereco_usuario" type="text" maxlenght="50" placeholder="Digite o endereço do usuario" required></td>
             </tr>
             <tr>
                 <td>Telefone:</td>
-                <td><input name="telefone_usuario" type="number" size="50" maxlenght="50" placeholder="Digite o telefone do usuario" required></td>
+                <td><input name="telefone_usuario" type="number"  minlength="11" maxlenght="11" placeholder="Digite o telefone do usuario" required></td>
             </tr>
             <tr>
                 <td>Senha:</td>
-                <td><input name="senha_usuario" type="number" size="50" maxlenght="50" placeholder="Digite o telefone do usuario" required></td>
+                <td><input name="senha_usuario" type="number" minlength="8" maxlength="20" placeholder="Digite o telefone do usuario" required></td>
             </tr>
         </table>
             <br>

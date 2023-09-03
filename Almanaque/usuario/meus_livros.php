@@ -44,7 +44,7 @@ if($_SESSION['id_sessao'] == 1) {
         </tr>
 
         <?php
-        $sql = mysqli_query($mysqli, "SELECT * FROM movimentacao WHERE id_usuario = '$id_usuario'");
+        $sql = mysqli_query($mysqli, "SELECT * FROM movimentacao WHERE id_usuario = '$id_usuario' AND id_status_movimentacao != 3");
         while ($result = mysqli_fetch_array($sql))
 
             {
