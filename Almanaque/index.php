@@ -42,6 +42,9 @@
     </style>  
 </head>
 <body>
+    <!-- include da acessibilidade da página. !-->
+    <?php include('include/acessibilidade.php'); ?>
+
     <!-- Esse include contém o menu da pagina inicial, ele é padrão de muitas outros arquivos. !-->
     <div style="background-color: #1f1919;">
         <?php include('include/menu_pagina_inicial.php'); ?>

@@ -10,7 +10,8 @@
     <title>Cadastro</title>
 </head>
 <body>
-<?php include('include/menu_pagina_inicial.php'); ?>
+<?php include('include/menu_pagina_inicial.php');
+    include('include/acessibilidade.php');?>
     
     <!-- Form para a obtenção de dados para o cadastro do usuarío no banco de dados. !-->
     <form name="Cadastro Usuario" method="post" action="php/variaveis.php">

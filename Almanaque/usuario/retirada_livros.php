@@ -28,7 +28,8 @@ if($_SESSION['id_sessao'] == 1) {
 </head>
 <body>
     <div style="background-color: #1f1919;">
-        <?php include('../include/menu_pagina_inicial.php'); ?>
+        <?php include('../include/menu_pagina_inicial.php');
+        include('../include/acessibilidade.php');?>
     </div>
 
     <table border="1" style="width: 90%; margin: auto;">

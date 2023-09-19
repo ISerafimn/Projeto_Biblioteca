@@ -23,7 +23,8 @@ if($_SESSION['id_sessao'] == 2) {
 </head>
 <body>
     <div style="background-color: #1f1919;">
-        <?php include('../include/menu_pagina_inicial.php'); ?>
+        <?php include('../include/menu_pagina_inicial.php');
+        include('../include/acessibilidade.php'); ?>
     </div>
     
     <h1>GÊNEROS LITERARIOS</h1>

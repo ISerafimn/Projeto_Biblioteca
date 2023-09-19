@@ -13,7 +13,8 @@
     </style>
 </head>
 <body>
-    <?php include('include/menu_pagina_inicial.php'); ?>
+    <?php include('include/menu_pagina_inicial.php');
+        include('include/acessibilidade.php');?>
 
     <!-- Esse sistema puxa os livros em relacão ao genero escolhido no menu na página anteriora. !-->
     <table style border="1">

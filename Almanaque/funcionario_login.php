@@ -11,7 +11,8 @@
     <title>Login</title>
 </head>
 <body>
-    <?php include('include/menu_login.php'); ?>
+    <?php include('include/menu_login.php');
+        include('include/acessibilidade.php');?>
     
     <form action="#" method="POST">
         <h1>Login do Funcionario</h1>

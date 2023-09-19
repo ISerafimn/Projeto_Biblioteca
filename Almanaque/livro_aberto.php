@@ -17,7 +17,8 @@
     </style>
 </head>
 <body>
-    <?php include('include/menu_pagina_inicial.php'); ?>
+    <?php include('include/menu_pagina_inicial.php');
+        include('include/acessibilidade.php');?>
 
     <table border="1" style="width: 90%; margin: auto;">
         <tr>

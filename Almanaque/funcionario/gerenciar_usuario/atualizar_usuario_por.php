@@ -17,7 +17,8 @@ if($_SESSION['id_sessao'] == 2) {
 </head>
 <body>
     <div style="background-color: #1f1919;">
-        <?php include('../../include/menu_funcionario_gerenciar.php'); ?>
+        <?php include('../../include/menu_funcionario_gerenciar.php');
+        include('../../include/acessibilidade.php'); ?>
     </div>
     <br>
 

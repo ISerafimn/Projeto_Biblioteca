@@ -8,7 +8,9 @@
     <title>Contato</title>
 </head>
 <body>
-    <?php include('include/menu_pagina_inicial.php'); ?>
+    <?php include('include/menu_pagina_inicial.php');
+        include('include/acessibilidade.php');?>
+        
     <h1>CONTATO</h1>
 </body>
 </html>

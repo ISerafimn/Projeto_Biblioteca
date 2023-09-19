@@ -13,7 +13,8 @@
     </style>
 </head>
 <body>
-    <?php include('include/menu_pagina_inicial.php'); ?>
+    <?php include('include/menu_pagina_inicial.php');
+        include('include/acessibilidade.php');?>
     
     <h1>GÊNEROS LITERARIOS</h1>
     

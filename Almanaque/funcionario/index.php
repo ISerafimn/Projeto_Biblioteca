@@ -48,7 +48,8 @@ if($_SESSION['id_sessao'] == 2) {
 </head>
 <body>
     <div style="background-color: #1f1919;">
-        <?php include('../include/menu_pagina_inicial.php'); ?>
+        <?php include('../include/menu_pagina_inicial.php');
+        include('../include/acessibilidade.php'); ?>
         <img src="../imagens/estante_digital.png" width="100%" height="auto">
     </div>
         <br>

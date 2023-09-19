@@ -11,7 +11,10 @@
     <title>Login</title>
 </head>
 <body style="background-color: white;">
-<?php include('include/menu_login.php'); ?>
+<?php
+    include('include/acessibilidade.php');
+    include('include/menu_login.php');
+?>
     
     <form action="#" method="POST">
         <h1>Login do Usuário</h1>
