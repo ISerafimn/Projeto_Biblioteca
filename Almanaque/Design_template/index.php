@@ -9,6 +9,10 @@
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/card-slider.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <style>
@@ -96,83 +100,56 @@
 
     <br><br><br><br><br><br><br>
 
-    <div class="corpo">
+
     <br><br><br>
 
 
         <fieldset>
                 <h1>BEST-SELERS</h1>
             </fieldset>
-            <div class='containers'>
-        <?php
-            include('../include/conexao.php');
-            $sql = "SELECT * FROM livro ORDER BY id_livro ASC LIMIT 7";
-            $resultad = $mysqli->query($sql);
-            while ($row = mysqli_fetch_array($resultad))
-                {
-                    echo    "<div  class='livro'>
-                                <form method='post' action='livro_aberto.php'>
-                                    <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
-                                        <button type='submit' name='Submit'>
-                                            <div>
-                                                <img src='../imagens/livro_capa/".$row['url_imagem_livro']."'>
-                                                <p>".$row['nome_livro']."</p>
-                                            </div>
-                                        </button>
-                                </form>
-                            </div>";
-                }
-        ?>
-        </div>
-        <fieldset>
-            <h1>LANÇAMENTOS</h1>
-        </fieldset>
-        <div class='containers'>
-        <?php
-            $sql = "SELECT * FROM livro ORDER BY id_livro DESC LIMIT 7";
-            $resultad = $mysqli->query($sql);
-            while ($row = mysqli_fetch_array($resultad))
-                {
-                    echo    "<div  class='livro'>
-                                <form method='post' action='livro_aberto.php'>
-                                    <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
-                                        <button type='submit' name='Submit'>
-                                            <div>
-                                                <img src='../imagens/livro_capa/".$row['url_imagem_livro']."'>
-                                                <p>".$row['nome_livro']."</p>
-                                            </div>
-                                        </button>
-                                </form>
-                            </div>";
-                }
-        ?>
-        </div>
-        <fieldset>
-            <h1>RECOMENDAÇÕES</h1>
-        </fieldset>
-        <div class='containers'>
-        <?php
-            $sql = "SELECT * FROM livro ORDER BY id_livro ASC LIMIT 7";
-            $resultad = $mysqli->query($sql);
-            while ($row = mysqli_fetch_array($resultad))
-                {
-                    echo    "<div  class='livro'>
-                                <form method='post' action='livro_aberto.php'>
-                                    <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
-                                        <button type='submit' name='Submit'>
-                                            <div>
-                                                <img src='../imagens/livro_capa/".$row['url_imagem_livro']."'>
-                                                <p>".$row['nome_livro']."</p>
-                                            </div>
-                                        </button>
-                                </form>
-                            </div>";
-                }
-        ?>
-        </div>
 
-        <br><br><br>
-    </div>
+
+
+            <div class="slide-container swiper">
+            <div class="slide-content"><div class='card-wrapper swiper-wrapper'>
+            <?php
+            include('../include/conexao.php');
+                $sql = "SELECT * FROM livro ORDER BY id_livro ASC LIMIT 9";
+                $resultad = $mysqli->query($sql);
+                while ($row = mysqli_fetch_array($resultad))
+                    {
+                        $id_autor = $row['id_autor'];
+
+                        $sql2 = "SELECT * FROM autor WHERE id_autor='$id_autor'";
+                        $resultad2 = $mysqli->query($sql2);
+                        while ($row2 = mysqli_fetch_array($resultad2)){
+                            $nome_autor = $row2['nome_autor'];
+                        }
+                        echo"  
+                                <div class='card swiper-slide'>
+                                    <div class='image-content'>
+                                        <span class='overlay'></span>
+
+                                        <div class='card-image'>
+                                            <img src='../imagens/livro_capa/".$row['url_imagem_livro']."' class='card-img'>
+                                        </div>
+                                    </div>
+
+                                    <div class='card-content'>
+                                        <h2 class='name'>".$row['nome_livro']."</h2>
+                                        <p class='description'>".$nome_autor."</p>
+                                        <button class='button'>Retirar</button>
+                                    </div>
+                                </div>";
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
     
 
     <br><br><br><br><br><br><br>
@@ -223,10 +200,13 @@
                         <p>Estrada das Lagrimas N° 2461</p>
                     </div>
                 </div>
-            </ul>
-        </div>
+            </ul>   
     </footer>
+    <!-- Swiper JS -->
+    <script src="js/swiper-bundle.min.js"></script>
 
+    <!-- JavaScript -->
+    <script src="js/card-script.js"></script>
     <!-- JavaScript Link-->
     <script type="text/javascript" src="js/script.js"></script>
 </body>
