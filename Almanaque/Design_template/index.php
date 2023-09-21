@@ -16,45 +16,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <style>
-        .containers {
-            display: flex;
-            justify-content: center;
-        }
         fieldset{
             border: none;
             background-color: #222327;
             color: #fff;
             text-align: center;
-        }
-        .corpo{
-            background-color: #fff;
-            width: 90%;
-            margin: auto;
-            border-radius: 3%;
-            
-        }
-        .livro img{
-            width: 175px;
-            height: 250px;
-        }
-        .livro button{
-            margin-top: 10px;
-            display: flex;
-            margin-left: 10px;
-            text-align: center;
-            font-weight: bold;
-            padding: 10px;
-            width: 200px;
-            height: 300px;
-            border: 2px solid #161d3a;
-            margin: 12px;
-            border-radius: 10px;
-            box-shadow: 5px 5px 5px grey;
-        }
-        .livro button:hover{
-            background-color:rgb(255, 255, 255) ;
-            cursor: pointer;
-            box-shadow: 5px 5px 5px black;
         }
     </style>  
 </head>
@@ -128,8 +94,6 @@
                         echo"  
                                 <div class='card swiper-slide'>
                                     <div class='image-content'>
-                                        <span class='overlay'></span>
-
                                         <div class='card-image'>
                                             <img src='../imagens/livro_capa/".$row['url_imagem_livro']."' class='card-img'>
                                         </div>
@@ -138,7 +102,12 @@
                                     <div class='card-content'>
                                         <h2 class='name'>".$row['nome_livro']."</h2>
                                         <p class='description'>".$nome_autor."</p>
-                                        <button class='button'>Retirar</button>
+                                        <table>
+                                            <tr>
+                                                <td><button class='button'>Retirar</button></td>
+                                                <td><button class='button'><i class='ri-heart-fill'></i></button></td>  
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>";
                     }
