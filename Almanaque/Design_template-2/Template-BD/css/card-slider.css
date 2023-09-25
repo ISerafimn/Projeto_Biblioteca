@@ -1,0 +1,260 @@
+.slide-container{
+  max-width: 95%;
+  width: 100%;
+  padding: 40px 0;
+}
+.slide-content{
+  margin: 0 40px;
+  overflow: hidden;
+}
+.card{
+  border-radius: 25px;
+  background-color: #222327;
+}
+.card-content{
+  background-color: #FFF;
+  margin: auto;
+  width: 250px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.image-content,
+.card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.image-content{
+  position: relative;
+  row-gap: 5px;
+}
+.card-image{
+  position: relative;
+  width: 250px;
+  height: 300px;
+}
+.card-image .card-img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.name{
+  padding: 2px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 500;
+  color: #333;
+  overflow: hidden;
+  max-height: 31px;
+}
+
+.name:hover {
+  overflow: block;
+  max-height: 80px;
+}
+
+.description{
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+}
+.button{
+  border: none;
+  font-size: 16px;
+  color: #FFF;
+  padding: 8px 16px;
+  background-color: #4070F4;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button:hover{
+  background: #265DF2;
+}
+.icone{
+  font-size: 16px;
+  color: #3b3b3b;
+  padding: 8px 16px;
+  background-color: #fff;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.icone:hover{
+  background: #4070F4;
+}
+.swiper-navBtn{
+  color: #6E93f7;
+  transition: color 0.3s ease;
+}
+.swiper-navBtn:hover{
+  color: #4070F4;
+}
+.swiper-navBtn::before,
+.swiper-navBtn::after{
+  font-size: 35px;
+}
+.swiper-button-next{
+  right: 0;
+}
+.swiper-button-prev{
+  left: 0;
+}
+.swiper-pagination-bullet{
+  background-color: #6E93f7;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active{
+  background-color: #4070F4;
+}
+
+.name:hover {
+  overflow: block;
+  max-height: 80px;
+}
+@media screen and (max-width: 925px) {
+  .slide-content{
+    margin: 0 10px;
+  }
+  .swiper-navBtn{
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  .name {
+    max-height: 80px;
+  }
+}
+
+
+.slide-container2{
+  max-width: 95%;
+  width: 100%;
+  padding: 40px 0;
+}
+.slide-content2{
+  margin: 0 40px;
+  overflow: hidden;
+}
+.card2{
+  border-radius: 25px;
+  background-color: #222327;
+}
+.card-content2{
+  background-color: #FFF;
+  margin: auto;
+  width: 250px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.image-content2,
+.card-content2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.image-content2{
+  position: relative;
+  row-gap: 5px;
+}
+.card-image2{
+  position: relative;
+  width: 250px;
+  height: 300px;
+}
+.card-image2 .card-img2{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.name2{
+  padding: 2px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 500;
+  color: #333;
+  overflow: hidden;
+  max-height: 31px;
+}
+
+.name:hover2 {
+  overflow: block;
+  max-height: 80px;
+}
+
+.description2{
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+}
+.button2{
+  border: none;
+  font-size: 16px;
+  color: #FFF;
+  padding: 8px 16px;
+  background-color: #4070F4;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button:hover2{
+  background: #265DF2;
+}
+.icone2{
+  font-size: 16px;
+  color: #3b3b3b;
+  padding: 8px 16px;
+  background-color: #fff;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.icone2:hover{
+  background: #4070F4;
+}
+.swiper-navBtn2{
+  color: #6E93f7;
+  transition: color 0.3s ease;
+}
+.swiper-navBtn2:hover{
+  color: #4070F4;
+}
+.swiper-navBtn2::before,
+.swiper-navBtn2::after{
+  font-size: 35px;
+}
+.swiper-button-next2{
+  right: 0;
+}
+.swiper-button-prev2{
+  left: 0;
+}
+.swiper-pagination-bullet2{
+  background-color: #6E93f7;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active2{
+  background-color: #4070F4;
+}
+
+.name2:hover {
+  overflow: block;
+  max-height: 80px;
+}
+@media screen and (max-width: 925px) {
+  .slide-content2{
+    margin: 0 10px;
+  }
+  .swiper-navBtn2{
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  .name2 {
+    max-height: 80px;
+  }
+}
