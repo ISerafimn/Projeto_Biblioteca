@@ -17,10 +17,10 @@
                 <div class="col">
                     <h3>Link</h3>
                     <div class="links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Categorias</a></li>
-                        <li><a href="#">Livros</a></li>
-                        <li><a href="#">Sobre</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="generos_literario.php">Categorias</a></li>
+                        <li><a href="livros.php">Livros</a></li>
+                        <li><a href="sobre.php">Sobre</a></li>
                     </div>
                 </div>
             </ul>
@@ -30,7 +30,6 @@
                     <div class="links">
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Contato</a></li>
-                        <li><a href="#">Sobre</a></li>
                     </div>
                 </div>
             </ul>

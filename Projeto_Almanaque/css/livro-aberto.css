@@ -1,0 +1,82 @@
+:root{
+    --bg-color: #222327;
+    --text-color: #fff;
+    --main-color: #276daf;
+}
+
+.book-info-container {
+    margin: auto;
+    padding: 10px;  
+    display: flex;
+    text-align: center;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+.book-info-container form{
+    text-align: center;
+}
+.book-info-container form{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.book-info {
+    color: black;
+    padding: 5px;
+    text-align: left;
+}
+
+.book-cover {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 20px;
+    width: 250px;
+    height: 350px;
+}
+
+.info-destaque{
+    color: var(--main-color);
+}
+.info-conteudo{
+    word-break: initial;
+}
+.book-info p,
+.info-aberto{
+    padding-bottom: 15px;
+}
+.book-info h1{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.button-retirar{
+    border: none;
+    font-size: 16px;
+    color: #FFF;
+    padding: 8px 16px;
+    background-color: #4070F4;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+.button-retirar:hover{
+    background: #265DF2;
+}
+.button-favorito{
+    border: none;
+}
+.ri-heart-fill{
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+}
+.ri-heart-fill:hover{
+    color: #265DF2;
+}
+.button-space{
+    align-items: center;
+}
+@media screen and (max-width: 800px) {
+    .book-info-container {
+    display: block;
+    }
+}

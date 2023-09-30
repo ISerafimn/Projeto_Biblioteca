@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/livro-aberto.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -11,34 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <title>Categorias</title>
     <style>
-        .book-info-container {
-            margin: auto;
-            margin: 10px;
-            display: flex;
-            background-color: white;
-        }
 
-        .book-info {
-            flex: 1;
-            color: black;
-            text-align: left;
-        }
-
-        .book-cover {
-            margin-right: 20px;
-            width: 250px;
-            height: 300px;
-        }
-
-        .titu{
-            color: red;
-        }
-        .quebra{
-            word-break: initial;
-        }
-        p{
-            padding-right: 30px;
-        }
     </style>
 </head>
 <body>
@@ -82,31 +56,32 @@
                     
                         $nome_genero = $row['nome_genero'];
                     }
-                
+                echo    "<div class='book-info-container'>
+                            <img class='book-cover' src='imagens/livro_capa/".$url_imagem_livro."' alt='Capa do Livro'>
+                            <div class='book-info'>
+                                <h1>".$nome_livro."</h1>
+                                <div class='info-aberto'>
+                                    <span class='info-conteudo'><span class='info-destaque'>Autor:</span>".$nome_autor."</span>
+                                    <span class='info-conteudo'><span class='info-destaque'>Idioma:</span>Português(BR)</span>
+                                    <span class='info-conteudo'><span class='info-destaque'>Editora:</span>".$editora_livro."</span>
+                                    <span class='info-conteudo'><span class='info-destaque'>Nº da Edição:</span>".$num_edicao_livro."</span>
+                                    <span class='info-conteudo'><span class='info-destaque'>Gênero:</span>".$nome_genero."</span>
+                                </div>
+                                <div class='text-sinopse'>
+                                    <p>".$sinopse_livro."</p>
+                                </div>
+                                <div class='button-space'>
+                                    <button class='button-retirar'>RETIRAR</button>
+                                    <button class='button-favorito'><i class='ri-heart-fill'></i></button>
+                                </div>
+                            </div>
+                        </div>";
             }
         ?>
 
-    <div class="book-info-container">
-        <img class="book-cover" src="mm.jpg" alt="Capa do Livro">
-        <div class="book-info">
-            <h1>Harry Potter e a Pedra Filosofal</h1>
-            <p><span class="quebra"><span class="titu">Autor:</span>J.K. Rowling</span>
-            <span class="quebra"><span class="titu">Idioma:</span>Português(BR)</span>
-            <span class="quebra"><span class="titu">Editora:</span>Panani</span>
-            <span class="quebra"><span class="titu">Nº da Edição:</span>6</span>
-            <span class="quebra"><span class="titu">Gênero:</span>Fantasia</span></p>
 
-            <p>"Harry Potter e a Pedra Filosofal" é o primeiro livro da série escrita por J.K. Rowling. A história segue Harry Potter, um jovem órfão que descobre que é um bruxo e que foi aceito em Hogwarts, uma escola de magia. Lá, ele faz amigos, enfrenta desafios e descobre segredos sobre seu passado. A trama gira em torno da busca pela lendária Pedra Filosofal, que concede a imortalidade, e da luta contra o vilão Lord Voldemort, que busca obtê-la para seus próprios fins.</p>
-
-            <div class="button-space">
-                <button class="remove-button">RETIRAR</button>
-                <button class="button-favorito"><i class="ri-heart-fill"></i></button>
-            </div>
-        </div>
-    </div>
     
     <br>
-
 
     <?php include('include/import_footer.php'); ?>
 </body>
