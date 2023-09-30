@@ -38,7 +38,7 @@
                     <h3>Nos Contate</h3>
                     <div class="links">
                         <li><p>4002-8922</p>
-                        <li><a href="#">Email: almanaque@gmail.com</a></li>
+                        <li><a href="#  ">Email: almanaque@gmail.com</a></li>
                         <p>Estrada das Lagrimas N° 2461</p>
                     </div>
                 </div>
