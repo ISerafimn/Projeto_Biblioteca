@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/livro-aberto.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet"
@@ -83,7 +84,7 @@
     
     <br><br><br><br><br><br>
 
-
-    <?php include('include/import_footer.php'); ?>
+    <?php include('include/import_footer.php');
+    include('include/acessibilidade.php') ?>
 </body>
 </html>

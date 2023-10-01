@@ -3,7 +3,7 @@
         <div class="container">
             <ul>
                 <div class="col">
-                    <h3 style="font-size: 26px;">Almanaque</h3>
+                    <a href="index.php"><h3 style="font-size: 26px;">Almanaque</h3></a>
                 </div>
                 <p style="margin-right: 150px;">Lorem ipsum dolor sit amet consectetur ipisicing elit.</p>
                 <div class="rede-sociais">

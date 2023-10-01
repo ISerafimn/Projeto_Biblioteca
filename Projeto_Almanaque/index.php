@@ -34,62 +34,26 @@
 </head>
 <body>
     <!-- Menu com responsividade-->
-    <header style="background-color: #222327; border-bottom: 1px solid">
-        <a href="index.php" class="logo"><i class="ri-home-3-fill"></i><span>Almanaque</span></a> 
-
-        <ul class="navbar">
-
-            <div class="login-oculto">
-                <form action="resultado_pesquisa.php">
-                    <div class="search-icon">
-                        <input type="search" placeholder="Pesquisar!" name="busca" value="<?php if(isset($_GET['busca'])) echo $_GET['busca']; ?>">
-                        <button type="submit" class="icon"><i class="ri-search-line"></i></button>
-                    </div>
-                </form>
-            </div>
-
-            <li><a href="index.php">Home</a></li>
-            <li><a href="generos_literario.php">Categorias</a></li>
-            <li><a href="livros.php">Livros</a></li>
-            <li><a href="sobre.php">Sobre</a></li>
-
-            <div class="login-oculto">
-                <a href="usuario_login.php" class="user"><i class="ri-user-fill"></i>Entrar</a>
-                <a href="usuario_cadastro.php" class="user"><i class="ri-user-add-fill"></i>Cadastrar</a>
-            </div>
-        </ul>
-
-        <div class="main">
-            <form action="resultado_pesquisa.php">
-                <div class="search-icon">
-                    <input type="search" placeholder="Pesquisar!" name="busca" value="<?php if(isset($_GET['busca'])) echo $_GET['busca']; ?>">
-                    <button type="submit" class="icon"><i class="ri-search-line"></i></button>
-                </div>
-            </form>                
-            <a href="usuario_login.php" class="user"><i class="ri-user-fill"></i>Entrar</a>
-            <a href="usuario_cadastro.php">Cadastrar</a>
-            <div class="bx bx-menu" id="menu-icon"></div>
-        </div>
-    </header>
+    <?php include('include/import_menu.php'); ?>
 
     <br><br><br><br>
 
     <div class="all-slider">
         <div class="img-slider">
             <div class="slide active">
-              <img src="imagens/banner-01.png" alt="">
+              <img src="imagens/banner-01.png" alt="slide 1">
             </div>
             <div class="slide">
-              <img src="imagens/banner-02.png" alt="">
+              <img src="imagens/banner-02.png" alt="slide 2">
             </div>
             <div class="slide">
-              <img src="imagens/banner-03.png" alt="">
+              <img src="imagens/banner-03.png" alt="slide 3">
             </div>
             <div class="slide">
-              <img src="imagens/banner-04.png" alt="">
+              <img src="imagens/banner-04.png" alt="slide 4">
             </div>
             <div class="slide">
-              <img src="imagens/banner-05.png" alt="">
+              <img src="imagens/banner-05.png" alt="slide 5">
             </div>
             <div class="navigation">
               <div class="btn active"></div>
@@ -277,57 +241,11 @@
     <div class="swiper-pagination"></div>
     </div>
     
+    <br><br><br><br><br>
 
-    <br><br><br><br><br><br><br>
+    <!-- Footer -->
+    <?php include('include/import_footer.php'); ?>
 
-    <hr><br>
-
-    <footer>
-        <div class="container">
-            <ul>
-                <div class="col">
-                    <h3 style="font-size: 26px;">Almanaque</h3>
-                </div>
-                <p style="margin-right: 150px;">Lorem ipsum dolor sit amet consectetur ipisicing elit.</p>
-                <div class="rede-sociais">
-                    <a href="#"><i class="ri-facebook-circle-fill"></i></a>
-                    <a href="#"><i class="ri-whatsapp-fill"></i></a>
-                    <a href="#"><i class="ri-twitter-x-line"></i></a>
-                    <a href="#"><i class="ri-mail-fill"></i> </a>
-                </div>
-            </ul>
-            <ul class="link">
-                <div class="col">
-                    <h3>Link</h3>
-                    <div class="links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Categorias</a></li>
-                        <li><a href="#">Livros</a></li>
-                        <li><a href="#">Sobre</a></li>
-                    </div>
-                </div>
-            </ul>
-            <ul class="link">
-                <div class="col">
-                    <h3>Suporte</h3>
-                    <div class="links">
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contato</a></li>
-                        <li><a href="#">Sobre</a></li>
-                    </div>
-                </div>
-            </ul>
-            <ul class="link">
-                <div class="col">
-                    <h3>Nos Contate</h3>
-                    <div class="links">
-                        <li><p>4002-8922</p>
-                        <li><a href="#">Email: almanaque@gmail.com</a></li>
-                        <p>Estrada das Lagrimas N° 2461</p>
-                    </div>
-                </div>
-            </ul>   
-    </footer>
     <!-- Swiper JS -->
     <script src="js/swiper-bundle.min.js"></script>
 
@@ -392,5 +310,6 @@
         }
         repeat();
     </script>
+    <?php include('include/acessibilidade.php') ?>
 </body>
 </html> 

@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/livro-aberto.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-    <title>Sobre</title>
+    <title>Lista Livros</title>
 </head>
 <body>
     <?php include('include/import_menu.php');
@@ -86,7 +87,7 @@
 
     <br>
 
-
-    <?php include('include/import_footer.php'); ?>
+    <?php include('include/import_footer.php');
+    include('include/acessibilidade.php') ?>
 </body>
 </html>
