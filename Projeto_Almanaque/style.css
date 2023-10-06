@@ -397,4 +397,18 @@ footer .container li{
         margin-bottom: 30px;
     }
 }
-/* Slider */
+#link-up {
+    z-index: 1;
+    position: fixed;
+    color: white;
+    background-color: #276daf;
+    padding: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 30%;
+    transition: all .50s ease;
+}
+#link-up:hover{
+    color: #276daf;
+    background-color: white;
+}

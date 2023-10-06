@@ -61,8 +61,8 @@
     border: none;
     border-radius: 10px;
     padding: 15px;
-    background-color: #193b5a;
-    color: #fff;
+    background-color: var(--text-color);
+    color: var(--bg-color);
     box-shadow: 0px 10px 40px #0f2235;
     outline: none;
     box-sizing: border-box;
@@ -73,7 +73,7 @@
     margin-bottom: 10px;
 }
 .textfield > input::placeholder{
-    color: #fff;
+    color: var(--bg-color);
 }
 .btn-login{
     width: 100%;
@@ -89,10 +89,8 @@
     background-color: var(--text-color);
     cursor: pointer;
     box-shadow: 0px 10px 40px -12px #c4c4c4;
+    transition: all .50s ease;
 }
-
-.card-login > a,
-.card-login > p > a{
-    color: #0f2235;
+.btn-login:hover{
+    background-color: #d9e2fc;
 }
-
