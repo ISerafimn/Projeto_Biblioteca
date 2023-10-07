@@ -167,17 +167,61 @@
     </style>
 </head>
 <body>
-    <?php include('include/import_menu.php');
-    include('include/conexao.php'); ?>
 
-    <br><br><br>
+    <header style="background-color: #222327; border-bottom: 1px solid">
+        <a href="index.php" class="logo"><i class="ri-home-3-fill"></i><span>Almanaque</span></a> 
+
+        <ul class="navbar">
+
+            <div class="login-oculto">
+                <form action="resultado_pesquisa.php">
+                    <div class="search-icon">
+                        <input type="search" placeholder="Pesquisar!" name="busca" value="<?php if(isset($_GET['busca'])) echo $_GET['busca']; ?>">
+                        <button type="submit" class="icon"><i class="ri-search-line"></i></button>
+                    </div>
+                </form>
+            </div>
+
+            <li><a href="index.php">Home</a></li>
+            <li><a href="generos_literario.php">Categorias</a></li>
+            <li><a href="livros.php">Livros</a></li>
+            <li><a href="sobre.php">Sobre</a></li>
+
+            <div class="login-oculto">
+                <a href="usuario_login.php" class="user"><i class="ri-user-fill"></i>Entrar</a>
+                <a href="usuario_cadastro.php" class="user"><i class="ri-user-add-fill"></i>Cadastrar</a>
+            </div>
+        </ul>
+
+        <div class="main">
+            <form action="resultado_pesquisa.php">
+                <div class="search-icon">
+                <input name="busca" value="<?php if(isset($_GET['busca'])) echo $_GET['busca']; ?>" placeholder="Pesquise Aqui!" type="text">
+                    <button type="submit" class="icon"><i class="ri-search-line"></i></button>
+                </div>
+            </form>
+            <a href="usuario_login.php" class="user"><i class="ri-user-fill"></i>Entrar</a>
+            <a href="usuario_cadastro.php">Cadastrar</a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    <script src="js/swiper-bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="js/card-script.js"></script>
+    <!-- JavaScript Link-->
+    <script type="text/javascript" src="js/script.js"></script>
+
+        
+    <br><br><br><br>
 
     <div class="main-login">
         <div class="left-login">
             <h1>Faça Login<br>e comece a sua Leitura!</h1>
             <img src="imagens/coruja.png" class="left-login-image" alt="">
         </div>
-        <form action="#" method="POST" class="form-login">
+        <form action="php/login.php" method="POST" class="form-login">
             <div class="right-login">
                 <div class="card-login">
                     <h1>Login do Usuário</h1>
@@ -189,8 +233,12 @@
                             <label for="usuario">Senha:</label>
                             <input type="password" name="senha_usuario"  placeholder="Digite a senha do usuario" required>
                         </div>
-
-                        <?php include('php/login.php'); ?>
+                        <?php
+                        if(isset($_SESSION['erro-login'])){
+                            echo $_SESSION['erro-login'];
+                            session_destroy();
+                        }
+                        ?>
 
                         <button class="btn-login" type="submit">Login</button>
                     

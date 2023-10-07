@@ -35,7 +35,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 28px 12%;
+    padding: 28px 8%;
     transition: all .50s ease;
 }
 .logo{
@@ -81,14 +81,23 @@ header{
     font-weight: 500;
     transition: all .50s ease;
 }
+.sessao{
+    color: var(--text-color);
+    transition: all .50s ease;
+}
+.sessao:hover{
+    color: var(--main-color);
+}
 .main a:hover{
     color: var(--main-color);
 }
-.user{
+.user,
+.user-sessao{
     display: flex;
     align-items: center;
 }
-.user i{
+.user i,
+.user-sessao i{
     color: var(--main-color);
     font-size: 28px;
     margin-right: 7px;
@@ -299,20 +308,20 @@ footer .container li{
     transform: translateX(-8px);
     color: var(--main-color);
 }
+@media (max-width: 1700px){
+    header{
+        padding: 28px 4%;
+        transition: .2s;
+    }
+}
 
-
-@media (max-width: 1320px){
+@media (max-width: 1500px){
     header{
         padding: 14px 2%;
         transition: .2s;
     }
-    .navbar{
-        padding: 5px 0;
-        margin: 0px 20px;
-
-    }
 }
-@media (max-width: 1220px){
+@media (max-width: 1320px){
     #menu-icon{
         display: block;
     }
@@ -354,6 +363,9 @@ footer .container li{
     }
     .login-oculto{
         display: block;
+    }
+    .sessao{
+        display: none;
     }
     #menu-icon{
         display: block;

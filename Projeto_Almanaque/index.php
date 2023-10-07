@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+// sistema de verificação de login/start de sessão.
+if(!isset($_SESSION)) {
+    session_start();
+}
+
+?><!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">

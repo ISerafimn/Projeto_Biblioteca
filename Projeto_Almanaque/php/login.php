@@ -1,7 +1,7 @@
 <?php
 // sessão iniciada pra mandar a variavel email do usuario que fez login pra diversos lugares
-include_once('include/conexao.php');
-
+session_start();
+include_once('../include/conexao.php');
 if(isset($_POST['email_usuario']) || isset($_POST['senha_usuario'])) {
 
     if(strlen($_POST['email_usuario'])== "" ) {
@@ -25,19 +25,16 @@ if(isset($_POST['email_usuario']) || isset($_POST['senha_usuario'])) {
         };
 
         $quantidade = $sql_query->num_rows;
-
         if($quantidade == 1) {
 
             $_SESSION['id_usuario'] = $id_usuario;
             $_SESSION['id_sessao'] = $id_sessao;
-
-            header('Location: usuario/index.php');
+            header('Location: ../index.php');
 
         } else {
-            echo "<p style='color: red;'>Falha ao Logar! E-mail ou senha incorretos</p>";
+            $_SESSION['erro-login'] = "<p style='color: red;'>Falha ao Logar! E-mail ou senha incorretos</p>";
+            header('Location: ../usuario_login.php');
         }
-
     }
-
 }
 ?>
