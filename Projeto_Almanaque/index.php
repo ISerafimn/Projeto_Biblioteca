@@ -110,14 +110,23 @@ if(!isset($_SESSION)) {
                                                     </div>
                                                 </button>
                                             </form>
-                                            <p class='description'>".$nome_autor."</p>
-                                            <table>
+                                            <p class='description'>".$nome_autor."</p>";
+
+
+                                echo        "<table>
                                                 <tr>
-                                                    <td><button class='button'>Retirar</button></td>
+                                                    <td>
+                                                        <form action='livro_aberto.php' method='post'>
+                                                            <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
+                                                            <button class='button' type='submit' style='padding: 0px 0px;'><p style='padding: 8px 16px;'>Retirar</p></button>
+                                                        </form>
+                                                    </td>
                                                     <td><button class='icone'><i class='ri-heart-fill'></i></button></td>  
                                                 </tr>
-                                            </table>
-                                        </div>
+                                            </table>";
+
+
+                            echo          "</div>
                                     </div>";
                         }
                         ?>
@@ -153,8 +162,8 @@ if(!isset($_SESSION)) {
                             while ($row2 = mysqli_fetch_array($resultad2)){
                                 $nome_autor = $row2['nome_autor'];
                             }
-                            echo"  
-                                    <div class='card swiper-slide'>
+
+                            echo   "<div class='card swiper-slide'>
                                         <div class='image-content'>
                                             <div class='card-image'>
                                                 <img src='imagens/livro_capa/".$row['url_imagem_livro']."' class='card-img'>
@@ -170,14 +179,23 @@ if(!isset($_SESSION)) {
                                                     </div>
                                                 </button>
                                             </form>
-                                            <p class='description'>".$nome_autor."</p>
-                                            <table>
+                                            <p class='description'>".$nome_autor."</p>";
+
+
+                                echo        "<table>
                                                 <tr>
-                                                    <td><button class='button'>Retirar</button></td>
+                                                    <td>
+                                                        <form action='livro_aberto.php' method='post'>
+                                                            <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
+                                                            <button class='button' type='submit' style='padding: 0px 0px;'><p style='padding: 8px 16px;'>Retirar</p></button>
+                                                        </form>
+                                                    </td>
                                                     <td><button class='icone'><i class='ri-heart-fill'></i></button></td>  
                                                 </tr>
-                                            </table>
-                                        </div>
+                                            </table>";
+
+
+                            echo          "</div>
                                     </div>";
                         }
                         ?>
@@ -211,32 +229,40 @@ if(!isset($_SESSION)) {
                     while ($row2 = mysqli_fetch_array($resultad2)){
                         $nome_autor = $row2['nome_autor'];
                     }
-                    echo"  
-                            <div class='card swiper-slide'>
-                                <div class='image-content'>
-                                    <div class='card-image'>
-                                        <img src='imagens/livro_capa/".$row['url_imagem_livro']."' class='card-img'>
-                                    </div>
-                                </div>
-
-                                <div class='card-content'>
-                                    <form method='post' action='livro_aberto.php'>
-                                    <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
-                                        <button type='submit' class='bt-card'>
-                                            <div>
-                                                <h2 class='name'>".$row['nome_livro']."</h2>
+                    echo   "<div class='card swiper-slide'>
+                                        <div class='image-content'>
+                                            <div class='card-image'>
+                                                <img src='imagens/livro_capa/".$row['url_imagem_livro']."' class='card-img'>
                                             </div>
-                                        </button>
-                                    </form>
-                                    <p class='description'>".$nome_autor."</p>
-                                    <table>
-                                        <tr>
-                                            <td><button class='button'>Retirar</button></td>
-                                            <td><button class='icone'><i class='ri-heart-fill'></i></button></td>  
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>";
+                                        </div>
+    
+                                        <div class='card-content'>
+                                            <form method='post' action='livro_aberto.php'>
+                                            <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
+                                                <button type='submit' class='bt-card'>
+                                                    <div>
+                                                        <h2 class='name'>".$row['nome_livro']."</h2>
+                                                    </div>
+                                                </button>
+                                            </form>
+                                            <p class='description'>".$nome_autor."</p>";
+
+
+                                echo        "<table>
+                                                <tr>
+                                                    <td>
+                                                        <form action='livro_aberto.php' method='post'>
+                                                            <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
+                                                            <button class='button' type='submit' style='padding: 0px 0px;'><p style='padding: 8px 16px;'>Retirar</p></button>
+                                                        </form>
+                                                    </td>
+                                                    <td><button class='icone'><i class='ri-heart-fill'></i></button></td>  
+                                                </tr>
+                                            </table>";
+
+
+                            echo          "</div>
+                                    </div>";
                 }
                 ?>
         </div>

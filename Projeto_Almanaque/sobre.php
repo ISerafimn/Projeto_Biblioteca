@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -31,7 +32,10 @@
     <br>
     
     <div class="corpo">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt fuga eaque quos praesentium assumenda nisi, eius nihil nobis alias sunt reprehenderit sequi officiis totam distinctio optio? Sequi quia officia expedita?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi quibusdam, unde totam consectetur optio nemo repellendus. Veritatis ratione fugiat, quas debitis ad quaerat culpa, corrupti suscipit voluptatem iste consectetur porro!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ad vero deserunt veritatis. Fugiat laudantium, maxime suscipit architecto neque earum voluptate, voluptas quas quo quae quisquam ullam recusandae commodi doloribus!Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro totam accusamus perferendis, quaerat eaque et eos numquam nesciunt obcaecati cupiditate ad ipsum temporibus omnis perspiciatis dolore neque quam quae laboriosam.
+        <p>Este trabalho apresenta o desenvolvimento de um sistema inovador de empréstimo de livros por meio de um site hospedado localmente. O sistema proposto permite que os clientes/usuários se cadastrem na plataforma e tenham acesso a uma biblioteca virtual, onde podem escolher livros disponíveis para empréstimo. A característica distintiva deste sistema é que a retirada dos livros é realizada de forma física, onde os usuários visitam um local específico denominado "depósito" para pegar o livro selecionado anteriormente.
+        <br><br>
+        O objetivo principal deste TCC é descrever o processo de desenvolvimento desse sistema, incluindo a sua arquitetura, funcionalidades, segurança e interface de usuário. Além disso, o trabalho aborda a implementação de um sistema de gestão de prazos de devolução, garantindo que os usuários cumpram as datas estipuladas para a devolução dos livros.
+
         </p>
     </div>
 

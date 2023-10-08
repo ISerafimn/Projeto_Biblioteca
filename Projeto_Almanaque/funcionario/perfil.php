@@ -1,42 +1,42 @@
 <?php
+session_start();
 include('../php/protect.php');
     
 if($_SESSION['id_sessao'] == 2) {
-
-    $email_funcionario = $_SESSION['email_funcionario']; 
-    include('../include/conexao.php'); 
+$id_funcionario = $_SESSION['id_funcionario']; 
+    
+include('../include/conexao.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../design/index.css">
-    <link rel="stylesheet" href="../design/menu.css">
-    <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="javascript/script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almanaque</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/livro-aberto.css">
+    <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <title><?php echo $id_funcionario ?></title>
+    <style>
+        .book-info{
+            text-align: center;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
-    <div style="background-color: #1f1919;">
-        <?php include('../include/menu_pagina_inicial.php'); ?>
-    </div>
+    <?php include('../include/import_menu_logado.php'); ?>
 
     <br><br><br><br><br>
 
-    <table border="1" style="width:50%; margin: auto;">
-        <tr>
-            <th>ID</th>
-            <th>NOME</th>
-            <th>EMAIL</th>
-            <th>NASCIMENTO</th>
-            <th>CPF</th>
-        </tr>
-
         <?php
-        $sql = mysqli_query($mysqli, "SELECT  *   FROM  funcionario WHERE email_funcionario ='$email_funcionario'");
+
+        $sql = mysqli_query($mysqli, "SELECT  *   FROM  funcionario WHERE id_funcionario = '$id_funcionario'");
         while ($result = mysqli_fetch_array($sql))
 
             {
@@ -45,27 +45,30 @@ if($_SESSION['id_sessao'] == 2) {
                 $email_funcionario= $result['email_funcionario'];
                 $data_funcionario= $result['data_funcionario'];
                 $cpf_funcionario= $result['cpf_funcionario'];
-                echo "<tr>";
-                echo "<td>".$id_funcionario."</td>";
-                echo "<td>".$nome_funcionario."</td>";
-                echo "<td>".$email_funcionario."</td>";
-                echo "<td>".$data_funcionario."</td>";
-                echo "<td>".$cpf_funcionario."</td>";
-                echo "<tr>";
+
+                echo    "<div class='book-info-container'>
+                            <div class='book-info'>
+                                <h1>".$nome_funcionario."</h1>
+                                <div class='info-aberto'>
+                                    <span class='info-conteudo'><span class='info-destaque'>Nome: </span>".$nome_funcionario."</span>
+                                    <span class='info-conteudo'><span class='info-destaque'>Emaill: </span>".$email_funcionario."</span>
+                                    <span class='info-conteudo'><span class='info-destaque'>Nascimento: </span>".$data_funcionario."</span>
+                                    <span class='info-conteudo'><span class='info-destaque'>CPF: </span>".$cpf_funcionario."</span>
+                                </div>
+                                <form action='atualizar_funcionario.html' method='post'>
+                                    <input type='text' name='id_funcionario' value='".$id_funcionario."' style='display: none;'>
+                                    <button class='button-retirar'>Atualizar os Dados</button>
+                                </form>
+                            </div>
+                        </div>";
             };
-            
-            $_SESSION['id_funcionario'] = $id_funcionario;
         ?>
 
-    </table>
-    
-    <br>
-    
-        <ul>
-        <li style="text-align: center;"><a href="atualizar_funcionario.html">Atualizar os Dados</a></li>
-        </ul>
-    </div>
-    
+    <br><br><br><br><br><br>
+
+    <?php include('../include/import_footer_logado.php');
+    include('../include/acessibilidade.php') ?>
+    <a id="link-up" href="#"><i class="ri-arrow-up-double-line"></i></a>
 </body>
 </html>
 <?php

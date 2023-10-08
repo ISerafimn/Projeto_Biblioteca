@@ -325,6 +325,9 @@ footer .container li{
     #menu-icon{
         display: block;
     }
+    .main a{
+        text-align: center;
+    }
     .navbar{
         position: absolute;
         top: 100%;

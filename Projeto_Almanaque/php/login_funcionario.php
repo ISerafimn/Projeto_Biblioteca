@@ -28,6 +28,7 @@ if(isset($_POST['email_funcionario']) || isset($_POST['senha_funcionario'])) {
             $_SESSION['id_funcionario'] = $id_funcionario;
             $_SESSION['id_sessao'] = $id_sessao;
 
+
             header("Location: ../index.php");
 
         } else {

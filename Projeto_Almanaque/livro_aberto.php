@@ -1,3 +1,11 @@
+<?php session_start();
+if(isset($_SESSION['id_sessao'])){
+    if($_SESSION['id_sessao'] == 1) {
+            
+        $id_usuario = $_SESSION['id_usuario'];
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,7 +32,12 @@
 
     <?php
 
-        $id_livro=$_POST['id_livro'];
+        @$id_livro=$_POST['id_livro'];
+
+        if(isset($_SESSION['temp_livro'])){
+            $id_livro = $_SESSION['temp_livro'];
+            unset($_SESSION['temp_livro']);
+        }
 
         // É puxado no banco de dados o livro referente ao id_livro no botão do form da página anteriora a essa.
         $sql = mysqli_query($mysqli, "SELECT  *   FROM  livro WHERE id_livro = '$id_livro'");
@@ -70,12 +83,82 @@
                                 </div>
                                 <div class='text-sinopse'>
                                     <p>".$sinopse_livro."</p>
-                                </div>
-                                <div class='button-space'>
-                                    <button class='button-retirar'>RETIRAR</button>
-                                    <button class='button-favorito'><i class='ri-heart-fill'></i></button>
-                                </div>
-                            </div>
+                                </div>";
+                 
+                if(isset($_SESSION['msg-retirada-livro'])){
+                    echo  $_SESSION['msg-retirada-livro'];
+                    unset ($_SESSION['msg-retirada-livro']);
+                }
+                else{
+                    
+
+                    if(!isset($_SESSION['id_sessao'])){
+                            echo   "<div class='button-space'>
+                                        <table>
+                                            <tr>
+                                                <form action='usuario_login.php' method='post'>
+                                                    <td>
+                                                        <button class='button-retirar' type='submit'>RETIRAR</button>
+                                                    </td>
+                                                </form>
+                                                <form action='#'>
+                                                    <td>
+                                                        <button class='button-favorito'><i class='ri-heart-fill'></i></button>
+                                                    </td>
+                                                </form>
+                                            </tr>
+                                        </table>
+                                    </div>";
+                    }
+                    else{
+                        if($_SESSION['id_sessao'] == 1){
+                            include('include/conexao.php');
+
+                            $sql_code = "SELECT * FROM movimentacao WHERE id_usuario = '$id_usuario' AND id_status_movimentacao != 3 AND 5 ";
+
+                            $sql_query = $mysqli->query($sql_code);
+                            $quantidade = $sql_query->num_rows;
+
+
+                            $sql0 = mysqli_query($mysqli, "SELECT * FROM movimentacao WHERE id_usuario = '$id_usuario' AND id_status_movimentacao != 3 ");
+                            while ($result = mysqli_fetch_array($sql0)){
+                                $id_status_movimentacao = $result['id_status_movimentacao'];
+                                
+                                if ($id_status_movimentacao == 5){
+                                    $quantidade = $quantidade - 1;
+                            }
+                            }
+                           
+                            
+                        
+                            if($quantidade > 1){
+                                echo "<p style='text-align: center; color: #276daf;'>Você já tem 2 livros selecionados.</p>";
+                            }
+                            else{
+                                $id_livro_sql = 0;
+                                $sql = mysqli_query($mysqli, "SELECT * FROM movimentacao WHERE id_usuario = '$id_usuario' AND id_status_movimentacao != 5 ");
+                                while ($result = mysqli_fetch_array($sql)){
+                                    $id_livro_sql = $result['id_livro'];
+                                }
+                                if($id_livro_sql != $id_livro){
+                                    ?>
+                                    <div class='button-space'>
+                                        <form action="php/retirando_livro.php" method="post" style="text-align: left;">
+                                            <input type="text" name="id_livro" value="<?php echo "$id_livro"?>" style="display: none;">
+                                            <button class='button-retirar' type='submit'>RETIRAR</button>
+                                            <button class='button-favorito'><i class='ri-heart-fill'></i></button>
+                                        </form>
+                                    </div>
+                                    <?php
+                                }
+                                else{
+                                    echo "<br><p style='text-align: center; color: #276daf;'>Você já selecionou esse livro! </p>";
+                                }
+                            }
+                        }
+                    }
+                }
+                echo        "</div>
                         </div>";
             }
         ?>
