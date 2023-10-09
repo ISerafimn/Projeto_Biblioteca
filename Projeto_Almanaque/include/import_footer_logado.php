@@ -28,7 +28,7 @@
                 <div class="col">
                     <h3>Suporte</h3>
                     <div class="links">
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="../faq.php">FAQ</a></li>
                         <li><a href="#">Contato</a></li>
                     </div>
                 </div>
