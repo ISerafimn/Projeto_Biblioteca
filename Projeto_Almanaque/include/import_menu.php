@@ -25,14 +25,12 @@
                         <div class="main">
                             <a href="usuario/perfil.php"></i>Meu Perfil</a>
                             <a href="php/logout.php" class="user"><i class="ri-logout-box-line"></i>Sair</a>
-                        </div>
-                        
-                            
+                        </div>  
                     <?php
                 }
                 elseif($_SESSION['id_sessao'] == 2){
                     ?>
-                        <a href="funcionario/gerenciar.php"></i>Gerenciar</a>
+                        <a href="funcionario/gerenciar.php"><i class="ri-settings-3-fill"></i>Gerenciar</a>
                         <div class="main">
                             <a href="funcionario/perfil.php"></i>Meu Perfil</a>
                             <a href="php/logout.php" class="user"><i class="ri-logout-box-line"></i>Sair</a>
