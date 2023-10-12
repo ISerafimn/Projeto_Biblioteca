@@ -86,6 +86,7 @@ include('../../include/conexao.php');
                                     <span class='info-conteudo'><span class='info-destaque'>Editora: </span>".$editora_livro."</span>
                                     <span class='info-conteudo'><span class='info-destaque'>Nº da Edição: </span>".$num_edicao_livro."</span>
                                     <span class='info-conteudo'><span class='info-destaque'>Gênero: </span>".$nome_genero."</span>
+                                    <span class='info-conteudo'><span class='info-destaque'>Id: </span>".$id_livro."</span>
                                 </div>
                                 <div class='text-sinopse'>
                                     <p>".$sinopse_livro."</p>
@@ -97,7 +98,7 @@ include('../../include/conexao.php');
     
     <br><br><br>
 
-    <?php include('../../include/import_footer_logado.php');
+    <?php include('../../include/import_footer_gerenciar.php');
     include('../../include/acessibilidade.php') ?>
     <a id="link-up" href="#"><i class="ri-arrow-up-double-line"></i></a>
 </body>

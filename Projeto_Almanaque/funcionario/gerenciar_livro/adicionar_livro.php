@@ -1,111 +1,121 @@
 <?php
+session_start();
 include('../../php/protect.php');
-
+    
 if($_SESSION['id_sessao'] == 2) {
+    
+include('../../include/conexao.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../design/index.css">
-    <link rel="stylesheet" href="../../design/menu.css">
-    <link rel="stylesheet" href="../../design/login-cadastro.css">
-    <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="javascript/script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almanaque</title>
-    <style>
-        input::placeholder {
-            color: rgb(52, 52, 52);
-        }
-        input{
-            width: 250px;
-            color: black;
-        }
-        input::-webkit-inner-spin-button{
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/menu_gerenciar.css">
+    <link rel="stylesheet" href="../../css/livro-aberto.css">
+    <link rel="stylesheet" href="../../css/form.css">
+    <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <title>Adicionar Livro</title>
 </head>
 <body>
-    <div style="background-color: #1f1919;">
-        <?php include('../../include/menu_funcionario_gerenciar.php'); ?>
-    </div>
+    <?php include('../../include/import_menu_gerenciar.php'); 
+    include('../../include/conexao.php'); ?>
 
-    <br>
+    <br><br><br><br><br>
 
-    <?php include('../../include/menu_gerenciar_livro.php'); ?>
+    <?php include('../../include/import_menu_livro_gerenciar.php'); ?>
 
-    <br>
+    <br><br>
+    
+    <section class="containers" >
+      <form  method="post" action="../../php/variaveis_livro.php" enctype="multipart/form-data" class="form" style="margin-top: 0px;">
 
-    <h1>CADASTRO DE LIVRO</h1>
-    <form method="post" action="../../php/variaveis_livro.php" enctype="multipart/form-data">
-        <table>
-            <tr>
-                <td>Nome:</td>
-                <td><input name="nome_livro" type="text" placeholder="Digite o nome do livro"></td>
-            </tr>
-            <tr>
-                <td>Autores:</td>
-                <td>
-                    <select name="name" style="width: 250px; color: rgb(52, 52, 52)">
-                        <option>Autores:</option>
+        <div class="input-box">
+          <h1 style="color: black; text-align: center;">Adicionar Livro</h1>
+        </div>
+
+        <div class="input-box">
+          <label>Nome do Livro</label>
+          <input name="nome_livro" type="text" placeholder="Digite o nome do livro" required>
+        </div>
+
+        <div class="column">
+            <div class="input-box">
+            <label>Autores <a href="../gerenciar_autor/adicionar_autor.php" style="color: #276daf;">(nenhuma das Opções)</a></label>
+            <select name="name" class="select-box">
+                    <option>Autores:</option>
                         <?php
                             include('../../include/conexao.php');
+
                             $sql = "SELECT * FROM autor";
                             $resultad = $mysqli->query($sql);
-                            while ($row = mysqli_fetch_array($resultad))
-                                {
-                                    echo "<option value='".$row['id_autor']."'>".$row['nome_autor']."</option>";
-                                }
+                                while ($row = mysqli_fetch_array($resultad))
+                                    {
+                                        echo "<option value='".$row['id_autor']."'>".$row['nome_autor']."</option>";
+                                    }
                         ?>
-                    </select>
-                </td>
-                <td><a href="../gerenciar_autor/adicionar_autor.php">Adicionar Autor</a></td>
-            </tr>
-            <tr>
-                <td>Genero:</td>
-                <td>
-                    <select name="id_genero" style="width: 250px; color: rgb(52, 52, 52)">
-                            <option>Generos:</option>
-                            <?php
-                                include('../../include/conexao.php');
-                                $sql2 = "SELECT * FROM genero";
-                                $resultad2 = $mysqli->query($sql2);
+                </select>
+            </div>
+                <div class="input-box">
+                <label>Gênero <a href="../gerenciar_genero/adicionar_genero.php" style="color: #276daf;">(nenhuma das Opções)</a></label>
+                <select name="id_genero" class="select-box">
+                    <option>Gênero:</option>
+                        <?php
+                            include('../../include/conexao.php');
+
+                            $sql2 = "SELECT * FROM genero";
+                            $resultad2 = $mysqli->query($sql2);
                                 while ($row2 = mysqli_fetch_array($resultad2))
                                     {
                                         echo "<option value='".$row2['id_genero']."'>".$row2['nome_genero']."</option>";
                                     }
-                            ?>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Editora:</td>
-                <td><input name="editora_livro" type="text" placeholder="Digite o nome da editora"></td>
-            </tr>
-            <tr>
-                <td>Número da Edição:</td>
-                <td><input name="num_edicao_livro" type="number" placeholder="Digite o número da edição"></td>
-            </tr>
-                <td>Sinopse:</td>
-                <td><input name="sinopse_livro" type="text" placeholder="Digite a sinopse do livro"></td>
-            </tr>
-            <tr>
-                <td>Estoque:</td>
-                <td><input name="estoque_livro" type="number" placeholder="Digite o número de livros no estoque"></td>
-            </tr>
-            <tr>
-                <td>Url da Capa</td>
-                <td><input type="file" name="imagem"></td>
-            </tr>
-        </table>
-        <br>
-        <button type="submit">Concluir Cadastro</button>
-    </form>
-    
+                        ?>
+                </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-box">
+          <label>Editora</label>
+          <input name="editora_livro" type="text" placeholder="Digite o nome da editora" required>
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+            <label>Número da Edição</label>
+            <input name="num_edicao_livro" type="number" placeholder="Digite o número da edição" required>
+          </div>
+          <div class="input-box">
+            <label>Estoque</label>
+            <input name="estoque_livro" type="number" placeholder="Digite o número de livros no estoque" required>
+          </div>
+        </div>
+        
+        <div class="input-box">
+            <label>Sinopse</label>
+            <input name="sinopse_livro" type="text" placeholder="Digite a sinopse do livro" required maxlength="999">
+        </div>
+
+        <div class="input-box">
+            <label>Uploand da Capa do Livro</label>
+            <input type="file" name="imagem" accept="image/*" style="border: none;" required >
+        </div>
+
+        <button type="submit">Cadastrar Livro</button>
+      </form>
+    </section>
+
+    <br><br><br>
+
+    <?php include('../../include/import_footer_gerenciar.php');
+    include('../../include/acessibilidade.php') ?>
+    <a id="link-up" href="#"><i class="ri-arrow-up-double-line"></i></a>
 </body>
 </html>
 <?php
