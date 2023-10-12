@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <title>FAQ</title>
     <style>
-
     section{
         min-height: 100vh;
         width: 80%;
@@ -63,11 +62,11 @@
         animation: fade 1s ease-in-out;
     }
 
-    .faq.active svg {
+    .faq.active i {
         transform: rotate(180deg);
     }
 
-    svg {
+    i {
         transition: transform 0.5s ease-in;
     }
 
@@ -77,8 +76,8 @@
             transform:translateY(-10px) ;
         }
         to{
-        opacity: 1; 
-        transform: translateY(0px);
+            opacity: 1; 
+            transform: translateY(0px);
         }
     }
 

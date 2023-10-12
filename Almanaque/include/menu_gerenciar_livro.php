@@ -1,7 +1,7 @@
 <nav>
     <ul>
         <li>
-            <a href="livro_lista.php" style="width: 150px; text-align: center;">LISTA LIVROS</a>
+            <a href="livro_lista.php" style="width: 150px; text-align: center;">LISTA   
         </li>
         <li class="dropdown">
             <a href="consultar_por.php" style="width: 150px; text-align: center;">CONSULTAR por:</a>
