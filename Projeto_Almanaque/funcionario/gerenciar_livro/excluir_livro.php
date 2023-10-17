@@ -1,42 +1,37 @@
 <?php
+session_start();
 include('../../php/protect.php');
-
+    
 if($_SESSION['id_sessao'] == 2) {
-
-    include('../../include/conexao.php');
-    $excluir = $_SESSION['excluir'];
+    
+include('../../include/conexao.php');
+$excluir = $_SESSION['excluir'];
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../design/index.css">
-    <link rel="stylesheet" href="../../design/menu.css">
-    <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="javascript/script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almanaque</title>
-    <style>
-        img{
-            width: 300px;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/menu_gerenciar.css">
+    <link rel="stylesheet" href="../../css/livro-aberto.css">
+    <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <title>Adicionar</title>
 </head>
 <body>
-    <div style="background-color: #1f1919;">
-        <?php include('../../include/menu_funcionario_gerenciar.php'); ?>
-    </div>
+    <?php include('../../include/import_menu_gerenciar.php'); 
+    include('../../include/conexao.php'); ?>
 
-    <br>
+    <br><br><br><br><br>
 
-    <?php include('../../include/menu_gerenciar_livro.php'); ?>
-
-    <br>
+    <?php include('../../include/import_menu_livro_gerenciar.php'); ?> <br><br>
     
-    <p  style="text-align: center;">Digite para Consultar</p>
+<p  style="text-align: center;">Digite para Consultar</p>
 
     <form action="#" method="post" style="text-align: center;">
         <input type="text" name="valor">
@@ -103,7 +98,7 @@ else{
                 echo "<tr></table>";
 
                 echo "<p>Excluir esse Livro?</p>
-                        <form action='excluindo_livro.php' method='post'>
+                        <form action='php/excluindo_livro.php' method='post'>
                             <input type='text' name='excluindo' value='".$row['id_livro']."' style='display: none;'>
                             <input type='text' name='valor' value='id_livro' style='display: none;'>
                             <button type='submit'>Sim</button>
@@ -155,7 +150,7 @@ else{
                 echo "<tr></table>";
 
                 echo "<p>Excluir esse Livro?</p>
-                <form action='excluindo_livro.php' method='post'>
+                <form action='php/excluindo_livro.php' method='post'>
                     <input type='text' name='excluindo' value='".$row['nome_livro']."' style='display: none;'>
                     <input type='text' name='valor' value='nome_livro' style='display: none;'>
                     <button type='submit'>Sim</button>
@@ -167,6 +162,12 @@ else{
         }
     }
     ?>
+
+    <br><br><br>
+
+    <?php include('../../include/import_footer_gerenciar.php');
+    include('../../include/acessibilidade.php') ?>
+    <a id="link-up" href="#"><i class="ri-arrow-up-double-line"></i></a>
 </body>
 </html>
 <?php

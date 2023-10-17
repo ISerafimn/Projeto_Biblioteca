@@ -11,23 +11,23 @@
                 <p style="padding-right: 8px;">Consultar</p><i class="ri-arrow-down-s-line"></i>
             </div>
             <div class="responder">
-                <form method="post" action="variaveis_livro.php" class="form_gerenciar">
+                <form method="post" action="php/variaveis_livro.php" class="form_gerenciar">
                     <input name="consultar" value="id_livro" style="display: none;">
                     <button type="submit" name="Submit" class="button_gerenciar">Id</button>
                 </form>
-                <form method="post" action="variaveis_livro.php" class="form_gerenciar">
+                <form method="post" action="php/variaveis_livro.php" class="form_gerenciar">
                     <input name="consultar" value="nome_livro" style="display: none;">
                     <button type="submit" name="Submit" class="button_gerenciar">Nome</button>
                 </form>
-                <form method="post" action="variaveis_livro.php" class="form_gerenciar">
+                <form method="post" action="php/variaveis_livro.php" class="form_gerenciar">
                     <input name="consultar" value="id_autor" style="display: none;">
                     <button type="submit" name="Submit" class="button_gerenciar">Autor</button>
                 </form>
-                <form method="post" action="variaveis_livro.php" class="form_gerenciar">
+                <form method="post" action="php/variaveis_livro.php" class="form_gerenciar">
                     <input name="consultar" value="editora_livro" style="display: none;">
                     <button type="submit" name="Submit" class="button_gerenciar">Editora</button>
                 </form>
-                <form method="post" action="variaveis_livro.php" class="form_gerenciar">
+                <form method="post" action="php/variaveis_livro.php" class="form_gerenciar">
                     <input name="consultar" value="genero_livro" style="display: none;">
                     <button type="submit" name="Submit" class="button_gerenciar">Gênero</button>
                 </form>
@@ -43,11 +43,11 @@
                 <p style="padding-right: 8px;">Atualizar</p><i class="ri-arrow-down-s-line"></i>
             </div>
             <div class="responder">
-                <form method="post" action="variaveis_atualizar_livro.php" class="form_gerenciar">
+                <form method="post" action="php/variaveis_atualizar_livro.php" class="form_gerenciar">
                     <input name="atualizar" value="id_livro" style="display: none;">
                     <button type="submit" name="Submit" class="button_gerenciar">Id</button>
                 </form>
-                <form method="post" action="variaveis_atualizar_livro.php" class="form_gerenciar">
+                <form method="post" action="php/variaveis_atualizar_livro.php" class="form_gerenciar">
                     <input name="atualizar" value="nome_livro" style="display: none;">
                     <button type="submit" name="Submit" class="button_gerenciar">Nome</button>
                 </form>
@@ -58,11 +58,11 @@
                 <p style="padding-right: 8px;">Excluir</p><i class="ri-arrow-down-s-line"></i>
             </div>
             <div class="responder">
-                <form method="post" action="variaveis_excluir_livro.php" class="form_gerenciar">
+                <form method="post" action="php/variaveis_excluir_livro.php" class="form_gerenciar">
                     <input name="excluir" value="id_livro" style="display: none;">
                     <button type="submit" name="Submit" class="button_gerenciar">Id</button>
                 </form>
-                <form method="post" action="variaveis_excluir_livro.php" class="form_gerenciar">
+                <form method="post" action="php/variaveis_excluir_livro.php" class="form_gerenciar">
                     <input name="excluir" value="nome_livro" style="display: none;">
                     <button type="submit" name="Submit" class="button_gerenciar">Nome</button>
                 </form>
