@@ -31,33 +31,22 @@ $consultar = $_SESSION['consultar'];
 
     <?php include('../../include/import_menu_livro_gerenciar.php'); ?> <br><br>
     
-    <p  style="text-align: center;">Digite para Consultar</p>
+    <h1 style="text-align: center; margin-bottom: 12px;">Digite para Consultar</h1>
 
-<form action="#" method="post" style="text-align: center;">
-    <input type="text" name="valor" required>
-    <button type="submit" style="background-color: #1f1919; color: white">enviar</button>
-</form>
+    <form action="#" method="post">
+        <div class="search-icon">
+            <input type="text" placeholder="Pesquisar!" name="valor" required>
+            <button type="submit" class="icon"><i class="ri-search-line"></i></button>
+        </div>
+    </form>
+
 <br>
+
 <?php
 @$var = $_POST['valor'];
 if ($var == ""){
 }
 else{
-?>
-    <table border="1" style="width:80%; margin: auto;">
-    <tr>
-        <th>ID</th>
-        <th>CAPA</th>
-        <th>NOME</th>
-        <th>AUTOR</th>
-        <th>GENERO</th>
-        <th>EDITORA</th>
-        <th>Nº DA EDIÇÃO</th>
-        <th>ESTOQUE</th>
-        <th>SINOPSE</th>
-    </tr>
-    
-<?php
     if($consultar == "id_livro"){
 
         $sql = "SELECT * FROM livro id_livro WHERE id_livro = '$var'";
@@ -65,11 +54,9 @@ else{
     
         while ($row = mysqli_fetch_array($result))
         { 
-            echo "<tr>";
-            echo "<td>".$row['id_livro']."</td>";
-            echo "<td><img src='../../imagens/livro_capa/".$row['url_imagem_livro']."'></td>";
-            echo "<td>".$row['nome_livro']."</td>";
-
+            $id_livro = $row['id_livro'];
+            $url_imagem_livro = $row['url_imagem_livro'];
+            $nome_livro = $row['nome_livro'];
             $id_autor = $row['id_autor'];
             $id_genero = $row['id_genero'];
 
@@ -78,38 +65,63 @@ else{
             
                 while ($row2 = mysqli_fetch_array($resultad2))
                 { 
-                
-                    echo "<td>".$row2['nome_autor']."</td>";
+                    $nome_autor = $row2['nome_autor'];
                 }
 
-                $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
+            $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
                 $resultad3 = $mysqli->query($sql3);
             
                 while ($row3 = mysqli_fetch_array($resultad3))
                 { 
-                
-                    echo "<td>".$row3['nome_genero']."</td>";
+                    $nome_genero = $row3['nome_genero'];
                 }
 
-            echo "<td>".$row['editora_livro']."</td>";
-            echo "<td>".$row['num_edicao_livro']."</td>";
-            echo "<td>".$row['estoque_livro']."</td>";
-            echo "<td>".$row['sinopse_livro']."</td>";
-            echo "<tr>";
+            $editora_livro = $row['editora_livro'];
+            $num_edicao_livro = $row['num_edicao_livro'];
+            $estoque_livro = $row['estoque_livro'];
+            $sinopse_livro = $row['sinopse_livro'];
+
+            echo "<div class='book-info-container'>
+                    <form method='post' action='livro_aberto.php'>
+                        <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                        <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                            <img class='book-cover' src='../../imagens/livro_capa/".$url_imagem_livro."' alt='Capa do Livro'>
+                        </button>
+                    </form>
+                    <div class='book-info'>
+
+                        <form method='post' action='livro_aberto.php'>
+                            <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                            <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                                <h1>".$nome_livro."</h1>
+                            </button>
+                        </form>
+
+                        <div class='info-aberto'>
+                            <span class='info-conteudo'><span class='info-destaque'>Autor:</span>".$nome_autor."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Idioma:</span>Português(BR)</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Editora:</span>".$editora_livro."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Nº da Edição:</span>".$num_edicao_livro."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Gênero:</span>".$nome_genero."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Id: </span>".$id_livro."</span>
+                        </div>
+                        <div class='text-sinopse'>
+                            <p>".$sinopse_livro."</p>
+                        </div>
+                    </div>
+                </div>";
         }
     }
     elseif($consultar == "nome_livro"){
 
-        $sql = "SELECT * FROM livro id_livro WHERE nome_livro = '$var'";
+        $sql = "SELECT * FROM livro id_livro WHERE nome_livro LIKE '%$var%'";
         $result = $mysqli->query($sql);
     
         while ($row = mysqli_fetch_array($result))
         { 
-            echo "<tr>";
-            echo "<td>".$row['id_livro']."</td>";
-            echo "<td><img src='../../imagens/livro_capa/".$row['url_imagem_livro']."'></td>";
-            echo "<td>".$row['nome_livro']."</td>";
-
+            $id_livro = $row['id_livro'];
+            $url_imagem_livro = $row['url_imagem_livro'];
+            $nome_livro = $row['nome_livro'];
             $id_autor = $row['id_autor'];
             $id_genero = $row['id_genero'];
 
@@ -118,29 +130,56 @@ else{
             
                 while ($row2 = mysqli_fetch_array($resultad2))
                 { 
-                
-                    echo "<td>".$row2['nome_autor']."</td>";
+                    $nome_autor = $row2['nome_autor'];
                 }
 
-                $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
+            $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
                 $resultad3 = $mysqli->query($sql3);
             
                 while ($row3 = mysqli_fetch_array($resultad3))
                 { 
-                
-                    echo "<td>".$row3['nome_genero']."</td>";
+                    $nome_genero = $row3['nome_genero'];
                 }
 
-            echo "<td>".$row['editora_livro']."</td>";
-            echo "<td>".$row['num_edicao_livro']."</td>";
-            echo "<td>".$row['estoque_livro']."</td>";
-            echo "<td>".$row['sinopse_livro']."</td>";
-            echo "<tr>";
+            $editora_livro = $row['editora_livro'];
+            $num_edicao_livro = $row['num_edicao_livro'];
+            $estoque_livro = $row['estoque_livro'];
+            $sinopse_livro = $row['sinopse_livro'];
+
+            echo "<div class='book-info-container'>
+                    <form method='post' action='livro_aberto.php'>
+                        <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                        <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                            <img class='book-cover' src='../../imagens/livro_capa/".$url_imagem_livro."' alt='Capa do Livro'>
+                        </button>
+                    </form>
+                    <div class='book-info'>
+
+                        <form method='post' action='livro_aberto.php'>
+                            <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                            <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                                <h1>".$nome_livro."</h1>
+                            </button>
+                        </form>
+
+                        <div class='info-aberto'>
+                            <span class='info-conteudo'><span class='info-destaque'>Autor:</span>".$nome_autor."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Idioma:</span>Português(BR)</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Editora:</span>".$editora_livro."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Nº da Edição:</span>".$num_edicao_livro."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Gênero:</span>".$nome_genero."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Id: </span>".$id_livro."</span>
+                        </div>
+                        <div class='text-sinopse'>
+                            <p>".$sinopse_livro."</p>
+                        </div>
+                    </div>
+                </div>";
         }
     }
     elseif($consultar == "id_autor"){
 
-        $sql4 = "SELECT * FROM autor nome_autor WHERE nome_autor = '$var'";
+        $sql4 = "SELECT * FROM autor nome_autor WHERE nome_autor LIKE '%$var%'";
         $result4 = $mysqli->query($sql4);
     
         while ($row4 = mysqli_fetch_array($result4)){
@@ -152,11 +191,9 @@ else{
     
         while ($row = mysqli_fetch_array($result))
         { 
-            echo "<tr>";
-            echo "<td>".$row['id_livro']."</td>";
-            echo "<td><img src='../../imagens/livro_capa/".$row['url_imagem_livro']."'></td>";
-            echo "<td>".$row['nome_livro']."</td>";
-
+            $id_livro = $row['id_livro'];
+            $url_imagem_livro = $row['url_imagem_livro'];
+            $nome_livro = $row['nome_livro'];
             $id_autor = $row['id_autor'];
             $id_genero = $row['id_genero'];
 
@@ -165,38 +202,63 @@ else{
             
                 while ($row2 = mysqli_fetch_array($resultad2))
                 { 
-                
-                    echo "<td>".$row2['nome_autor']."</td>";
+                    $nome_autor = $row2['nome_autor'];
                 }
 
-                $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
+            $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
                 $resultad3 = $mysqli->query($sql3);
             
                 while ($row3 = mysqli_fetch_array($resultad3))
                 { 
-                
-                    echo "<td>".$row3['nome_genero']."</td>";
+                    $nome_genero = $row3['nome_genero'];
                 }
 
-            echo "<td>".$row['editora_livro']."</td>";
-            echo "<td>".$row['num_edicao_livro']."</td>";
-            echo "<td>".$row['estoque_livro']."</td>";
-            echo "<td>".$row['sinopse_livro']."</td>";
-            echo "<tr>";
+            $editora_livro = $row['editora_livro'];
+            $num_edicao_livro = $row['num_edicao_livro'];
+            $estoque_livro = $row['estoque_livro'];
+            $sinopse_livro = $row['sinopse_livro'];
+            
+            echo "<div class='book-info-container'>
+                    <form method='post' action='livro_aberto.php'>
+                        <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                        <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                            <img class='book-cover' src='../../imagens/livro_capa/".$url_imagem_livro."' alt='Capa do Livro'>
+                        </button>
+                    </form>
+                    <div class='book-info'>
+
+                        <form method='post' action='livro_aberto.php'>
+                            <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                            <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                                <h1>".$nome_livro."</h1>
+                            </button>
+                        </form>
+
+                        <div class='info-aberto'>
+                            <span class='info-conteudo'><span class='info-destaque'>Autor:</span>".$nome_autor."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Idioma:</span>Português(BR)</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Editora:</span>".$editora_livro."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Nº da Edição:</span>".$num_edicao_livro."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Gênero:</span>".$nome_genero."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Id: </span>".$id_livro."</span>
+                        </div>
+                        <div class='text-sinopse'>
+                            <p>".$sinopse_livro."</p>
+                        </div>
+                    </div>
+                </div>";
         }
     }
     elseif($consultar == "editora_livro"){
         
-        $sql = "SELECT * FROM livro id_livro WHERE editora_livro = '$var'";
+        $sql = "SELECT * FROM livro id_livro WHERE editora_livro LIKE '%$var%'";
         $result = $mysqli->query($sql);
     
         while ($row = mysqli_fetch_array($result))
         { 
-            echo "<tr>";
-            echo "<td>".$row['id_livro']."</td>";
-            echo "<td><img src='../../imagens/livro_capa/".$row['url_imagem_livro']."'></td>";
-            echo "<td>".$row['nome_livro']."</td>";
-
+            $id_livro = $row['id_livro'];
+            $url_imagem_livro = $row['url_imagem_livro'];
+            $nome_livro = $row['nome_livro'];
             $id_autor = $row['id_autor'];
             $id_genero = $row['id_genero'];
 
@@ -205,29 +267,56 @@ else{
             
                 while ($row2 = mysqli_fetch_array($resultad2))
                 { 
-                
-                    echo "<td>".$row2['nome_autor']."</td>";
+                    $nome_autor = $row2['nome_autor'];
                 }
 
-                $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
+            $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
                 $resultad3 = $mysqli->query($sql3);
             
                 while ($row3 = mysqli_fetch_array($resultad3))
                 { 
-                
-                    echo "<td>".$row3['nome_genero']."</td>";
+                    $nome_genero = $row3['nome_genero'];
                 }
 
-            echo "<td>".$row['editora_livro']."</td>";
-            echo "<td>".$row['num_edicao_livro']."</td>";
-            echo "<td>".$row['estoque_livro']."</td>";
-            echo "<td>".$row['sinopse_livro']."</td>";
-            echo "<tr>";
+            $editora_livro = $row['editora_livro'];
+            $num_edicao_livro = $row['num_edicao_livro'];
+            $estoque_livro = $row['estoque_livro'];
+            $sinopse_livro = $row['sinopse_livro'];
+            
+            echo "<div class='book-info-container'>
+                    <form method='post' action='livro_aberto.php'>
+                        <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                        <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                            <img class='book-cover' src='../../imagens/livro_capa/".$url_imagem_livro."' alt='Capa do Livro'>
+                        </button>
+                    </form>
+                    <div class='book-info'>
+
+                        <form method='post' action='livro_aberto.php'>
+                            <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                            <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                                <h1>".$nome_livro."</h1>
+                            </button>
+                        </form>
+
+                        <div class='info-aberto'>
+                            <span class='info-conteudo'><span class='info-destaque'>Autor:</span>".$nome_autor."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Idioma:</span>Português(BR)</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Editora:</span>".$editora_livro."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Nº da Edição:</span>".$num_edicao_livro."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Gênero:</span>".$nome_genero."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Id: </span>".$id_livro."</span>
+                        </div>
+                        <div class='text-sinopse'>
+                            <p>".$sinopse_livro."</p>
+                        </div>
+                    </div>
+                </div>";
         }
     }
     elseif($consultar == "genero_livro"){
 
-        $sql4 = "SELECT * FROM genero nome_genero WHERE nome_genero = '$var'";
+        $sql4 = "SELECT * FROM genero nome_genero WHERE nome_genero LIKE '%$var%'";
         $result4 = $mysqli->query($sql4);
     
         while ($row4 = mysqli_fetch_array($result4)){
@@ -239,11 +328,9 @@ else{
     
         while ($row = mysqli_fetch_array($result))
         { 
-            echo "<tr>";
-            echo "<td>".$row['id_livro']."</td>";
-            echo "<td><img src='../../imagens/livro_capa/".$row['url_imagem_livro']."'></td>";
-            echo "<td>".$row['nome_livro']."</td>";
-
+            $id_livro = $row['id_livro'];
+            $url_imagem_livro = $row['url_imagem_livro'];
+            $nome_livro = $row['nome_livro'];
             $id_autor = $row['id_autor'];
             $id_genero = $row['id_genero'];
 
@@ -252,29 +339,56 @@ else{
             
                 while ($row2 = mysqli_fetch_array($resultad2))
                 { 
-                
-                    echo "<td>".$row2['nome_autor']."</td>";
+                    $nome_autor = $row2['nome_autor'];
                 }
 
-                $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
+            $sql3 = "SELECT * FROM genero id_genero WHERE id_genero = '$id_genero'";
                 $resultad3 = $mysqli->query($sql3);
             
                 while ($row3 = mysqli_fetch_array($resultad3))
                 { 
                 
-                    echo "<td>".$row3['nome_genero']."</td>";
+                    $nome_genero = $row3['nome_genero'];
                 }
 
-            echo "<td>".$row['editora_livro']."</td>";
-            echo "<td>".$row['num_edicao_livro']."</td>";
-            echo "<td>".$row['estoque_livro']."</td>";
-            echo "<td>".$row['sinopse_livro']."</td>";
-            echo "<tr>";
+            $editora_livro = $row['editora_livro'];
+            $num_edicao_livro = $row['num_edicao_livro'];
+            $estoque_livro = $row['estoque_livro'];
+            $sinopse_livro = $row['sinopse_livro'];
+            
+            echo "<div class='book-info-container'>
+                    <form method='post' action='livro_aberto.php'>
+                        <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                        <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                            <img class='book-cover' src='../../imagens/livro_capa/".$url_imagem_livro."' alt='Capa do Livro'>
+                        </button>
+                    </form>
+                    <div class='book-info'>
+
+                        <form method='post' action='livro_aberto.php'>
+                            <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                            <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                                <h1>".$nome_livro."</h1>
+                            </button>
+                        </form>
+
+                        <div class='info-aberto'>
+                            <span class='info-conteudo'><span class='info-destaque'>Autor:</span>".$nome_autor."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Idioma:</span>Português(BR)</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Editora:</span>".$editora_livro."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Nº da Edição:</span>".$num_edicao_livro."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Gênero:</span>".$nome_genero."</span>
+                            <span class='info-conteudo'><span class='info-destaque'>Id: </span>".$id_livro."</span>
+                        </div>
+                        <div class='text-sinopse'>
+                            <p>".$sinopse_livro."</p>
+                        </div>
+                    </div>
+                </div>";
         }
     }
 }
 ?>
-</table>
 
     <br><br><br>
 
