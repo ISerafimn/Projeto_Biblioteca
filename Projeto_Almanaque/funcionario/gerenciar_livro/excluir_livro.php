@@ -146,14 +146,14 @@ else{
                             <?php echo "<input type='text' name='excluindo' value='".$row['nome_livro']."' style='display: none;'>"; ?>
                             <input type='text' name='valor' value='nome_livro' style='display: none;'>       
                             <button type='submit'>Sim</button><a href="livro_lista.php">Não</a>
-                        </form><br><br>
-                    </div>                            
+                        </form><br>
+                    </div><br><br>                            
                     <?php
             }
         }
         else{
 
-            $sql = "SELECT * FROM livro id_livro WHERE nome_livro = '$var'";
+            $sql = "SELECT * FROM livro id_livro WHERE nome_livro LIKE '%$var%'";
             $result = $mysqli->query($sql);
         
             while ($row = mysqli_fetch_array($result))
@@ -218,27 +218,22 @@ else{
     ?>
 
     <br><br>
-
-    <section class="containers" >
-        <form  action='php/excluindo_livro.php' method='post' class="form" style="margin-top: 0px;">
-            <div class="input-box">
-                <h1 style="color: black; text-align: center;">Excluir esse Livro?</h1>
-            </div>
-            <div class="input-box">
-                <?php echo "<input type='text' name='excluindo' value='".$row['nome_livro']."' style='display: none;'>"; ?>
-                <input type='text' name='valor' value='nome_livro' style='display: none;'>       
-            </div>
-            <button type='submit'>Sim<a href="livro_lista.php">Não</a></button>
-        </form> 
-    </section><br><br>
-                                
+            <div class="forms">
+                <form  action='php/excluindo_livro.php' method='post' style="margin-top: 0px;">
+                    <h1 style="color: black; text-align: center;">Excluir esse Livro?</h1><br>
+                        <?php echo "<input type='text' name='excluindo' value='".$row['nome_livro']."' style='display: none;'>"; ?>
+                    <input type='text' name='valor' value='nome_livro' style='display: none;'>       
+                    <button type='submit'>Sim</button><a href="livro_lista.php">Não</a>
+                </form><br>
+            </div><br><br>
+           
     <?php
             }
         }
     }
     ?>
 
-    <br><br><br>
+    <br>
 
     <?php include('../../include/import_footer_gerenciar.php');
     include('../../include/acessibilidade.php') ?>
