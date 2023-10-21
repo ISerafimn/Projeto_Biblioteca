@@ -22,7 +22,7 @@ $atualizar = $_SESSION['atualizar'];
     <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-    <title>Adicionar</title>
+    <title>Atualizar Livro</title>
 </head>
 <body>
     <?php include('../../include/import_menu_gerenciar.php'); 
