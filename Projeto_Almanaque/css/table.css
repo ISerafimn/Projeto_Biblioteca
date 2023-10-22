@@ -1,0 +1,35 @@
+table{
+    margin: auto;
+}
+th{
+    color: #276daf;
+}
+.id_th, .id_td{
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid;
+}
+.atributo_th, .atributo_td{
+    padding-left: 10px;
+    padding-right: 40px;
+    border: solid;
+}
+@media screen and (max-width: 500px) {
+    .atributo_th, .atributo_td{
+        padding-left: 10px;
+        padding-right: 20px;
+    }
+}
+@media screen and (max-width: 300px) {
+    .atributo_th, .atributo_td{
+        padding-left: 5px;
+        padding-right: 10px;
+    }
+    .id_th, .id_td{
+        text-align: center;
+        padding-left: 5px;
+        padding-right: 5px;
+        border: solid;
+    }
+}

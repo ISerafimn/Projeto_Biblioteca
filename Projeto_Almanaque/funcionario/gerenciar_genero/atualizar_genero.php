@@ -15,6 +15,7 @@ include('../../include/conexao.php');
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/menu_gerenciar.css">
     <link rel="stylesheet" href="../../css/livro-aberto.css">
+    <link rel="stylesheet" href="../../css/form.css">
     <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -41,38 +42,39 @@ include('../../include/conexao.php');
 
     <h1 style="text-align: center;">Atualizar</h1><br>
 
-    <table>
-        <form action="php/atualizando_genero.php" method="post" style="text-align: center;">
-            <tr>
-                <td>Atualizar: </td>
-                <td>
-                    <select name="id_genero" style="width: 250px; color: rgb(52, 52, 52)" required>
-                    <option value="vo">Gêneros:</option>
-                        <?php
-                            $sql = "SELECT * FROM genero";
-                            $resultad = $mysqli->query($sql);
-                            while ($row = mysqli_fetch_array($resultad))
-                            {
-                                echo "<option value='".$row['id_genero']."'>".$row['nome_genero']."</option>";
-                            }
-                        ?>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Para: </td>
-                <td>
-                    <input type="text" name="nome_genero" placeholder="Digite o Nome do Gênero!" required>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <button type="submit">Atualizar</button>
-                </td>
-            </tr>
-        </form>
-    </table>
-    
+    <section class="containers" >
+      <form  method="post" action="php/atualizando_genero.php" class="form" style="margin-top: 0px;">
+
+        <div class="input-box">
+          <h1 style="color: black; text-align: center;">Atualizar Categoria/Gênero</h1><br>
+        </div>
+
+        <div class="input-box">
+            <label>Selecione qual será atualizado</label>
+            <select name="id_genero" class="select-box">
+                <option>Categoria/Gênero:</option>
+                    <?php
+                        include('../../include/conexao.php');
+
+                            $sql2 = "SELECT * FROM genero";
+                            $resultad2 = $mysqli->query($sql2);
+                            while ($row2 = mysqli_fetch_array($resultad2))
+                                {
+                                    echo "<option value='".$row2['id_genero']."'>".$row2['nome_genero']."</option>";
+                                }
+                    ?>
+            </select>
+        </div>
+
+        <div class="input-box">
+          <label>Nome da Categoria/Gênero</label>
+          <input name="nome_genero" type="text" placeholder="Digite o nome da Categoria/Gênero" required>
+        </div>
+
+        <button type="submit">Atualizar</button>
+      </form>
+    </section>
+
     <br><br><br>
 
     <?php include('../../include/import_footer_gerenciar.php');

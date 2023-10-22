@@ -17,6 +17,8 @@ include('../../include/conexao.php');
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/menu_gerenciar.css">
     <link rel="stylesheet" href="../../css/livro-aberto.css">
+    <link rel="stylesheet" href="../../css/form.css">
+    <link rel="stylesheet" href="../../css/table.css">
     <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -24,6 +26,32 @@ include('../../include/conexao.php');
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <title>Excluir Autor</title>
     <style>
+        .forms{
+            background-color: white;
+            margin-right: 20%;
+            margin-left: 20%;
+            border-radius: 20px;
+            color: black;
+            text-align: center;
+        }
+        .forms button, .forms a{
+            color: #fff;
+            border-radius: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 50px;
+            padding-right: 50px;
+            margin-right: 30px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 400;
+            background-color: #276daf;
+            transition: all .50s ease;
+        }
+        .forms button:hover, .forms a:hover{
+            background-color: #235d92;
+        }
+
     @media screen and (max-width: 500px) {
         section{
             display: grid;
@@ -43,12 +71,15 @@ include('../../include/conexao.php');
 
     <h1 style="text-align: center;">Excluir</h1><br>
     
-    <p  style="text-align: center;">Digite para selecionar o livro que será Atualizado</p>
+    <p style="text-align: center; margin-bottom: 12px;">Digite para selecionar o Autor que será excluido</p>
 
-<form action="#" method="post" style="text-align: center;">
-    <input type="text" name="valor">
-    <button type="submit" style="background-color: #1f1919; color: white">enviar</button>
-</form>
+    <form action="#" method="post">
+        <div class="search-icon">
+            <input type="text" placeholder="Pesquisar!" name="valor" required>
+            <button type="submit" class="icon"><i class="ri-search-line"></i></button>
+        </div>
+    </form>
+
 <br>
 <?php
 @$var = $_POST['valor'];
@@ -56,14 +87,12 @@ if ($var == ""){
 }
 else{
 ?>
-    <table border="1" style="width:80%; margin: auto;">
-    <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Nacionalidade</th>
-        <th>Data de Nascimento</th>
-        <th>Data de Falecimento</th>
-    </tr>
+    <table>
+        <tr>
+            <th class="id_th">ID</th>
+            <th class="atributo_th">Nome</th>
+            <th class="atributo_th">Nacionalidade</th>
+        </tr>
     
 <?php
     if($excluir_autor == "id_autor"){
@@ -74,58 +103,71 @@ else{
         while ($row = mysqli_fetch_array($result))
         {
             $id_autor = $row['id_autor'];
+            $nome_autor = $row['nome_autor'];
+            $pais_autor = $row['pais_autor'];
+            $nascimento_autor = $row['nascimento_autor'];
+            $falecimento_autor = $row['falecimento_autor'];
+            $icon = "";
+            if($falecimento_autor != ""){
+                $icon = " - ";
+            }
+
             echo "<tr>";
-            echo "<td>".$id_autor."</td>";
-            echo "<td>".$row['nome_autor']."</td>";
-            echo "<td>".$row['pais_autor']."</td>";
-            echo "<td>".$row['nascimento_autor']."</td>";
-            echo "<td>".$row['falecimento_autor']."</td>";
-            echo "<tr></table>";
+            echo "<td class='id_th'>".$id_autor."</td>";
+            echo "<td class='atributo_th'>".$nome_autor." (".$nascimento_autor, $icon, $falecimento_autor.")</td>";
+            echo "<td class='atributo_th'>".$pais_autor."</td>";
+            echo "</tr>";
+            echo "</table>";
 
 ?>
 
-<br>
-                            
+            <br>
+                <div class="forms">
+                    <form  action='php/excluindo_autor.php' method='post' style="margin-top: 0px;">
+                        <h2 style="color: black; text-align: center;">Excluir esse Autor?</h2><br>
+                        <?php echo "<input type='text' name='excluindo' value='".$id_autor."' style='display: none;'>"; ?>
+                        <input type='text' name='valor' value='id_autor' style='display: none;'>       
+                        <button type='submit'>Sim</button><a href="livro_lista.php">Não</a>
+                    </form><br>
+                </div>                  
 <?php
-            echo "<p>Excluir esse Autor?</p>
-            <form action='excluindo_autor.php' method='post'>
-                <input type='text' name='excluindo' value='".$id_autor."' style='display: none;'>
-                <input type='text' name='valor' value='id_autor' style='display: none;'>
-                <button type='submit'>Sim</button>
-            </form>
-            <form action='lista_autor.php'>
-                <button type='submit'>Não</button>
-            </form>";
         }
     }
     else{
-        $sql = "SELECT * FROM autor id_autor WHERE nome_autor = '$var'";
+        $sql = "SELECT * FROM autor id_autor WHERE nome_autor LIKE '%$var%'";
         $result = $mysqli->query($sql);
     
         while ($row = mysqli_fetch_array($result))
         {
             $id_autor = $row['id_autor'];
+            $nome_autor = $row['nome_autor'];
+            $pais_autor = $row['pais_autor'];
+            $nascimento_autor = $row['nascimento_autor'];
+            $falecimento_autor = $row['falecimento_autor'];
+            $icon = "";
+            if($falecimento_autor != ""){
+                $icon = " - ";
+            }
+
             echo "<tr>";
-            echo "<td>".$id_autor."</td>";
-            echo "<td>".$row['nome_autor']."</td>";
-            echo "<td>".$row['pais_autor']."</td>";
-            echo "<td>".$row['nascimento_autor']."</td>";
-            echo "<td>".$row['falecimento_autor']."</td>";
-            echo "<tr></table>";
+            echo "<td class='id_th'>".$id_autor."</td>";
+            echo "<td class='atributo_th'>".$nome_autor." (".$nascimento_autor, $icon, $falecimento_autor.")</td>";
+            echo "<td class='atributo_th'>".$pais_autor."</td>";
+            echo "</tr>";
+            echo "</table>";
 ?>
 
-<br>
+            <br>
+                <div class="forms">
+                    <form  action='php/excluindo_autor.php' method='post' style="margin-top: 0px;">
+                        <h2 style="color: black; text-align: center;">Excluir esse Autor?</h2><br>
+                        <?php echo "<input type='text' name='excluindo' value='".$id_autor."' style='display: none;'>"; ?>
+                        <input type='text' name='valor' value='id_autor' style='display: none;'>       
+                        <button type='submit'>Sim</button><a href="livro_lista.php">Não</a>
+                    </form><br>
+                </div>     
                             
 <?php
-            echo "<p>Excluir esse Autor?</p>
-            <form action='excluindo_autor.php' method='post'>
-                <input type='text' name='excluindo' value='".$id_autor."' style='display: none;'>
-                <input type='text' name='valor' value='id_autor' style='display: none;'>
-                <button type='submit'>Sim</button>
-            </form>
-            <form action='lista_autor.php'>
-                <button type='submit'>Não</button>
-            </form>";
         }
     }
 }

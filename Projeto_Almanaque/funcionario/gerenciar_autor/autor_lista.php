@@ -15,6 +15,7 @@ include('../../include/conexao.php');
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/menu_gerenciar.css">
     <link rel="stylesheet" href="../../css/livro-aberto.css">
+    <link rel="stylesheet" href="../../css/table.css">
     <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -41,13 +42,11 @@ include('../../include/conexao.php');
 
     <h1 style="text-align: center;">Autores</h1><br>
     
-    <table border="1" style="width:90%; margin: auto;">
+    <table>
         <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Nacionalidade</th>
-            <th>Data de Nascimento</th>
-            <th>Data de Falecimento</th>
+            <th class="id_th">ID</th>
+            <th class="atributo_th">Nome</th>
+            <th class="atributo_th">Nacionalidade</th>
         </tr>
 
         <?php
@@ -60,15 +59,16 @@ include('../../include/conexao.php');
                 $pais_autor = $result['pais_autor'];
                 $nascimento_autor = $result['nascimento_autor'];
                 $falecimento_autor = $result['falecimento_autor'];
+                $icon = "";
+                if($falecimento_autor != ""){
+                    $icon = " - ";
+                }
 
                 echo "<tr>";
-                echo "<td>".$id_autor."</td>";
-                echo "<td>".$nome_autor."</td>";
-                echo "<td>".$pais_autor."</td>";
-                echo "<td>".$nascimento_autor."</td>";
-                echo "<td>".$falecimento_autor."</td>";
+                echo "<td class='id_th'>".$id_autor."</td>";
+                echo "<td class='atributo_th'>".$nome_autor." (".$nascimento_autor, $icon, $falecimento_autor.")</td>";
+                echo "<td class='atributo_th'>".$pais_autor."</td>";
                 echo "</tr>";
-                
             };
             
         ?>

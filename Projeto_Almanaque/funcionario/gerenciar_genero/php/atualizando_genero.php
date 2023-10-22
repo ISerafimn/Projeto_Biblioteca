@@ -1,5 +1,5 @@
 <?php
-include('../../include/conexao.php');
+include('../../../include/conexao.php');
 
 $id_genero = $_POST['id_genero'];
 $nome_genero = $_POST['nome_genero'];

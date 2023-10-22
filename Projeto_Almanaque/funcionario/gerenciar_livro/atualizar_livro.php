@@ -32,7 +32,7 @@ $atualizar = $_SESSION['atualizar'];
 
     <?php include('../../include/import_menu_livro_gerenciar.php'); ?> <br><br>
 
-    <h1 style="text-align: center; margin-bottom: 12px;">Digite para selecionar o livro que será Atualizado</h1>
+    <h2 style="text-align: center; margin-bottom: 12px;">Digite para selecionar o livro que será Atualizado</h2>
 
     <form action="#" method="post">
         <div class="search-icon">

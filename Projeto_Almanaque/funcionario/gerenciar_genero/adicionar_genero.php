@@ -15,6 +15,7 @@ include('../../include/conexao.php');
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/menu_gerenciar.css">
     <link rel="stylesheet" href="../../css/livro-aberto.css">
+    <link rel="stylesheet" href="../../css/form.css">
     <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -39,13 +40,23 @@ include('../../include/conexao.php');
 
     <?php include('../../include/import_menu_genero_gerenciar.php'); ?><br>
 
-    <h1 style="text-align: center;">Cadastrar</h1><br>
+    <h1 style="text-align: center;">Adicionar</h1><br>
 
-    <form method="post" action="php/adicionar_genero_exe.php">
-        <label for="nome_genero">Nome do Gênero:</label>
-        <input type="text" id="nome_genero" name="nome_genero">
-        <input type="submit" name="cadastrar" value="Cadastrar">
-    </form>
+    <section class="containers" >
+      <form  method="post" action="php/adicionar_genero_exe.php" class="form" style="margin-top: 0px;">
+
+        <div class="input-box">
+          <h1 style="color: black; text-align: center;">Adicionar Categoria/Gênero</h1><br>
+        </div>
+
+        <div class="input-box">
+          <label>Nome da Categoria/Gênero</label>
+          <input name="nome_genero" type="text" placeholder="Digite o nome da Categoria/Gênero" required>
+        </div>
+
+        <button type="submit">Adicionar</button>
+      </form>
+    </section>
     
     <br><br><br>
 

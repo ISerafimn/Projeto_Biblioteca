@@ -1,5 +1,5 @@
 <div class="menu_gerenciar">
-    <h2>Gerenciar Livros</h2><hr>
+    <h2>Gerenciar Autores</h2><hr>
     <section>
         <div class="gerenciar_cont">
             <div class="gerenciar_titulo_menu">

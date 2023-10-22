@@ -14,6 +14,7 @@ include('../../include/conexao.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/menu_gerenciar.css">
+    <link rel="stylesheet" href="../../css/form.css">
     <link rel="stylesheet" href="../../css/livro-aberto.css">
     <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -41,29 +42,36 @@ include('../../include/conexao.php');
 
     <h1 style="text-align: center;">Adicionar</h1><br>
     
-    <table>
-        <form action="adicionar_autor_exe.php" method="post">
-            <tr>
-                <td>Nome do Autor:</td>
-                <td><input type="text" name="nome_autor"></td>
-            </tr>
-            <tr>
-                <td>Nacionalidade:</td>
-                <td><input type="text" name="pais_autor"></td>
-            </tr> 
-            <tr>
-                <td>Data de Nascimento:</td>
-                <td><input type="number" name="nascimento_autor"></td>
-            </tr>
-            <tr>
-                <td>Data de Falecimento(opcional):</td>
-                <td><input type="number" name="falecimento_autor"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><button type="submit">Enviar</button></td>
-            </tr>
-        </form>
-    </table>
+    <section class="containers" >
+      <form  method="post" action="php/adicionar_autor_exe.php" class="form" style="margin-top: 0px;">
+
+        <div class="input-box">
+          <h1 style="color: black; text-align: center;">Adicionar Autor</h1><br>
+        </div>
+
+        <div class="input-box">
+          <label>Nome do Autor</label>
+          <input name="nome_autor" type="text" placeholder="Digite o nome do autor" required>
+        </div>
+
+        <div class="input-box">
+          <label>Nacionalidade</label>
+          <input name="pais_autor" type="text" placeholder="Digite o pais de nascimento" required>
+        </div>
+
+        <div class="input-box">
+          <label>Data de Nascimento</label>
+          <input name="nascimento_autor" type="number" placeholder="Digite ano de nascimento" required>
+        </div>
+
+        <div class="input-box">
+          <label>Data de Falecimento(opcional)</label>
+          <input name="falecimento_autor" type="number" placeholder="Digite ano de falecimento">
+        </div>
+
+        <button type="submit">Adicionar</button>
+      </form>
+    </section>
     
     <br><br><br>
 

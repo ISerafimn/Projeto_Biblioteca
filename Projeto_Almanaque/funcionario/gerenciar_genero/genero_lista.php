@@ -15,6 +15,7 @@ include('../../include/conexao.php');
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/menu_gerenciar.css">
     <link rel="stylesheet" href="../../css/livro-aberto.css">
+    <link rel="stylesheet" href="../../css/table.css">
     <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -27,7 +28,6 @@ include('../../include/conexao.php');
             display: grid;
             grid-template-columns: auto auto;
         }
-        
     }
     </style>
 </head>
@@ -41,10 +41,10 @@ include('../../include/conexao.php');
 
     <h1 style="text-align: center;">Categorias / Gêneros</h1><br>
     
-    <table border="1" style="width:90%; margin: auto;">
+    <table>
         <tr>
-            <th>ID</th>
-            <th>Nome do Gênero</th>
+            <th class="id_th"><h3>ID</h3></th>
+            <th class="atributo_th"><h3>Nome do Gênero</h3></th>
         </tr>
 
         <?php
@@ -56,8 +56,8 @@ include('../../include/conexao.php');
                 $nome_genero = $result['nome_genero'];
 
                 echo "<tr>";
-                echo "<td>".$id_genero."</td>";
-                echo "<td>".$nome_genero."</td>";
+                echo "<td class='id_td'>".$id_genero."</td>";
+                echo "<td class='atributo_td'>".$nome_genero."</td>";
                 echo "</tr>";
                 
             };

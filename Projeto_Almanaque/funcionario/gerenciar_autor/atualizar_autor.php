@@ -17,6 +17,8 @@ include('../../include/conexao.php');
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/menu_gerenciar.css">
     <link rel="stylesheet" href="../../css/livro-aberto.css">
+    <link rel="stylesheet" href="../../css/form.css">
+    <link rel="stylesheet" href="../../css/table.css">
     <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -42,28 +44,29 @@ include('../../include/conexao.php');
     <?php include('../../include/import_menu_autor_gerenciar.php'); ?><br>
 
     <h1 style="text-align: center;">Atualizar</h1><br>
-    
-    <p  style="text-align: center;">Digite para selecionar o livro que será Atualizado</p>
 
-<form action="#" method="post" style="text-align: center;">
-    <input type="text" name="valor">
-    <button type="submit" style="background-color: #1f1919; color: white">enviar</button>
-</form>
-<br>
+    <p style="text-align: center; margin-bottom: 12px;">Digite para selecionar o Autor que será Atualizado</p>
+
+    <form action="#" method="post">
+        <div class="search-icon">
+            <input type="text" placeholder="Pesquisar!" name="valor" required>
+            <button type="submit" class="icon"><i class="ri-search-line"></i></button>
+        </div>
+    </form>
+
+<br><br>
 <?php
 @$var = $_POST['valor'];
 if ($var == ""){
 }
 else{
 ?>
-    <table border="1" style="width:80%; margin: auto;">
-    <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Nacionalidade</th>
-        <th>Data de Nascimento</th>
-        <th>Data de Falecimento</th>
-    </tr>
+    <table>
+        <tr>
+            <th class="id_th">ID</th>
+            <th class="atributo_th">Nome</th>
+            <th class="atributo_th">Nacionalidade</th>
+        </tr>
     
 <?php
     if($atualizar == "id_autor"){
@@ -74,92 +77,128 @@ else{
         while ($row = mysqli_fetch_array($result))
         {
             $id_autor = $row['id_autor'];
+            $nome_autor = $row['nome_autor'];
+            $pais_autor = $row['pais_autor'];
+            $nascimento_autor = $row['nascimento_autor'];
+            $falecimento_autor = $row['falecimento_autor'];
+            $icon = "";
+            if($falecimento_autor != ""){
+                $icon = " - ";
+            }
+
             echo "<tr>";
-            echo "<td>".$id_autor."</td>";
-            echo "<td>".$row['nome_autor']."</td>";
-            echo "<td>".$row['pais_autor']."</td>";
-            echo "<td>".$row['nascimento_autor']."</td>";
-            echo "<td>".$row['falecimento_autor']."</td>";
-            echo "<tr></table>";
+            echo "<td class='id_th'>".$id_autor."</td>";
+            echo "<td class='atributo_th'>".$nome_autor." (".$nascimento_autor, $icon, $falecimento_autor.")</td>";
+            echo "<td class='atributo_th'>".$pais_autor."</td>";
+            echo "</tr>";
+            echo "</table>";
 
 ?>
 
-<br>
+<br><br>
 
-<h1>Digite as Inforções Atualizadas</h1>
+    <section class="containers" >
+      <form  method="post" action="php/atualizando_autor.php" class="form" style="margin-top: 0px;">
 
-<table>
-    <form action="atualizando_autor.php" method="post">
-        <tr>
-            <td>Nome do Autor:</td>
-            <td><input type="text" name="nome_autor"></td>
-        </tr>
-        <tr>
-            <td>Nacionalidade:</td>
-            <td><input type="text" name="pais_autor"></td>
-        </tr> 
-        <tr>
-            <td>Data de Nascimentp:</td>
-            <td><input type="number" name="nascimento_autor"></td>
-        </tr>
-        <tr>
-            <td>Data de Falecimento(opcional):</td>
-            <td><input type="number" name="falecimento_autor"></td>
-        </tr>
-</table>
-                            
+        <div class="input-box">
+          <p style="color: black; text-align: center;">Digite as Informações Atualizadas</p><br>
+        </div>
+
+        <div class="input-box">
+          <label>Nome do Autor</label>
+          <input name="nome_autor" type="text" placeholder="Digite o nome do autor" required>
+        </div>
+
+        <div class="input-box">
+          <label>Nacionalidade</label>
+          <input name="pais_autor" type="text" placeholder="Digite o pais de nascimento" required>
+        </div>
+
+        <div class="input-box">
+          <label>Data de Nascimento</label>
+          <input name="nascimento_autor" type="number" placeholder="Digite ano de nascimento" required>
+        </div>
+
+        <div class="input-box">
+          <label>Data de Falecimento(opcional)</label>
+          <input name="falecimento_autor" type="number" placeholder="Digite ano de falecimento">
+        </div>
+
+        <div class="input-box">
+          <input name="id_autor" type="number" style='display: none;' value="<?php echo $id_autor; ?>">
+        </div>
+
+        <button type="submit">Atualizar</button>
+      </form>
+    </section>
+          
 <?php
-            echo "<input type='text' value='".$id_autor."' name='id_autor' style='display: none;'>
-                    <button type='submit'>Concluir Atualização</button>
-                </form>";
         }
     }
     else{
-        include('../php/conexao.php');
 
-        $sql = "SELECT * FROM autor id_autor WHERE nome_autor = '$var'";
+        $sql = "SELECT * FROM autor id_autor WHERE nome_autor LIKE '%$var%'";
         $result = $mysqli->query($sql);
     
         while ($row = mysqli_fetch_array($result))
         {
             $id_autor = $row['id_autor'];
+            $nome_autor = $row['nome_autor'];
+            $pais_autor = $row['pais_autor'];
+            $nascimento_autor = $row['nascimento_autor'];
+            $falecimento_autor = $row['falecimento_autor'];
+            $icon = "";
+            if($falecimento_autor != ""){
+                $icon = " - ";
+            }
+
             echo "<tr>";
-            echo "<td>".$id_autor."</td>";
-            echo "<td>".$row['nome_autor']."</td>";
-            echo "<td>".$row['pais_autor']."</td>";
-            echo "<td>".$row['nascimento_autor']."</td>";
-            echo "<td>".$row['falecimento_autor']."</td>";
-            echo "<tr></table>";
+            echo "<td class='id_th'>".$id_autor."</td>";
+            echo "<td class='atributo_th'>".$nome_autor." (".$nascimento_autor, $icon, $falecimento_autor.")</td>";
+            echo "<td class='atributo_th'>".$pais_autor."</td>";
+            echo "</tr>";
+            echo "</table>";
+
 ?>
 
-<br>
+<br><br>
 
-<h1>Digite as Inforções Atualizadas</h1>
+    <section class="containers" >
+      <form  method="post" action="php/atualizando_autor.php" class="form" style="margin-top: 0px;">
 
-<table>
-    <form action="atualizando_autor.php" method="post">
-        <tr>
-            <td>Nome do Autor:</td>
-            <td><input type="text" name="nome_autor"></td>
-        </tr>
-        <tr>
-            <td>Nacionalidade:</td>
-            <td><input type="text" name="pais_autor"></td>
-        </tr> 
-        <tr>
-            <td>Data de Nascimentp:</td>
-            <td><input type="number" name="nascimento_autor"></td>
-        </tr>
-        <tr>
-            <td>Data de Falecimento(opcional):</td>
-            <td><input type="number" name="falecimento_autor"></td>
-        </tr>
-</table>
-                            
-<?php
-            echo "<input type='text' value='".$id_autor."' name='id_autor' style='display: none;'>
-                    <button type='submit'>Concluir Atualização</button>
-                </form>";
+        <div class="input-box">
+          <h1 style="color: black; text-align: center;">Digite as Informações Atualizadas</h1><br>
+        </div>
+
+        <div class="input-box">
+          <label>Nome do Autor</label>
+          <input name="nome_autor" type="text" placeholder="Digite o nome do autor" required>
+        </div>
+
+        <div class="input-box">
+          <label>Nacionalidade</label>
+          <input name="pais_autor" type="text" placeholder="Digite o pais de nascimento" required>
+        </div>
+
+        <div class="input-box">
+          <label>Data de Nascimento</label>
+          <input name="nascimento_autor" type="number" placeholder="Digite ano de nascimento" required>
+        </div>
+
+        <div class="input-box">
+          <label>Data de Falecimento(opcional)</label>
+          <input name="falecimento_autor" type="number" placeholder="Digite ano de falecimento">
+        </div>
+
+        <div class="input-box">
+          <input name="id_autor" type="number" style='display: none;' value="<?php echo $id_autor; ?>">
+        </div>
+
+        <button type="submit">Atualizar</button>
+      </form>
+    </section>
+
+    <?php
         }
     }
 }

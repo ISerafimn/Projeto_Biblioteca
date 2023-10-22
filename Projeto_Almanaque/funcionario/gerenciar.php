@@ -40,7 +40,7 @@ include('../include/conexao.php');
         <a href="gerenciar_genero/genero_lista.php">Categoria / Gênero</a><br><br>
         <a href="gerenciar_autor/autor_lista.php">Autor</a><br><br>
         <a href="gerenciar_usuario/usuario_lista.php">Usuarios</a><br><br>
-        <a href="movimentacao_lista.php">Movimentação</a>
+        <a href="gerenciar_movimentacao/movimentacao_lista.php">Movimentação</a>
     </div>
     
 
