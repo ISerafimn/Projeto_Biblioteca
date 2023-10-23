@@ -119,12 +119,12 @@
     <!-- JavaScript Link-->
     <script type="text/javascript" src="js/script.js"></script>
 
-    <br><br><br><br>
+    <br><br>
 
     <div class="main-login">
         <div class="left-login">
-            <h1>Faça Login<br>e comece a sua Leitura!</h1>
-            <img src="imagens/coruja.png" class="left-login-image" alt="">
+            <h1 style="text-align: center;">Faça Login<br>e comece a sua Leitura!</h1>
+            <img src="imagens/logo sem fundo grande.png" class="left-login-image" alt="">
         </div>
         <form action="php/login_funcionario.php" method="POST" class="form-login">
             <div class="right-login">
