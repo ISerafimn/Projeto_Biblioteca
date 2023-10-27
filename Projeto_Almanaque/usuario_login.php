@@ -168,7 +168,7 @@
 <body>
 
     <header style="background-color: #222327; border-bottom: 1px solid">
-        <a href="index.php" class="logo"><i class="ri-home-3-fill"></i><span>Almanaque</span></a> 
+        <a href="index.php" class="logo"><img src="imagens/logo_azul.png" style="width: 45px; margin-right: 5px;"><span>Almanaque</span></a> 
 
         <ul class="navbar">
 

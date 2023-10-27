@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../../include/conexao.php');
+include('../../../include/conexao.php');
 $id_status_movimentacao=$_POST['id_status_movimentacao'];
 
 if($id_status_movimentacao == '1'){

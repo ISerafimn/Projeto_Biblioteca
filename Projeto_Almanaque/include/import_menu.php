@@ -1,5 +1,5 @@
 <header style="background-color: #222327; border-bottom: 1px solid">
-        <a href="index.php" class="logo"><img src="imagens/logo_azul.png" style="width: 300px;"><span style="margin-right: 5px;">Almanaque</span></a> 
+        <a href="index.php" class="logo"><img src="imagens/logo_azul.png" style="width: 45px; margin-right: 5px;"><span style="margin-right: 5px;">Almanaque</span></a> 
 
         <ul class="navbar">
 

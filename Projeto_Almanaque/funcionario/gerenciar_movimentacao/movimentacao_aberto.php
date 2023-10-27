@@ -1,52 +1,54 @@
 <?php
+session_start();
 include('../../php/protect.php');
-
+    
 if($_SESSION['id_sessao'] == 2) {
+    
+include('../../include/conexao.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../design/index.css">
-    <link rel="stylesheet" href="../../design/menu.css">
-    <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="javascript/script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almanaque</title>
-    <style>
-        img{
-            width: 200px;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/menu_gerenciar.css">
+    <link rel="stylesheet" href="../../css/livro-aberto.css">
+    <link rel="stylesheet" href="../../css/table.css">
+    <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <title>Livro Lista</title>
 </head>
 <body>
-    <div style="background-color: #1f1919;">
-        <?php include('../../include/menu_funcionario_gerenciar.php'); ?>
-    </div>
+    <?php include('../../include/import_menu_gerenciar.php'); 
+    include('../../include/conexao.php'); ?>
 
+    <br><br><br><br><br>
+
+    <?php include('../../include/import_menu_movimentacao_gerenciar.php'); ?>
+    
     <br>
 
-    <?php include('../../include/menu_gerenciar_movimentacao.php'); ?>
-
-    <br>
-
-    <table border="1" style="width:90%; margin: auto;">
+    <table>
         <tr>
-            <th>ID</th>
-            <th>Nome do Usuário</th>
-            <th>Nome do Livro</th>
-            <th>Data da Saída</th>
-            <th>Data Limite</th>
-            <th>Data do Retorno</th>
-            <th>Status</th>
+            <th class="atributo_th">Nome do Usuário e ID</th>
+            <th class="atributo_th">Nome do Livro</th>
+            <th class="atributo_th">Data</th>
+            <th class="atributo_th">Status e ID Movimentação</th>
         </tr>
 
         <?php
         $id_movimentacao = $_POST['id_movimentacao'];
 
-        $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_movimentacao WHERE id_movimentacao = '$id_movimentacao'");
+        if ($id_movimentacao == ""){
+        }
+        else{
+
+            $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_movimentacao WHERE id_movimentacao = '$id_movimentacao'");
             while ($result = mysqli_fetch_array($sql))
 
                 {
@@ -58,16 +60,28 @@ if($_SESSION['id_sessao'] == 2) {
                     $data_limite_movimentacao = $result['data_limite_movimentacao'];
                     $data_volta_movimentacao = $result['data_volta_movimentacao'];
 
-
-                    echo "<tr>";
-                    echo "<td>".$id_movimentacao."</td>";
+                    $icon = "";
+                    if($data_saida_movimentacao == ""){
+                        $icon = " - ";
+                    }else{
+                        $icon = " Até ";
+                    }
+                    $icon2 = "";
+                    if($data_volta_movimentacao != ""){
+                        $icon2 = "<br> entregue: ";
+                    }
 
                         $sql2 = "SELECT * FROM usuario id_usuario WHERE id_usuario = '$id_usuario'";
                         $resultad2 = $mysqli->query($sql2);
                     
                         while ($row = mysqli_fetch_array($resultad2))
                         { 
-                            echo "<td>".$row['nome_usuario']."</td>";
+                            echo "<tr><td class='atributo_td'><form method='post' action='movimentacao_aberto.php'>
+                            <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
+                                <button type='submit' name='Submit' style='border: none; background-color: transparent; color: #fff; cursor: pointer; '>
+                                    ".$row['nome_usuario']." (".$id_usuario.")
+                                </button>
+                            </form></td>";
                         }
                         
                         $sql3 = "SELECT * FROM livro id_livro WHERE id_livro = '$id_livro'";
@@ -75,12 +89,10 @@ if($_SESSION['id_sessao'] == 2) {
                     
                         while ($row3 = mysqli_fetch_array($resultad3))
                         { 
-                            echo "<td>".$row3['nome_livro']."</td>";
+                            echo "<td class='atributo_td'>".$row3['nome_livro']."</td>";
                         }
 
-                        echo "<td>".$data_saida_movimentacao."</td>";
-                        echo "<td>".$data_limite_movimentacao."</td>";
-                        echo "<td>".$data_volta_movimentacao."</td>";
+                        echo "<td class='atributo_th'>".$data_saida_movimentacao, $icon, $data_limite_movimentacao, $icon2, $data_volta_movimentacao."</td>";
 
                         $sql4 = "SELECT * FROM status_movimentacao id_status_movimentacao WHERE id_status_movimentacao = '$id_status_movimentacao'";
                         $resultad4 = $mysqli->query($sql4);
@@ -88,13 +100,20 @@ if($_SESSION['id_sessao'] == 2) {
                         while ($row4 = mysqli_fetch_array($resultad4))
                         { 
                         
-                            echo "<td>".$row4['nome_status_movimentacao']."</td>";
+                            echo "<td class='atributo_td'>".$row4['nome_status_movimentacao']." (".$id_movimentacao.")</td></tr>";
                         }
                     
-                    }
+                }
+        }
             
         ?>
     </table>
+    
+    <br><br><br>
+
+    <?php include('../../include/import_footer_gerenciar.php');
+    include('../../include/acessibilidade.php') ?>
+    <a id="link-up" href="#"><i class="ri-arrow-up-double-line"></i></a>
 </body>
 </html>
 <?php

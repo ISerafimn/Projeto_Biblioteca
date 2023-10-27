@@ -13,11 +13,11 @@
             <div class="responder">
                 <form method="post" action="php/variaveis_consultar_situacao.php" class="form_gerenciar">
                     <input name="consultar" value="id_usuario" style="display: none;">
-                    <button type="submit" name="Submit" class="button_gerenciar">Id</button>
+                    <button type="submit" name="Submit" class="button_gerenciar">Id do Usuário</button>
                 </form>
                 <form method="post" action="php/variaveis_consultar_situacao.php" class="form_gerenciar">
                     <input name="consultar" value="nome_usuario" style="display: none;">
-                    <button type="submit" name="Submit" class="button_gerenciar">Nome</button>
+                    <button type="submit" name="Submit" class="button_gerenciar">Nome do Usuário</button>
                 </form>
             </div>
         </div>
@@ -34,12 +34,12 @@
                 <form method="post" action="php/variaveis_atualizar_movimentacao.php" class="form_gerenciar">
                     <input name="atualizar_por" value="id_usuario" style="display: none;">
                     <input name="caminho" value="saida" style="display: none;">
-                    <button type="submit" name="Submit" class="button_gerenciar">Id</button>
+                    <button type="submit" name="Submit" class="button_gerenciar">Id do Usuário</button>
                 </form>
                 <form method="post" action="php/variaveis_atualizar_movimentacao.php" class="form_gerenciar">
                     <input name="atualizar_por" value="nome_usuario" style="display: none;">
                     <input name="caminho" value="saida" style="display: none;">
-                    <button type="submit" name="Submit" class="button_gerenciar">Nome</button>
+                    <button type="submit" name="Submit" class="button_gerenciar">Nome do Usuário</button>
                 </form>
             </div>
         </div>
@@ -51,12 +51,12 @@
                 <form method="post" action="php/variaveis_atualizar_movimentacao.php" class="form_gerenciar">
                     <input name="atualizar_por" value="id_usuario" style="display: none;">
                     <input name="caminho" value="entrada" style="display: none;">
-                    <button type="submit" name="Submit" class="button_gerenciar">Id</button>
+                    <button type="submit" name="Submit" class="button_gerenciar">Id do Usuário</button>
                 </form>
                 <form method="post" action="php/variaveis_atualizar_movimentacao.php" class="form_gerenciar">
                     <input name="atualizar_por" value="nome_usuario" style="display: none;">
                     <input name="caminho" value="entrada" style="display: none;">
-                    <button type="submit" name="Submit" class="button_gerenciar">Nome</button>
+                    <button type="submit" name="Submit" class="button_gerenciar">Nome do Usuário</button>
                 </form>
             </div>
         </div>

@@ -15,6 +15,8 @@ include('../../include/conexao.php');
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/menu_gerenciar.css">
     <link rel="stylesheet" href="../../css/livro-aberto.css">
+    <link rel="stylesheet" href="../../css/table.css">
+    <link rel="stylesheet" href="../../css/form.css">
     <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -32,36 +34,44 @@ include('../../include/conexao.php');
     
     <br>
 
-    <form action="#" method="post" style="text-align: center;">
-        <select name="id_status_movimentacao" style="width: 250px; color: rgb(52, 52, 52)">
-        <option value="1">Status:</option>
-            <?php
-                $sql = "SELECT * FROM status_movimentacao";
-                $resultad = $mysqli->query($sql);
-                while ($row = mysqli_fetch_array($resultad))
-                {
-                    echo "<option value='".$row['id_status_movimentacao']."'>".$row['nome_status_movimentacao']."</option>";
-                }
-            ?>
-        </select>
-        <button type="submit">Buscar</button>
-    </form>
+    <section class="containers" >
+      <form  action="#" method="post" enctype="multipart/form-data" class="form" style="margin-top: 0px;">
+
+            <div class="input-box">
+            <h2 style="color: black;">Selecione o Status para Consultar</h2>
+            <select name="id_status_movimentacao" class="select-box">
+                    <option>Status:</option>
+                        <?php
+                            $sql = "SELECT * FROM status_movimentacao";
+                            $resultad = $mysqli->query($sql);
+                            while ($row = mysqli_fetch_array($resultad))
+                            {
+                                echo "<option value='".$row['id_status_movimentacao']."'>".$row['nome_status_movimentacao']."</option>";
+                            }
+                        ?>
+                </select>
+            </div>
+
+        <button type="submit">Consultar</button>
+      </form>
+    </section>
 
         <br>
+    
+    <table>
+        <?php
+        
+        if(isset($_POST['id_status_movimentacao'])){
 
-    <table border="1" style="width:90%; margin: auto;">
+        ?>
         <tr>
-            <th>ID</th>
-            <th>Nome do Usuário</th>
-            <th>Nome do Livro</th>
-            <th>Data da Saída</th>
-            <th>Data Limite</th>
-            <th>Data do Retorno</th>
-            <th>Status</th>
+            <th class="atributo_th">Nome do Usuário e ID</th>
+            <th class="atributo_th">Nome do Livro</th>
+            <th class="atributo_th">Data</th>
+            <th class="atributo_th">Status e ID Movimentação</th>
         </tr>
 
         <?php
-
         @$id_status_movimentacao = $_POST['id_status_movimentacao'];
 
         if ($id_status_movimentacao == ""){
@@ -80,24 +90,26 @@ include('../../include/conexao.php');
                     $data_limite_movimentacao = $result['data_limite_movimentacao'];
                     $data_volta_movimentacao = $result['data_volta_movimentacao'];
 
-
-                    echo "<tr>";
-                    echo "<td><form method='post' action='movimentacao_aberto.php'>
-                    <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
-                        <button type='submit' name='Submit' style='border: none; background-color:  ;'>
-                            ".$id_movimentacao."
-                        </button>
-                    </form></td>";
+                    $icon = "";
+                    if($data_saida_movimentacao == ""){
+                        $icon = " - ";
+                    }else{
+                        $icon = " Até ";
+                    }
+                    $icon2 = "";
+                    if($data_volta_movimentacao != ""){
+                        $icon2 = "<br> entregue: ";
+                    }
 
                         $sql2 = "SELECT * FROM usuario id_usuario WHERE id_usuario = '$id_usuario'";
                         $resultad2 = $mysqli->query($sql2);
                     
                         while ($row = mysqli_fetch_array($resultad2))
                         { 
-                            echo "<td><form method='post' action='movimentacao_aberto.php'>
+                            echo "<tr><td class='atributo_td'><form method='post' action='movimentacao_aberto.php'>
                             <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
-                                <button type='submit' name='Submit' style='border: none; background-color:  ;'>
-                                    ".$row['nome_usuario']."
+                                <button type='submit' name='Submit' style='border: none; background-color: transparent; color: #fff; cursor: pointer; '>
+                                    ".$row['nome_usuario']." (".$id_usuario.")
                                 </button>
                             </form></td>";
                         }
@@ -107,12 +119,10 @@ include('../../include/conexao.php');
                     
                         while ($row3 = mysqli_fetch_array($resultad3))
                         { 
-                            echo "<td>".$row3['nome_livro']."</td>";
+                            echo "<td class='atributo_td'>".$row3['nome_livro']."</td>";
                         }
 
-                        echo "<td>".$data_saida_movimentacao."</td>";
-                        echo "<td>".$data_limite_movimentacao."</td>";
-                        echo "<td>".$data_volta_movimentacao."</td>";
+                        echo "<td class='atributo_th'>".$data_saida_movimentacao, $icon, $data_limite_movimentacao, $icon2, $data_volta_movimentacao."</td>";
 
                         $sql4 = "SELECT * FROM status_movimentacao id_status_movimentacao WHERE id_status_movimentacao = '$id_status_movimentacao'";
                         $resultad4 = $mysqli->query($sql4);
@@ -120,7 +130,7 @@ include('../../include/conexao.php');
                         while ($row4 = mysqli_fetch_array($resultad4))
                         { 
                         
-                            echo "<td>".$row4['nome_status_movimentacao']."</td>";
+                            echo "<td class='atributo_td'>".$row4['nome_status_movimentacao']." (".$id_movimentacao.")</td></tr>";
                         }
                     
                 }
@@ -128,6 +138,9 @@ include('../../include/conexao.php');
             
         ?>
     </table>
+    <?php
+        }
+    ?>
     
     <br><br><br>
 

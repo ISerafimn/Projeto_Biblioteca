@@ -13,6 +13,7 @@ include('../../include/conexao.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/table.css">
     <link rel="stylesheet" href="../../css/menu_gerenciar.css">
     <link rel="stylesheet" href="../../css/livro-aberto.css">
     <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
@@ -23,7 +24,7 @@ include('../../include/conexao.php');
     <title>Livro Lista</title>
 </head>
 <body>
-    <?php include('../../include/import_menu_gerenciar.php'); 
+<?php include('../../include/import_menu_gerenciar.php'); 
     include('../../include/conexao.php'); ?>
 
     <br><br><br><br><br>
@@ -32,12 +33,11 @@ include('../../include/conexao.php');
     
     <br>
 
-    <table border="1" style="width:90%; margin: auto;">
+    <table>
         <tr>
-            <th>ID</th>
-            <th>Nome do Usuário</th>
-            <th>Nome do Livro</th>
-            <th>Status</th>
+            <th class="atributo_th">Nome do Usuário e ID</th>
+            <th class="atributo_th">Nome do Livro</th>
+            <th class="atributo_th">Status e ID Movimentação</th>
         </tr>
 
         <?php
@@ -51,22 +51,16 @@ include('../../include/conexao.php');
                 $id_status_movimentacao = $result['id_status_movimentacao'];
 
                 echo "<tr>";
-                echo "<td><form method='post' action='movimentacao_aberto.php'>
-                <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
-                    <button type='submit' name='Submit' style='border: none; background-color:  ;'>
-                        ".$id_movimentacao."
-                    </button>
-                </form></td>";
 
                     $sql2 = "SELECT * FROM usuario id_usuario WHERE id_usuario = '$id_usuario'";
                     $resultad2 = $mysqli->query($sql2);
                 
                     while ($row = mysqli_fetch_array($resultad2))
                     { 
-                        echo "<td><form method='post' action='movimentacao_aberto.php'>
+                        echo "<td class='atributo_td'><form method='post' action='movimentacao_aberto.php'>
                         <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
-                            <button type='submit' name='Submit' style='border: none; background-color:  ;'>
-                                ".$row['nome_usuario']."
+                            <button type='submit' name='Submit' style='border: none; background-color: transparent; color: #fff; cursor: pointer; '>
+                                ".$row['nome_usuario']." (".$id_usuario.")
                             </button>
                         </form></td>";
                     }
@@ -76,7 +70,7 @@ include('../../include/conexao.php');
                 
                     while ($row3 = mysqli_fetch_array($resultad3))
                     { 
-                        echo "<td>".$row3['nome_livro']."</td>";
+                        echo "<td class='atributo_td'>".$row3['nome_livro']."</td>";
                     }
 
                     $sql4 = "SELECT * FROM status_movimentacao id_status_movimentacao WHERE id_status_movimentacao = '$id_status_movimentacao'";
@@ -85,7 +79,7 @@ include('../../include/conexao.php');
                     while ($row4 = mysqli_fetch_array($resultad4))
                     { 
                     
-                        echo "<td>".$row4['nome_status_movimentacao']."</td>";
+                        echo "<td class='atributo_td'>".$row4['nome_status_movimentacao']." (".$id_movimentacao.")</td>";
                     }
                 
             };
@@ -94,7 +88,7 @@ include('../../include/conexao.php');
     </table>
     
     <br><br><br>
-
+     
     <?php include('../../include/import_footer_gerenciar.php');
     include('../../include/acessibilidade.php') ?>
     <a id="link-up" href="#"><i class="ri-arrow-up-double-line"></i></a>

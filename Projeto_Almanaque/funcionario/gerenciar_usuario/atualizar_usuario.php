@@ -126,7 +126,7 @@ include('../../include/conexao.php');
 ?>
 
     <section class="containers">
-      <form  method="post" action="php/variaveis_adicionar.php" class="form">
+      <form  method="post" action="php/variaveis_atualizar_usuario_exe.php" class="form">
 
         <div class="input-box">
           <h2 style="color: black; text-align: center;">Digite as Informações Atualizadas</h2>
@@ -219,7 +219,7 @@ include('../../include/conexao.php');
 ?>
 
 <section class="containers">
-      <form  method="post" action="php/variaveis_adicionar.php" class="form">
+      <form  method="post" action="php/variaveis_atualizar_usuario_exe.php" class="form">
 
         <div class="input-box">
           <h2 style="color: black; text-align: center;">Digite as Informações Atualizadas</h2>

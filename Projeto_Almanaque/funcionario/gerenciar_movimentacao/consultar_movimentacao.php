@@ -32,12 +32,15 @@ include('../../include/conexao.php');
     
     <br>
 
-    <p  style="text-align: center;">Digite para Consultar</p>
+<h2 style="text-align: center; margin-bottom: 12px;">Digite para Consultar</h2>
 
-<form action="#" method="post" style="text-align: center;">
-    <input type="text" name="valor" required>
-    <button type="submit" style="background-color: #1f1919; color: white">enviar</button>
+<form action="#" method="post">
+    <div class="search-icon">
+        <input type="text" placeholder="Pesquisar!" name="valor" required>
+        <button type="submit" class="icon"><i class="ri-search-line"></i></button>
+    </div>
 </form>
+
 <br>
 <?php
 @$var = $_POST['valor'];
@@ -118,7 +121,7 @@ else{
     }
     elseif($consultar == "nome_usuario"){
 
-        $sql = "SELECT * FROM usuario nome_usuario WHERE nome_usuario = '$var'";
+        $sql = "SELECT * FROM usuario nome_usuario WHERE nome_usuario = '%$var%'";
         $result = $mysqli->query($sql);
     
         while ($row = mysqli_fetch_array($result))
