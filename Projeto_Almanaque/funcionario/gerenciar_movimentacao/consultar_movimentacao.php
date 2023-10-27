@@ -13,6 +13,7 @@ include('../../include/conexao.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/table.css">
     <link rel="stylesheet" href="../../css/menu_gerenciar.css">
     <link rel="stylesheet" href="../../css/livro-aberto.css">
     <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
@@ -48,121 +49,138 @@ if ($var == ""){
 }
 else{
 ?>
-    <table border="1" style="width:80%; margin: auto;">
-    <tr>
-        <th>ID</th>
-        <th>Nome do Usuário</th>
-        <th>Nome do Livro</th>
-        <th>Data da Saída</th>
-        <th>Data Limite</th>
-        <th>Data do Retorno</th>
-        <th>Status</th>
-    </tr>
+    <table>
+        <tr>
+            <th class="atributo_th">Nome do Usuário e ID</th>
+            <th class="atributo_th">Nome do Livro</th>
+            <th class="atributo_th">Data</th>
+            <th class="atributo_th">Status e ID Movimentação</th>
+        </tr>
+    
     
 <?php
     if($consultar == "id_usuario"){
 
-        $sql = "SELECT * FROM usuario id_usuario WHERE id_usuario = '$var'";
-        $result = $mysqli->query($sql);
-    
-        while ($row = mysqli_fetch_array($result))
-        { 
-            $id_usuario = $row['id_usuario'];
-            $nome_usuario = $row['nome_usuario'];
-
-            $sql2 = "SELECT * FROM movimentacao id_usuario WHERE id_usuario = '$id_usuario'";
-            $result2 = $mysqli->query($sql2);
+        $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$var'");
+        while ($result = mysqli_fetch_array($sql))
         
-            while ($row2 = mysqli_fetch_array($result2))
-            { 
-                $id_movimentacao = $row2['id_movimentacao'];
+        { 
+                    $id_movimentacao = $result['id_movimentacao'];
+                    $id_usuario = $result['id_usuario'];
+                    $id_livro = $result['id_livro'];
+                    $id_status_movimentacao = $result['id_status_movimentacao'];
+                    $data_saida_movimentacao = $result['data_saida_movimentacao'];
+                    $data_limite_movimentacao = $result['data_limite_movimentacao'];
+                    $data_volta_movimentacao = $result['data_volta_movimentacao'];
 
-                echo "<tr>";
-                echo "<td><form method='post' action='movimentacao_aberto.php'>
-                <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
-                    <button type='submit' name='Submit' style='border: none; background-color:  ;'>
-                        ".$id_movimentacao."
-                    </button>
-                </form></td>";
-
-                echo "<td><form method='post' action='movimentacao_aberto.php'>
-                <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
-                    <button type='submit' name='Submit' style='border: none; background-color:  ;'>
-                        ".$nome_usuario."
-                    </button>
-                </form></td>";
-
-                $id_livro = $row2['id_livro'];
-
-                $sql3 = "SELECT * FROM livro id_livro WHERE id_livro = '$id_livro'";
-                $result3 = $mysqli->query($sql3);
-    
-                    while ($row3 = mysqli_fetch_array($result3))
-                    {
-                        echo "<td>".$row3['nome_livro']."</td>";
+                    $icon = "";
+                    if($data_saida_movimentacao == ""){
+                        $icon = " - ";
+                    }else{
+                        $icon = " Até ";
+                    }
+                    $icon2 = "";
+                    if($data_volta_movimentacao != ""){
+                        $icon2 = "<br> entregue: ";
                     }
 
-                echo "<td>".$row2['data_saida_movimentacao']."</td>";
-                echo "<td>".$row2['data_limite_movimentacao']."</td>";
-                echo "<td>".$row2['data_volta_movimentacao']."</td>";
+                        $sql2 = "SELECT * FROM usuario id_usuario WHERE id_usuario = '$id_usuario'";
+                        $resultad2 = $mysqli->query($sql2);
+                    
+                        while ($row = mysqli_fetch_array($resultad2))
+                        { 
+                            echo "<tr><td class='atributo_td'><form method='post' action='movimentacao_aberto.php'>
+                            <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
+                                <button type='submit' name='Submit' style='border: none; background-color: transparent; color: #fff; cursor: pointer; '>
+                                    ".$row['nome_usuario']." (".$id_usuario.")
+                                </button>
+                            </form></td>";
+                        }
+                        
+                        $sql3 = "SELECT * FROM livro id_livro WHERE id_livro = '$id_livro'";
+                        $resultad3 = $mysqli->query($sql3);
+                    
+                        while ($row3 = mysqli_fetch_array($resultad3))
+                        { 
+                            echo "<td class='atributo_td'>".$row3['nome_livro']."</td>";
+                        }
 
-                $id_status_movimentacao = $row2['id_status_movimentacao'];
+                        echo "<td class='atributo_th'>".$data_saida_movimentacao, $icon, $data_limite_movimentacao, $icon2, $data_volta_movimentacao."</td>";
 
-                $sql4 = "SELECT * FROM status_movimentacao id_status_movimentacao WHERE id_status_movimentacao = '$id_status_movimentacao'";
-                $result4 = $mysqli->query($sql4);
-    
-                    while ($row4 = mysqli_fetch_array($result4))
-                    {
-                        echo "<td>".$row4['nome_status_movimentacao']."</td>";
-                        echo "</tr>";
-                    }
-            }
+                        $sql4 = "SELECT * FROM status_movimentacao id_status_movimentacao WHERE id_status_movimentacao = '$id_status_movimentacao'";
+                        $resultad4 = $mysqli->query($sql4);
+                    
+                        while ($row4 = mysqli_fetch_array($resultad4))
+                        { 
+                        
+                            echo "<td class='atributo_td'>".$row4['nome_status_movimentacao']." (".$id_movimentacao.")</td></tr>";
+                        }
         }
     }
     elseif($consultar == "nome_usuario"){
 
-        $sql = "SELECT * FROM usuario nome_usuario WHERE nome_usuario = '%$var%'";
-        $result = $mysqli->query($sql);
-    
-        while ($row = mysqli_fetch_array($result))
+        $sql = "SELECT * FROM usuario nome_usuario WHERE nome_usuario LIKE '%$var%'";
+        $result2 = $mysqli->query($sql);
+        
+        while ($row = mysqli_fetch_array($result2))
         { 
             $id_usuario = $row['id_usuario'];
-            $nome_usuario = $row['nome_usuario'];
 
-            $sql2 = "SELECT * FROM movimentacao id_usuario WHERE id_usuario = '$id_usuario'";
-            $result2 = $mysqli->query($sql2);
-        
-            while ($row2 = mysqli_fetch_array($result2))
+            $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$id_usuario'");
+            while ($result = mysqli_fetch_array($sql))
+            
             { 
-                echo "<tr>";
-                echo "<td>".$row2['id_movimentacao']."</td>";
-                echo "<td>".$nome_usuario."</td>";
-
-                $id_livro = $row2['id_livro'];
-
-                $sql3 = "SELECT * FROM livro id_livro WHERE id_livro = '$id_livro'";
-                $result3 = $mysqli->query($sql3);
+                        $id_movimentacao = $result['id_movimentacao'];
+                        $id_usuario = $result['id_usuario'];
+                        $id_livro = $result['id_livro'];
+                        $id_status_movimentacao = $result['id_status_movimentacao'];
+                        $data_saida_movimentacao = $result['data_saida_movimentacao'];
+                        $data_limite_movimentacao = $result['data_limite_movimentacao'];
+                        $data_volta_movimentacao = $result['data_volta_movimentacao'];
     
-                    while ($row3 = mysqli_fetch_array($result3))
-                    {
-                        echo "<td>".$row3['nome_livro']."</td>";
-                    }
-
-                echo "<td>".$row2['data_saida_movimentacao']."</td>";
-                echo "<td>".$row2['data_limite_movimentacao']."</td>";
-                echo "<td>".$row2['data_volta_movimentacao']."</td>";
-
-                $id_status_movimentacao = $row2['id_status_movimentacao'];
-
-                $sql4 = "SELECT * FROM status_movimentacao id_status_movimentacao WHERE id_status_movimentacao = '$id_status_movimentacao'";
-                $result4 = $mysqli->query($sql4);
+                        $icon = "";
+                        if($data_saida_movimentacao == ""){
+                            $icon = " - ";
+                        }else{
+                            $icon = " Até ";
+                        }
+                        $icon2 = "";
+                        if($data_volta_movimentacao != ""){
+                            $icon2 = "<br> entregue: ";
+                        }
     
-                    while ($row4 = mysqli_fetch_array($result4))
-                    {
-                        echo "<td>".$row4['nome_status_movimentacao']."</td>";
-                        echo "</tr>";
-                    }
-                }
+                            $sql2 = "SELECT * FROM usuario id_usuario WHERE id_usuario = '$id_usuario'";
+                            $resultad2 = $mysqli->query($sql2);
+                        
+                            while ($row = mysqli_fetch_array($resultad2))
+                            { 
+                                echo "<tr><td class='atributo_td'><form method='post' action='movimentacao_aberto.php'>
+                                <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
+                                    <button type='submit' name='Submit' style='border: none; background-color: transparent; color: #fff; cursor: pointer; '>
+                                        ".$row['nome_usuario']." (".$id_usuario.")
+                                    </button>
+                                </form></td>";
+                            }
+                            
+                            $sql3 = "SELECT * FROM livro id_livro WHERE id_livro = '$id_livro'";
+                            $resultad3 = $mysqli->query($sql3);
+                        
+                            while ($row3 = mysqli_fetch_array($resultad3))
+                            { 
+                                echo "<td class='atributo_td'>".$row3['nome_livro']."</td>";
+                            }
+    
+                            echo "<td class='atributo_th'>".$data_saida_movimentacao, $icon, $data_limite_movimentacao, $icon2, $data_volta_movimentacao."</td>";
+    
+                            $sql4 = "SELECT * FROM status_movimentacao id_status_movimentacao WHERE id_status_movimentacao = '$id_status_movimentacao'";
+                            $resultad4 = $mysqli->query($sql4);
+                        
+                            while ($row4 = mysqli_fetch_array($resultad4))
+                            { 
+                            
+                                echo "<td class='atributo_td'>".$row4['nome_status_movimentacao']." (".$id_movimentacao.")</td></tr>";
+                            }
+            }
         }
     }
 }
