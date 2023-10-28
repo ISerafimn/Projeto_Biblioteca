@@ -4,8 +4,14 @@ include('../../php/protect.php');
     
 if($_SESSION['id_sessao'] == 2) {
     $caminho = $_SESSION['caminho'];
-    $atualizar_por = $_SESSION['atualizar_por'];
-    $consultar = $_SESSION['consultar'];
+
+    if(isset($_SESSION['atualizar_por'])){
+        $atualizar_por = $_SESSION['atualizar_por'];
+    }
+    if(isset($_SESSION['consultar'])){
+        $consultar = $_SESSION['consultar'];
+    }
+
 include('../../include/conexao.php');
 ?>
 
@@ -18,6 +24,7 @@ include('../../include/conexao.php');
     <link rel="stylesheet" href="../../css/menu_gerenciar.css">
     <link rel="stylesheet" href="../../css/livro-aberto.css">
     <link rel="stylesheet" href="../../css/table.css">
+    <link rel="stylesheet" href="../../css/form.css">
     <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -63,15 +70,21 @@ else{
     
 <?php
     if($atualizar_por == "id_usuario"){
+        if($caminho == 'saida'){
+            $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$var' AND id_status_movimentacao = '4'");
+        }
+        else{
+            $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$var' AND id_status_movimentacao != '3' AND id_status_movimentacao != '4'");
+        }
 
-        $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$var'");
         while ($result = mysqli_fetch_array($sql))
         
         { 
+                    $id_status_movimentacao = $result['id_status_movimentacao'];
                     $id_movimentacao = $result['id_movimentacao'];
                     $id_usuario = $result['id_usuario'];
                     $id_livro = $result['id_livro'];
-                    $id_status_movimentacao = $result['id_status_movimentacao'];
+                    
                     $data_saida_movimentacao = $result['data_saida_movimentacao'];
                     $data_limite_movimentacao = $result['data_limite_movimentacao'];
                     $data_volta_movimentacao = $result['data_volta_movimentacao'];
@@ -122,82 +135,91 @@ else{
         if($caminho == 'saida')
         {
 ?>
-        <table>
-            <h1>Saída de Livros</h1>
-            <form action="php/variaveis_atualizando_movimentacao.php" method="post">
+    </table><br>
 
-                <tr>
-                    <td>Selecione o livro que está saindo</td>
-                    <td>
-                        <select name="id_movimentacao" style="width: 250px; color: rgb(52, 52, 52)">
-                                <?php
-                                    $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario'";
-                                    $resultad = $mysqli->query($sql);
-                                    while ($row = mysqli_fetch_array($resultad))
-                                    {   
-                                        $id_livro2 = $row['id_livro'];
+    <section class="containers" >
+      <form  method="post" action="php/variaveis_atualizando_movimentacao.php" class="form" style="margin-top: 0px;">
 
-                                        $sql2 = "SELECT * FROM livro where id_livro = '$id_livro2'";
-                                        $resultad2 = $mysqli->query($sql2);
-                                        while ($row2 = mysqli_fetch_array($resultad2)){
+        <div class="input-box">
+          <h1 style="color: black; text-align: center;">Saída de Livros</h1>
+        </div>
+
+        <div class="input-box">
+            <label>Selecione o livro que está saindo</label>
+            <select name="id_movimentacao" class="select-box">
+                <option>Livros:</option>
+                    <?php
+                            $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario' AND id_status_movimentacao = '4'";
+                            $resultad = $mysqli->query($sql);
+                            while ($row = mysqli_fetch_array($resultad))
+                                {   
+                                    $id_livro2 = $row['id_livro'];
+                                    $id_movimentacao = $row['id_movimentacao'];
+
+                                    $sql2 = "SELECT * FROM livro where id_livro = '$id_livro2'";
+                                    $resultad2 = $mysqli->query($sql2);
+                                    while ($row2 = mysqli_fetch_array($resultad2)){
                                             $nome_livro = $row2['nome_livro'];
                                         }
                                         
-                                        echo "<option value='".$row['id_movimentacao']."'>".$nome_livro."</option>";
-                                    }
-                                ?>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Selecione a limite de retorno do livro</td>
-                    <td><input type="date" name="data_limite_movimentacao"></td>
-                </tr>
-                    <input type="number" name="id_status_movimentacao" value="1" style="display: none;">
-                <tr>
-                    <td colspan="2"><button type="submit">Livro Entregue</button></td>
-                </tr>
-            </form>
-        </table>
+                                    echo "<option value='".$row['id_movimentacao']."'>".$nome_livro."(".$id_movimentacao.")</option>";
+                                }
+                    ?>
+            </select>
+        </div>
+        <div class="input-box">
+            <label>Selecione a limite de retorno do livro</label>
+            <input name="data_limite_movimentacao" type="date" placeholder="Selecione a data limite" required>
+        </div>
+        <input type="number" name="id_status_movimentacao" value="1" style="display: none;">
+
+        <button type="submit">Livro Entregue</button>
+      </form>
+    </section>
 
 <?php
 
         }
         else{
             ?>
-            <table>
-            <h1>Volta de Livros</h1>
-            <form action="php/variaveis_atualizando_movimentacao.php" method="post">
+        </table><br>
 
-                <tr>
-                    <td>Selecione o livro que está voltando</td>
-                    <td>
-                        <select name="id_movimentacao" style="width: 250px; color: rgb(52, 52, 52)">
-                                <?php
-                                    $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario'";
-                                    $resultad = $mysqli->query($sql);
-                                    while ($row = mysqli_fetch_array($resultad))
-                                    {   
-                                        $id_livro2 = $row['id_livro'];
+        <section class="containers" >
+        <form  method="post" action="php/variaveis_atualizando_movimentacao.php" class="form" style="margin-top: 0px;">
 
-                                        $sql2 = "SELECT * FROM livro where id_livro = '$id_livro2'";
-                                        $resultad2 = $mysqli->query($sql2);
+            <div class="input-box">
+            <h1 style="color: black; text-align: center;">Volta dos Livros</h1>
+            </div>
+
+            <div class="input-box">
+                <label>Selecione o livro que está voltando</label>
+                <select name="id_movimentacao" class="select-box">
+                    <option>Livros:</option>
+                    <?php
+                        $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario' AND id_status_movimentacao != '3' AND id_status_movimentacao != '4'";
+                        $resultad = $mysqli->query($sql);
+                            while ($row = mysqli_fetch_array($resultad))
+                                {   
+                                    $id_movimentacao = $row['id_movimentacao'];
+                                    $id_livro2 = $row['id_livro'];
+
+                                    $sql2 = "SELECT * FROM livro where id_livro = '$id_livro2'";
+                                    $resultad2 = $mysqli->query($sql2);
                                         while ($row2 = mysqli_fetch_array($resultad2)){
                                             $nome_livro = $row2['nome_livro'];
                                         }
                                         
-                                        echo "<option value='".$row['id_movimentacao']."'>".$nome_livro."</option>";
-                                    }
-                                ?>
-                        </select>
-                    </td>
-                </tr>
-                    <input type="number" name="id_status_movimentacao" value="3" style="display: none;">
-                <tr>
-                    <td colspan="2"><button type="submit">Livro Retornado</button></td>
-                </tr>
-            </form>
-        </table>
+                                    echo "<option value='".$row['id_movimentacao']."'>".$nome_livro."(".$id_movimentacao.")</option>";
+                                }
+                        ?>
+                </select>
+            </div>
+
+            <input type="number" name="id_status_movimentacao" value="3" style="display: none;">
+
+            <button type="submit">Livro Retornado</button>
+        </form>
+        </section>
 
         <?php
         }
@@ -211,7 +233,13 @@ else{
         { 
             $id_usuario = $row['id_usuario'];
 
-            $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$id_usuario'");
+            if($caminho == 'saida'){
+                $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$id_usuario' AND id_status_movimentacao = '4'");
+            }
+            else{
+                $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$id_usuario' AND id_status_movimentacao != '3' AND id_status_movimentacao != '4'");
+            }
+
             while ($result = mysqli_fetch_array($sql))
             
             { 
@@ -233,7 +261,9 @@ else{
                         if($data_volta_movimentacao != ""){
                             $icon2 = "<br> entregue: ";
                         }
-    
+                        
+                        $id_usuario2 = $id_usuario;
+
                             $sql2 = "SELECT * FROM usuario id_usuario WHERE id_usuario = '$id_usuario'";
                             $resultad2 = $mysqli->query($sql2);
                         
@@ -270,81 +300,91 @@ else{
         if($caminho == 'saida')
         {
         ?>
-        <table>
-            <h1>Saída de Livros</h1>
-            <form action="php/variaveis_atualizando_movimentacao.php" method="post">
 
-                <tr>
-                    <td>Selecione o livro que está saindo</td>
-                    <td>
-                        <select name="id_movimentacao" style="width: 250px; color: rgb(52, 52, 52)">
-                                <?php
-                                    $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario'";
-                                    $resultad = $mysqli->query($sql);
-                                    while ($row = mysqli_fetch_array($resultad))
+        </table><br>
+
+        <section class="containers" >
+        <form  method="post" action="php/variaveis_atualizando_movimentacao.php" class="form" style="margin-top: 0px;">
+
+            <div class="input-box">
+            <h1 style="color: black; text-align: center;">Saída de Livros</h1>
+            </div>
+
+            <div class="input-box">
+                <label>Selecione o livro que está saindo</label>
+                <select name="id_movimentacao" class="select-box">
+                    <option>Livros:</option>
+                        <?php
+                                $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario2' AND id_status_movimentacao = '4'";
+                                $resultad = $mysqli->query($sql);
+                                while ($row = mysqli_fetch_array($resultad))
                                     {   
                                         $id_livro2 = $row['id_livro'];
+                                        $id_movimentacao = $row['id_movimentacao'];
 
                                         $sql2 = "SELECT * FROM livro where id_livro = '$id_livro2'";
                                         $resultad2 = $mysqli->query($sql2);
                                         while ($row2 = mysqli_fetch_array($resultad2)){
-                                            $nome_livro = $row2['nome_livro'];
-                                        }
-                                        
-                                        echo "<option value='".$row['id_movimentacao']."'>".$nome_livro."</option>";
+                                                $nome_livro = $row2['nome_livro'];
+                                            }
+                                            
+                                        echo "<option value='".$row['id_movimentacao']."'>".$nome_livro."(".$id_movimentacao.")</option>";
                                     }
-                                ?>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Selecione a limite de retorno do livro</td>
-                    <td><input type="date" name="data_limite_movimentacao"></td>
-                </tr>
-                    <input type="number" name="id_status_movimentacao" value="1" style="display: none;">
-                <tr>
-                    <td colspan="2"><button type="submit">Livro Entregue</button></td>
-                </tr>
-            </form>
-        </table>
+                        ?>
+                </select>
+            </div>
+            <div class="input-box">
+                <label>Selecione a limite de retorno do livro</label>
+                <input name="data_limite_movimentacao" type="date" placeholder="Selecione a data limite" required>
+            </div>
+            <input type="number" name="id_status_movimentacao" value="1" style="display: none;">
+
+            <button type="submit">Livro Entregue</button>
+        </form>
+        </section>
 
 <?php
         }
         else{
             ?>
-            <table>
-            <h1>Volta de Livros</h1>
-            <form action="php/variaveis_atualizando_movimentacao.php" method="post">
+                    </table><br>
 
-                <tr>
-                    <td>Selecione o livro que está voltando</td>
-                    <td>
-                        <select name="id_movimentacao" style="width: 250px; color: rgb(52, 52, 52)">
-                                <?php
-                                    $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario'";
-                                    $resultad = $mysqli->query($sql);
-                                    while ($row = mysqli_fetch_array($resultad))
-                                    {   
-                                        $id_livro2 = $row['id_livro'];
+<section class="containers" >
+<form  method="post" action="php/variaveis_atualizando_movimentacao.php" class="form" style="margin-top: 0px;">
 
-                                        $sql2 = "SELECT * FROM livro where id_livro = '$id_livro2'";
-                                        $resultad2 = $mysqli->query($sql2);
-                                        while ($row2 = mysqli_fetch_array($resultad2)){
-                                            $nome_livro = $row2['nome_livro'];
-                                        }
-                                        
-                                        echo "<option value='".$row['id_movimentacao']."'>".$nome_livro."</option>";
-                                    }
-                                ?>
-                        </select>
-                    </td>
-                </tr>
-                    <input type="number" name="id_status_movimentacao" value="3" style="display: none;">
-                <tr>
-                    <td colspan="2"><button type="submit">Livro Retornado</button></td>
-                </tr>
-            </form>
-        </table>
+    <div class="input-box">
+    <h1 style="color: black; text-align: center;">Volta dos Livros</h1>
+    </div>
+
+    <div class="input-box">
+        <label>Selecione o livro que está voltando</label>
+        <select name="id_movimentacao" class="select-box">
+            <option>Livros:</option>
+            <?php
+                $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario2' AND id_status_movimentacao != '3' AND id_status_movimentacao != '4'";
+                $resultad = $mysqli->query($sql);
+                    while ($row = mysqli_fetch_array($resultad))
+                        {   
+                            $id_movimentacao = $row['id_movimentacao'];
+                            $id_livro2 = $row['id_livro'];
+
+                            $sql2 = "SELECT * FROM livro where id_livro = '$id_livro2'";
+                            $resultad2 = $mysqli->query($sql2);
+                                while ($row2 = mysqli_fetch_array($resultad2)){
+                                    $nome_livro = $row2['nome_livro'];
+                                }
+                                
+                            echo "<option value='".$row['id_movimentacao']."'>".$nome_livro."(".$id_movimentacao.")</option>";
+                        }
+                ?>
+        </select>
+    </div>
+
+    <input type="number" name="id_status_movimentacao" value="3" style="display: none;">
+
+    <button type="submit">Livro Retornado</button>
+</form>
+</section>
 
         <?php
         }
