@@ -113,6 +113,8 @@ if(isset($_SESSION['id_sessao'])){
                         if($_SESSION['id_sessao'] == 1){
                             include('include/conexao.php');
 
+                            if($estoque_livro > 0){
+
                             $sql_code = "SELECT * FROM movimentacao WHERE id_usuario = '$id_usuario' AND id_status_movimentacao != 3 AND 5 ";
 
                             $sql_query = $mysqli->query($sql_code);
@@ -155,6 +157,10 @@ if(isset($_SESSION['id_sessao'])){
                                 }
                             }
                         }
+                        else{
+                            echo "<br><p style='text-align: center; color: #276daf;'>Livro Indisponivel, Fora de Estoque! </p>";
+                        }
+                    }
                     }
                 }
                 echo        "</div>

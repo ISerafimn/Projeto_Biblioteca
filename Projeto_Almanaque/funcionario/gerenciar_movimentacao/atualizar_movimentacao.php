@@ -71,10 +71,10 @@ else{
 <?php
     if($atualizar_por == "id_usuario"){
         if($caminho == 'saida'){
-            $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$var' AND id_status_movimentacao = '4'");
+            $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$var' AND id_status_movimentacao = '4' AND id_status_movimentacao != '5'");
         }
         else{
-            $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$var' AND id_status_movimentacao != '3' AND id_status_movimentacao != '4'");
+            $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$var' AND id_status_movimentacao != '3' AND id_status_movimentacao != '4' AND id_status_movimentacao != '5'");
         }
 
         while ($result = mysqli_fetch_array($sql))
@@ -149,7 +149,7 @@ else{
             <select name="id_movimentacao" class="select-box">
                 <option>Livros:</option>
                     <?php
-                            $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario' AND id_status_movimentacao = '4'";
+                            $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario' AND id_status_movimentacao = '4' AND id_status_movimentacao != '5'";
                             $resultad = $mysqli->query($sql);
                             while ($row = mysqli_fetch_array($resultad))
                                 {   
@@ -172,6 +172,7 @@ else{
             <input name="data_limite_movimentacao" type="date" placeholder="Selecione a data limite" required>
         </div>
         <input type="number" name="id_status_movimentacao" value="1" style="display: none;">
+        <input type="number" name="estoque_livro" value="1" style="display: none;">
 
         <button type="submit">Livro Entregue</button>
       </form>
@@ -196,7 +197,7 @@ else{
                 <select name="id_movimentacao" class="select-box">
                     <option>Livros:</option>
                     <?php
-                        $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario' AND id_status_movimentacao != '3' AND id_status_movimentacao != '4'";
+                        $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario' AND id_status_movimentacao != '3' AND id_status_movimentacao != '4' AND id_status_movimentacao != '5'";
                         $resultad = $mysqli->query($sql);
                             while ($row = mysqli_fetch_array($resultad))
                                 {   
@@ -216,6 +217,7 @@ else{
             </div>
 
             <input type="number" name="id_status_movimentacao" value="3" style="display: none;">
+            <input type="number" name="estoque_livro" value="1" style="display: none;">
 
             <button type="submit">Livro Retornado</button>
         </form>
@@ -234,10 +236,10 @@ else{
             $id_usuario = $row['id_usuario'];
 
             if($caminho == 'saida'){
-                $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$id_usuario' AND id_status_movimentacao = '4'");
+                $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$id_usuario' AND id_status_movimentacao = '4'  AND id_status_movimentacao != '5'");
             }
             else{
-                $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$id_usuario' AND id_status_movimentacao != '3' AND id_status_movimentacao != '4'");
+                $sql = mysqli_query($mysqli, "SELECT  *   FROM  Movimentacao id_usuario WHERE id_usuario = '$id_usuario' AND id_status_movimentacao != '3' AND id_status_movimentacao != '4' AND id_status_movimentacao != '5'");
             }
 
             while ($result = mysqli_fetch_array($sql))
@@ -315,7 +317,7 @@ else{
                 <select name="id_movimentacao" class="select-box">
                     <option>Livros:</option>
                         <?php
-                                $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario2' AND id_status_movimentacao = '4'";
+                                $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario2' AND id_status_movimentacao = '4' AND id_status_movimentacao != '5'";
                                 $resultad = $mysqli->query($sql);
                                 while ($row = mysqli_fetch_array($resultad))
                                     {   
@@ -338,6 +340,7 @@ else{
                 <input name="data_limite_movimentacao" type="date" placeholder="Selecione a data limite" required>
             </div>
             <input type="number" name="id_status_movimentacao" value="1" style="display: none;">
+            <input type="number" name="estoque_livro" value="1" style="display: none;">
 
             <button type="submit">Livro Entregue</button>
         </form>
@@ -361,7 +364,7 @@ else{
         <select name="id_movimentacao" class="select-box">
             <option>Livros:</option>
             <?php
-                $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario2' AND id_status_movimentacao != '3' AND id_status_movimentacao != '4'";
+                $sql = "SELECT * FROM movimentacao where id_usuario = '$id_usuario2' AND id_status_movimentacao != '3' AND id_status_movimentacao != '4'  AND id_status_movimentacao != '5'";
                 $resultad = $mysqli->query($sql);
                     while ($row = mysqli_fetch_array($resultad))
                         {   
@@ -381,6 +384,7 @@ else{
     </div>
 
     <input type="number" name="id_status_movimentacao" value="3" style="display: none;">
+    <input type="number" name="estoque_livro" value="1" style="display: none;">
 
     <button type="submit">Livro Retornado</button>
 </form>
