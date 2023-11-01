@@ -65,12 +65,16 @@
 .button-favorito{
     border: none;
 }
-.ri-heart-fill{
+.ri-heart-fill, .ri-heart-add-fill{
+    background-color: transparent;
     font-size: 1.6rem;
     transition: all 0.3s ease;
 }
-.ri-heart-fill:hover{
+.ri-heart-add-fill:hover{
     color: #265DF2;
+}
+.ri-heart-fill:hover{
+    color: black;
 }
 .button-space{
     align-items: center;

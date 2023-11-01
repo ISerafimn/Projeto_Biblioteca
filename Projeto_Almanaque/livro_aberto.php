@@ -13,14 +13,19 @@ if(isset($_SESSION['id_sessao'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/livro-aberto.css">
+    <link rel="stylesheet" href="livro-aberto.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <title>Livro Aberto</title>
     <style>
-
+    .ri-heart-fill{
+        color: #265DF2;;
+    }
+    .ri-heart-fill:hover{
+        color: black;
+    }
     </style>
 </head>
 <body>
@@ -100,7 +105,7 @@ if(isset($_SESSION['id_sessao'])){
                                                         <button class='button-retirar' type='submit'>RETIRAR</button>
                                                     </td>
                                                 </form>
-                                                <form action='#'>
+                                                <form action='usuario_login.php'>
                                                     <td>
                                                         <button class='button-favorito'><i class='ri-heart-fill'></i></button>
                                                     </td>
@@ -120,7 +125,6 @@ if(isset($_SESSION['id_sessao'])){
                             $sql_query = $mysqli->query($sql_code);
                             $quantidade = $sql_query->num_rows;
 
-
                             $sql0 = mysqli_query($mysqli, "SELECT * FROM movimentacao WHERE id_usuario = '$id_usuario' AND id_status_movimentacao != 3 ");
                             while ($result = mysqli_fetch_array($sql0)){
                                 $id_status_movimentacao = $result['id_status_movimentacao'];
@@ -129,8 +133,6 @@ if(isset($_SESSION['id_sessao'])){
                                     $quantidade = $quantidade - 1;
                             }
                             }
-                           
-                            
                         
                             if($quantidade > 1){
                                 echo "<p style='text-align: center; color: #276daf;'>Você já tem 2 livros selecionados.</p>";
@@ -144,11 +146,57 @@ if(isset($_SESSION['id_sessao'])){
                                 if($id_livro_sql != $id_livro){
                                     ?>
                                     <div class='button-space'>
-                                        <form action="php/retirando_livro.php" method="post" style="text-align: left;">
-                                            <input type="text" name="id_livro" value="<?php echo "$id_livro"?>" style="display: none;">
-                                            <button class='button-retirar' type='submit'>RETIRAR</button>
-                                            <button class='button-favorito'><i class='ri-heart-fill'></i></button>
-                                        </form>
+                                    <table>
+                                        <tr>
+                                            <form action="php/retirando_livro.php" method="post" style="text-align: left;">
+                                                <input type="text" name="id_livro" value="<?php echo "$id_livro"?>" style="display: none;">
+                                                <td><button class='button-retirar' type='submit'>RETIRAR</button></td>
+                                            </form>
+                                            <?php
+
+                                            $sql_code = "SELECT * FROM favorito WHERE id_usuario = '$id_usuario' AND id_livro = '$id_livro'";
+
+                                            $sql_query = $mysqli->query($sql_code);
+                                            $num_favorito = $sql_query->num_rows;
+
+                                            if($num_favorito == 1){
+
+                                                $sql = mysqli_query($mysqli, "SELECT * FROM favorito WHERE id_usuario = '$id_usuario' AND id_livro = '$id_livro'");
+                                                while ($result = mysqli_fetch_array($sql)){
+                                                    $id_favorito = $result['id_favorito'];
+                                                }
+                                            ?>
+                                                <form action="php/favoritar.php" method="post">
+                                                    <input type="text" name="sessao" value="ativa" style="display: none;">
+                                                    <input type="text" name="caminho" value="remover" style="display: none;">
+                                                    <input type="text" name="id_favorito" value="<?php echo "$id_favorito"?>" style="display: none;">
+                                                    <input type="text" name="id_usuario" value="<?php echo "$id_usuario"?>" style="display: none;">
+                                                    <input type="text" name="id_livro" value="<?php echo "$id_livro"?>" style="display: none;">
+                                                    <td>
+                                                        <button class='button-favorito'><i class='ri-heart-fill'></i></button>
+                                                    </td>
+                                                </form>
+                                            <?php
+                                            }
+                                            else{
+                                            ?>
+                                                <form action="php/favoritar.php" method="post">
+                                                    <input type="text" name="caminho" value="adicionar" style="display: none;">
+                                                    <input type="text" name="sessao" value="ativa" style="display: none;">
+                                                    <input type="text" name="id_favorito" value='NULL' style="display: none;">
+                                                    <input type="text" name="id_usuario" value="<?php echo "$id_usuario"?>" style="display: none;">
+                                                    <input type="text" name="id_livro" value="<?php echo "$id_livro"?>" style="display: none;">
+                                                    <td>
+                                                        <button class='button-favorito'><i class="ri-heart-add-fill"></i></i></button>
+                                                    </td>
+                                                </form> 
+
+                                            <?php
+                                            }
+                                            ?>
+
+                                        </tr>
+                                    </table>
                                     </div>
                                     <?php
                                 }

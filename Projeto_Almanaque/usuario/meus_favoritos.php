@@ -33,18 +33,10 @@ include('../include/conexao.php');
     <?php include('../include/import_usuario.php'); ?>
 
 <?php
+    $sql0 = mysqli_query($mysqli, "SELECT * FROM favorito WHERE id_usuario = '$id_usuario'");
+    while ($result = mysqli_fetch_array($sql0)){
+        $id_livro = $result['id_livro'];
 
-
-$sql0 = mysqli_query($mysqli, "SELECT * FROM movimentacao WHERE id_usuario = '$id_usuario' AND id_status_movimentacao != 3");
-while ($result = mysqli_fetch_array($sql0))
-
-    {
-            $id_livro = $result['id_livro'];
-            $id_movimentacao = $result['id_movimentacao'];
-            $id_status_movimentacao = $result['id_status_movimentacao'];
-
-        if($id_status_movimentacao != 5){
-        
         $sql = mysqli_query($mysqli, "SELECT  *   FROM  livro WHERE id_livro = '$id_livro'");
         while ($result = mysqli_fetch_array($sql))
             {
@@ -75,44 +67,42 @@ while ($result = mysqli_fetch_array($sql0))
                     
                         $nome_genero = $row['nome_genero'];
                     }
-                    $sql4 = mysqli_query($mysqli, "SELECT * FROM status_movimentacao WHERE id_status_movimentacao = '$id_status_movimentacao'");
-                    while ($result4 = mysqli_fetch_array($sql4))
-                    {
 
-                        $nome_status_movimentacao = $result4['nome_status_movimentacao'];
-
-                    }
-            }
-                echo    "<div class='book-info-container'>
-                            <img class='book-cover' src='../imagens/livro_capa/".$url_imagem_livro."' alt='Capa do Livro'>
+                    echo    "<div class='book-info-container'>
+                            <form method='post' action='../livro_aberto.php'>
+                                <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                                <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                                    <img class='book-cover' src='../imagens/livro_capa/".$url_imagem_livro."' alt='Capa do Livro'>
+                                </button>
+                            </form>
                             <div class='book-info'>
-                                <h1>".$nome_livro."</h1>
+
+                            <form method='post' action='../livro_aberto.php'>
+                            <input name='id_livro' value='".$id_livro."' style='display: none;'>
+                                <button type='submit' name='Submit' style='border: none; background-color: white;'>
+                                    <h1>".$nome_livro."</h1>
+                                </button>
+                            </form>
+
+                                
                                 <div class='info-aberto'>
-                                    <span class='info-conteudo'><span class='info-destaque'>Autor:</span>".$nome_autor."</span>
-                                    <span class='info-conteudo'><span class='info-destaque'>Idioma:</span>Português(BR)</span>
-                                    <span class='info-conteudo'><span class='info-destaque'>Editora:</span>".$editora_livro."</span>
-                                    <span class='info-conteudo'><span class='info-destaque'>Nº da Edição:</span>".$num_edicao_livro."</span>
-                                    <span class='info-conteudo'><span class='info-destaque'>Gênero:</span>".$nome_genero."</span>
-                                    <span class='info-conteudo'><span class='info-destaque'>Status:</span>".$nome_status_movimentacao."</span>
+                                    <span class='info-conteudo'><span class='info-destaque'>Autor: </span>".$nome_autor."</span>
+                                    <span class='info-conteudo'><span class='info-destaque'>Idioma: </span>Português(BR)</span>
+                                    <span class='info-conteudo'><span class='info-destaque'>Editora: </span>".$editora_livro."</span>
+                                    <span class='info-conteudo'><span class='info-destaque'>Nº da Edição: </span>".$num_edicao_livro."</span>
+                                    <span class='info-conteudo'><span class='info-destaque'>Gênero: </span>".$nome_genero."</span>
                                 </div>
                                 <div class='text-sinopse'>
                                     <p>".$sinopse_livro."</p>
                                 </div>
-                                <div class='button-space'>";
-
-                                if($id_status_movimentacao == 4){
-                                echo    "<br><form action='../php/cancelar_retirada.php' method='post'>
-                                            <input type='text' name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
-                                            <input type='text' name='id_status_movimentacao' value='5' style='display: none;'>
-                                            <button class='button-retirar'>Cancelar Retirada</button>
-                                        </form>";
-                                }
-
-                echo             "</div>
                             </div>
                         </div>";
             }
-        }
+
+    }
+        
+       
+            
     ?>
 
 <br>
