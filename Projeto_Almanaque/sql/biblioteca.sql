@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 20/08/2023 às 16:45
+-- Tempo de geração: 02-Nov-2023 às 23:25
 -- Versão do servidor: 8.0.30
--- Versão do PHP: 8.1.10
+-- versão do PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,19 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `autor`
+-- Estrutura da tabela `autor`
 --
 
 CREATE TABLE `autor` (
   `id_autor` int NOT NULL,
-  `nome_autor` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
-  `pais_autor` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `nome_autor` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `pais_autor` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `nascimento_autor` int NOT NULL,
   `falecimento_autor` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `autor`
+-- Extraindo dados da tabela `autor`
 --
 
 INSERT INTO `autor` (`id_autor`, `nome_autor`, `pais_autor`, `nascimento_autor`, `falecimento_autor`) VALUES
@@ -55,54 +55,75 @@ INSERT INTO `autor` (`id_autor`, `nome_autor`, `pais_autor`, `nascimento_autor`,
 (15, 'Friedrich Nietzsche', 'Alemanha', 1844, 1900),
 (16, 'Niccolo Machiavelli', 'Itália', 1496, 1527),
 (22, 'Patrick Rothfuss', 'Americano', 1973, 0),
-(23, 'Igor', 'brasileiro', 2004, 2104);
+(23, 'Igor Serafim', 'brasileiro', 2004, 2104);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `funcionario`
+-- Estrutura da tabela `favorito`
+--
+
+CREATE TABLE `favorito` (
+  `id_favorito` int NOT NULL,
+  `id_usuario` int NOT NULL,
+  `id_livro` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `favorito`
+--
+
+INSERT INTO `favorito` (`id_favorito`, `id_usuario`, `id_livro`) VALUES
+(41, 11, 4),
+(43, 11, 7),
+(45, 11, 23),
+(47, 11, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `funcionario`
 --
 
 CREATE TABLE `funcionario` (
   `id_funcionario` int NOT NULL,
-  `nome_funcionario` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
-  `email_funcionario` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `nome_funcionario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email_funcionario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `data_funcionario` date NOT NULL,
-  `cpf_funcionario` int NOT NULL,
-  `senha_funcionario` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `cpf_funcionario` varchar(11) COLLATE utf8mb4_general_ci NOT NULL,
+  `senha_funcionario` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `id_sessao` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `funcionario`
+-- Extraindo dados da tabela `funcionario`
 --
 
 INSERT INTO `funcionario` (`id_funcionario`, `nome_funcionario`, `email_funcionario`, `data_funcionario`, `cpf_funcionario`, `senha_funcionario`, `id_sessao`) VALUES
-(1, 'Igor S', 'igorserafimn@gmail.com', '2023-07-21', 145481321, '123', 2),
-(2, 'Felipe Dorosz', 'felipedorosz@gmail.com', '2002-06-14', 987654321, '456', 2),
-(3, 'Gabryel Cambui', 'gabryelcambui@gmail.com', '2004-06-28', 963852741, '789', 2),
-(5, 'serafim', 'igorserafdghjnklmjhbyucimn@gmail.com', '2023-08-03', 44444, '112', 2);
+(1, 'Igor S', 'igorserafimn@gmail.com', '2023-07-21', '145481321', '123', 2),
+(2, 'Felipe Dorosz', 'felipedorosz@gmail.com', '2002-06-14', '987654321', '456', 2),
+(3, 'Gabryel Cambui', 'gabryelcambui@gmail.com', '2004-06-28', '963852741', '789', 2),
+(5, 'serafim', 'igorserafdghjnklmjhbyucimn@gmail.com', '2023-08-03', '44444', '112', 2);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `genero`
+-- Estrutura da tabela `genero`
 --
 
 CREATE TABLE `genero` (
   `id_genero` int NOT NULL,
-  `nome_genero` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nome_genero` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `genero`
+-- Extraindo dados da tabela `genero`
 --
 
 INSERT INTO `genero` (`id_genero`, `nome_genero`) VALUES
 (1, 'Romance'),
 (2, 'Fantasia'),
 (3, 'Poesia'),
-(4, 'Ficção'),
 (5, 'Romance filosófico'),
 (6, 'Terror'),
 (7, 'Literatura cristã'),
@@ -112,30 +133,30 @@ INSERT INTO `genero` (`id_genero`, `nome_genero`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `livro`
+-- Estrutura da tabela `livro`
 --
 
 CREATE TABLE `livro` (
   `id_livro` int NOT NULL,
-  `nome_livro` varchar(150) NOT NULL,
-  `editora_livro` varchar(50) NOT NULL,
+  `nome_livro` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `editora_livro` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `id_genero` int NOT NULL,
   `num_edicao_livro` int NOT NULL,
   `estoque_livro` int NOT NULL,
-  `url_imagem_livro` varchar(5000) DEFAULT NULL,
-  `sinopse_livro` varchar(1000) DEFAULT NULL,
+  `url_imagem_livro` varchar(5000) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `sinopse_livro` varchar(1000) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `id_autor` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `livro`
+-- Extraindo dados da tabela `livro`
 --
 
 INSERT INTO `livro` (`id_livro`, `nome_livro`, `editora_livro`, `id_genero`, `num_edicao_livro`, `estoque_livro`, `url_imagem_livro`, `sinopse_livro`, `id_autor`) VALUES
 (1, 'Dom Casmurro', 'Não Identificada', 1, 1, 4, 'dom-casmurro.webp', 'Machado de Assis (1839-1908), escrevendo Dom Casmurro, produziu um dos maiores livros da literatura universal. Mas criando Capitu, a espantosa menina de \"olhos oblíquos e dissimulados\", de \"olhos de ressaca\", Machado nos legou um incrível mistério, um mistério até hoje indecifrado. Há quase cem anos os estudiosos e especialistas o esmiuçam, o analisam sob todos os aspectos. Em vão. Embora o autor se tenha dado ao trabalho de distribuir pelo caminho todas as pistas para quem quisesse decifrar o enigma, ninguém ainda o desvendou. A alma de Capitu é, na verdade, um labirinto sem saída, um labirinto que Machado também já explorara em personagens como Virgília (Memórias Póstumas de Brás Cubas) e Sofia (Quincas Borba), personagens construídas a partir da ambigüidade psicológica, como Jorge Luis Borges gostaria de ter inventado. ', 1),
 (2, 'Memórias póstumas de Brás Cubas', 'Não Identificada', 1, 1, 7, 'memorias-postumas-de-bras-cubas.jpg', 'Após ter morrido, em pleno ano de 1869, Brás Cubas decide por narrar sua história e revisitar os fatos mais importantes de sua vida, a fim de se distrair na eternidade. A partir de então ele relembra de amigos como Quincas Borba, de sua displicente formação acadêmica em Portugal, dos amores de sua vida e ainda do privilégio que teve de nunca ter precisado trabalhar em sua vida.', 1),
-(3, 'Ensaio Sobre a Cegueira', 'Não Identificada', 1, 1, 3, 'ensaio-sobre-a-cegueira.jpg', 'Um motorista parado no sinal se descobre subitamente cego. É o primeiro caso de uma \"treva branca\" que logo se espalha incontrolavelmente. Resguardados em quarentena, os cegos se perceberão reduzidos à essência humana, numa verdadeira viagem às trevas.O Ensaio sobre a cegueira é a fantasia de um autor que nos faz lembrar \"a responsabilidade de ter olhos quando os outros os perderam\". José Saramago nos dá, aqui, uma imagem aterradora e comovente de tempos sombrios, à beira de um novo milênio, impondo-se à companhia dos maiores visionários modernos, como Franz Kafka e Elias Canetti.Cada leitor viverá uma experiência imaginativa única. Num ponto onde se cruzam literatura e sabedoria, José Saramago nos obriga a parar, fechar os olhos e ver. Recuperar a lucidez, resgatar o afeto: essas são as tarefas do escritor e de cada leitor, diante da pressão dos tempos e do que se perdeu: \"uma coisa que não tem nome, essa coisa é o que somos\".', 2),
-(4, 'O Homem Duplicado', 'Não Identificada', 1, 1, 7, 'o-homem-duplicado.jpg', 'Um motorista parado no sinal se descobre subitamente cego. É o primeiro caso de uma \"treva branca\" que logo se espalha incontrolavelmente. Resguardados em quarentena, os cegos se perceberão reduzidos à essência humana, numa verdadeira viagem às trevas.O Ensaio sobre a cegueira é a fantasia de um autor que nos faz lembrar \"a responsabilidade de ter olhos quando os outros os perderam\". José Saramago nos dá, aqui, uma imagem aterradora e comovente de tempos sombrios, à beira de um novo milênio, impondo-se à companhia dos maiores visionários modernos, como Franz Kafka e Elias Canetti.Cada leitor viverá uma experiência imaginativa única. Num ponto onde se cruzam literatura e sabedoria, José Saramago nos obriga a parar, fechar os olhos e ver. Recuperar a lucidez, resgatar o afeto: essas são as tarefas do escritor e de cada leitor, diante da pressão dos tempos e do que se perdeu: \"uma coisa que não tem nome, essa coisa é o que somos\".', 2),
+(3, 'Ensaio Sobre a Cegueira', 'Não Identificada', 1, 1, 1, 'ensaio-sobre-a-cegueira.jpg', 'Um motorista parado no sinal se descobre subitamente cego. É o primeiro caso de uma \"treva branca\" que logo se espalha incontrolavelmente. Resguardados em quarentena, os cegos se perceberão reduzidos à essência humana, numa verdadeira viagem às trevas.O Ensaio sobre a cegueira é a fantasia de um autor que nos faz lembrar \"a responsabilidade de ter olhos quando os outros os perderam\". José Saramago nos dá, aqui, uma imagem aterradora e comovente de tempos sombrios, à beira de um novo milênio, impondo-se à companhia dos maiores visionários modernos, como Franz Kafka e Elias Canetti.Cada leitor viverá uma experiência imaginativa única. Num ponto onde se cruzam literatura e sabedoria, José Saramago nos obriga a parar, fechar os olhos e ver. Recuperar a lucidez, resgatar o afeto: essas são as tarefas do escritor e de cada leitor, diante da pressão dos tempos e do que se perdeu: \"uma coisa que não tem nome, essa coisa é o que somos\".', 2),
+(4, 'O Homem Duplicado', 'Não Identificada', 1, 1, 6, 'o-homem-duplicado.jpg', 'Um motorista parado no sinal se descobre subitamente cego. É o primeiro caso de uma \"treva branca\" que logo se espalha incontrolavelmente. Resguardados em quarentena, os cegos se perceberão reduzidos à essência humana, numa verdadeira viagem às trevas.O Ensaio sobre a cegueira é a fantasia de um autor que nos faz lembrar \"a responsabilidade de ter olhos quando os outros os perderam\". José Saramago nos dá, aqui, uma imagem aterradora e comovente de tempos sombrios, à beira de um novo milênio, impondo-se à companhia dos maiores visionários modernos, como Franz Kafka e Elias Canetti.Cada leitor viverá uma experiência imaginativa única. Num ponto onde se cruzam literatura e sabedoria, José Saramago nos obriga a parar, fechar os olhos e ver. Recuperar a lucidez, resgatar o afeto: essas são as tarefas do escritor e de cada leitor, diante da pressão dos tempos e do que se perdeu: \"uma coisa que não tem nome, essa coisa é o que somos\".', 2),
 (5, 'Romeu e Julieta', 'Walcyr Carrasco', 3, 1, 5, 'romeu-e-julieta.jpg', 'A obra-prima de William Shakespeare é uma das maiores histórias de amor infeliz de todos os tempos. Em um mundo repleto de disputa, de intriga e de violência, dois jovens se apaixonam, mas suas famílias, os Montecchios e os Capuletos, estão envolvidas em uma rixa de sangue e não permitem nem sequer que eles se encontrem. A paixão desenfreada, o encontro proibido e a busca pela alma gêmea são alguns dos aspectos que tornam a história de Romeu e Julieta atemporal e uma das mais conhecidas tragédias da literatura.', 3),
 (6, 'A Megera Domada', 'Walcyr Carrasco', 1, 1, 2, 'a-megera-domada.jpg', 'Um Rico Mercador De Pádua, Na Itália, Decide Que Sua Filha Mais Jovem, A Doce Bianca, Só Se Casará Depois Da Mais Velha, A Terrível Catarina. Quem Se Atreveria A Querer Conquistar O Coração De Catarina Só Mesmo O Louco Petrúquio, Que Se Revelaria Também Um Grande Estrategista. Divirta-Se Com Esta Comédia Do Século Xvi, Que Trata De Forma Hilariante A Sempre Atual Guerra Dos Sexos!', 3),
 (7, 'O Idiota', 'Não Identificada', 3, 1, 2, 'o-idiota.jpg', 'Publicado por volta de 1868-1869, «O Idiota» é, porventura, o mais perfeito dos cinco grandes romances de Dostoiévski - na composição, no estilo, no aprofundamento dos personagens. Foi também, de todos os romances do autor, o mais incompreendido na sua época. Dostoiévski pretende, segundo as suas próprias palavras, «criar a imagem do homem positivamente bom», uma encarnação da beleza, da bondade e da humildade, figura de herói entre Dom Quixote e Cristo, mostrando o que pode acontecer a um homem assim, em contato com a realidade.', 4),
@@ -154,12 +175,13 @@ INSERT INTO `livro` (`id_livro`, `nome_livro`, `editora_livro`, `id_genero`, `nu
 (23, 'O Anticristo ', 'L&PM', 8, 1, 1, 'o-anticristo.jpg', 'Escrito em 1888, último ano antes de Friedrich Nietzsche perder a lucidez, este ensaio é uma das mais afiadas análises de que o cristianismo já foi objeto. Dando continuidade ao exame sobre a moral praticado na maioria de seus livros, em O anticristo o autor firma sua posição sobre a doutrina religiosa. Ele mostra como o cristianismo – ao qual chama de maldição – é a vitória dos fracos, doentes e rancorosos sobre os fortes, orgulhosos e saudáveis, persuadindo e induzindo a massa por meio de ideias pré-fabricadas. A partir da comparação com outras religiões, Nietzsche critica com veemência a mudança de foco que o cristianismo opera, uma vez que o centro da vida passa a ser o além e não o mundo presente. Até mesmo Jesus Cristo e o apóstolo Paulo são questionados, assim como grande parte de todos os dogmas cristãos, em um grande exercício filosófico.', 15),
 (24, 'O Príncipe Maquiavel', 'Pé da Letra', 9, 1, 2, 'o-principe-maquiavel.jpg', 'Mesmo que você nunca tenha ouvido falarem nicolau maquiavel, deve conhecer o termo maquiavélico. Dizemos que uma pessoa a e maquiavélica quando faz qualquer coisas para atingir seu objetivo. Os gins justificam os meios. Esta e a síntese do pensamento maquiavélico que conhecemos hoje. Porem, ao contrário do que muita gente pensa, essa frase não esta em nenhum livro.', 16),
 (25, 'O nome do Vento', 'Arqueiro', 2, 1, 12, 'Nome_do_Vento.jpg', 'Ninguém sabe ao certo quem é o herói ou o vilão desse fascinante universo criado por Patrick Rothfuss. Na realidade, essas duas figuras se concentram em Kote, um homem enigmático que se esconde sob a identidade de proprietário da hospedaria Marco do Percurso.', 16),
-(26, 'O segredo sem nome', 'nameless', 6, 2, 21, 'power.jpg', '...', 1);
+(26, 'O segredo sem nome', 'espada', 2, 1, 1, 'power.jpeg', '...', 23),
+(50, 'O Livro dos Cinco Anéis', 'Temporalis', 2, 1, 12, 'o_livro_dos_cinco_aneis.jpg', 'O Livro dos Cinco Anéis é considerado um dos textos mais perspicazes sobre as artes sutis do confronto e da vitória que emergiram da Ásia. Escrito em 1643 pelo famoso duelista e samurai invicto Miyamoto Musashi, a obra analisa o processo de luta e domínio sobre o conflito subjacente a todos os níveis de interação humana...', 10);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `movimentacao`
+-- Estrutura da tabela `movimentacao`
 --
 
 CREATE TABLE `movimentacao` (
@@ -171,35 +193,40 @@ CREATE TABLE `movimentacao` (
   `id_livro` int NOT NULL,
   `id_status_movimentacao` int NOT NULL,
   `id_funcionario` int DEFAULT NULL COMMENT 'funcionario que fez a checagem da movimentação.'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `movimentacao`
+-- Extraindo dados da tabela `movimentacao`
 --
 
 INSERT INTO `movimentacao` (`id_movimentacao`, `data_saida_movimentacao`, `data_limite_movimentacao`, `data_volta_movimentacao`, `id_usuario`, `id_livro`, `id_status_movimentacao`, `id_funcionario`) VALUES
-(6, NULL, NULL, NULL, 9, 5, 4, NULL),
-(7, NULL, NULL, NULL, 9, 3, 1, NULL),
-(18, NULL, NULL, NULL, 9, 2, 4, NULL),
-(19, NULL, NULL, NULL, 9, 5, 2, NULL),
-(20, NULL, NULL, NULL, 9, 5, 3, NULL),
-(21, NULL, NULL, NULL, 9, 5, 4, NULL),
-(22, NULL, NULL, NULL, 9, 18, 2, NULL),
-(23, NULL, NULL, NULL, 4, 7, 1, NULL);
+(18, NULL, NULL, '2023-08-26', 9, 2, 3, NULL),
+(19, NULL, NULL, NULL, 9, 5, 3, NULL),
+(20, '2023-08-10', NULL, NULL, 9, 5, 3, NULL),
+(21, '2023-08-26', '2023-10-21', NULL, 9, 5, 3, 1),
+(22, NULL, NULL, NULL, 9, 18, 3, NULL),
+(23, '2023-08-26', '2023-09-02', '2023-08-26', 4, 7, 3, 1),
+(24, '2023-10-28', '2023-11-28', '2023-10-28', 9, 5, 3, 1),
+(26, NULL, NULL, NULL, 4, 1, 4, NULL),
+(29, NULL, NULL, NULL, 10, 4, 4, NULL),
+(31, NULL, NULL, NULL, 13, 3, 3, NULL),
+(34, NULL, NULL, NULL, 10, 5, 4, NULL),
+(35, '2023-10-28', '2023-10-31', NULL, 9, 4, 1, 1),
+(49, NULL, NULL, NULL, 11, 2, 1, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sessao`
+-- Estrutura da tabela `sessao`
 --
 
 CREATE TABLE `sessao` (
   `id_sessao` int NOT NULL,
-  `cargo_sessao` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `cargo_sessao` varchar(30) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `sessao`
+-- Extraindo dados da tabela `sessao`
 --
 
 INSERT INTO `sessao` (`id_sessao`, `cargo_sessao`) VALUES
@@ -209,66 +236,80 @@ INSERT INTO `sessao` (`id_sessao`, `cargo_sessao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `status_movimentacao`
+-- Estrutura da tabela `status_movimentacao`
 --
 
 CREATE TABLE `status_movimentacao` (
   `id_status_movimentacao` int NOT NULL,
-  `nome_status_movimentacao` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nome_status_movimentacao` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `status_movimentacao`
+-- Extraindo dados da tabela `status_movimentacao`
 --
 
 INSERT INTO `status_movimentacao` (`id_status_movimentacao`, `nome_status_movimentacao`) VALUES
 (1, 'Em Andamento'),
 (2, 'Atrasado'),
 (3, 'Entregue'),
-(4, 'Aguardando Retirada');
+(4, 'Aguardando Retirada'),
+(5, 'Cancelado');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuario`
+-- Estrutura da tabela `usuario`
 --
 
 CREATE TABLE `usuario` (
   `id_usuario` int NOT NULL,
-  `nome_usuario` varchar(50) NOT NULL,
-  `email_usuario` varchar(50) NOT NULL,
+  `nome_usuario` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `email_usuario` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `data_usuario` date NOT NULL,
-  `cpf_usuario` int NOT NULL,
-  `senha_usuario` varchar(20) NOT NULL,
-  `endereco_usuario` varchar(50) NOT NULL,
-  `telefone_usuario` int NOT NULL,
+  `cpf_usuario` varchar(11) COLLATE utf8mb4_general_ci NOT NULL,
+  `senha_usuario` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `endereco_usuario` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `telefone_usuario` varchar(11) COLLATE utf8mb4_general_ci NOT NULL,
   `id_sessao` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `usuario`
+-- Extraindo dados da tabela `usuario`
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `email_usuario`, `data_usuario`, `cpf_usuario`, `senha_usuario`, `endereco_usuario`, `telefone_usuario`, `id_sessao`) VALUES
-(1, 'carlos', 'carlos1123@fuian', '2023-07-11', 415614651, '100', 'rua da mortalha', 145202, 1),
-(4, 'José Eduardo', 'joseeduardo@gmail.com', '2004-03-14', 789456741, '647', 'Rua do Pato', 156151664, 1),
-(6, 'Iris Raquel', 'iris@dfghjnmk', '2023-07-12', 431857435, '111111', 'adsad14', 1556, 1),
-(9, 'Igor Serafin', 'igorserafimn2@gmail.com', '2004-04-10', 41215451, '123', 'Rua Da Fantasia', 11978758, 1),
-(10, 'Igor Testando', 'igor@gmail.com.br', '2023-08-11', 14567912, '124', 'Rua Da Fantasia', 1197875, 1),
-(11, 'Maça', 'teste@teste', '2023-08-20', 4814654, '123', 'banana', 944, 1);
+(4, 'José Eduardo', 'joseeduardo@gmail.com', '2004-03-14', '789456741', '647', 'Rua do Pato', '156151664', 1),
+(6, 'Iris Raquel', 'iris@dfghjnmk', '2023-07-12', '431857435', '111111', 'adsad14', '1556', 1),
+(9, 'Igor Serafim Gonçalves', 'igorserafimn@gmail.com', '2004-04-10', '41215451', '123', 'Rua Da Fantasia', '1197875', 1),
+(10, 'Igor Testando', 'igor@gmail.com.br', '2023-08-11', '14567912', '124', 'Rua Da Fantasia', '1197875', 1),
+(11, 'Maça', 'teste@teste', '2023-08-20', '4814654', '123', 'banana', '944', 1),
+(12, 'IGOR SERAFIM GONCALVES', 'igorserafiadadadmn@gmail.com', '2023-09-29', '6525', '1510', 'Rua Da Fantasia', '11978758727', 1),
+(13, 'Serafim', 'igorserafimn001@gmail.com', '2023-09-03', '15151', '1234567', 'Rua da Realidade', '1197875872', 1),
+(15, 'IGOR SERAFIM GdadaONCALVESa', 'igorserafimadan@gmail.com', '2023-10-03', '43185762435', '', 'Rua Da Fantasia', '11978758727', 1),
+(17, 'IGOR SERAFIM GONCALVES', 'ab@gmail.com', '2023-10-04', '54585', '147', 'Rua Da Fantasia', '11758727', 1),
+(18, 'IGOR SERAFIM GONCALVES', 'in@gmail.com', '2023-10-10', '4335', '147', 'Rua Da Fantasia', '11978758727', 1),
+(19, 'Igor G', 'igorsasd@gmail.com', '2023-10-11', '146813', '123', 'Rua Da Fantasia', '11978758727', 1);
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `autor`
+-- Índices para tabela `autor`
 --
 ALTER TABLE `autor`
   ADD PRIMARY KEY (`id_autor`);
 
 --
--- Índices de tabela `funcionario`
+-- Índices para tabela `favorito`
+--
+ALTER TABLE `favorito`
+  ADD PRIMARY KEY (`id_favorito`),
+  ADD KEY `id_livro` (`id_livro`),
+  ADD KEY `id_usuario` (`id_usuario`);
+
+--
+-- Índices para tabela `funcionario`
 --
 ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`id_funcionario`),
@@ -277,13 +318,13 @@ ALTER TABLE `funcionario`
   ADD KEY `fk_id_sessao` (`id_sessao`);
 
 --
--- Índices de tabela `genero`
+-- Índices para tabela `genero`
 --
 ALTER TABLE `genero`
   ADD PRIMARY KEY (`id_genero`);
 
 --
--- Índices de tabela `livro`
+-- Índices para tabela `livro`
 --
 ALTER TABLE `livro`
   ADD PRIMARY KEY (`id_livro`),
@@ -291,7 +332,7 @@ ALTER TABLE `livro`
   ADD KEY `fk_id_genero` (`id_genero`);
 
 --
--- Índices de tabela `movimentacao`
+-- Índices para tabela `movimentacao`
 --
 ALTER TABLE `movimentacao`
   ADD PRIMARY KEY (`id_movimentacao`),
@@ -301,19 +342,19 @@ ALTER TABLE `movimentacao`
   ADD KEY `fk__checagem_funcionario` (`id_funcionario`) USING BTREE;
 
 --
--- Índices de tabela `sessao`
+-- Índices para tabela `sessao`
 --
 ALTER TABLE `sessao`
   ADD PRIMARY KEY (`id_sessao`);
 
 --
--- Índices de tabela `status_movimentacao`
+-- Índices para tabela `status_movimentacao`
 --
 ALTER TABLE `status_movimentacao`
   ADD PRIMARY KEY (`id_status_movimentacao`);
 
 --
--- Índices de tabela `usuario`
+-- Índices para tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id_usuario`),
@@ -322,14 +363,20 @@ ALTER TABLE `usuario`
   ADD KEY `fk_sessao` (`id_sessao`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id_autor` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_autor` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT de tabela `favorito`
+--
+ALTER TABLE `favorito`
+  MODIFY `id_favorito` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de tabela `funcionario`
@@ -341,19 +388,19 @@ ALTER TABLE `funcionario`
 -- AUTO_INCREMENT de tabela `genero`
 --
 ALTER TABLE `genero`
-  MODIFY `id_genero` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_genero` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id_livro` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_livro` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `movimentacao`
 --
 ALTER TABLE `movimentacao`
-  MODIFY `id_movimentacao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_movimentacao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de tabela `sessao`
@@ -365,33 +412,40 @@ ALTER TABLE `sessao`
 -- AUTO_INCREMENT de tabela `status_movimentacao`
 --
 ALTER TABLE `status_movimentacao`
-  MODIFY `id_status_movimentacao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_status_movimentacao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- Restrições para tabelas despejadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Restrições para tabelas `funcionario`
+-- Limitadores para a tabela `favorito`
+--
+ALTER TABLE `favorito`
+  ADD CONSTRAINT `id_livro` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`),
+  ADD CONSTRAINT `id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
+
+--
+-- Limitadores para a tabela `funcionario`
 --
 ALTER TABLE `funcionario`
   ADD CONSTRAINT `fk_id_sessao` FOREIGN KEY (`id_sessao`) REFERENCES `sessao` (`id_sessao`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Restrições para tabelas `livro`
+-- Limitadores para a tabela `livro`
 --
 ALTER TABLE `livro`
   ADD CONSTRAINT `fk_id_autor` FOREIGN KEY (`id_autor`) REFERENCES `autor` (`id_autor`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `fk_id_genero` FOREIGN KEY (`id_genero`) REFERENCES `genero` (`id_genero`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Restrições para tabelas `movimentacao`
+-- Limitadores para a tabela `movimentacao`
 --
 ALTER TABLE `movimentacao`
   ADD CONSTRAINT `fk_id_funcionario` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`) ON DELETE RESTRICT ON UPDATE RESTRICT,
@@ -400,7 +454,7 @@ ALTER TABLE `movimentacao`
   ADD CONSTRAINT `fk_id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Restrições para tabelas `usuario`
+-- Limitadores para a tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `fk_sessao` FOREIGN KEY (`id_sessao`) REFERENCES `sessao` (`id_sessao`) ON DELETE RESTRICT ON UPDATE RESTRICT;
