@@ -20,7 +20,7 @@ include('../../include/conexao.php');
     <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-    <title>Livro Lista</title>
+    <title>Consultar Usuário</title>
     <style>
         .book-info-container {
         margin: auto;

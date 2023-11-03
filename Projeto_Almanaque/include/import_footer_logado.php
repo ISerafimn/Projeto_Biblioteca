@@ -5,7 +5,7 @@
                 <div class="col">
                     <a href="../index.php"><h3 style="font-size: 26px;">Almanaque</h3></a>
                 </div>
-                <p style="margin-right: 150px;">Lorem ipsum dolor sit amet consectetur ipisicing elit.</p>
+                <p style="margin-right: 150px;">“Não há problema que a leitura não possa solucionar”</p>
                 <div class="rede-sociais">
                     <a href="#"><i class="ri-facebook-circle-fill"></i></a>
                     <a href="#"><i class="ri-whatsapp-fill"></i></a>
