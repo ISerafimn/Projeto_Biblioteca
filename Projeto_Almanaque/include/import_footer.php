@@ -30,6 +30,7 @@
                     <div class="links">
                         <li><a href="faq.php">FAQ</a></li>
                         <li><a href="#">Contato</a></li>
+                        <li><a href="https://chrome.google.com/webstore/detail/selection-reader-text-to/fdffijlhedcdiblbingmagmdnokokgbi/related?hl=pt-BR">Acessibilidade</a></li>
                     </div>
                 </div>
             </ul>

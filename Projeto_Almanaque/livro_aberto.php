@@ -13,15 +13,23 @@ if(isset($_SESSION['id_sessao'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="livro-aberto.css">
+    <link rel="stylesheet" href="css/livro-aberto.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <title>Livro Aberto</title>
     <style>
+    .ri-heart-add-fill{
+        background-color: #fff;
+        border: solid;
+        border-color: #fff;
+    }
     .ri-heart-fill{
         color: #265DF2;;
+        background-color: #fff;
+        border: solid;
+        border-color: #fff;
     }
     .ri-heart-fill:hover{
         color: black;
@@ -102,7 +110,7 @@ if(isset($_SESSION['id_sessao'])){
                                             <tr>
                                                 <form action='usuario_login.php' method='post'>
                                                     <td>
-                                                        <button class='button-retirar' type='submit'>RETIRAR</button>
+                                                        <button class='button-retirar' type='submit'>reservar</button>
                                                     </td>
                                                 </form>
                                                 <form action='usuario_login.php'>
@@ -150,7 +158,7 @@ if(isset($_SESSION['id_sessao'])){
                                         <tr>
                                             <form action="php/retirando_livro.php" method="post" style="text-align: left;">
                                                 <input type="text" name="id_livro" value="<?php echo "$id_livro"?>" style="display: none;">
-                                                <td><button class='button-retirar' type='submit'>RETIRAR</button></td>
+                                                <td><button class='button-retirar' type='submit'>reservar</button></td>
                                             </form>
                                             <?php
 
@@ -220,6 +228,7 @@ if(isset($_SESSION['id_sessao'])){
 
     <?php include('include/import_footer.php');
     include('include/acessibilidade.php') ?>
+    <a id="link-acessibilidade" href="https://chrome.google.com/webstore/detail/selection-reader-text-to/fdffijlhedcdiblbingmagmdnokokgbi/related?hl=pt-BR"><i class="ri-speak-fill"></i></a>
     <a id="link-up" href="#"><i class="ri-arrow-up-double-line"></i></a>
 </body>
 </html>

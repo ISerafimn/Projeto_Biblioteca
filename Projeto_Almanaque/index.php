@@ -42,7 +42,9 @@ if(!isset($_SESSION)) {
             color: #265DF2;
         }
         .ri-heart-fill, .ri-heart-add-fill{
-            background-color: transparent;
+            background-color: #fff;
+            border: solid;
+            border-color: #fff;
             font-size: 1.6rem;
             transition: all 0.3s ease;
         }
@@ -137,7 +139,7 @@ if(!isset($_SESSION)) {
                                                     <td>
                                                         <form action='livro_aberto.php' method='post'>
                                                             <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
-                                                            <button class='button' type='submit' style='padding: 0px 0px;'><p style='padding: 8px 16px;'>Retirar</p></button>
+                                                            <button class='button' type='submit' style='padding: 0px 0px;'><p style='padding: 8px 16px;'>reservar</p></button>
                                                         </form>
                                                     </td>";
 
@@ -264,7 +266,7 @@ if(!isset($_SESSION)) {
                                                     <td>
                                                         <form action='livro_aberto.php' method='post'>
                                                             <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
-                                                            <button class='button' type='submit' style='padding: 0px 0px;'><p style='padding: 8px 16px;'>Retirar</p></button>
+                                                            <button class='button' type='submit' style='padding: 0px 0px;'><p style='padding: 8px 16px;'>reservar</p></button>
                                                         </form>
                                                     </td>";
 
@@ -389,7 +391,7 @@ if(!isset($_SESSION)) {
                                                     <td>
                                                         <form action='livro_aberto.php' method='post'>
                                                             <input name='id_livro' value='".$row['id_livro']."' style='display: none;'>
-                                                            <button class='button' type='submit' style='padding: 0px 0px;'><p style='padding: 8px 16px;'>Retirar</p></button>
+                                                            <button class='button' type='submit' style='padding: 0px 0px;'><p style='padding: 8px 16px;'>reservar</p></button>
                                                         </form>
                                                     </td>";
 
@@ -535,6 +537,7 @@ if(!isset($_SESSION)) {
         repeat();
     </script>
     <?php include('include/acessibilidade.php') ?>
+    <a id="link-acessibilidade" href="https://chrome.google.com/webstore/detail/selection-reader-text-to/fdffijlhedcdiblbingmagmdnokokgbi/related?hl=pt-BR"><i class="ri-speak-fill"></i></a>
     <a id="link-up" href="#"><i class="ri-arrow-up-double-line"></i></a>
 </body>
 </html> 

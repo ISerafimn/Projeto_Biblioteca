@@ -22,9 +22,20 @@ include('../include/conexao.php');
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <title>Gerenciar</title>
     <style>
-        .book-info{
-            text-align: center;
+        .corpo{
             margin: auto;
+            width: 300px;
+        }
+        .corpo button{
+            width: 300px;
+            height: 50px;
+            border: none;
+            margin-bottom: 10px;
+            background-color: white;
+        }
+        .corpo button:hover{
+            background-color: #276daf;
+            color: white;
         }
     </style>
 </head>
@@ -33,21 +44,21 @@ include('../include/conexao.php');
 
     <br><br><br><br><br>
 
-    <div class="corpo" style="margin: auto; text-align: center;">
-        <h1><i class="ri-settings-3-fill" style="padding-right: 10px;"></i>GERENCIAR</h1><br>
+    <div class="corpo">
+        <h1 style="text-align: center;"><i class="ri-settings-3-fill" style="padding-right: 10px;"></i>GERENCIAR</h1><br>
         
-        <a href="gerenciar_livro/livro_lista.php">Livros</a><br><br>
-        <a href="gerenciar_genero/genero_lista.php">Categoria / Gênero</a><br><br>
-        <a href="gerenciar_autor/autor_lista.php">Autor</a><br><br>
-        <a href="gerenciar_usuario/usuario_lista.php">Usuarios</a><br><br>
-        <a href="gerenciar_movimentacao/movimentacao_lista.php">Movimentação</a>
+        <a href="gerenciar_livro/livro_lista.php"><button>Livros</button></a><br><br>
+        <a href="gerenciar_genero/genero_lista.php"><button>Categoria / Gênero</button></a><br><br>
+        <a href="gerenciar_autor/autor_lista.php"><button>Autor</button></a><br><br>
+        <a href="gerenciar_usuario/usuario_lista.php"><button>Usuarios</button></a><br><br>
+        <a href="gerenciar_movimentacao/movimentacao_lista.php"><button>Movimentação</button></a>
     </div>
     
 
-    <br><br><br><br><br><br>
-
+    <br><br>
     <?php include('../include/import_footer_logado.php');
     include('../include/acessibilidade.php') ?>
+    <a id="link-acessibilidade" href="https://chrome.google.com/webstore/detail/selection-reader-text-to/fdffijlhedcdiblbingmagmdnokokgbi/related?hl=pt-BR"><i class="ri-speak-fill"></i></a>
     <a id="link-up" href="#"><i class="ri-arrow-up-double-line"></i></a>
 </body>
 </html>

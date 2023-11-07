@@ -427,3 +427,21 @@ footer .container li{
     color: #276daf;
     background-color: white;
 }
+
+
+#link-acessibilidade {
+    z-index: 1;
+    position: fixed;
+    color: white;
+    background-color: #276daf;
+    padding: 10px;
+    margin-bottom: 100px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 30%;
+    transition: all .50s ease;
+}
+#link-acessibilidade:hover{
+    color: #276daf;
+    background-color: white;
+}

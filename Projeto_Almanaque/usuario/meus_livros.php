@@ -120,6 +120,7 @@ while ($result = mysqli_fetch_array($sql0))
     <br><br><br><br>
     <?php include('../include/import_footer.php');
     include('../include/acessibilidade.php') ?>
+    <a id="link-acessibilidade" href="https://chrome.google.com/webstore/detail/selection-reader-text-to/fdffijlhedcdiblbingmagmdnokokgbi/related?hl=pt-BR"><i class="ri-speak-fill"></i></a>
     <a id="link-up" href="#"><i class="ri-arrow-up-double-line"></i></a>
 </body>
 </html>
