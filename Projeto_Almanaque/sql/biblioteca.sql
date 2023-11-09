@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 02-Nov-2023 às 23:25
+-- Tempo de geração: 09-Nov-2023 às 01:37
 -- Versão do servidor: 8.0.30
 -- versão do PHP: 8.1.10
 
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `autor` (
   `id_autor` int NOT NULL,
-  `nome_autor` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `pais_autor` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nome_autor` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `pais_autor` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `nascimento_autor` int NOT NULL,
   `falecimento_autor` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `autor`
@@ -67,7 +67,7 @@ CREATE TABLE `favorito` (
   `id_favorito` int NOT NULL,
   `id_usuario` int NOT NULL,
   `id_livro` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `favorito`
@@ -87,13 +87,13 @@ INSERT INTO `favorito` (`id_favorito`, `id_usuario`, `id_livro`) VALUES
 
 CREATE TABLE `funcionario` (
   `id_funcionario` int NOT NULL,
-  `nome_funcionario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `email_funcionario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nome_funcionario` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `email_funcionario` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `data_funcionario` date NOT NULL,
-  `cpf_funcionario` varchar(11) COLLATE utf8mb4_general_ci NOT NULL,
-  `senha_funcionario` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `cpf_funcionario` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `senha_funcionario` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `id_sessao` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `funcionario`
@@ -113,8 +113,8 @@ INSERT INTO `funcionario` (`id_funcionario`, `nome_funcionario`, `email_funciona
 
 CREATE TABLE `genero` (
   `id_genero` int NOT NULL,
-  `nome_genero` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `nome_genero` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `genero`
@@ -138,15 +138,15 @@ INSERT INTO `genero` (`id_genero`, `nome_genero`) VALUES
 
 CREATE TABLE `livro` (
   `id_livro` int NOT NULL,
-  `nome_livro` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
-  `editora_livro` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `nome_livro` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `editora_livro` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `id_genero` int NOT NULL,
   `num_edicao_livro` int NOT NULL,
   `estoque_livro` int NOT NULL,
-  `url_imagem_livro` varchar(5000) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `sinopse_livro` varchar(1000) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `url_imagem_livro` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `sinopse_livro` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `id_autor` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `livro`
@@ -193,7 +193,7 @@ CREATE TABLE `movimentacao` (
   `id_livro` int NOT NULL,
   `id_status_movimentacao` int NOT NULL,
   `id_funcionario` int DEFAULT NULL COMMENT 'funcionario que fez a checagem da movimentação.'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `movimentacao`
@@ -222,8 +222,8 @@ INSERT INTO `movimentacao` (`id_movimentacao`, `data_saida_movimentacao`, `data_
 
 CREATE TABLE `sessao` (
   `id_sessao` int NOT NULL,
-  `cargo_sessao` varchar(30) COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `cargo_sessao` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `sessao`
@@ -241,8 +241,8 @@ INSERT INTO `sessao` (`id_sessao`, `cargo_sessao`) VALUES
 
 CREATE TABLE `status_movimentacao` (
   `id_status_movimentacao` int NOT NULL,
-  `nome_status_movimentacao` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `nome_status_movimentacao` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `status_movimentacao`
@@ -263,15 +263,15 @@ INSERT INTO `status_movimentacao` (`id_status_movimentacao`, `nome_status_movime
 
 CREATE TABLE `usuario` (
   `id_usuario` int NOT NULL,
-  `nome_usuario` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `email_usuario` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `nome_usuario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email_usuario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `data_usuario` date NOT NULL,
-  `cpf_usuario` varchar(11) COLLATE utf8mb4_general_ci NOT NULL,
-  `senha_usuario` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `endereco_usuario` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `telefone_usuario` varchar(11) COLLATE utf8mb4_general_ci NOT NULL,
+  `cpf_usuario` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `senha_usuario` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `endereco_usuario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `telefone_usuario` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `id_sessao` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -376,7 +376,7 @@ ALTER TABLE `autor`
 -- AUTO_INCREMENT de tabela `favorito`
 --
 ALTER TABLE `favorito`
-  MODIFY `id_favorito` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_favorito` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de tabela `funcionario`

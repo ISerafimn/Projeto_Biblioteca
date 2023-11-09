@@ -28,7 +28,7 @@
 
         <div class="input-box">
         <label>Nome Completo</label>
-        <input name="email_funcionario" type="email" placeholder="Digite o nome do funcionario" required>
+        <input name="email_funcionario" type="text" placeholder="Digite o nome do funcionario" required>
         </div>
 
         <div class="input-box">

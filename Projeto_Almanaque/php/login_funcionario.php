@@ -13,29 +13,39 @@ if(isset($_POST['email_funcionario']) || isset($_POST['senha_funcionario'])) {
         $email_funcionario = $mysqli->real_escape_string($_POST['email_funcionario']);
         $senha_funcionario = $mysqli->real_escape_string($_POST['senha_funcionario']);
 
-        $sql_code = "SELECT * FROM funcionario WHERE email_funcionario = '$email_funcionario' AND senha_funcionario = '$senha_funcionario'";
-        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+        $sql_coder = "SELECT * FROM funcionario WHERE email_funcionario = '$email_funcionario' LIMIT 1";
+        $sql_exec = $mysqli->query($sql_coder) or die($mysqli->error);
 
-        $sql = mysqli_query($mysqli, "SELECT * FROM funcionario WHERE email_funcionario = '$email_funcionario'");
-        while ($result = mysqli_fetch_array($sql)){
-            $id_funcionario = $result['id_funcionario'];
-            $id_sessao = $result['id_sessao'];
-        };
+        $usuario = $sql_exec->fetch_assoc();
+        if(password_verify($senha_funcionario, $usuario['senha_funcionario'])){
 
-        $quantidade = $sql_query->num_rows;
-        if($quantidade == 1) {
+            $sql_code = "SELECT * FROM funcionario WHERE email_funcionario = '$email_funcionario'";
+            $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
-            $_SESSION['id_funcionario'] = $id_funcionario;
-            $_SESSION['id_sessao'] = $id_sessao;
+            $sql = mysqli_query($mysqli, "SELECT * FROM funcionario WHERE email_funcionario = '$email_funcionario'");
+            while ($result = mysqli_fetch_array($sql)){
+                $id_funcionario = $result['id_funcionario'];
+                $id_sessao = $result['id_sessao'];
+            };
+
+            $quantidade = $sql_query->num_rows;
+            if($quantidade == 1) {
+
+                $_SESSION['id_funcionario'] = $id_funcionario;
+                $_SESSION['id_sessao'] = $id_sessao;
 
 
-            header("Location: ../index.php");
+                header("Location: ../index.php");
 
-        } else {
+            } else {
+                $_SESSION['erro-login'] = "<p style='color: red;'>Falha ao Logar! E-mail ou senha incorretos</p>";
+                header('Location: ../funcionario_login.php');
+            }
+        }
+        else{
             $_SESSION['erro-login'] = "<p style='color: red;'>Falha ao Logar! E-mail ou senha incorretos</p>";
             header('Location: ../funcionario_login.php');
         }
-
     }
 
 }
