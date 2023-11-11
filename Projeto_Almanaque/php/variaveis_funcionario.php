@@ -4,7 +4,7 @@ include ('../include/conexao.php');
 $nome_funcionario=$_POST['nome_funcionario'];
 $email_funcionario=$_POST['email_funcionario'];
 $data_funcionario=$_POST['data_funcionario'];
-$cpf_funcionario = password_hash($_POST['cpf_funcionario'], PASSWORD_DEFAULT);
+$cpf_funcionario = $_POST['cpf_funcionario'];
 $senha_funcionario = password_hash($_POST['senha_funcionario'], PASSWORD_DEFAULT);
 $id_sessao = 2;
 

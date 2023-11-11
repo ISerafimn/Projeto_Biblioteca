@@ -22,6 +22,14 @@ include('../../include/conexao.php');
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <title>Lista Movimentação</title>
+    <style>
+        .ri-check-double-fill{
+            color: #276daf;
+        }
+        .ri-edit-2-fill:hover{
+            color: #276daf;
+        }
+    </style>
 </head>
 <body>
 <?php include('../../include/import_menu_gerenciar.php'); 
@@ -38,6 +46,7 @@ include('../../include/conexao.php');
             <th class="atributo_th">Nome do Usuário e ID</th>
             <th class="atributo_th">Nome do Livro</th>
             <th class="atributo_th">Status e ID Movimentação</th>
+            <th class="id_th">Atualizar</th>
         </tr>
 
         <?php
@@ -80,13 +89,46 @@ include('../../include/conexao.php');
                     { 
                     
                         echo "<td class='atributo_td'>".$row4['nome_status_movimentacao']." (".$id_movimentacao.")</td>";
+                        
+                        if($id_status_movimentacao == 4){
+                    
+                            echo"<form action='php/variaveis_atualizar_movimentacao.php' method='post'>
+                                    <input type='text' value='".$id_usuario."' name='id_usuario' style='display:none;'>
+                                    <input type='text' value='id_usuario' name='atualizar_por' style='display:none;'>
+                                    <input type='text' value='saida' name='caminho' style='display:none;'>
+                                    <td class='id_td'>
+                                    <button type='submit' style='border: none; background-color: transparent; color: #fff; cursor: pointer;'>
+                                        <i class='ri-edit-2-fill'></i>
+                                    </button></td>
+                                </form>";
+                        }
+                        elseif($id_status_movimentacao == 3){
+                            echo "<td class='id_td'><i class='ri-check-double-fill'></i></td>";
+                        }
+                        else{
+
+                            echo"<form action='php/variaveis_atualizar_movimentacao.php' method='post'>
+                                <input type='text' value='".$id_usuario."' name='id_usuario' style='display:none;'>
+                                <input type='text' value='id_usuario' name='atualizar_por' style='display:none;'>
+                                <input type='text' value='entrada' name='caminho' style='display:none;'>
+                                <td class='id_td'>
+                                <button type='submit' class:'button' style='border: none; background-color: transparent; color: #fff; cursor: pointer;' >
+                                    <i class='ri-edit-2-fill'></i>
+                                </button></td>
+                            </form>";
+                        }
                     }
                 
             };
             
         ?>
     </table>
-    
+            <form action='atualizar_movimentacao.php' method="post">
+                <input type='text' value='' name="id_usuario" style='display:none;'>
+                <button type='submit'>
+
+                </button>
+            </form>
     <br><br><br>
      
     <?php include('../../include/import_footer_gerenciar.php');

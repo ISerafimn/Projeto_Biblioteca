@@ -28,6 +28,7 @@
                 <div class="col">
                     <h3>Suporte</h3>
                     <div class="links">
+                        <li><a href="../localizacao.php">Localização</a></li>
                         <li><a href="../faq.php">FAQ</a></li>
                         <li><a href="#">Contato</a></li>
                         <li><a href="https://chrome.google.com/webstore/detail/selection-reader-text-to/fdffijlhedcdiblbingmagmdnokokgbi/related?hl=pt-BR">Acessibilidade</a></li>

@@ -4,12 +4,15 @@ include('../../php/protect.php');
     
 if($_SESSION['id_sessao'] == 2) {
     $caminho = $_SESSION['caminho'];
-
+ 
     if(isset($_SESSION['atualizar_por'])){
         $atualizar_por = $_SESSION['atualizar_por'];
     }
     if(isset($_SESSION['consultar'])){
         $consultar = $_SESSION['consultar'];
+    }
+    if(isset($_SESSION['id_usuario_movimentacao'])){
+        $var = $_SESSION['id_usuario_movimentacao'];
     }
 
 include('../../include/conexao.php');
@@ -54,8 +57,9 @@ include('../../include/conexao.php');
 <br>
 <?php
 
-
-@$var = $_POST['valor'];
+if(isset($_POST['valor'])){
+    $var = $_POST['valor'];
+}
 if ($var == ""){
 }
 else{

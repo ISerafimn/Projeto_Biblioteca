@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 09-Nov-2023 às 01:37
+-- Tempo de geração: 11-Nov-2023 às 19:09
 -- Versão do servidor: 8.0.30
 -- versão do PHP: 8.1.10
 
@@ -77,7 +77,8 @@ INSERT INTO `favorito` (`id_favorito`, `id_usuario`, `id_livro`) VALUES
 (41, 11, 4),
 (43, 11, 7),
 (45, 11, 23),
-(47, 11, 1);
+(47, 11, 1),
+(49, 21, 3);
 
 -- --------------------------------------------------------
 
@@ -100,10 +101,11 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`id_funcionario`, `nome_funcionario`, `email_funcionario`, `data_funcionario`, `cpf_funcionario`, `senha_funcionario`, `id_sessao`) VALUES
-(1, 'Igor S', 'igorserafimn@gmail.com', '2023-07-21', '145481321', '123', 2),
+(1, 'Igor S', 'igorserdsfafimn@gmail.com', '2023-07-21', '145481321', '123', 2),
 (2, 'Felipe Dorosz', 'felipedorosz@gmail.com', '2002-06-14', '987654321', '456', 2),
 (3, 'Gabryel Cambui', 'gabryelcambui@gmail.com', '2004-06-28', '963852741', '789', 2),
-(5, 'serafim', 'igorserafdghjnklmjhbyucimn@gmail.com', '2023-08-03', '44444', '112', 2);
+(5, 'serafim', 'igorserafdghjnklmjhbyucimn@gmail.com', '2023-08-03', '44444', '112', 2),
+(6, 'Igor Serafim Gonçalves', 'igorserafimn@gmail.com', '2004-04-10', '5165', '$2y$10$4PokdWw7fSQEjfJmw1AZ4eoPMKsOWr9JUw33ZK2VcLMTGbEnI36oO', 2);
 
 -- --------------------------------------------------------
 
@@ -138,13 +140,13 @@ INSERT INTO `genero` (`id_genero`, `nome_genero`) VALUES
 
 CREATE TABLE `livro` (
   `id_livro` int NOT NULL,
-  `nome_livro` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `editora_livro` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nome_livro` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `editora_livro` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_genero` int NOT NULL,
   `num_edicao_livro` int NOT NULL,
   `estoque_livro` int NOT NULL,
-  `url_imagem_livro` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `sinopse_livro` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `url_imagem_livro` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sinopse_livro` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_autor` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -212,7 +214,7 @@ INSERT INTO `movimentacao` (`id_movimentacao`, `data_saida_movimentacao`, `data_
 (31, NULL, NULL, NULL, 13, 3, 3, NULL),
 (34, NULL, NULL, NULL, 10, 5, 4, NULL),
 (35, '2023-10-28', '2023-10-31', NULL, 9, 4, 1, 1),
-(49, NULL, NULL, NULL, 11, 2, 1, NULL);
+(49, NULL, NULL, '2023-11-11', 11, 2, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -222,7 +224,7 @@ INSERT INTO `movimentacao` (`id_movimentacao`, `data_saida_movimentacao`, `data_
 
 CREATE TABLE `sessao` (
   `id_sessao` int NOT NULL,
-  `cargo_sessao` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `cargo_sessao` varchar(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -230,7 +232,7 @@ CREATE TABLE `sessao` (
 --
 
 INSERT INTO `sessao` (`id_sessao`, `cargo_sessao`) VALUES
-(1, 'usuário'),
+(1, 'usuÃ¡rio'),
 (2, 'funcionario');
 
 -- --------------------------------------------------------
@@ -241,7 +243,7 @@ INSERT INTO `sessao` (`id_sessao`, `cargo_sessao`) VALUES
 
 CREATE TABLE `status_movimentacao` (
   `id_status_movimentacao` int NOT NULL,
-  `nome_status_movimentacao` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `nome_status_movimentacao` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -263,13 +265,13 @@ INSERT INTO `status_movimentacao` (`id_status_movimentacao`, `nome_status_movime
 
 CREATE TABLE `usuario` (
   `id_usuario` int NOT NULL,
-  `nome_usuario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `email_usuario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nome_usuario` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `email_usuario` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `data_usuario` date NOT NULL,
-  `cpf_usuario` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `senha_usuario` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `endereco_usuario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `telefone_usuario` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `cpf_usuario` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `senha_usuario` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `endereco_usuario` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `telefone_usuario` varchar(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `id_sessao` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -278,17 +280,18 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `email_usuario`, `data_usuario`, `cpf_usuario`, `senha_usuario`, `endereco_usuario`, `telefone_usuario`, `id_sessao`) VALUES
-(4, 'José Eduardo', 'joseeduardo@gmail.com', '2004-03-14', '789456741', '647', 'Rua do Pato', '156151664', 1),
+(4, 'JosÃ© Eduardo', 'joseeduardo@gmail.com', '2004-03-14', '789456741', '647', 'Rua do Pato', '156151664', 1),
 (6, 'Iris Raquel', 'iris@dfghjnmk', '2023-07-12', '431857435', '111111', 'adsad14', '1556', 1),
-(9, 'Igor Serafim Gonçalves', 'igorserafimn@gmail.com', '2004-04-10', '41215451', '123', 'Rua Da Fantasia', '1197875', 1),
+(9, 'Igor Serafim GonÃ§alves', 'igorserafimn@gmail.com', '2004-04-10', '41215451', '123', 'Rua Da Fantasia', '1197875', 1),
 (10, 'Igor Testando', 'igor@gmail.com.br', '2023-08-11', '14567912', '124', 'Rua Da Fantasia', '1197875', 1),
-(11, 'Maça', 'teste@teste', '2023-08-20', '4814654', '123', 'banana', '944', 1),
+(11, 'MaÃ§a', 'teste@teste', '2023-08-20', '4814654', '123', 'banana', '944', 1),
 (12, 'IGOR SERAFIM GONCALVES', 'igorserafiadadadmn@gmail.com', '2023-09-29', '6525', '1510', 'Rua Da Fantasia', '11978758727', 1),
 (13, 'Serafim', 'igorserafimn001@gmail.com', '2023-09-03', '15151', '1234567', 'Rua da Realidade', '1197875872', 1),
 (15, 'IGOR SERAFIM GdadaONCALVESa', 'igorserafimadan@gmail.com', '2023-10-03', '43185762435', '', 'Rua Da Fantasia', '11978758727', 1),
 (17, 'IGOR SERAFIM GONCALVES', 'ab@gmail.com', '2023-10-04', '54585', '147', 'Rua Da Fantasia', '11758727', 1),
 (18, 'IGOR SERAFIM GONCALVES', 'in@gmail.com', '2023-10-10', '4335', '147', 'Rua Da Fantasia', '11978758727', 1),
-(19, 'Igor G', 'igorsasd@gmail.com', '2023-10-11', '146813', '123', 'Rua Da Fantasia', '11978758727', 1);
+(19, 'Igor G', 'igorsasd@gmail.com', '2023-10-11', '146813', '123', 'Rua Da Fantasia', '11978758727', 1),
+(21, 'Igor Usuário', 'igorserafimn2@gmail.com', '2023-11-19', '235', '$2y$10$FqN7KMcJ6Tb6z/j.DGvFwu/MMraC0ZA.X.9r8kc2xrsnRXXi1M6my', 'Rua Da Fantasia', '119787588', 1);
 
 --
 -- Índices para tabelas despejadas
@@ -376,13 +379,13 @@ ALTER TABLE `autor`
 -- AUTO_INCREMENT de tabela `favorito`
 --
 ALTER TABLE `favorito`
-  MODIFY `id_favorito` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_favorito` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `id_funcionario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_funcionario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `genero`
@@ -418,7 +421,7 @@ ALTER TABLE `status_movimentacao`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restrições para despejos de tabelas

@@ -101,11 +101,15 @@ while ($result = mysqli_fetch_array($sql0))
                                 <div class='button-space'>";
 
                                 if($id_status_movimentacao == 4){
-                                echo    "<br><form action='../php/cancelar_retirada.php' method='post'>
+                                echo    "<table style='margin: auto;'><tr><td style='padding-right: 30px;'>
+                                        <form action='../php/cancelar_retirada.php' method='post'>
                                             <input type='text' name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
                                             <input type='text' name='id_status_movimentacao' value='5' style='display: none;'>
                                             <button class='button-retirar'>Cancelar Retirada</button>
-                                        </form>";
+                                        </form></td><td>
+                                        <form action='../localizacao.php'>
+                                            <button class='button-retirar'>Local de Retirada</button>
+                                        </form></td></tr></table>";
                                 }
 
                 echo             "</div>
@@ -118,7 +122,7 @@ while ($result = mysqli_fetch_array($sql0))
 <br>
     
     <br><br><br><br>
-    <?php include('../include/import_footer.php');
+    <?php include('../include/import_footer_logado.php');
     include('../include/acessibilidade.php') ?>
     <a id="link-acessibilidade" href="https://chrome.google.com/webstore/detail/selection-reader-text-to/fdffijlhedcdiblbingmagmdnokokgbi/related?hl=pt-BR"><i class="ri-speak-fill"></i></a>
     <a id="link-up" href="#"><i class="ri-arrow-up-double-line"></i></a>

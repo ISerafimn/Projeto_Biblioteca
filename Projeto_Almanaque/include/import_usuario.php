@@ -1,4 +1,4 @@
-<div class="menu_gerenciar"><hr>
+<div class="menu_gerenciar">
     <section>
         <div class="gerenciar_cont">
             <div class="gerenciar_titulo_menu">
@@ -11,4 +11,4 @@
             </div>
         </div>
     </section>
-</div>
+</div><hr>

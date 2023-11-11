@@ -33,6 +33,8 @@ include('../include/conexao.php');
 
     <br><br><br><br><br>
 
+    <h1 style="text-align: center;">Meu Perfil</h1><hr><br>
+
         <?php
 
         $sql = mysqli_query($mysqli, "SELECT  *   FROM  funcionario WHERE id_funcionario = '$id_funcionario'");
@@ -54,10 +56,6 @@ include('../include/conexao.php');
                                     <span class='info-conteudo'><span class='info-destaque'>Nascimento: </span>".$data_funcionario."</span>
                                     <span class='info-conteudo'><span class='info-destaque'>CPF: </span>".$cpf_funcionario."</span>
                                 </div>
-                                <form action='atualizar_funcionario.html' method='post'>
-                                    <input type='text' name='id_funcionario' value='".$id_funcionario."' style='display: none;'>
-                                    <button class='button-retirar'>Atualizar os Dados</button>
-                                </form>
                             </div>
                         </div>";
             };
