@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 11-Nov-2023 às 19:09
+-- Tempo de geração: 12-Nov-2023 às 00:51
 -- Versão do servidor: 8.0.30
 -- versão do PHP: 8.1.10
 
@@ -54,8 +54,7 @@ INSERT INTO `autor` (`id_autor`, `nome_autor`, `pais_autor`, `nascimento_autor`,
 (14, 'Paul Washer', 'Estados Unidos', 1961, NULL),
 (15, 'Friedrich Nietzsche', 'Alemanha', 1844, 1900),
 (16, 'Niccolo Machiavelli', 'Itália', 1496, 1527),
-(22, 'Patrick Rothfuss', 'Americano', 1973, 0),
-(23, 'Igor Serafim', 'brasileiro', 2004, 2104);
+(22, 'Patrick Rothfuss', 'Americano', 1973, 0);
 
 -- --------------------------------------------------------
 
@@ -101,10 +100,9 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`id_funcionario`, `nome_funcionario`, `email_funcionario`, `data_funcionario`, `cpf_funcionario`, `senha_funcionario`, `id_sessao`) VALUES
-(1, 'Igor S', 'igorserdsfafimn@gmail.com', '2023-07-21', '145481321', '123', 2),
+(1, 'Carlos Henri', 'carlosHenri@gmail.com', '2023-07-21', '145481321', '123', 2),
 (2, 'Felipe Dorosz', 'felipedorosz@gmail.com', '2002-06-14', '987654321', '456', 2),
 (3, 'Gabryel Cambui', 'gabryelcambui@gmail.com', '2004-06-28', '963852741', '789', 2),
-(5, 'serafim', 'igorserafdghjnklmjhbyucimn@gmail.com', '2023-08-03', '44444', '112', 2),
 (6, 'Igor Serafim Gonçalves', 'igorserafimn@gmail.com', '2004-04-10', '5165', '$2y$10$4PokdWw7fSQEjfJmw1AZ4eoPMKsOWr9JUw33ZK2VcLMTGbEnI36oO', 2);
 
 -- --------------------------------------------------------
@@ -176,9 +174,7 @@ INSERT INTO `livro` (`id_livro`, `nome_livro`, `editora_livro`, `id_genero`, `nu
 (22, 'Assim falou Zaratustra', 'Martin Claret', 5, 1, 2, 'assim-falou-Zaratustra.jpg', 'Após dez anos de isolamento na montanha, Zaratustra decide voltar ao convívio dos homens, a fim de passar adiante o fruto de sua contemplação e anunciar a vinda do Übermensch, ou super-homem. A tarefa do profeta, contudo, será tortuosa, pois poucos são os eleitos e muitos os seus inimigos. Assim falou Zaratustra é um romance filosófico em que Nietzsche toma o nome do sábio persa criador do Zoroastrismo para esmiuçar algumas das questões fundamentais de sua obra, tais como a autossuperação e a necessidade de se libertar de qualquer força que iniba ou limite a vida e a vontade do indivíduo. Nietzsche é tão influente como controverso. Sua crítica à moral e aos valores judaico-cristãos ― um dos aspectos mais marcantes de sua obra ― não raro desperta a hostilidade de leitores e estudiosos. Contudo, suas contribuições marcaram o pensamento ocidental e são leitura obrigatória para qualquer interessado em filosofia.', 15),
 (23, 'O Anticristo ', 'L&PM', 8, 1, 1, 'o-anticristo.jpg', 'Escrito em 1888, último ano antes de Friedrich Nietzsche perder a lucidez, este ensaio é uma das mais afiadas análises de que o cristianismo já foi objeto. Dando continuidade ao exame sobre a moral praticado na maioria de seus livros, em O anticristo o autor firma sua posição sobre a doutrina religiosa. Ele mostra como o cristianismo – ao qual chama de maldição – é a vitória dos fracos, doentes e rancorosos sobre os fortes, orgulhosos e saudáveis, persuadindo e induzindo a massa por meio de ideias pré-fabricadas. A partir da comparação com outras religiões, Nietzsche critica com veemência a mudança de foco que o cristianismo opera, uma vez que o centro da vida passa a ser o além e não o mundo presente. Até mesmo Jesus Cristo e o apóstolo Paulo são questionados, assim como grande parte de todos os dogmas cristãos, em um grande exercício filosófico.', 15),
 (24, 'O Príncipe Maquiavel', 'Pé da Letra', 9, 1, 2, 'o-principe-maquiavel.jpg', 'Mesmo que você nunca tenha ouvido falarem nicolau maquiavel, deve conhecer o termo maquiavélico. Dizemos que uma pessoa a e maquiavélica quando faz qualquer coisas para atingir seu objetivo. Os gins justificam os meios. Esta e a síntese do pensamento maquiavélico que conhecemos hoje. Porem, ao contrário do que muita gente pensa, essa frase não esta em nenhum livro.', 16),
-(25, 'O nome do Vento', 'Arqueiro', 2, 1, 12, 'Nome_do_Vento.jpg', 'Ninguém sabe ao certo quem é o herói ou o vilão desse fascinante universo criado por Patrick Rothfuss. Na realidade, essas duas figuras se concentram em Kote, um homem enigmático que se esconde sob a identidade de proprietário da hospedaria Marco do Percurso.', 16),
-(26, 'O segredo sem nome', 'espada', 2, 1, 1, 'power.jpeg', '...', 23),
-(50, 'O Livro dos Cinco Anéis', 'Temporalis', 2, 1, 12, 'o_livro_dos_cinco_aneis.jpg', 'O Livro dos Cinco Anéis é considerado um dos textos mais perspicazes sobre as artes sutis do confronto e da vitória que emergiram da Ásia. Escrito em 1643 pelo famoso duelista e samurai invicto Miyamoto Musashi, a obra analisa o processo de luta e domínio sobre o conflito subjacente a todos os níveis de interação humana...', 10);
+(25, 'O nome do Vento', 'Arqueiro', 2, 1, 12, 'Nome_do_Vento.jpg', 'Ninguém sabe ao certo quem é o herói ou o vilão desse fascinante universo criado por Patrick Rothfuss. Na realidade, essas duas figuras se concentram em Kote, um homem enigmático que se esconde sob a identidade de proprietário da hospedaria Marco do Percurso.', 16);
 
 -- --------------------------------------------------------
 
@@ -202,9 +198,6 @@ CREATE TABLE `movimentacao` (
 --
 
 INSERT INTO `movimentacao` (`id_movimentacao`, `data_saida_movimentacao`, `data_limite_movimentacao`, `data_volta_movimentacao`, `id_usuario`, `id_livro`, `id_status_movimentacao`, `id_funcionario`) VALUES
-(18, NULL, NULL, '2023-08-26', 9, 2, 3, NULL),
-(19, NULL, NULL, NULL, 9, 5, 3, NULL),
-(20, '2023-08-10', NULL, NULL, 9, 5, 3, NULL),
 (21, '2023-08-26', '2023-10-21', NULL, 9, 5, 3, 1),
 (22, NULL, NULL, NULL, 9, 18, 3, NULL),
 (23, '2023-08-26', '2023-09-02', '2023-08-26', 4, 7, 3, 1),
@@ -287,10 +280,6 @@ INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `email_usuario`, `data_usua
 (11, 'MaÃ§a', 'teste@teste', '2023-08-20', '4814654', '123', 'banana', '944', 1),
 (12, 'IGOR SERAFIM GONCALVES', 'igorserafiadadadmn@gmail.com', '2023-09-29', '6525', '1510', 'Rua Da Fantasia', '11978758727', 1),
 (13, 'Serafim', 'igorserafimn001@gmail.com', '2023-09-03', '15151', '1234567', 'Rua da Realidade', '1197875872', 1),
-(15, 'IGOR SERAFIM GdadaONCALVESa', 'igorserafimadan@gmail.com', '2023-10-03', '43185762435', '', 'Rua Da Fantasia', '11978758727', 1),
-(17, 'IGOR SERAFIM GONCALVES', 'ab@gmail.com', '2023-10-04', '54585', '147', 'Rua Da Fantasia', '11758727', 1),
-(18, 'IGOR SERAFIM GONCALVES', 'in@gmail.com', '2023-10-10', '4335', '147', 'Rua Da Fantasia', '11978758727', 1),
-(19, 'Igor G', 'igorsasd@gmail.com', '2023-10-11', '146813', '123', 'Rua Da Fantasia', '11978758727', 1),
 (21, 'Igor Usuário', 'igorserafimn2@gmail.com', '2023-11-19', '235', '$2y$10$FqN7KMcJ6Tb6z/j.DGvFwu/MMraC0ZA.X.9r8kc2xrsnRXXi1M6my', 'Rua Da Fantasia', '119787588', 1);
 
 --
@@ -397,7 +386,7 @@ ALTER TABLE `genero`
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id_livro` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id_livro` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de tabela `movimentacao`

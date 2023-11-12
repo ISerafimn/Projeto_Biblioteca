@@ -88,6 +88,28 @@ while ($result = mysqli_fetch_array($sql))
                         <div class='text-sinopse'>
                             <p>".$sinopse_livro."</p>
                         </div>
+                        <div class='button-space'>
+                            <table style='margin: auto'>
+                                <tr>
+                                    <form action='php/variaveis_atualizar_livro.php' method='post'>
+                                        <input type='text' name='id_livro' value='".$id_livro."' style='display:none;'>
+                                        <input type='text' name='atualizar' value='id_livro' style='display:none;'>
+                                        <td>
+                                            <button type='submit' class='button-retirar'>Atualizar</button>
+                                        </td>
+                                    </form>
+                                        <form action='php/variaveis_excluir_livro.php' method='post'>
+                                        <input type='text' name='id_livro' value='".$id_livro."' style='display:none;'>
+                                        <input type='text' name='excluir' value='id_livro' style='display:none;'>
+                                        <td>
+                                            <button type='submit'  class='button-retirar'>
+                                                <i class='ri-delete-bin-fill' style='color:#fff';></i>
+                                            </button>
+                                        </td>
+                                    </form>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>";
     }

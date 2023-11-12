@@ -70,7 +70,8 @@ include('../../include/conexao.php');
                                     <img class='book-cover' src='../../imagens/livro_capa/".$url_imagem_livro."' alt='Capa do Livro'>
                                 </button>
                             </form>
-                            <div class='book-info'>
+                            <div class='book-info' style='  margin-left: auto;
+                            margin-right: auto;'>
 
                             <form method='post' action='livro_aberto.php'>
                             <input name='id_livro' value='".$id_livro."' style='display: none;'>
@@ -90,6 +91,29 @@ include('../../include/conexao.php');
                                 </div>
                                 <div class='text-sinopse'>
                                     <p>".$sinopse_livro."</p>
+                                </div><br>
+
+                                <div class='button-space'>
+                                    <table style='margin: auto'>
+                                        <tr>
+                                            <form action='php/variaveis_atualizar_livro.php' method='post'>
+                                                <input type='text' name='id_livro' value='".$id_livro."' style='display:none;'>
+                                                <input type='text' name='atualizar' value='id_livro' style='display:none;'>
+                                                <td>
+                                                    <button type='submit' class='button-retirar'>Atualizar</button>
+                                                </td>
+                                            </form>
+                                            <form action='php/variaveis_excluir_livro.php' method='post'>
+                                                <input type='text' name='id_livro' value='".$id_livro."' style='display:none;'>
+                                                <input type='text' name='excluir' value='id_livro' style='display:none;'>
+                                                <td>
+                                                    <button type='submit'  class='button-retirar'>
+                                                        <i class='ri-delete-bin-fill' style='color:#fff';></i>
+                                                    </button>
+                                                </td>
+                                            </form>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>  <br>";

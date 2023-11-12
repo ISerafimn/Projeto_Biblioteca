@@ -34,7 +34,7 @@ include('../../include/conexao.php');
     <br><br>
     
     <section class="containers" >
-      <form  method="post" action="../../php/variaveis_livro.php" enctype="multipart/form-data" class="form" style="margin-top: 0px;">
+      <form  method="post" action="php/variaveis_livro_exe.php" enctype="multipart/form-data" class="form" style="margin-top: 0px;">
 
         <div class="input-box">
           <h1 style="color: black; text-align: center;">Adicionar Livro</h1>

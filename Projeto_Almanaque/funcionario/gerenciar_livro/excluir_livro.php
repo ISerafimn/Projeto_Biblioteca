@@ -6,6 +6,11 @@ if($_SESSION['id_sessao'] == 2) {
     
 include('../../include/conexao.php');
 $excluir = $_SESSION['excluir'];
+
+if(isset($_SESSION['temp_id_livro'])){
+    $var = $_SESSION['temp_id_livro'];
+    unset($_SESSION['temp_id_livro']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -70,8 +75,12 @@ $excluir = $_SESSION['excluir'];
 
     <br>
 <?php
-@$var = $_POST['valor'];
-if ($var == ""){
+
+if(isset($_POST['valor'])){
+    $var = $_POST['valor'];
+}
+
+if (@$var == ""){
 }
 else{
         if($excluir == "id_livro"){

@@ -13,8 +13,8 @@ if($_SESSION['id_sessao'] == 2) {
     }
     if(isset($_SESSION['id_usuario_movimentacao'])){
         $var = $_SESSION['id_usuario_movimentacao'];
+        unset($_SESSION['id_usuario_movimentacao']);
     }
-
 include('../../include/conexao.php');
 ?>
 
@@ -59,6 +59,9 @@ include('../../include/conexao.php');
 
 if(isset($_POST['valor'])){
     $var = $_POST['valor'];
+}
+else{
+    @$var = $_POST['valor'];
 }
 if ($var == ""){
 }

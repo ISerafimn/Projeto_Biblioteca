@@ -6,6 +6,11 @@ if($_SESSION['id_sessao'] == 2) {
     
 include('../../include/conexao.php');
 $atualizar = $_SESSION['atualizar'];
+
+if(isset($_SESSION['temp_id_livro'])){
+    $var = $_SESSION['temp_id_livro'];
+    unset($_SESSION['temp_id_livro']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,8 +49,11 @@ $atualizar = $_SESSION['atualizar'];
     <br>
 
 <?php
-@$var = $_POST['valor'];
-if ($var == ""){
+if(isset($_POST['valor'])){
+    $var = $_POST['valor'];
+}
+
+if (@$var == ""){
 }
 else{
         if($atualizar == "id_livro"){
