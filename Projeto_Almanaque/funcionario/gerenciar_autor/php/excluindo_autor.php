@@ -17,7 +17,7 @@ if($valor == "id_autor"){
     }
     else{
 
-        $sql  = mysqli_query($mysqli, "DELETE FROM autor WHERE nome_autor = '$excluindo'");
+        $sql  = mysqli_query($mysqli, "DELETE FROM autor WHERE id_autor = '$excluindo'");
 
         header('location: ../autor_lista.php');
     }

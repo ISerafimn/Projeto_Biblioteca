@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 12-Nov-2023 às 00:51
+-- Tempo de geração: 15-Nov-2023 às 21:01
 -- Versão do servidor: 8.0.30
 -- versão do PHP: 8.1.10
 
@@ -76,8 +76,7 @@ INSERT INTO `favorito` (`id_favorito`, `id_usuario`, `id_livro`) VALUES
 (41, 11, 4),
 (43, 11, 7),
 (45, 11, 23),
-(47, 11, 1),
-(49, 21, 3);
+(47, 11, 1);
 
 -- --------------------------------------------------------
 
@@ -100,9 +99,9 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`id_funcionario`, `nome_funcionario`, `email_funcionario`, `data_funcionario`, `cpf_funcionario`, `senha_funcionario`, `id_sessao`) VALUES
-(1, 'Carlos Henri', 'carlosHenri@gmail.com', '2023-07-21', '145481321', '123', 2),
-(2, 'Felipe Dorosz', 'felipedorosz@gmail.com', '2002-06-14', '987654321', '456', 2),
-(3, 'Gabryel Cambui', 'gabryelcambui@gmail.com', '2004-06-28', '963852741', '789', 2),
+(1, 'Carlos Henri', 'carlosHenri@gmail.com', '2023-07-21', '145481321', '$2y$10$4PokdWw7fSQEjfJmw1AZ4eoPMKsOWr9JUw33ZK2VcLMTGbEnI36oO', 2),
+(2, 'Felipe Dorosz', 'felipedorosz@gmail.com', '2002-06-14', '987654321', '$2y$10$4PokdWw7fSQEjfJmw1AZ4eoPMKsOWr9JUw33ZK2VcLMTGbEnI36oO', 2),
+(3, 'Gabryel Cambui', 'gabryelcambui@gmail.com', '2004-06-28', '963852741', '$2y$10$4PokdWw7fSQEjfJmw1AZ4eoPMKsOWr9JUw33ZK2VcLMTGbEnI36oO', 2),
 (6, 'Igor Serafim Gonçalves', 'igorserafimn@gmail.com', '2004-04-10', '5165', '$2y$10$4PokdWw7fSQEjfJmw1AZ4eoPMKsOWr9JUw33ZK2VcLMTGbEnI36oO', 2);
 
 -- --------------------------------------------------------
@@ -163,7 +162,6 @@ INSERT INTO `livro` (`id_livro`, `nome_livro`, `editora_livro`, `id_genero`, `nu
 (8, 'Humilhados e Ofendidos', 'Não Identificada', 1, 1, 4, 'humilhados-e-ofendidos.jpg', 'Nesta obra, narrada pelo jovem escritor Ivan, dois enredos vão convergindo gradualmente. Natascha, amiga de infância e amada de Ivan, foge de casa dos pais para casar com Alyosha, o filho do Príncipe Valkovsky que não aprova esta união. Entretanto Ivan conhece Elena, uma órfã de treze anos, que é adotada por Nicolai, o pai de Natascha. E é ao contar a sua triste história que a menina consegue que Nicolai perdoe a sua filha. Uma narrativa envolvente e cativante onde o sofrimento humano é retratado com mestria.', 4),
 (12, 'Carrie, a estranha', 'Não Identificada', 6, 1, 1, 'carrie-a-estranha.jpg', 'Carrie é uma adolescente tímida e solitária. Aos 16 anos, é completamente dominada pela mãe, uma fanática religiosa que reprime todas as vontades e descobertas normais aos jovens de sua idade. Para Carrie, tudo é pecado. Viver é enfrentar todo dia o terrível peso da culpa. Para os colegas de escola, e até para os professores, Carrie é uma garota estranha, incapaz de conviver com os outros. Cada vez mais isolada, ela sofre com o sarcasmo e o deboche dos colegas. No entanto, há um segredo por trás de sua aparência frágil...', 8),
 (13, 'O corvo', ' Companhia das Letras', 6, 1, 3, 'o-corvo.jpg', 'A morte de uma mulher bela é, sem sombra de dúvida, o tema mais poético do mundo.\" Assim Edgar Allan Poe justificaria a gênese de \"O corvo\", poema publicado sob pseudônimo originalmente em 1845. Mas o que faz com que esses versos hipnotizantes sobre perda e desejo, escritos de modo tão calculado pelo mestre do terror há quase dois séculos, tenham merecido tantos elogios e tamanha controvérsia?\r\nNesta edição, o leitor vai conhecer as traduções mais notáveis de \"O corvo\" para a nossa língua ― as de Fernando Pessoa e Machado de Assis...', 9),
-(14, 'O chamado de Cthulhu e outros contos', 'Não Identificada', 6, 1, 3, 'o-chamado-de-cthulhu-e-outros-contos.jpg', 'O Chamado de Cthulhu é um conto do norte-americano H.P. Lovecraft que logo se tornou um clássico do terror. Foi escrito em 1926 e publicado pela primeira vez na revista estadunidense Weird Tales em fevereiro de 1928. Cthulhu é um deus que nas primeiras páginas do conto aparece como um ídolo de argila quase indescritível, possuindo um culto multimilenar dedicado a trazê-lo de volta, o seu retorno desencadearia o fim da humanidade. Neste livro, encontramos esse clássico e mais sete contos consagrados do autor na literatura de terror.', 10),
 (15, 'A busca por Kadath e outros contos de arrepiar', 'Não Identificada', 6, 1, 1, 'a-busca-por-kadath-e-outros-contos-de-arrepiar.jpg', '\"Carter se perguntava como a Terra continuava a se estender Lá embaixo.\r\nTinha certeza de que estavam em um reino de noite eterna.\"\r\n\r\nNinguém nunca esteve em Kadath, ninguém nunca conseguiu chegar lá. Mas Randolph Carter conhecia seu significado.\r\nA busca por esse lugar onírico é uma das mais famosas viagens ao mundo de H.p. Lovecraft.', 10),
 (16, 'Cristianismo puro e simples', 'Thomas Nelson Brasil', 7, 1, 3, 'cristianismo-puro-e-simples.jpg', 'Em um dos períodos mais sombrios da humanidade, a Segunda Guerra Mundial, C.S. Lewis foi convidado pela BBC a fazer uma série de palestras pelo rádio com o intuito de explicar bases da fé cristã de forma simples e clara. Mais tarde, ajustado pelo próprio Lewis, esse material daria origem a Cristianismo puro e simples, um grande clássico da literatura cristã.  ', 11),
 (17, 'As crônicas de Nárnia - O leão, a feiticeira e o guarda-roupa: O leão, a feiticeira e o guarda-roupa', ' WMF Martins Fontes', 2, 2, 2, 'as-cronicas-de-narnia-o-leao-a-feiticeira-e-o-guarda-roupa-o-leao-a-feiticeira-e-o-guarda-roupa.jpg', '\'Dizem que Aslam está a caminho. Talvez já tenha chegado\', sussurrou o Castor. Edmundo experimentou uma misteriosa sensação de horror. Pedro sentiu-se valente e vigoroso. Para Susana, foi como se uma música deliciosa tivesse enchido o ar. E Lúcia teve aquele mesmo sentimento que nos desperta a chegada do verão. Assim, no coração da terra encantada de Nárnia, as crianças lançaram-se na mais excitante e mágica aventura que alguém já escreveu.', 11),
@@ -173,7 +171,6 @@ INSERT INTO `livro` (`id_livro`, `nome_livro`, `editora_livro`, `id_genero`, `nu
 (21, 'O verdadeiro Evangelho', 'Editora Fiel', 7, 1, 2, 'verdadeiro-evangelho.jpg', 'Deus tem dado a Paul Washer uma mensagem oportuna e profética para a igreja dos nossos tempos. Ao analisar esta geração, ele afirma que o problema principal não é a dureza do evangelho, mas a ignorância de seu conteúdo. Como resposta a isso, Washer tem pregado em diversas ocasiões as verdades fundamentais do evangelho (o pecado do homem, a justiça de Deus, o sacrifício, a ressurreição de Cristo, etc). Baseado em várias exposições de Romanos 3, o Verdadeiro Evangelho busca apresentar aquilo que Deus fez em Cristo, a fim de ele mesmo ser justo e o justificador daquele que tem fé em Jesus (Rm 3:26).', 14),
 (22, 'Assim falou Zaratustra', 'Martin Claret', 5, 1, 2, 'assim-falou-Zaratustra.jpg', 'Após dez anos de isolamento na montanha, Zaratustra decide voltar ao convívio dos homens, a fim de passar adiante o fruto de sua contemplação e anunciar a vinda do Übermensch, ou super-homem. A tarefa do profeta, contudo, será tortuosa, pois poucos são os eleitos e muitos os seus inimigos. Assim falou Zaratustra é um romance filosófico em que Nietzsche toma o nome do sábio persa criador do Zoroastrismo para esmiuçar algumas das questões fundamentais de sua obra, tais como a autossuperação e a necessidade de se libertar de qualquer força que iniba ou limite a vida e a vontade do indivíduo. Nietzsche é tão influente como controverso. Sua crítica à moral e aos valores judaico-cristãos ― um dos aspectos mais marcantes de sua obra ― não raro desperta a hostilidade de leitores e estudiosos. Contudo, suas contribuições marcaram o pensamento ocidental e são leitura obrigatória para qualquer interessado em filosofia.', 15),
 (23, 'O Anticristo ', 'L&PM', 8, 1, 1, 'o-anticristo.jpg', 'Escrito em 1888, último ano antes de Friedrich Nietzsche perder a lucidez, este ensaio é uma das mais afiadas análises de que o cristianismo já foi objeto. Dando continuidade ao exame sobre a moral praticado na maioria de seus livros, em O anticristo o autor firma sua posição sobre a doutrina religiosa. Ele mostra como o cristianismo – ao qual chama de maldição – é a vitória dos fracos, doentes e rancorosos sobre os fortes, orgulhosos e saudáveis, persuadindo e induzindo a massa por meio de ideias pré-fabricadas. A partir da comparação com outras religiões, Nietzsche critica com veemência a mudança de foco que o cristianismo opera, uma vez que o centro da vida passa a ser o além e não o mundo presente. Até mesmo Jesus Cristo e o apóstolo Paulo são questionados, assim como grande parte de todos os dogmas cristãos, em um grande exercício filosófico.', 15),
-(24, 'O Príncipe Maquiavel', 'Pé da Letra', 9, 1, 2, 'o-principe-maquiavel.jpg', 'Mesmo que você nunca tenha ouvido falarem nicolau maquiavel, deve conhecer o termo maquiavélico. Dizemos que uma pessoa a e maquiavélica quando faz qualquer coisas para atingir seu objetivo. Os gins justificam os meios. Esta e a síntese do pensamento maquiavélico que conhecemos hoje. Porem, ao contrário do que muita gente pensa, essa frase não esta em nenhum livro.', 16),
 (25, 'O nome do Vento', 'Arqueiro', 2, 1, 12, 'Nome_do_Vento.jpg', 'Ninguém sabe ao certo quem é o herói ou o vilão desse fascinante universo criado por Patrick Rothfuss. Na realidade, essas duas figuras se concentram em Kote, um homem enigmático que se esconde sob a identidade de proprietário da hospedaria Marco do Percurso.', 16);
 
 -- --------------------------------------------------------
@@ -273,14 +270,12 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `email_usuario`, `data_usuario`, `cpf_usuario`, `senha_usuario`, `endereco_usuario`, `telefone_usuario`, `id_sessao`) VALUES
-(4, 'JosÃ© Eduardo', 'joseeduardo@gmail.com', '2004-03-14', '789456741', '647', 'Rua do Pato', '156151664', 1),
-(6, 'Iris Raquel', 'iris@dfghjnmk', '2023-07-12', '431857435', '111111', 'adsad14', '1556', 1),
-(9, 'Igor Serafim GonÃ§alves', 'igorserafimn@gmail.com', '2004-04-10', '41215451', '123', 'Rua Da Fantasia', '1197875', 1),
-(10, 'Igor Testando', 'igor@gmail.com.br', '2023-08-11', '14567912', '124', 'Rua Da Fantasia', '1197875', 1),
-(11, 'MaÃ§a', 'teste@teste', '2023-08-20', '4814654', '123', 'banana', '944', 1),
-(12, 'IGOR SERAFIM GONCALVES', 'igorserafiadadadmn@gmail.com', '2023-09-29', '6525', '1510', 'Rua Da Fantasia', '11978758727', 1),
-(13, 'Serafim', 'igorserafimn001@gmail.com', '2023-09-03', '15151', '1234567', 'Rua da Realidade', '1197875872', 1),
-(21, 'Igor Usuário', 'igorserafimn2@gmail.com', '2023-11-19', '235', '$2y$10$FqN7KMcJ6Tb6z/j.DGvFwu/MMraC0ZA.X.9r8kc2xrsnRXXi1M6my', 'Rua Da Fantasia', '119787588', 1);
+(4, 'Jose Eduardo', 'joseeduardo@gmail.com', '2004-03-14', '789456741', '$2y$10$4PokdWw7fSQEjfJmw1AZ4eoPMKsOWr9JUw33ZK2VcLMTGbEnI36oO', 'Rua do Pato', '156151664', 1),
+(9, 'Igor Serafim Gonacalves', 'igorserafimn2@gmail.com', '2004-04-10', '41215451', '$2y$10$4PokdWw7fSQEjfJmw1AZ4eoPMKsOWr9JUw33ZK2VcLMTGbEnI36oO', 'Rua Da lagoa', '1197875', 1),
+(10, 'Miguel', 'peewee@gmail.com.br', '2023-08-11', '14567912', '$2y$10$4PokdWw7fSQEjfJmw1AZ4eoPMKsOWr9JUw33ZK2VcLMTGbEnI36oO', 'Rua Da Fantasia', '1197875', 1),
+(11, 'Douglas', 'teste@teste', '2023-08-20', '4814654', '$2y$10$4PokdWw7fSQEjfJmw1AZ4eoPMKsOWr9JUw33ZK2VcLMTGbEnI36oO', 'Rua do Indenpendencia', '944', 1),
+(12, 'Leticia Camargo', 'leticiacamargo@gmail.com', '2023-09-29', '6525', '$2y$10$4PokdWw7fSQEjfJmw1AZ4eoPMKsOWr9JUw33ZK2VcLMTGbEnI36oO', 'Rua Carnot', '11978758727', 1),
+(13, 'Vinicius', 'vinicius13@gmail.com', '2023-09-03', '15151', '$2y$10$4PokdWw7fSQEjfJmw1AZ4eoPMKsOWr9JUw33ZK2VcLMTGbEnI36oO', 'Rua Coronel Vasconcelho', '1197875872', 1);
 
 --
 -- Índices para tabelas despejadas
@@ -362,13 +357,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id_autor` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_autor` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `favorito`
 --
 ALTER TABLE `favorito`
-  MODIFY `id_favorito` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_favorito` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de tabela `funcionario`
@@ -380,13 +375,13 @@ ALTER TABLE `funcionario`
 -- AUTO_INCREMENT de tabela `genero`
 --
 ALTER TABLE `genero`
-  MODIFY `id_genero` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_genero` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id_livro` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id_livro` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de tabela `movimentacao`
@@ -410,7 +405,7 @@ ALTER TABLE `status_movimentacao`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restrições para despejos de tabelas
@@ -420,8 +415,8 @@ ALTER TABLE `usuario`
 -- Limitadores para a tabela `favorito`
 --
 ALTER TABLE `favorito`
-  ADD CONSTRAINT `id_livro` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`),
-  ADD CONSTRAINT `id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
+  ADD CONSTRAINT `id_livro` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`) ON UPDATE RESTRICT,
+  ADD CONSTRAINT `id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON UPDATE RESTRICT;
 
 --
 -- Limitadores para a tabela `funcionario`
