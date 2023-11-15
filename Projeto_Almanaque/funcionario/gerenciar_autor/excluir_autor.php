@@ -7,6 +7,37 @@ if($_SESSION['id_sessao'] == 2) {
     $excluir_autor = $_SESSION['excluir_autor'];
 
 include('../../include/conexao.php');
+
+if(isset($_SESSION['modal_texto'])){
+    $modal_texto = $_SESSION['modal_texto'];
+    unset($_SESSION['modal_texto']);
+    ?>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel" style="color: black;">Exclusão Inválida</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="color: black;">
+            <?php
+            echo "$modal_texto";
+            ?>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="margin:auto; background-color: #276daf;">Fechar</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<?php
+}
 ?>
 
 <!DOCTYPE html>
@@ -111,7 +142,9 @@ else{
             if($falecimento_autor != ""){
                 $icon = " - ";
             }
-
+            ?>
+            
+            <?php
             echo "<tr>";
             echo "<td class='id_th'>".$id_autor."</td>";
             echo "<td class='atributo_th'>".$nome_autor." (".$nascimento_autor, $icon, $falecimento_autor.")</td>";
@@ -171,10 +204,11 @@ else{
         }
     }
 }
+
 ?>
     
     <br><br><br>
-
+    <script src="../../js/modal_pop.js"></script>
     <?php include('../../include/import_footer_gerenciar.php');
     include('../../include/acessibilidade.php') ?>
     <a id="link-acessibilidade" href="https://chrome.google.com/webstore/detail/selection-reader-text-to/fdffijlhedcdiblbingmagmdnokokgbi/related?hl=pt-BR"><i class="ri-speak-fill"></i></a>

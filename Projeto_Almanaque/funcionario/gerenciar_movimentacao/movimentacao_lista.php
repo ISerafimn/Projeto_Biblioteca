@@ -123,12 +123,6 @@ include('../../include/conexao.php');
             
         ?>
     </table>
-            <form action='atualizar_movimentacao.php' method="post">
-                <input type='text' value='' name="id_usuario" style='display:none;'>
-                <button type='submit'>
-
-                </button>
-            </form>
     <br><br><br>
      
     <?php include('../../include/import_footer_gerenciar.php');

@@ -60,10 +60,8 @@ include('../../include/conexao.php');
 if(isset($_POST['valor'])){
     $var = $_POST['valor'];
 }
-else{
-    @$var = $_POST['valor'];
-}
-if ($var == ""){
+
+if (@$var == ""){
 }
 else{
 ?>

@@ -445,3 +445,6 @@ footer .container li{
     color: #276daf;
     background-color: white;
 }
+dialog::backdrop {
+    background-color: rgb(0 0 0 / .5);
+}
