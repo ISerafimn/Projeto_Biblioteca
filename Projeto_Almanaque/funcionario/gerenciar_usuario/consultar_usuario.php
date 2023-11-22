@@ -14,6 +14,7 @@ include('../../include/conexao.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/menu_gerenciar.css">
+    <link rel="stylesheet" href="../../css/table.css">
     <link rel="stylesheet" href="../../css/livro-aberto.css">
     <link rel="shortcut icon" href="../../imagens/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -22,6 +23,32 @@ include('../../include/conexao.php');
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <title>Consultar Usuário</title>
     <style>
+                    table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .info-container {
+            font-size: 14px;
+            color: black;
+            margin: auto;
+            padding: 10px;  
+            display: flex;
+            margin: 10px;
+            background-color: white;
+            border-radius: 10px;
+        }
+        @media screen and (max-width: 500px) {
+            .atributo_th, .atributo_td{
+                padding-left: 2px;
+                padding-right: 2px;
+            }
+            .id_th, .id_td{
+                text-align: center;
+                padding-left: 2px;
+                padding-right: 2px;
+                border: solid;
+            }
+        }
         .book-info-container {
         margin: auto;
         padding: 5px;  
@@ -69,6 +96,21 @@ include('../../include/conexao.php');
         }
         else{
             
+            ?>
+
+            <div class='info-container'>
+                <table>
+                    <tr>
+                        <th class="atributo_th">Nome do Usuário e ID</th>
+                        <th class="atributo_th">Email</th>
+                        <th class="atributo_th">Nascimento</th>
+                        <th class="atributo_th">CPF</th>
+                        <th class="atributo_th">Endereço</th>
+                        <th class="atributo_th">Telefone</th>
+                    </tr>
+        
+                <?php
+
             if($consultar == 'id_usuario'){
 
             $resultado = mysqli_query($mysqli, "SELECT * FROM usuario WHERE id_usuario='$valor'");
@@ -81,47 +123,43 @@ include('../../include/conexao.php');
                 $data_usuario = $row['data_usuario'];
                 $endereco_usuario = $row['endereco_usuario'];
                 $telefone_usuario = $row['telefone_usuario'];
-    
-                echo    "<hr><div class='book-info-container'>
-                <div class='book-info'>
-                    <div class='info-aberto'>
-                        <span class='info-conteudo'><span class='info-destaque'>Nome: </span>".$nome_usuario."</span>
-                        <span class='info-conteudo'><span class='info-destaque'>Emaill: </span>".$email_usuario."</span>
-                        <span class='info-conteudo'><span class='info-destaque'>Nascimento: </span>".$data_usuario."</span>
-                        <span class='info-conteudo'><span class='info-destaque'>CPF: </span>".$cpf_usuario."</span>
-                        <span class='info-conteudo'><span class='info-destaque'>Endereço: </span>".$endereco_usuario."</span>
-                        <span class='info-conteudo'><span class='info-destaque'>Telefone: </span>".$telefone_usuario."</span>
-                        <span class='info-conteudo'><span class='info-destaque'>ID: </span>".$id_usuario."</span>
-                    </div>
-                </div>
-            </div>";
+      
+                echo "<tr>";
+                echo "<td class='atributo_td'>".$nome_usuario." (".$id_usuario.")</td>";
+                echo "<td class='atributo_td'>".$email_usuario."</td>";
+                echo "<td class='atributo_td'>".$data_usuario."</td>";
+                echo "<td class='atributo_td'>".$cpf_usuario."</td>";
+                echo "<td class='atributo_td'>".$endereco_usuario."</td>";
+                echo "<td class='atributo_td'>".$telefone_usuario."</td>";
+                echo "</tr>";
+                echo "</table>";
+                echo "</div><br>";
+
                 }
             }
             else{
                 $resultado = mysqli_query($mysqli, "SELECT * FROM usuario WHERE nome_usuario  LIKE '%$valor%'");
                 while ($row = mysqli_fetch_assoc($resultado)) {
     
-                    $id_usuario = $row['id_usuario'];
-                    $nome_usuario = $row['nome_usuario'];
-                    $email_usuario = $row['email_usuario'];
-                    $cpf_usuario = $row['cpf_usuario'];
-                    $data_usuario = $row['data_usuario'];
-                    $endereco_usuario = $row['endereco_usuario'];
-                    $telefone_usuario = $row['telefone_usuario'];
-        
-                    echo    "<hr><div class='book-info-container'>
-                    <div class='book-info'>
-                        <div class='info-aberto'>
-                            <span class='info-conteudo'><span class='info-destaque'>Nome: </span>".$nome_usuario."</span>
-                            <span class='info-conteudo'><span class='info-destaque'>Emaill: </span>".$email_usuario."</span>
-                            <span class='info-conteudo'><span class='info-destaque'>Nascimento: </span>".$data_usuario."</span>
-                            <span class='info-conteudo'><span class='info-destaque'>CPF: </span>".$cpf_usuario."</span>
-                            <span class='info-conteudo'><span class='info-destaque'>Endereço: </span>".$endereco_usuario."</span>
-                            <span class='info-conteudo'><span class='info-destaque'>Telefone: </span>".$telefone_usuario."</span>
-                            <span class='info-conteudo'><span class='info-destaque'>ID: </span>".$id_usuario."</span>
-                        </div>
-                    </div>
-                </div>";
+                              $id_usuario = $row['id_usuario'];
+          $nome_usuario = $row['nome_usuario'];
+          $email_usuario = $row['email_usuario'];
+          $cpf_usuario = $row['cpf_usuario'];
+          $data_usuario = $row['data_usuario'];
+          $endereco_usuario = $row['endereco_usuario'];
+          $telefone_usuario = $row['telefone_usuario'];
+
+          echo "<tr>";
+          echo "<td class='atributo_td'>".$nome_usuario." (".$id_usuario.")</td>";
+          echo "<td class='atributo_td'>".$email_usuario."</td>";
+          echo "<td class='atributo_td'>".$data_usuario."</td>";
+          echo "<td class='atributo_td'>".$cpf_usuario."</td>";
+          echo "<td class='atributo_td'>".$endereco_usuario."</td>";
+          echo "<td class='atributo_td'>".$telefone_usuario."</td>";
+          echo "</tr>";
+          echo "</table>";
+          echo "</div><br>";
+
                     }
             }
         }

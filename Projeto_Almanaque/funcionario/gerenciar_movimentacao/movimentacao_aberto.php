@@ -23,6 +23,20 @@ include('../../include/conexao.php');
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <title>Movimentação Aberta</title>
     <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .info-container {
+            font-size: 14px;
+            color: black;
+            margin: auto;
+            padding: 10px;  
+            display: flex;
+            margin: 10px;
+            background-color: white;
+            border-radius: 10px;
+        }
         .ri-check-double-fill{
             color: #276daf;
         }
@@ -41,6 +55,7 @@ include('../../include/conexao.php');
     
     <br>
 
+    <div class='info-container'>
     <table>
         <tr>
             <th class="atributo_th">Nome do Usuário e ID</th>
@@ -87,7 +102,7 @@ include('../../include/conexao.php');
                         { 
                             echo "<tr><td class='atributo_td'><form method='post' action='movimentacao_aberto.php'>
                             <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
-                                <button type='submit' name='Submit' style='border: none; background-color: transparent; color: #fff; cursor: pointer; '>
+                                <button type='submit' name='Submit' style='border: none; background-color: transparent; cursor: pointer; '>
                                     ".$row['nome_usuario']." (".$id_usuario.")
                                 </button>
                             </form></td>";
@@ -118,7 +133,7 @@ include('../../include/conexao.php');
                                         <input type='text' value='id_usuario' name='atualizar_por' style='display:none;'>
                                         <input type='text' value='saida' name='caminho' style='display:none;'>
                                         <td class='id_td'>
-                                        <button type='submit' style='border: none; background-color: transparent; color: #fff; cursor: pointer;'>
+                                        <button type='submit' style='border: none; background-color: transparent; cursor: pointer;'>
                                             <i class='ri-edit-2-fill'></i>
                                         </button></td>
                                     </form>";
@@ -133,7 +148,7 @@ include('../../include/conexao.php');
                                     <input type='text' value='id_usuario' name='atualizar_por' style='display:none;'>
                                     <input type='text' value='entrada' name='caminho' style='display:none;'>
                                     <td class='id_td'>
-                                    <button type='submit' class:'button' style='border: none; background-color: transparent; color: #fff; cursor: pointer;' >
+                                    <button type='submit' class:'button' style='border: none; background-color: transparent; cursor: pointer;' >
                                         <i class='ri-edit-2-fill'></i>
                                     </button></td>
                                 </form>";
@@ -146,7 +161,8 @@ include('../../include/conexao.php');
             
         ?>
     </table>
-    
+    </div>
+
     <br><br><br>
 
     <?php include('../../include/import_footer_gerenciar.php');

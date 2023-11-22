@@ -23,6 +23,20 @@ include('../../include/conexao.php');
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <title>Consultar Movimentação</title>
     <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .info-container {
+            font-size: 14px;
+            color: black;
+            margin: auto;
+            padding: 10px;  
+            display: flex;
+            margin: 10px;
+            background-color: white;
+            border-radius: 10px;
+        }
         .ri-check-double-fill{
             color: #276daf;
         }
@@ -57,6 +71,7 @@ if ($var == ""){
 }
 else{
 ?>
+<div class="info-container">
     <table>
         <tr>
             <th class="atributo_th">Nome do Usuário e ID</th>
@@ -100,7 +115,7 @@ else{
                         { 
                             echo "<tr><td class='atributo_td'><form method='post' action='movimentacao_aberto.php'>
                             <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
-                                <button type='submit' name='Submit' style='border: none; background-color: transparent; color: #fff; cursor: pointer; '>
+                                <button type='submit' name='Submit' style='border: none; background-color: transparent; cursor: pointer; '>
                                     ".$row['nome_usuario']." (".$id_usuario.")
                                 </button>
                             </form></td>";
@@ -131,7 +146,7 @@ else{
                                         <input type='text' value='id_usuario' name='atualizar_por' style='display:none;'>
                                         <input type='text' value='saida' name='caminho' style='display:none;'>
                                         <td class='id_td'>
-                                        <button type='submit' style='border: none; background-color: transparent; color: #fff; cursor: pointer;'>
+                                        <button type='submit' style='border: none; background-color: transparent; cursor: pointer;'>
                                             <i class='ri-edit-2-fill'></i>
                                         </button></td>
                                     </form>";
@@ -146,7 +161,7 @@ else{
                                     <input type='text' value='id_usuario' name='atualizar_por' style='display:none;'>
                                     <input type='text' value='entrada' name='caminho' style='display:none;'>
                                     <td class='id_td'>
-                                    <button type='submit' class:'button' style='border: none; background-color: transparent; color: #fff; cursor: pointer;' >
+                                    <button type='submit' class:'button' style='border: none; background-color: transparent; cursor: pointer;' >
                                         <i class='ri-edit-2-fill'></i>
                                     </button></td>
                                 </form>";
@@ -193,7 +208,7 @@ else{
                             { 
                                 echo "<tr><td class='atributo_td'><form method='post' action='movimentacao_aberto.php'>
                                 <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
-                                    <button type='submit' name='Submit' style='border: none; background-color: transparent; color: #fff; cursor: pointer; '>
+                                    <button type='submit' name='Submit' style='border: none; background-color: transparent; cursor: pointer; '>
                                         ".$row['nome_usuario']." (".$id_usuario.")
                                     </button>
                                 </form></td>";
@@ -215,14 +230,45 @@ else{
                             while ($row4 = mysqli_fetch_array($resultad4))
                             { 
                             
-                                echo "<td class='atributo_td'>".$row4['nome_status_movimentacao']." (".$id_movimentacao.")</td></tr>";
+                                echo "<td class='atributo_td'>".$row4['nome_status_movimentacao']." (".$id_movimentacao.")</td>";
+
+                            }
+
+
+                            if($id_status_movimentacao == 4){
+                    
+                                echo"<form action='php/variaveis_atualizar_movimentacao.php' method='post'>
+                                        <input type='text' value='".$id_usuario."' name='id_usuario' style='display:none;'>
+                                        <input type='text' value='id_usuario' name='atualizar_por' style='display:none;'>
+                                        <input type='text' value='saida' name='caminho' style='display:none;'>
+                                        <td class='id_td'>
+                                        <button type='submit' style='border: none; background-color: transparent; cursor: pointer;'>
+                                            <i class='ri-edit-2-fill'></i>
+                                        </button></td>
+                                    </form>";
+                            }
+                            elseif($id_status_movimentacao == 3){
+                                echo "<td class='id_td'><i class='ri-check-double-fill'></i></td>";
+                            }
+                            else{
+    
+                                echo"<form action='php/variaveis_atualizar_movimentacao.php' method='post'>
+                                    <input type='text' value='".$id_usuario."' name='id_usuario' style='display:none;'>
+                                    <input type='text' value='id_usuario' name='atualizar_por' style='display:none;'>
+                                    <input type='text' value='entrada' name='caminho' style='display:none;'>
+                                    <td class='id_td'>
+                                    <button type='submit' class:'button' style='border: none; background-color: transparent; cursor: pointer;' >
+                                        <i class='ri-edit-2-fill'></i>
+                                    </button></td>
+                                </form>";
                             }
             }
         }
     }
 }
 ?>
-</table>
+    </table>
+</div>
     
     <br><br><br>
 

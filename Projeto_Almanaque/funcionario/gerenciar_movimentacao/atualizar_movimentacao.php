@@ -34,6 +34,22 @@ include('../../include/conexao.php');
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <title>Atualizar Movimentação</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .info-container {
+            font-size: 14px;
+            color: black;
+            margin: auto;
+            padding: 10px;  
+            display: flex;
+            margin: 10px;
+            background-color: white;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <?php include('../../include/import_menu_gerenciar.php'); 
@@ -65,6 +81,7 @@ if (@$var == ""){
 }
 else{
 ?>
+<div class="info-container">
     <table>
         <tr>
             <th class="atributo_th">Nome do Usuário e ID</th>
@@ -112,7 +129,7 @@ else{
                         { 
                             echo "<tr><td class='atributo_td'><form method='post' action='movimentacao_aberto.php'>
                             <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
-                                <button type='submit' name='Submit' style='border: none; background-color: transparent; color: #fff; cursor: pointer; '>
+                                <button type='submit' name='Submit' style='border: none; background-color: transparent;  cursor: pointer; '>
                                     ".$row['nome_usuario']." (".$id_usuario.")
                                 </button>
                             </form></td>";
@@ -140,7 +157,7 @@ else{
         if($caminho == 'saida')
         {
 ?>
-    </table><br>
+    </table></div><br>
 
     <section class="containers" >
       <form  method="post" action="php/variaveis_atualizando_movimentacao.php" class="form" style="margin-top: 0px;">
@@ -188,7 +205,7 @@ else{
         }
         else{
             ?>
-        </table><br>
+        </table></div><br>
 
         <section class="containers" >
         <form  method="post" action="php/variaveis_atualizando_movimentacao.php" class="form" style="margin-top: 0px;">
@@ -278,7 +295,7 @@ else{
                             { 
                                 echo "<tr><td class='atributo_td'><form method='post' action='movimentacao_aberto.php'>
                                 <input name='id_movimentacao' value='".$id_movimentacao."' style='display: none;'>
-                                    <button type='submit' name='Submit' style='border: none; background-color: transparent; color: #fff; cursor: pointer; '>
+                                    <button type='submit' name='Submit' style='border: none; background-color: transparent;  cursor: pointer; '>
                                         ".$row['nome_usuario']." (".$id_usuario.")
                                     </button>
                                 </form></td>";
@@ -308,7 +325,7 @@ else{
         {
         ?>
 
-        </table><br>
+        </table></div><br>
 
         <section class="containers" >
         <form  method="post" action="php/variaveis_atualizando_movimentacao.php" class="form" style="margin-top: 0px;">
@@ -355,7 +372,7 @@ else{
         }
         else{
             ?>
-                    </table><br>
+                    </table></div><br>
 
 <section class="containers" >
 <form  method="post" action="php/variaveis_atualizando_movimentacao.php" class="form" style="margin-top: 0px;">
@@ -401,6 +418,7 @@ else{
 }
 ?>
 </table>
+</div>
     <br><br><br>
 
     <?php include('../../include/import_footer_gerenciar.php');
